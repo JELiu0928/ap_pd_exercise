@@ -12,7 +12,7 @@ use App\Models\Product\ProductCategoryOverview;
 
 // use App\Models\Traits\getUrlName;
 
-class ProductCategoryAdvantagesList extends FrontBase
+class ProductCategoryOverviewLisaa extends FrontBase
 {
 	// use getUrlName;
 	public function __construct()
