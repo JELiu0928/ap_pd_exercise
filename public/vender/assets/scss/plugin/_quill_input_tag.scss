@@ -1,0 +1,79 @@
+/*
+
+* Override Pages default styles or create your own styles here
+
+*/
+
+/*============================================================
+  
+============================================================*/
+
+
+.quill_input_tag {
+    position: relative;
+    .box {
+        border-radius: 3px;
+        border: solid 1px #c7c7c7;
+        padding: 10px 12px;
+    }
+    .addBtn{
+        margin: 0;
+        padding: 0;
+        font-size: 13px;
+        border: none;
+        background-color: transparent;
+        position: absolute;
+        right: 12px;
+        top: 13px;
+        cursor: pointer;
+    }
+}
+.quill_input_tag .input {
+    border: none;
+}
+.quill_input_tag .order {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    .list {
+        background-color: #515151;
+        color: #fff;
+        padding: 5px 10px;
+        margin-right: 5px;
+        margin-bottom: 5px;
+        display: flex;
+        p {
+            font-size: 13px;
+            font-family: 微軟正黑體;
+            margin-right: 10px;
+            max-width: calc(100% - 16px);
+            overflow: hidden;
+        }
+    }
+    .delete_btn {
+        @include flexCenter;
+        align-items: flex-start;
+        margin-top: 2px;
+        cursor: pointer;
+    }
+}
+
+/*
+2018/02/14 新增
+*/
+.quill_input_tag{
+    &.haveBtn {
+        ul, input{
+            max-width: calc(100% - 80px);
+            overflow: hidden;
+            li{
+                max-width: 100%;
+            }
+        }
+    }
+}
+
+
+/*============================================================
+  
+============================================================*/

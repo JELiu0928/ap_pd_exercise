@@ -1,0 +1,241 @@
+//ams CSS
+
+
+.ams_theme {
+    //進度條
+    .pace .pace-progress {
+        background: #3a9eea;
+    }
+    
+    .header .brand-box .title p {
+        color: #3a9eea;
+    }
+    .content-sidebar .sidebar-menu .head-bar .line {
+        background: #3a9eea;
+    }
+    .content-sidebar .body-list .level_list:before {
+        display: none;
+    }
+    .content-sidebar .sidebar-menu .body-list .level_list.open > a .icon {
+        color: #3a9eea;
+    }
+    .table-box .card-block tbody tr .box.multi ul li.ch {
+        background-color: #3a9eea;
+        border-color: #3a9eea;
+    }
+
+    //右邊的滑出畫面
+    .hiddenArea .box_header .title:after {
+        background-color: #3a9eea;
+    }
+    .hiddenArea .btnGroup .check {
+        background-color: #3a9eea;
+    }
+}
+
+
+
+//最左邊主選單
+.quill_sidebarWall {
+    width: 100px;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 999999999999999;
+    background-color: rgba(255,255,255,0);
+}
+.quill_sidebarWall.close {
+    display: none;
+}
+
+
+//內容 CONTENT 左邊slider SECONDARY SIDEBAR MENU
+.sidebar-menu .body-list > li > ul.sub-menu li > a > .arrow:before,
+.sidebar-menu .body-list > li > ul.sub-menu li > a > .arrow.open:before {
+    margin: 0;
+}
+
+.content-sidebar .sidebar-menu .body-list li .i_open {
+    display: none;
+}
+.content-sidebar .sidebar-menu .body-list li.open>a {
+    .i_open {
+        display: block;
+    }
+    .i_close {
+        display: none;
+    }
+}
+.content-sidebar {
+    .body-list {
+        li {
+            position: relative;
+        }
+        a {
+            position: relative;
+            overflow: visible !important;
+        }
+    }
+}
+
+
+
+//main-table內容
+.main-table {
+    .box.icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+.table-box .card-header {
+    padding: 0px 50px 30px 50px;
+}
+.table-box .card-header .subtitle {
+    margin-top: 50px;
+}
+// .table-box .card-block tbody tr .box.multi ul li.ch {
+//     background-color: #0080e2;
+//     border: solid 2px #0080e2;
+// }
+.table-box .card-block tbody tr .box.text_pic .head_img {
+    width: 60px;
+    height: 60px;
+    overflow: hidden;
+}
+.table-box .card-block tbody tr .box.text_pic .head_img img {
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+}
+
+
+//
+.hiddenArea_frame_box .box_header .info {
+    width: 100%;
+    max-width: none;
+}
+.hiddenArea {
+    .hiddenArea_frame_box {
+        padding: 25px 7% 25px 7%;
+    }
+    .tips {
+        .title {
+            color: #3a9eea;
+        }
+    }
+    .btnGroup .check {
+        background-color: #3a9eea;
+    }
+    // .box_header {
+    //     border-bottom: solid 1px #c7c7c7;
+    // }
+}
+.no_selfie {
+    .img_box {
+        background-color: #3a9eea;
+    }
+}
+.flex_style.inventory > .inner {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.tr_style.inventory {
+    padding: 40px;
+    border-left: solid 1px #c7c7c7;
+    border-right: solid 1px #c7c7c7;
+}
+.tr_style.inventory:last-child {
+    border-bottom: solid 1px #c7c7c7;
+}
+.tr_style.inventory > .title {
+    width: 8.5vw;
+}
+.tr_style.inventory > .inner {
+    width: 36vw;
+}
+.tr_style .title {
+    .img_box {
+        cursor: pointer;
+        border-radius: 50%;
+        width: 100px;
+        height: 100px;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        img {
+            width: 100%;
+        }
+    }
+}
+.tr_style .inner_box {
+    border-bottom: solid 1px #c7c7c7;
+    font-family: '微軟正黑體';
+    width: 100%;
+    padding-bottom: 25px;
+    padding-top: 25px;
+    align-items: center;
+    .state_button {
+        width: 100%;
+    }
+}
+.tr_style .inner_box:first-child {
+    padding-top: 0;
+}
+.tr_style .inner_box:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+.tr_style .inner_box {
+    .radio label {
+        margin: 0;
+    }
+    .radio input{
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+    .radio input[type=radio]:checked + label:before {
+        border-color: #3a9eea;
+    }
+    .state_button li {
+        width: auto;
+        max-width: none;
+        position: relative;
+    }
+}
+.tr_style .info_text {
+    width: 100%;
+}
+.tr_style .subtitle {
+    font-family: 'CenturyGothic';
+    font-size: 1rem;
+    margin-bottom: 0;
+    margin-top: 5px;
+}
+
+
+
+//.productImage
+.productImage .frame {
+    margin-bottom: 0;
+}
+.productImage .frame .box {
+    width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.productImage .has_img:hover .box {
+    border-color: #3a9eea;
+}
+.productImage .frame .box .icon {
+    background-color: #3a9eea;
+}
+.productImage .tips {
+    margin: 0;
+}
+

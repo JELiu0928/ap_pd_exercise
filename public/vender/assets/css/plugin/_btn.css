@@ -1,0 +1,18 @@
+/*
+
+* Override Pages default styles or create your own styles here
+
+*/
+/*============================================================
+                            btn
+============================================================*/
+.btn-animated:before {
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
+/*============================================================
+                            btn
+============================================================*/
+
+/*# sourceMappingURL=_btn.css.map */

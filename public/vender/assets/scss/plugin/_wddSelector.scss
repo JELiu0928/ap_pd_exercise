@@ -1,0 +1,116 @@
+.select_Box{
+  position: relative;
+}
+
+.select_Box[data-type="path"] .select_Btn {
+  display: flex;
+  align-items: center;
+  border: 1px solid #c7c7c7;
+  border-radius: 3px;
+  padding: 10px 12px;
+  user-select: none;
+  cursor: pointer;
+  p.title {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    &:before {
+      content: '\f07c';
+      font-family: FontAwesome;
+      margin-right: 6.5px;
+    }
+  }
+  i.arrow {
+    margin-left: auto;
+  }
+  &.active {
+    border-radius: 3px 3px 0 0;
+    border-bottom-color: transparent;
+  }
+}
+
+.select_Box[data-type="lightBox"] .select_Btn {
+  display: flex;
+  align-items: center;
+  border: 1px solid #c7c7c7;
+  border-radius: 3px;
+  padding: 10px 12px;
+  user-select: none;
+  cursor: pointer;
+  p.title {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+  i.arrow {
+    margin-left: auto;
+  }
+  &.active {
+    border-radius: 3px 3px 0 0;
+    border-bottom-color: transparent;
+  }
+}
+
+.select_Box[data-type="path"] .select_Btn + ul.option_list {
+  display: none;
+  position: absolute;
+  top: calc(100% - 1px);
+  left: 0;
+  width: 100%;
+  max-height: 250px;
+  background-color: white;
+  z-index: 9;
+  overflow: auto;
+  border: 1px solid transparent;
+  @include Scrollbar(transparent,transparent, 0);
+  &.active {
+    border: 1px solid #c7c7c7;
+    border-radius: 0 0 3px 3px;
+    border-top-color: transparent;
+    border-top: none
+  }
+  li {
+    position: relative;
+    cursor: pointer;
+    p.title {
+      position: relative;
+      padding: 10px 12px;
+      .determine {
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 1.25rem;
+        color: white;
+        z-index: 9;
+      }
+      &:before{
+        content: "\f07b";
+        font-family: FontAwesome;
+        margin-right: 6.5px;
+      }
+    }
+    &.open > p, &.focus > p {
+      &:before {
+        content: "\f07c";
+      }
+    }
+    &.open > p {
+      &:before {color: #785ac1;}
+    }
+    &.focus > p {
+      background-color: #785ac1;
+      color: white;
+      &:before {color: #fff;}
+    }
+    ul.option_list {
+      display: none
+    }
+  }
+}
+
+.icon {
+  &.left {
+    margin-right: 5px;
+  }
+}

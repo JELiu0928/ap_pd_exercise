@@ -1,0 +1,46 @@
+//cms CSS
+
+
+.cms_theme {
+    //進度條
+    .pace .pace-progress {
+        background: #10cfbd;
+    }
+
+    .header .brand-box .title p {
+        color: #10cfbd;
+    }
+    .content-sidebar .sidebar-menu .head-bar .line {
+        background: #10cfbd;
+    }
+    .content-sidebar .body-list .level_list:before {
+        display: none;
+    }
+    .content-sidebar .sidebar-menu .body-list .level_list.open > a .icon {
+        color: #10cfbd;
+    }
+    // .table-box .card-block tbody tr .box.multi ul li.ch {
+    //     background-color: #000000;
+    //     border-color: #000000;
+    // }
+
+    //右邊的滑出畫面
+    .hiddenArea .box_header .title:after {
+        background-color: #10cfbd;
+    }
+    .hiddenArea .btnGroup .check {
+        background-color: #10cfbd;
+    }
+
+    // ajax ams 畫面
+    .ajax_ams {
+        .title_section, .box_container, .ajax_control_btn .setting {
+            background-color: #10cfbd;
+        }
+        .search_section .title_area p {
+            color: #10cfbd;
+        }
+    }
+
+}
+

@@ -1,0 +1,52 @@
+/*
+
+* Override Pages default styles or create your own styles here
+
+*/
+
+
+/*transiton*/
+@mixin trans($move: 0s, $wait: 0s, $type: all) {
+	-webkit-transition: $type $move ease $wait;
+	-moz-transition: $type $move ease $wait;
+	-ms-transition: $type $move ease $wait;
+	-o-transition: $type $move ease $wait;
+	transition: $type $move ease $wait;
+}
+
+@mixin flexCenter{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+@mixin circle($r: 70px){
+	width: $r;
+	height: $r;
+	border-radius: 50%;
+	overflow: hidden;
+	mask-image: -webkit-radial-gradient(white, black);
+}
+
+@mixin Scrollbar($thumbColor: transparent, $trackColor: transparent, $width: 8px){
+	-webkit-overflow-style: none;
+  &::-webkit-scrollbar{
+    background-color: transparent;
+    width: $width;
+	}
+  &::-webkit-scrollbar-thumb{
+    width: $width;
+    background-color: $thumbColor;
+	}
+  &::-webkit-scrollbar-track{
+		background-color: $trackColor;
+	}	
+}
+
+		
+/*transiton*/
+
+
+h1, h2, h3, h4, h5, h6, p, div, span {
+    font-family: 'MyriadPro-Regular','CenturyGothic','微軟正黑體';
+}

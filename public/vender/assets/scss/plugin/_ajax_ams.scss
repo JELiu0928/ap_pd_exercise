@@ -1,0 +1,187 @@
+/*
+
+* Override Pages default styles or create your own styles here
+
+*/
+@keyframes ajax_open {
+    0%   { transform: translateY(-100vh); }
+    100% { transform: translateY(0vh); }
+}
+@keyframes ajax_close {
+    0%   { transform: translateY(0vh); }
+    100% { transform: translateY(-100vh); }
+}
+
+.ams_lbox.go_animation {
+    .title_section {
+        opacity: 1;
+        visibility: visible;
+    }
+    .search_section {
+        opacity: 1;
+        visibility: visible;
+    }
+    .table_section {
+        opacity: 1;
+        visibility: visible;
+    }
+    .ajax_control_btn {
+        .list {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+}
+.ams_lbox {
+    background-color: rgba(0, 0, 0, 0);
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    overflow: hidden;
+    @include trans(1s,0s,background-color);
+    .frame {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+.ams_lbox.open {
+    background-color: rgba(105, 105, 105, 0.6);
+    z-index: 12;
+    .box_container {
+        animation-name: ajax_open;
+        animation-duration: 1s;
+        animation-fill-mode: both;
+    }
+}
+.ams_lbox.remove {
+    background-color: rgba(105, 105, 105, 0);
+    .box_container {
+        animation-name: ajax_close;
+        animation-duration: 0.8s;
+        animation-fill-mode: both;
+    }
+}
+
+
+.ams_lbox .ajax_ams {
+    width: 100%;
+    max-width: 1825px;
+    padding: 0;
+    height: 95vh;
+    max-height: 95vh;
+    @media (max-height:1024px) {
+        height: 95vh;
+    }
+}
+
+
+.ajax_ams {
+    .box_container {
+        background-color: #3a9eea;
+    }
+    .title_section {
+        color: #fff;
+        background-color: #3a9eea;
+        padding: 10px 50px;
+        position: relative;
+        opacity: 0;
+        visibility: hidden;
+        @include trans(.7s);
+        .info {
+            font-family: 'CenturyGothic';
+            p {
+                font-size: 1.125rem;
+            }
+        }
+        .close_ajax_btn {
+            cursor: pointer;
+            padding: 10px;
+            position: absolute;
+            right: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    }
+    .search_section {
+        background-color: #000;
+        color: #fff;
+        padding: 10px 50px;
+        display: flex;
+        align-items: center;
+        opacity: 0;
+        visibility: hidden;
+        @include trans(.7s,.3s);
+        .title_area {
+            display: flex;
+            align-items: center;
+            &:after {
+                content: '';
+                display: block;
+                width: 1px;
+                height: 18px;
+                margin: 0 20px;
+                background-color: #c7c7c7;
+            }
+            span {
+                margin-right: 10px;
+            }
+            p {
+                color: #3a9eea;
+                line-height: 1;
+            }
+        }
+        .clear_btn {
+            cursor: pointer;
+            padding: 10px;
+            p {
+                font-size: 0.75rem;
+                line-height: 1;
+            }
+        }
+    }
+    .table_section {
+        background-color: #fff;
+        // height: 68.5vh;
+        padding: 20px 0;
+        opacity: 0;
+        visibility: hidden;
+        @include trans(.7s,.6s);
+    }
+    .ajax_control_btn {
+        background-color: rgba(255, 255, 255, 0);
+        .list {
+            @include trans(.7s,.9s);
+        }
+        .setting {
+            background-color: #3a9eea;
+        }
+    }
+    .keyin_area {
+        width: 100%;
+        input {
+            background-color: #000;
+            border: none;
+            width: 100%;
+        }
+        ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+            color: #fff;
+            opacity: 1; /* Firefox */
+        }
+        
+        :-ms-input-placeholder { /* Internet Explorer 10-11 */
+            color: #fff;
+        }
+        
+        ::-ms-input-placeholder { /* Microsoft Edge */
+            color: #fff;
+        }
+    }
+    table td {
+        padding: 0px 18px !important;
+    }
+}

@@ -1,0 +1,36 @@
+/*
+
+* Override Pages default styles or create your own styles here
+
+*/
+
+@mixin control_btn_color {
+    .check {
+        background-color: #10cfbd;
+    }
+    .trash {
+        background-color: #424242;
+    }
+    .file {
+        background-color: #c5c5c5;
+    }
+    .remove {
+        border: solid 1px #414141;
+        span {
+            color: #414141;
+        }
+    }
+}
+
+
+/*============================================================
+                            btn
+============================================================*/
+.btn-animated:before {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/*============================================================
+                            btn
+============================================================*/

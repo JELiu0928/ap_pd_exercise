@@ -1,0 +1,410 @@
+/*
+
+* Override Pages default styles or create your own styles here
+
+*/
+/*============================================================
+  
+============================================================*/
+.quill_table {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  max-width: 720px;
+  max-height: 570px;
+  margin-top: 45px;
+  position: relative; }
+  .quill_table .check_box {
+    width: 17px !important; }
+  .quill_table .base_f {
+    font-family: 'MyriadPro-Regular'; }
+
+.quill_table .table_title {
+  width: 100%;
+  height: 20px;
+  position: absolute;
+  left: 0;
+  top: -20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; }
+  .quill_table .table_title .board p {
+    font-weight: 900;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center; }
+  .quill_table .table_title .board p:first-child:after {
+    content: '';
+    width: 2px;
+    height: 5px;
+    background-color: #000;
+    margin: 0 8px;
+    display: block; }
+  .quill_table .table_title .bar {
+    max-width: 600px;
+    overflow: hidden; }
+    .quill_table .table_title .bar .bar_inner {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex; }
+  .quill_table .table_title .box {
+    max-width: 120px;
+    min-width: 120px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center; }
+
+.quill_table .row {
+  width: 100%;
+  max-height: 110px;
+  margin: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap; }
+  .quill_table .row.solid {
+    border: solid 1px #000; }
+  .quill_table .row .box {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    border-right: solid 1px #c7c7c7;
+    border-bottom: solid 1px #c7c7c7;
+    max-width: 120px;
+    min-width: 120px;
+    height: 110px;
+    padding: 0 12px;
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center; }
+    .quill_table .row .box p {
+      overflow: hidden;
+      -o-text-overflow: ellipsis;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical; }
+  .quill_table .row .check_box {
+    width: 17px;
+    position: absolute;
+    left: 0;
+    top: 0; }
+    .quill_table .row .check_box .content_inputBox:before {
+      border-radius: inherit; }
+  .quill_table .row .inner_btn {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center; }
+    .quill_table .row .inner_btn span {
+      cursor: pointer;
+      color: #fff;
+      width: 15px;
+      height: 15px;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center; }
+    .quill_table .row .inner_btn .editor {
+      background-color: #17c0b0; }
+    .quill_table .row .inner_btn .connect {
+      background-color: #000;
+      -webkit-transform: rotate(90deg);
+      -ms-transform: rotate(90deg);
+      transform: rotate(90deg); }
+
+.quill_table .row_hd .box {
+  background-color: #f3f3f3; }
+
+.quill_table .row_hd .inner {
+  background-color: #464646;
+  color: #fff;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  position: absolute;
+  left: 0;
+  bottom: 0; }
+  .quill_table .row_hd .inner p {
+    line-height: 1.3; }
+  .quill_table .row_hd .inner span {
+    cursor: pointer;
+    color: #a3a3a3; }
+
+.quill_table .row_hd .inner_btn {
+  bottom: 16px; }
+
+.quill_table .q_head {
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center; }
+  .quill_table .q_head .static {
+    max-width: 600px;
+    position: relative; }
+  .quill_table .q_head .bill {
+    background-color: #fff;
+    max-width: 120px;
+    position: relative;
+    z-index: 2; }
+    .quill_table .q_head .bill .inner {
+      background-color: #13bfaf; }
+
+.quill_table .q_body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center; }
+  .quill_table .q_body .static {
+    overflow: hidden;
+    min-width: 120px;
+    max-height: 440px; }
+    .quill_table .q_body .static .row {
+      max-height: none;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      position: relative; }
+  .quill_table .q_body .no_static {
+    width: 100%;
+    overflow: hidden;
+    max-height: 440px;
+    max-width: 600px;
+    margin-bottom: 0px !important; }
+
+.quill_table .text_editor {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 402px;
+  height: 260px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 11;
+  display: none; }
+  .quill_table .text_editor:after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 6px 10px 0 10px;
+    border-color: #464646 transparent transparent transparent;
+    position: absolute;
+    left: 50%;
+    bottom: -6px;
+    z-index: 1;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%); }
+  .quill_table .text_editor .note-btn {
+    vertical-align: inherit; }
+  .quill_table .text_editor .note-editor.note-frame {
+    border: solid 1px #10cfbd; }
+  .quill_table .text_editor .note-toolbar {
+    border: none;
+    padding: 0;
+    max-height: 50px; }
+    .quill_table .text_editor .note-toolbar .note-btn-group {
+      margin: 0; }
+    .quill_table .text_editor .note-toolbar button {
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+      min-width: 50px;
+      max-width: 50px;
+      height: 50px;
+      margin: 0;
+      border: none;
+      border-radius: 0;
+      border-right: solid 1px #e6e6e6;
+      background-color: #f0f0f0; }
+    .quill_table .text_editor .note-toolbar .save {
+      background-color: #10cfbd; }
+      .quill_table .text_editor .note-toolbar .save i {
+        color: #fff; }
+    .quill_table .text_editor .note-toolbar .cancel {
+      background-color: #9e9e9e; }
+      .quill_table .text_editor .note-toolbar .cancel i {
+        color: #fff; }
+  .quill_table .text_editor .note-editor.note-frame .note-editing-area .note-editable {
+    background-color: #464646;
+    color: #fff; }
+    .quill_table .text_editor .note-editor.note-frame .note-editing-area .note-editable * {
+      color: #fff; }
+  .quill_table .text_editor .note-mybutton .click_btn {
+    cursor: pointer; }
+  .quill_table .text_editor .note-mybutton .save {
+    border: none; }
+  .quill_table .text_editor .note-mybutton .cancel {
+    border: none; }
+
+.quill_table .link_editor {
+  border: solid 1px #10cfbd;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 390px;
+  height: 290px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 11;
+  display: none;
+  background-color: #464646; }
+  .quill_table .link_editor:after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 6px 10px 0 10px;
+    border-color: #464646 transparent transparent transparent;
+    position: absolute;
+    left: 50%;
+    bottom: -6px;
+    z-index: 1;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%); }
+  .quill_table .link_editor .link_head {
+    padding-left: 20px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: end;
+    -ms-flex-align: end;
+    align-items: flex-end; }
+    .quill_table .link_editor .link_head .title p {
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 900;
+      font-family: 'MyriadPro-Semibold'; }
+    .quill_table .link_editor .link_head .btn_group {
+      margin-left: auto;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center; }
+    .quill_table .link_editor .link_head .click_btn {
+      cursor: pointer;
+      color: #fff;
+      width: 50px;
+      height: 50px;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center; }
+    .quill_table .link_editor .link_head .save {
+      background-color: #10cfbd; }
+    .quill_table .link_editor .link_head .unlink {
+      background-color: #000; }
+    .quill_table .link_editor .link_head .cancel {
+      background-color: #9e9e9e; }
+  .quill_table .link_editor .link_body {
+    padding: 20px; }
+  .quill_table .link_editor .quill_select {
+    margin-bottom: 20px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center; }
+    .quill_table .link_editor .quill_select .select_object {
+      width: calc(100% - 40px);
+      max-height: 35px; }
+    .quill_table .link_editor .quill_select .select_list {
+      width: calc(100% - 40px);
+      top: 35px; }
+    .quill_table .link_editor .quill_select .icon {
+      cursor: pointer;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+      border: solid 1px #10cfbd;
+      color: #fff;
+      width: 35px;
+      height: 35px;
+      margin-left: 5px;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center; }
+  .quill_table .link_editor .typeing {
+    position: relative; }
+    .quill_table .link_editor .typeing:after {
+      content: '';
+      width: 100%;
+      height: 3px;
+      margin-top: 5px;
+      background-color: #10cfbd;
+      display: block; }
+    .quill_table .link_editor .typeing input {
+      border: none;
+      background-color: inherit;
+      color: #fff;
+      height: 30px; }
+    .quill_table .link_editor .typeing .icon {
+      cursor: pointer;
+      color: #9e9e9e;
+      height: 100%;
+      padding-top: 8px;
+      position: absolute;
+      right: 0;
+      top: 0;
+      z-index: 1;
+      display: block; }
+  .quill_table .link_editor .tips span:after {
+    color: #fff !important; }
+  .quill_table .link_editor .tips p {
+    color: #fff; }
+
+/*============================================================
+  
+============================================================*/
+
+/*# sourceMappingURL=_quill_table.css.map */

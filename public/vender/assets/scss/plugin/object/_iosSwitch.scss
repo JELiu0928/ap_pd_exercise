@@ -1,0 +1,85 @@
+
+/*ios_switch*/
+.ios_switch {
+    display: flex;
+    align-items: center;
+    .title {
+        word-break: keep-all;
+    }
+    input {
+        display: none;
+    }
+    .box {
+        cursor: pointer;
+        background-color: #ccc;
+        border: solid 1px #ccc;
+        border-radius: 20px;
+        width: 52px;
+        height: 32px;
+        position: relative;
+        @include trans(.5s);
+    }
+    .ball {
+        background-color: #fff;
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.4);
+        @include trans(0.2s,0s,left);
+    }
+}
+.ios_switch.s_ball {
+    .box {
+        width: 37px;
+        height: 22px;
+    }
+    .ball {
+        width: 20px;
+        height: 20px;
+        left: 15px;
+    }
+}
+.ios_switch.on {
+    .ball {
+        left: 20px;
+    }
+}
+
+
+//cms的球球樣式
+.cms_theme {
+    .ios_switch.on {
+        .box {
+            background-color: #10cfbd;
+            border: solid 1px #10cfbd;
+            border-color: #10cfbd;
+        }
+    }
+}
+
+//ams的球球樣式
+.ams_theme {
+    .ios_switch {
+        .box {
+            width: 35px;
+            height: 22px;
+        }
+        .ball {
+            width: 20px;
+            height: 20px;
+        }
+    }
+    .ios_switch.on {
+        .box {
+            background-color: #3a9eea;
+            border: solid 1px #3a9eea;
+            border-color: #3a9eea;
+        }
+        .ball {
+            left: 13px;
+        }
+    }
+}

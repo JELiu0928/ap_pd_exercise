@@ -1,0 +1,92 @@
+* {
+  margin: 0;
+  padding: 0; }
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit; }
+
+html {
+  box-sizing: border-box; }
+
+body {
+  line-height: 1.5; }
+
+img {
+  max-width: 100%;
+  display: block; }
+
+button {
+  all: unset; }
+
+/*font-size*/
+/*font-size*/
+/*font-weight*/
+/*font-weight*/
+/*RWD*/
+/*RWD*/
+/*transiton*/
+/*transiton*/
+/*hide word*/
+/*hide word*/
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
+.circle_pace {
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
+.progress_circle {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  position: relative;
+  display: block; }
+
+.progress_circle .shadow {
+  border: 3px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  width: 100%;
+  height: 100%; }
+
+.progress_circle .pie {
+  width: 100%;
+  height: 100%;
+  clip: rect(0, 36px, 36px, 18px);
+  position: absolute;
+  left: 0;
+  top: 0; }
+
+.progress_circle .half_circle {
+  border: 3px solid #775bc2;
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  clip: rect(0, 18px, 36px, 0);
+  position: absolute;
+  left: 0;
+  top: 0; }
+
+.progress_circle:after {
+  content: attr(data-value);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); }
+
+.progress_circle.a_05s .half_circle {
+  -webkit-transition: all 0.5s ease 0s;
+  -moz-transition: all 0.5s ease 0s;
+  -ms-transition: all 0.5s ease 0s;
+  -o-transition: all 0.5s ease 0s;
+  transition: all 0.5s ease 0s; }
+
+/*# sourceMappingURL=style.css.map */

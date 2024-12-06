@@ -1,0 +1,215 @@
+.leon-language:hover {
+    border: 3px solid #ff0000;
+    cursor: pointer;
+    box-sizing: border-box;
+    background-color: #fff;
+}
+
+.language-hide {
+    display: none;
+}
+
+.language_ui_txt {
+    padding-bottom: 10px;
+}
+
+.language_ui_txt span {
+    padding-left: 10px;
+}
+
+.language_ui_tip {
+    padding-bottom: 10px;
+    color: #ff0000;
+}
+
+.leon-sss {
+    position: absolute;
+    z-index: 9999;
+    border: 10px solid red;
+}
+
+.tips {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: baseline;
+    -ms-flex-align: baseline;
+    align-items: baseline;
+    margin: 15px 0;
+    font-size: 13px;
+    color: #ff0000;
+}
+
+.tips .title {
+    color: #10cfbd;
+    padding-right: 7px;
+}
+
+.golangkey:hover {
+    color: #57ddd1;
+    cursor: pointer;
+}
+
+#language_ui_all {
+    display: flex;
+    height: calc(100% - 50px);
+}
+
+.language_ui_all_box {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.language_ui_all_nav {
+    width: 150px;
+}
+
+.language_ui_all_nav a {
+    display: block;
+    word-break: break-all;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.language_ui_all_nav a.active,
+.language_ui_all_nav a:hover {
+    background-color: #57ddd1;
+}
+
+.language_ui_all .frame {
+    flex: 1;
+    overflow: auto;
+    height: 100%;
+}
+
+.language_ui_all {
+    position: fixed;
+    bottom: 50px;
+    right: 5%;
+    width: 40%;
+    height: 90%;
+    max-height: 90%;
+    background-color: #fff;
+    z-index: 999;
+    border: 5px solid #10cfbd;
+    overflow: auto;
+    opacity: 0.7;
+    display: none;
+}
+
+.language_ui_all.active {
+    display: block;
+}
+
+.language_ui_all:hover {
+    opacity: 1;
+}
+
+.language_ui_setting {
+    position: fixed;
+    bottom: 50px;
+    right: 5%;
+    width: 40%;
+    background-color: #fff;
+    z-index: 999;
+    border: 5px solid #10cfbd;
+    display: none;
+}
+
+.language_ui_setting.active {
+    display: block;
+}
+
+.language_ui_btn {
+    display: flex;
+}
+
+.language_ui_btn a {
+    flex: 1;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.language_ui_btn .setting {
+    background-color: #10cfbd;
+    color: #fff;
+}
+
+.language_ui_btn .cancel {
+    background-color: #c5c5c5;
+}
+
+.language_ui_btn .setting-all {
+    background-color: #10cfbd;
+    color: #fff;
+}
+
+.inventory {
+    border-bottom: solid 1px #c7c7c7;
+    padding: 25px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+}
+
+.row_style {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.inventory>.title {
+    width: 100%;
+    max-width: 200px;
+    min-width: 150px;
+    padding: 10px 20px 0 0;
+}
+
+.inventory .subtitle {
+    font-size: 0.85rem;
+    font-weight: 900;
+    width: 100%;
+    margin-bottom: 16px;
+}
+
+.inventory>.inner {
+    width: calc(100% - 165px);
+    width: 100%;
+}
+
+.Leon-langs-input {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.Leon-langs-input span {
+    width: 55px;
+    padding-top: 12px;
+    padding-left: 10px;
+    border-radius: 0;
+    border: solid 1px #c7c7c7;
+    background-color: #efefef;
+    border-right: 0;
+}
+
+.normal_input,
+.____input input {
+    color: #000;
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 0;
+    border: solid 1px #c7c7c7;
+    background-color: #efefef;
+}

@@ -1,0 +1,467 @@
+@charset "UTF-8";
+/*
+
+* Override Pages default styles or create your own styles here
+
+*/
+@font-face {
+  font-family: 'CenturyGothic';
+  src: url("../../assets/font/CenturyGothic/CenturyGothic.eot") format("embedded-opentype"), url("../../assets/font/CenturyGothic/CenturyGothic.ttf") format("truetype"), url("../../assets/font/CenturyGothic/CenturyGothic.woff") format("woff"), url("../../assets/font/CenturyGothic/CenturyGothic.svg") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'MyriadPro-Semibold';
+  src: url("../../assets/font/MyriadPro/Semibold/MyriadPro-Semibold.eot") format("embedded-opentype"), url("../../assets/font/MyriadPro/Semibold/MyriadPro-Semibold.ttf") format("truetype"), url("../../assets/font/MyriadPro/Semibold/MyriadPro-Semibold.woff") format("woff"), url("../../assets/font/MyriadPro/Semibold/MyriadPro-Semibold.svg") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'MyriadPro-Light';
+  src: url("../../assets/font/MyriadPro/Light/MyriadPro-Light.eot") format("embedded-opentype"), url("../../assets/font/MyriadPro/Light/MyriadPro-Light.ttf") format("truetype"), url("../../assets/font/MyriadPro/Light/MyriadPro-Light.woff") format("woff"), url("../../assets/font/MyriadPro/Light/MyriadPro-Light.svg") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'MyriadPro-Regular';
+  src: url("../../assets/font/MyriadPro/Regular/MyriadPro-Regular.eot") format("embedded-opentype"), url("../../assets/font/MyriadPro/Regular/MyriadPro-Regular.ttf") format("truetype"), url("../../assets/font/MyriadPro/Regular/MyriadPro-Regular.woff") format("woff"), url("../../assets/font/MyriadPro/Regular/MyriadPro-Regular.svg") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'MyriadPro-Bold';
+  src: url("../../assets/font/MyriadPro/Bold/MyriadPro-Bold.eot") format("embedded-opentype"), url("../../assets/font/MyriadPro/Bold/MyriadPro-Bold.ttf") format("truetype"), url("../../assets/font/MyriadPro/Bold/MyriadPro-Bold.woff") format("woff"), url("../../assets/font/MyriadPro/Bold/MyriadPro-Bold.svg") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+/*
+
+* Override Pages default styles or create your own styles here
+
+*/
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'MyriadPro-Regular','CenturyGothic','微軟正黑體'; }
+
+/*
+
+* Override Pages default styles or create your own styles here
+
+*/
+/*transiton*/
+/*
+
+* Override Pages default styles or create your own styles here
+
+*/
+/*============================================================
+                        cms右邊滑動隱藏區塊
+============================================================*/
+.builder {
+  width: 100%;
+  max-width: calc(100% - 345px);
+  right: inherit;
+  left: 100%;
+  /*打開右邊滑動隱藏區塊的浮動按鈕隱藏*/
+  /*右邊滑動隱藏區塊高度*/
+  /*區塊功能按鈕 樣式*/
+  /*表格*/
+  /*列表*/ }
+  .builder:before, .builder:after {
+    display: none; }
+  .builder > div {
+    height: 100%; }
+  .builder .quickview-inner-block {
+    height: calc(100% - 50px);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between; }
+  .builder .quickview-control-block {
+    height: 50px; }
+  .builder .quickview-control-block ul {
+    height: 100%;
+    margin: 0;
+    -webkit-margin-before: 0;
+    -webkit-margin-after: 0;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-start: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex; }
+    .builder .quickview-control-block ul .check {
+      background-color: #10cfbd; }
+    .builder .quickview-control-block ul .trash {
+      background-color: #424242; }
+    .builder .quickview-control-block ul .remove {
+      background-color: #c5c5c5; }
+    .builder .quickview-control-block ul li {
+      width: 33.3%;
+      list-style-type: none;
+      padding: 0; }
+      .builder .quickview-control-block ul li p, .builder .quickview-control-block ul li span {
+        color: #fff; }
+      .builder .quickview-control-block ul li span {
+        margin-right: 8px; }
+    .builder .quickview-control-block ul a {
+      height: 100%;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center; }
+      .builder .quickview-control-block ul a p {
+        margin: 0; }
+      .builder .quickview-control-block ul a span {
+        display: block; }
+  .builder .hidden-block-box {
+    max-height: calc(100% - 50px) !important; }
+  .builder .hidden-block-box .box-block {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between; }
+    .builder .hidden-block-box .box-block .work-1 {
+      width: 100%;
+      margin-right: 110px;
+      border-top: solid 1px #e6e6e6; }
+      .builder .hidden-block-box .box-block .work-1.scroll-wrapper > .scroll-element.scroll-x {
+        display: none; }
+    .builder .hidden-block-box .box-block .work-2 {
+      width: 20%;
+      max-width: 185px;
+      position: relative; }
+      .builder .hidden-block-box .box-block .work-2:before {
+        content: '';
+        width: 100%;
+        height: 1px;
+        max-width: 155px;
+        background-color: #e6e6e6;
+        display: block; }
+      .builder .hidden-block-box .box-block .work-2 .menu-list {
+        height: 100%; }
+    .builder .hidden-block-box .box-block .form-horizontal .form-group {
+      width: 100%; }
+    .builder .hidden-block-box .box-block .form-horizontal .form-group:last-child {
+      border-bottom: 1px solid #e6e6e6; }
+    .builder .hidden-block-box .box-block .form-list {
+      display: block; }
+    .builder .hidden-block-box .box-block .form-list.not-show {
+      visibility: hidden;
+      height: 0;
+      overflow: hidden; }
+  .builder .hidden-block-box .box-header {
+    min-height: 155px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex; }
+    .builder .hidden-block-box .box-header p {
+      margin: 0;
+      padding-bottom: 16px; }
+    .builder .hidden-block-box .box-header .work-1 {
+      width: 100%; }
+    .builder .hidden-block-box .box-header .work-2 {
+      width: 20%;
+      max-width: 185px; }
+      .builder .hidden-block-box .box-header .work-2 .quickview-control-btn {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center; }
+  .builder .menu-list {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    /*列表header 按鈕*/
+    /*title*/
+    /*列表getting start文字*/ }
+    .builder .menu-list .navbar {
+      border-bottom: none; }
+    .builder .menu-list .navbar ul {
+      -webkit-padding-start: 0px;
+      list-style-type: none;
+      margin-top: 20px;
+      margin-bottom: 30px;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex; }
+      .builder .menu-list .navbar ul .check {
+        background-color: #10cfbd; }
+      .builder .menu-list .navbar ul .trash {
+        background-color: #424242; }
+      .builder .menu-list .navbar ul .remove {
+        background-color: #c5c5c5; }
+      .builder .menu-list .navbar ul li {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        padding: 0;
+        margin-right: 14px;
+        position: relative; }
+        .builder .menu-list .navbar ul li a {
+          width: 100%;
+          height: 100%; }
+        .builder .menu-list .navbar ul li span {
+          color: #fff;
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          -webkit-transform: translate(-50%, -50%);
+          -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%); }
+    .builder .menu-list .title p {
+      font-weight: 900; }
+    .builder .menu-list .list-view a {
+      margin: 0;
+      display: inherit; }
+    .builder .menu-list .list-view .list-view-fake-header {
+      display: none; }
+    .builder .menu-list .list-view .list-view-group-container {
+      padding: 0;
+      max-width: 155px; }
+      .builder .menu-list .list-view .list-view-group-container li {
+        padding: 0;
+        -webkit-transition: all 0.5s ease 0s;
+        -moz-transition: all 0.5s ease 0s;
+        -ms-transition: all 0.5s ease 0s;
+        -o-transition: all 0.5s ease 0s;
+        transition: all 0.5s ease 0s; }
+        .builder .menu-list .list-view .list-view-group-container li p {
+          width: 100%;
+          padding: 8px 0;
+          line-height: 1;
+          letter-spacing: 0.5px;
+          -webkit-transition: all 0.5s ease 0s;
+          -moz-transition: all 0.5s ease 0s;
+          -ms-transition: all 0.5s ease 0s;
+          -o-transition: all 0.5s ease 0s;
+          transition: all 0.5s ease 0s; }
+      .builder .menu-list .list-view .list-view-group-container li.active {
+        background-color: #fff; }
+        .builder .menu-list .list-view .list-view-group-container li.active p {
+          padding-left: 12px;
+          color: #fff;
+          background-color: #505050; }
+    .builder .menu-list .list-view .list-view-wrapper.scroll-content {
+      max-height: calc(100vh - 180px); }
+
+/*============================================================
+                        cms右邊滑動隱藏區塊(end)
+============================================================*/
+/*============================================================
+                        fms右邊滑動隱藏區塊
+============================================================*/
+.builder {
+  width: 100%;
+  max-width: calc(100% - 345px);
+  right: inherit;
+  left: 100%;
+  /*打開右邊滑動隱藏區塊的浮動按鈕隱藏*/
+  /*右邊滑動隱藏區塊高度*/
+  /*區塊功能按鈕 樣式*/
+  /*表格*/
+  /*列表*/ }
+  .builder:before, .builder:after {
+    display: none; }
+  .builder > div {
+    height: 100%; }
+  .builder .quickview-inner-block {
+    height: calc(100% - 50px);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between; }
+  .builder .quickview-control-block {
+    height: 50px; }
+  .builder .quickview-control-block ul {
+    height: 100%;
+    margin: 0;
+    -webkit-margin-before: 0;
+    -webkit-margin-after: 0;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-start: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex; }
+    .builder .quickview-control-block ul .check {
+      background-color: #10cfbd; }
+    .builder .quickview-control-block ul .trash {
+      background-color: #424242; }
+    .builder .quickview-control-block ul .remove {
+      background-color: #c5c5c5; }
+    .builder .quickview-control-block ul li {
+      width: 33.3%;
+      list-style-type: none;
+      padding: 0; }
+      .builder .quickview-control-block ul li p, .builder .quickview-control-block ul li span {
+        color: #fff; }
+      .builder .quickview-control-block ul li span {
+        margin-right: 8px; }
+    .builder .quickview-control-block ul a {
+      height: 100%;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center; }
+      .builder .quickview-control-block ul a p {
+        margin: 0; }
+      .builder .quickview-control-block ul a span {
+        display: block; }
+  .builder .hidden-block-box {
+    max-height: calc(100% - 50px) !important; }
+  .builder .hidden-block-box .box-block {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between; }
+    .builder .hidden-block-box .box-block .work-1 {
+      width: 100%;
+      margin-right: 110px;
+      border-top: solid 1px #e6e6e6; }
+      .builder .hidden-block-box .box-block .work-1.scroll-wrapper > .scroll-element.scroll-x {
+        display: none; }
+    .builder .hidden-block-box .box-block .work-2 {
+      width: 20%;
+      max-width: 185px;
+      position: relative; }
+      .builder .hidden-block-box .box-block .work-2:before {
+        content: '';
+        width: 100%;
+        height: 1px;
+        max-width: 155px;
+        background-color: #e6e6e6;
+        display: block; }
+      .builder .hidden-block-box .box-block .work-2 .menu-list {
+        height: 100%; }
+    .builder .hidden-block-box .box-block .form-horizontal .form-group {
+      width: 100%; }
+    .builder .hidden-block-box .box-block .form-horizontal .form-group:last-child {
+      border-bottom: 1px solid #e6e6e6; }
+    .builder .hidden-block-box .box-block .form-list {
+      display: block; }
+    .builder .hidden-block-box .box-block .form-list.not-show {
+      visibility: hidden;
+      height: 0;
+      overflow: hidden; }
+  .builder .hidden-block-box .box-header {
+    min-height: 155px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex; }
+    .builder .hidden-block-box .box-header p {
+      margin: 0;
+      padding-bottom: 16px; }
+    .builder .hidden-block-box .box-header .work-1 {
+      width: 100%; }
+    .builder .hidden-block-box .box-header .work-2 {
+      width: 20%;
+      max-width: 185px; }
+      .builder .hidden-block-box .box-header .work-2 .quickview-control-btn {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center; }
+  .builder .menu-list {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    /*列表header 按鈕*/
+    /*title*/
+    /*列表getting start文字*/ }
+    .builder .menu-list .navbar {
+      border-bottom: none; }
+    .builder .menu-list .navbar ul {
+      -webkit-padding-start: 0px;
+      list-style-type: none;
+      margin-top: 20px;
+      margin-bottom: 30px;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex; }
+      .builder .menu-list .navbar ul .check {
+        background-color: #10cfbd; }
+      .builder .menu-list .navbar ul .trash {
+        background-color: #424242; }
+      .builder .menu-list .navbar ul .remove {
+        background-color: #c5c5c5; }
+      .builder .menu-list .navbar ul li {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        padding: 0;
+        margin-right: 14px;
+        position: relative; }
+        .builder .menu-list .navbar ul li a {
+          width: 100%;
+          height: 100%; }
+        .builder .menu-list .navbar ul li span {
+          color: #fff;
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          -webkit-transform: translate(-50%, -50%);
+          -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%); }
+    .builder .menu-list .title p {
+      font-weight: 900; }
+    .builder .menu-list .list-view a {
+      margin: 0;
+      display: inherit; }
+    .builder .menu-list .list-view .list-view-fake-header {
+      display: none; }
+    .builder .menu-list .list-view .list-view-group-container {
+      padding: 0;
+      max-width: 155px; }
+      .builder .menu-list .list-view .list-view-group-container li {
+        padding: 0;
+        -webkit-transition: all 0.5s ease 0s;
+        -moz-transition: all 0.5s ease 0s;
+        -ms-transition: all 0.5s ease 0s;
+        -o-transition: all 0.5s ease 0s;
+        transition: all 0.5s ease 0s; }
+        .builder .menu-list .list-view .list-view-group-container li p {
+          width: 100%;
+          padding: 8px 0;
+          line-height: 1;
+          letter-spacing: 0.5px;
+          -webkit-transition: all 0.5s ease 0s;
+          -moz-transition: all 0.5s ease 0s;
+          -ms-transition: all 0.5s ease 0s;
+          -o-transition: all 0.5s ease 0s;
+          transition: all 0.5s ease 0s; }
+      .builder .menu-list .list-view .list-view-group-container li.active {
+        background-color: #fff; }
+        .builder .menu-list .list-view .list-view-group-container li.active p {
+          padding-left: 12px;
+          color: #fff;
+          background-color: #505050; }
+    .builder .menu-list .list-view .list-view-wrapper.scroll-content {
+      max-height: calc(100vh - 180px); }
+
+/*============================================================
+                        fms右邊滑動隱藏區塊(end)
+============================================================*/
+
+/*# sourceMappingURL=_hiddenBlock_style.css.map */

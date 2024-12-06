@@ -1,0 +1,11 @@
+@font-face {
+  font-family: 'CenturyGothic-regular';
+  src: url('CenturyGothic');
+  src: url('../assets/font/CenturyGothic/regular/CenturyGothic.woff2') format('woff2'),
+       url('../assets/font/CenturyGothic/regular/CenturyGothic.woff') format('woff'),
+       url('../assets/font/CenturyGothic/regular/CenturyGothic.ttf') format('truetype'),
+       url('../assets/font/CenturyGothic/regular/CenturyGothic.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+

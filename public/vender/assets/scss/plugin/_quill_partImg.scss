@@ -1,0 +1,320 @@
+/*
+
+* Override Pages default styles or create your own styles here
+
+*/
+
+
+/*============================================================
+
+============================================================*/
+//段落圖片 / 影片
+.quill_partImg {
+    .sort_number {
+        width: 50px;
+    }
+    .text {
+        max-width: 415px;
+        .type {
+            font-weight: 900;
+            margin-bottom: 5px;
+        }
+    }
+    .edit {
+        width: 65px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        span {
+            cursor: pointer;
+            width: 29px;
+            height: 29px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+    .edit_thumbnail {
+        position: relative;
+    }
+    .edit_thumbnail .base {
+        width: 100px;
+        height: 100px;
+        background-color: #000;
+    }
+    .edit_thumbnail .upper {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        .play_btn {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            span {
+                cursor: pointer;
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: 11px 0 11px 14px;
+                border-color: transparent transparent transparent #fff;
+            }
+            &:before {
+                content: '';
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0,0,0,0.6);
+                position: absolute;
+                left: 0;
+                top: 0;
+                z-index: -1;
+                display: block;
+            }
+        }
+        .click_btn {
+            width: 100%;
+            display: flex;
+            z-index: 1;
+        }
+        p {
+            cursor: pointer;
+            color: #fff;
+            width: 50%;
+            min-height: 21px;
+            text-align: center;
+            &.green {
+                background-color: #10cfbd;
+            }
+            &.gray {
+                background-color: #464646;
+            }
+        }
+    }
+}
+.quill_partImg li {
+    border-bottom: solid 1px #c7c7c7;
+    padding: 25px 0 25px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    &:last-child {
+        border-bottom: none;
+    }
+}
+.partImg_lightBox {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.6);
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 11;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    @include trans(.5s);
+    &.open {
+        opacity: 1;
+        visibility: visible;
+    }
+    .frame {
+        width: 100%;
+        max-width: 850px;
+        background-color: #464646;
+        padding: 45px;
+        position: relative;
+        box-shadow: 8px 8px 15px #404040;
+    }
+    .neon_light {
+        position: absolute;
+        left: 0;
+        top: 0;
+        span {
+            width: 295px;
+            height: 6px;
+            background-color: #10cfbd;
+            display: block;
+        }
+    }
+    .close_btn {
+        position: absolute;
+        right: 5px;
+        top: 20px;
+        span {
+            cursor: pointer;
+            color: #fff;
+            padding: 10px;
+        }
+    }
+    .content_box {
+        overflow: hidden;
+        width: 100%;
+        height: 50vh;
+        max-height: 420px;
+        background-color: #232323;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        position: relative;
+        .photo {
+            width: 100%;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .describe {
+            color: #8e8e8e;
+            font-size: 0.75rem;
+        }
+        .play_btn {
+            cursor: pointer;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 11px 0 11px 14px;
+            border-color: transparent transparent transparent #fff;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+        }
+    }
+    .content_text {
+        .border {
+            color: #fff;
+            li {
+                padding: 15px 0;
+                border-bottom: solid 1px #8e8e8e;
+            }
+            li:last-child {
+                border-bottom: none;
+            }
+        }
+        .input_area {
+            position: relative;
+            .icon {
+                cursor: pointer;
+                padding: 10px;
+                position: absolute;
+                right: 0;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+            textarea {
+                color: #10cfbd;
+                width: 90%;
+                height: 50px;
+                resize: none;
+                background-color: inherit;
+                border: none;
+            }
+            textarea::-webkit-input-placeholder {
+                color: #10cfbd;
+            }
+            
+            textarea:-moz-placeholder { /* Firefox 18- */
+                color: #10cfbd;  
+            }
+            
+            textarea::-moz-placeholder {  /* Firefox 19+ */
+                color: #10cfbd;  
+            }
+            
+            textarea:-ms-input-placeholder {
+                color: #10cfbd;  
+            }
+        }
+        .bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            .title {
+                font-size: 1rem;
+            }
+            .switch {
+                display: flex;
+                align-items: center;
+                p {
+                    color: #8e8e8e;
+                    font-size: 0.75rem;
+                    font-weight: 900;
+                    margin-top: 10px;
+                    margin-right: 10px;
+                }
+            }
+        }
+        .notice {
+            .tips span:after {
+                color: #fff;
+            }
+            .tips .icon:after {
+                display: none;
+            }
+        }
+    }
+    .for_photo .content_box {
+        padding: 20px 40px;
+        .photo {
+            margin-bottom: 20px;
+            img {
+                box-shadow: 8px 8px 15px #000;
+                max-width: 100%;
+                max-height: 340px;
+            }
+        }
+        .describe {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+    .video_embed .content_box {
+        .videoBox {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            iframe {
+                width: 100%;
+                height: 100%;
+            }
+        }
+        .photo {
+            overflow: hidden;
+            &:after {
+                content: '';
+                display: block;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0,0,0,0.6);
+                position: absolute;
+                left: 0;
+                top: 0;
+            }
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+}
+/*============================================================
+
+============================================================*/

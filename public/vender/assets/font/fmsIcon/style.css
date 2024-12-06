@@ -1,0 +1,57 @@
+@font-face {
+  font-family: 'fmsIcon';
+  src:  url('fonts/fmsIcon.eot?u2ea5w');
+  src:  url('fonts/fmsIcon.eot?u2ea5w#iefix') format('embedded-opentype'),
+    url('fonts/fmsIcon.ttf?u2ea5w') format('truetype'),
+    url('fonts/fmsIcon.woff?u2ea5w') format('woff'),
+    url('fonts/fmsIcon.svg?u2ea5w#fmsIcon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="fms-"], [class*=" fms-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'fmsIcon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.fms-back:before {
+  content: "\e909";
+}
+.fms-authority:before {
+  content: "\e900";
+}
+.fms-delete:before {
+  content: "\e901";
+}
+.fms-download:before {
+  content: "\e902";
+}
+.fms-folder:before {
+  content: "\e903";
+}
+.fms-folder-add:before {
+  content: "\e904";
+}
+.fms-folder-open:before {
+  content: "\e905";
+}
+.fms-move:before {
+  content: "\e906";
+}
+.fms-recycle:before {
+  content: "\e907";
+}
+.fms-upload:before {
+  content: "\e908";
+}

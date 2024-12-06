@@ -1,0 +1,101 @@
+/*cardHeader*/
+.card-header {
+  padding: 50px 50px 30px 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap; }
+  .card-header .btn-area {
+    width: 100%; }
+  .card-header .subtitle {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: baseline;
+    -ms-flex-align: baseline;
+    align-items: baseline; }
+  .card-header .subtitle .btn-group {
+    margin: 0;
+    padding: 0; }
+    .card-header .subtitle .btn-group li {
+      list-style-type: none;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      margin-right: 8px;
+      padding: 0;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center; }
+    .card-header .subtitle .btn-group li a span {
+      color: #fff; }
+  .card-header .subtitle .arrow-group {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center; }
+    .card-header .subtitle .arrow-group p {
+      margin-bottom: 0;
+      font-weight: 900; }
+    .card-header .subtitle .arrow-group span {
+      cursor: pointer;
+      font-size: 0.75rem;
+      width: 29px;
+      height: 29px;
+      border-radius: 50%;
+      border: solid 3px #dcdcdc;
+      margin-right: 3px;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center; }
+      .card-header .subtitle .arrow-group span:last-child {
+        margin-right: 0; }
+    .card-header .subtitle .arrow-group .text {
+      margin-right: 12px; }
+    .card-header .subtitle .arrow-group .arrow {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center; }
+
+.card-header a:not(.btn) {
+  opacity: 1; }
+
+.card-header.fixed {
+  width: 100%;
+  background-color: #fff;
+  position: absolute;
+  right: 0;
+  top: 0; }
+
+.cms_theme .card-header .arrow-group span:hover {
+  border: solid 3px #10cfbd; }
+
+.fms_theme .card-header .arrow-group .mode_btn:hover {
+  border: solid 3px #dcdcdc; }
+
+.fms_theme .card-header .arrow-group .mode_btn.open {
+  border: solid 3px #775bc2; }
+
+/*# sourceMappingURL=_cardHeader.css.map */

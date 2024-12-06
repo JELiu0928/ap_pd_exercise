@@ -1,0 +1,350 @@
+/*
+
+* Override Pages default styles or create your own styles here
+
+*/
+
+
+body {
+    font-family: 'MyriadPro-Regular','微軟正黑體','Segoe UI', Arial, sans-serif;
+}
+body.open_hideBlock {
+    .dataTables_scrollBody {
+        overflow-y: hidden !important;
+    }
+}
+body.open_hideBlock:before {
+    content: '';
+    display: block;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.6);
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 11;
+}
+
+//
+div,section,article {
+    box-sizing: border-box;
+}
+
+
+//
+body {
+    margin: 0;
+}
+p {
+    margin-bottom: 0;
+    line-height: 1.6;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+ul li {
+    list-style-type: none;
+    padding: 0;
+    line-height: 1;
+}
+
+input {
+    box-sizing: border-box;
+}
+textarea {
+    box-sizing: border-box;
+}
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+input:disabled, textarea:disabled {
+    background-color: #fff;
+    cursor: default;
+}
+
+
+//text-align
+.t-a-c {
+    text-align: center;
+}
+.t-a-l {
+    text-align: left;
+}
+.t-a-r {
+    text-align: right;
+}
+//margin
+.mrg-0 {
+    margin: 0;
+}
+.mrg-b-5 {
+    margin: 0 0 5px 0;
+}
+.mrg-l-10 {
+    margin: 0 0 0 10px;
+}
+.mrg-l-20 {
+    margin: 0 0 0 20px;
+}
+.mrg-l-30 {
+    margin: 0 0 0 30px;
+}
+.mrg-r-10 {
+    margin: 0 10px 0 0;
+}
+.mrg-r-20 {
+    margin: 0 20px 0 0;
+}
+.mrg-r-30 {
+    margin: 0 30px 0 0;
+}
+//width
+.w-100 {
+    width: 100%;
+}
+.w-50 {
+    width: 100%;
+}
+//display flex
+.nor_style {
+    display: block;
+}
+.row_style {
+    display: flex;
+    align-items: center;
+}
+.cul_style {
+    display: flex;
+    flex-direction: column;
+}
+.center_style {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+
+//
+.f-900 {
+    font-weight: 900;
+}
+
+
+
+
+.modal.show {
+    display: block;
+}
+
+.container-fluid {
+    padding: 0;
+    width: 100%;
+    max-width: 100%;
+}
+
+.page-container .header {
+    // .brand-box {}
+    .d-flex{
+        .brand-name {
+            display: flex;
+            align-items: center;
+            &:after {
+                content: '';
+                width: 1px;
+                height: 19px;
+                margin: 0 18px;
+                background-color: #e5e5e5;
+                display: block;
+            }
+            p {
+                font-family: 'Noto Sans TC', sans-serif;
+                font-weight: normal;
+                font-size: 13px;
+                color: black;
+                margin-bottom: 0;
+            }
+        }
+        .preview {
+            display: flex;
+            align-items: center;
+            &:after {
+                content: '';
+                width: 1px;
+                height: 19px;
+                margin: 0 18px;
+                background-color: #e5e5e5;
+                display: block;
+            }
+            p {
+                font-family: 'CenturyGothic', sans-serif;
+                font-weight: bold;
+                font-size: 13px;
+                color: black;
+                margin-bottom: 0;
+            }
+        }
+        .user-name{
+            font-family: 'CenturyGothic', sans-serif;
+            font-weight: bold;
+            font-size: 13px;
+            color: black;
+        }
+        .other-option{
+            margin-left: 17px;
+            span{
+                display: block;
+                font-size: 15px;
+            }
+        }
+    }
+}
+
+
+.datepicker table tr td.selected {
+    background-color: #999999;
+}
+
+
+
+
+/*為了我們自己動態控制圓圈進度條所改*/
+.circle_pace {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.progress_circle {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    position: relative;
+    display: block;
+}
+.progress_circle .shadow {
+    border: 3px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+}
+.progress_circle .pie {
+    width: 100%;
+    height: 100%;
+    clip: rect(0, 36px, 36px, 18px);
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.progress_circle .half_circle {
+    border: 3px solid #775bc2;
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    clip: rect(0, 18px, 36px, 0);
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.progress_circle:after {
+    content: attr(data-value);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+//圓圈客製style
+.total_pace {
+    width: 88px;
+    height: 88px;
+}
+.total_pace .shadow {
+    border: 10px solid rgba(255, 255, 255, 0.8);
+}
+.total_pace .progress_circle .half_circle {
+    border-width: 10px;
+}
+.total_pace .progress_circle:after {
+    color: #fff;
+}
+.mini_circle_pace {
+    width: 38px;
+    height: 38px;
+}
+.mini_circle_pace .shadow {
+    border: 3px solid rgba(255, 255, 255, 0.3);
+}
+.mini_circle_pace .progress_circle .half_circle {
+    border-color: #e5dbff;
+}
+.mini_circle_pace .progress_circle:after {
+    color: #fff;
+}
+
+
+/*因為表格內容放置右邊隱藏選單的關係，所以把表格的表單z-index提高才不會被右邊隱藏選單遮住*/
+div.cs-skin-slide.cs-active,
+.select2-dropdown,
+.datepicker.dropdown-menu,
+.daterangepicker.dropdown-menu,
+.bootstrap-timepicker-widget.dropdown-menu {
+    z-index: 1001 !important;
+}
+
+/*Date Range的兩個日期欄位太窄，把寬度加寬*/
+.input-group .form-control {
+    width: 50%;
+}
+
+
+/*阻擋視窗*/
+.block_out {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.6);
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    visibility: hidden;
+    opacity: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-transition: opacity .5s ease;
+    -moz-transition: opacity .5s ease;
+    -ms-transition: opacity .5s ease;
+    -o-transition: opacity .5s ease;
+    transition: opacity .5s ease;
+    .box {
+        width: 35%;
+        height: 40%;
+        background-color: rgba(0,0,0,0.6);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        @include trans(.8s);
+    }
+    .progress-circle-indeterminate {
+        width: 100px;
+        height: 100px;
+    }
+}
+.block_out.show {
+    z-index: 12;
+    visibility: visible;
+    opacity: 1;
+    .box {
+        background-color: rgba(255,255,255,1);
+    }
+}
+

@@ -1,0 +1,192 @@
+
+/*cardHeader*/
+.card-header, .card-footer {
+    padding: 50px 50px 30px 50px;
+    display: flex;
+    flex-wrap: wrap;
+    .btn-area {
+        width: 100%;
+    }
+    .subtitle {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+    }
+    .subtitle .btn-group {
+        margin: 0;
+        padding: 0;
+        li {
+            list-style-type: none;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            margin-right: 8px;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        li a {
+            span {
+                color: #fff;
+            }
+        }
+    }
+    .subtitle .arrow-group {
+        display: flex;
+        align-items: center;
+        p {
+            margin: 0;
+            font-weight: 900;
+        }
+        span {
+            cursor: pointer;
+            font-size: 12px;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: 3px solid #dcdcdc;
+            margin-right: 3px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            &.nowPage{
+                position: relative;
+                user-select: none;
+                &.active{
+                    .pageSelectorBox{
+                        visibility: visible;
+                        opacity: 1;
+                        &:before{
+                            content: "";
+                            position: absolute;
+                            left: 50%;
+                            transform: translateX(-50%);
+                            border-right: 10px solid transparent;
+                            border-left: 10px solid transparent;
+                        }
+                    }
+                }
+            }
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+        .text {
+            margin-right: 12px;
+        }
+        .arrow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .right {
+        }
+        .left {
+        }
+    }
+}
+.card-header a:not(.btn) {
+    opacity: 1;
+}
+.card-header.fixed {
+    width: 100%;
+    background-color: #fff;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.card-footer{
+    padding: 0;
+    padding-top: 10px;
+    background-color: transparent;
+    .subtitle{
+        justify-content: flex-end;
+    }
+}
+
+.pageSelectorBox{
+    visibility: hidden;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70px;
+    background-color: #464646;
+    color: #fff;
+    transition: 0.6s;
+    opacity: 0;
+    &.inTop{
+        top: 45px;
+        &:before{
+            top: -20px;
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid #424242;
+        }
+    }
+    &.inBottom{
+        bottom: 45px;
+        &:before{
+            bottom: -20px;
+            border-top: 10px solid #424242;
+            border-bottom: 10px solid transparent;
+        }
+    }
+    &:before{
+        content: "";
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        border-right: 10px solid transparent;
+        border-left: 10px solid transparent;
+    }
+    .innerBox{
+        position: relative;
+        max-height: 300px;
+        overflow: auto;
+        @include Scrollbar(#6a6a6a, transparent)
+    }
+    .pageNum{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 8px 0;
+    }
+}
+
+//cms
+.cms_theme {
+    .card-header, .card-footer {
+        .arrow-group {
+            span {
+                &.active, &:hover {
+                    border: solid 3px #10cfbd;
+                }
+                .pageSelectorBox{
+                    .pageNum{
+                        color: #10cfbd;
+                        &:hover{
+                            color: #fff;
+                        }
+                    }
+                }   
+            }
+        }
+    }
+}
+
+//fms
+.fms_theme {
+    .card-header {
+        .arrow-group {
+            .mode_btn {
+                &:hover {
+                    border: solid 3px #dcdcdc;
+                }
+                &.open {
+                    border: solid 3px #775bc2;
+                }
+            }
+        }
+    }
+}

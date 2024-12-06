@@ -1,0 +1,159 @@
+.filetree .main-tree ul{
+    position: relative;
+    padding-left: 26px;
+    padding-top: 0;
+}
+
+.tree,
+.main-tree {
+    margin: 0;
+    text-align: left;
+}
+
+.main-tree > .tree-title{
+    padding: 10px 15px 10px 0;
+}
+.main-tree > .tree-title > span.arrow{
+    top: calc(50% - 3px);
+}
+
+.tree > .tree-title::before{
+    content: "";
+    display: inline-block;
+    border-top: 1px dashed #6c6c6c;
+    width: 20px;
+    height: 1px;
+    position: absolute;
+    left: -20px;
+    top: 50%;
+    background-color: transparent;
+}
+
+.tree > .tree-title::after{
+    content: "";
+    border-left: 1px dashed #6c6c6c;
+    width: 1px;
+    height: 100%;
+    position: absolute;
+    left: -20px;
+    bottom: 50%;
+    background-color: transparent;
+}
+
+.tree-title.active ~ ul:not(.main-tree):not(.last-visible):not(:last-child)::before{
+    content: '';
+    border-left: 1px dashed #6c6c6c;
+    width: 1px;
+    height: calc(100% - 32px);
+    position: absolute;
+    left: 6px;
+    bottom: 16px;
+    background-color: transparent;
+    z-index: -1;
+}
+
+.tree-title.active ~ ul.main-tree:not(:last-child)::before{
+    content: "";
+    border-left: 1px dashed #6c6c6c;
+    width: 1px;
+    height: calc(100% - 41px);
+    position: absolute;
+    left: 6px;
+    top: 24px;
+    background-color: transparent;
+}
+
+.tree-title {
+    font-size: 13px;
+    line-height: 1.5;
+    font-weight: bold;
+    color: #626262;
+    padding: 6px 12px 6px 0;
+    list-style-type: none;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    padding-left: 0px;
+}
+.tree-title.active{
+    color: #735ebc;
+}
+
+.tree-title > .title{
+    display: flex;
+    align-items: center;
+}
+.tree-title > .title >.text{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.tree-title > .title::before{
+    position: relative;
+    content: '\e903';
+    font-family: 'fmsIcon';
+    margin-right: 5px;
+    font-size: 14px;
+    font-weight: normal;
+    z-index: 1;
+}
+
+.tree-title.active > .title::before{
+    content: '\e905';
+}
+.tree-title.trash > .title::before{
+    content: "\e907";
+}
+.tree-title > span.arrow{
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    top: 50%;
+    right: 0;
+    transform: translate(0,-50%);
+}
+.tree-title > span.arrow::before{
+    content: "\f105";
+    position: absolute;
+    top: 0;
+    left: calc(50% - 2px);
+    font-size: 16px;
+    font-family: FontAwesome;
+    margin: 0;
+    font-weight: normal;
+    line-height: 12px;
+    transform: rotate(0deg);
+    -webkit-transition: transform .12s ease;
+    -o-transition: transform .12s ease;
+    transition: transform .12s ease;
+    -webkit-transform-origin: center;
+    -ms-transform-origin: center;
+    transform-origin: center;
+}
+.tree-title.active > span.arrow::before{
+    transform: rotate(90deg)
+}
+.tree-title.lock > span.arrow::before{
+    content: "\e900" !important;
+    font-family: 'fmsIcon' !important;
+    transform: none !important;
+    font-size: 12px;
+    left: 3px;
+}
+.tree-item {
+    word-wrap: break-word;
+    white-space: -moz-pre-wrap;
+    white-space: pre-wrap;
+    cursor: pointer;
+    list-style-type: none;
+    margin-left: 20px;
+    display: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    padding-left: 10px;
+}

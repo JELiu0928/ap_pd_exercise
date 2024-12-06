@@ -1,0 +1,54 @@
+@charset "UTF-8";
+/*
+
+* Override Pages default styles or create your own styles here
+
+*/
+p {
+  margin-bottom: 0; }
+
+ul {
+  margin: 0;
+  padding: 0; }
+
+ul li {
+  list-style-type: none;
+  padding: 0;
+  line-height: 1; }
+
+.modal.show {
+  display: block; }
+
+.container-fluid {
+  padding: 0; }
+
+.page-container .header .d-flex .brand-name {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center; }
+  .page-container .header .d-flex .brand-name:after {
+    content: '';
+    width: 1px;
+    height: 19px;
+    margin: 0 18px;
+    background-color: #e5e5e5;
+    display: block; }
+  .page-container .header .d-flex .brand-name p {
+    margin-bottom: 0; }
+
+/*因為表格內容放置右邊隱藏選單的關係，所以把表格的表單z-index提高才不會被右邊隱藏選單遮住*/
+div.cs-skin-slide.cs-active,
+.select2-dropdown,
+.datepicker.dropdown-menu,
+.daterangepicker.dropdown-menu,
+.bootstrap-timepicker-widget.dropdown-menu {
+  z-index: 1001 !important; }
+
+/*Date Range的兩個日期欄位太窄，把寬度加寬*/
+.input-group .form-control {
+  width: 50%; }
+
+/*# sourceMappingURL=_common_style.css.map */

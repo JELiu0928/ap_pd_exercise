@@ -1,0 +1,189 @@
+//fms CSS
+
+
+.fms_theme {
+    .ajax_control_btn{
+        display: none;
+    }
+    .lbox-close-btn{
+        display: none !important;
+    }
+    >.page-container{
+        .page-container{
+            padding-left: 0;
+        }
+    }
+    //進度條
+    .pace .pace-progress {
+        background: #775bc2;
+    }
+
+    .header .brand-box .title p {
+        color: #775bc2;
+    }
+    .content-sidebar .sidebar-menu .head-bar .line {
+        background: #775bc2;
+    }
+    .content-sidebar .body-list .level_list:before {
+        display: none;
+    }
+    .content-sidebar .sidebar-menu .body-list .level_list.open > a .icon {
+        color: #775bc2;
+    }
+    // .table-box .card-block tbody tr .box.multi ul li.ch {
+    //     background-color: #775bc2;
+    //     border-color: #775bc2;
+    // }
+
+    //右邊的滑出畫面
+    .hiddenArea .box_header .title:after {
+        background-color: #775bc2;
+    }
+    .hiddenArea .btnGroup .check {
+        background-color: #775bc2;
+    }
+
+    //燈箱按鈕
+    .ajax_control_btn .setting {
+        background-color: #775bc2;
+    }
+    .ajax_control_btn .selected {
+        color: #775bc2;
+    }
+}
+
+//最左邊主選單
+.quill_sidebarWall {
+    width: 100px;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 999999999999999;
+    background-color: rgba(255,255,255,0);
+}
+.quill_sidebarWall.close {
+    display: none;
+}
+
+
+
+//內容 CONTENT 左邊slider SECONDARY SIDEBAR MENU
+// .content-sidebar .sidebar-menu .body-list li .content {
+//     border-bottom: none;
+// }
+.sidebar-menu .body-list > li > ul.sub-menu li > a > .arrow:before,
+.sidebar-menu .body-list > li > ul.sub-menu li > a > .arrow.open:before {
+    margin: 0;
+}
+
+.content-sidebar .sidebar-menu .body-list li .i_open {
+    display: none;
+}
+.content-sidebar .sidebar-menu .body-list li.open>a {
+    .i_open {
+        display: block;
+    }
+    .i_close {
+        display: none;
+    }
+}
+.content-sidebar {
+    .body-list {
+        li {
+            position: relative;
+        }
+        a {
+            position: relative;
+            overflow: visible !important;
+        }
+        .level_list:before {
+            content: '';
+            display: block;
+            background-color: #fff;
+            width: 1px;
+            height: 0;
+            min-height: 0;
+            position: absolute;
+            @include trans(.5s);
+        }
+        .level-1.level_list:before {
+            left: 5px;
+            top: 26px;
+        }
+        .level-1.level_list.open:before {
+            min-height: 1px;
+            height: calc(100% - 45px);
+        }
+        .level_list:before {
+            left: 35px;
+            top: 19px;
+        }
+        .level_list.open:before {
+            min-height: 1px;
+            height: calc(100% - 40px);
+        }
+        // .level_list.open > .sub-menu > .level_list > a:before {
+        //     width: 27px;
+        // }
+        // .level_list a:before {
+        //     content: '';
+        //     display: block;
+        //     background-color: #fff;
+        //     width: 0;
+        //     height: 1px;
+        //     position: absolute;
+        //     left: -25px;
+        //     top: 50%;
+        //     transform: translateY(-50%);
+        //     @include trans(.5s,.5s);
+        // }
+    }
+}
+
+
+//main-table內容
+.table_mode {
+    opacity: 0;
+    height: 0;
+    visibility: hidden;
+}
+.table_mode.open {
+    height: auto;
+}
+.main-table {
+    .box.icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+.table-box .card-header {
+    padding: 0px 50px 30px 50px;
+}
+.table-box .card-header .subtitle {
+    margin-top: 50px;
+}
+
+
+//
+.hiddenArea_frame_box .box_header .info {
+    width: 100%;
+    max-width: none;
+}
+.hiddenArea {
+    .hiddenArea_frame_box {
+        padding: 25px 7% 0 7%;
+    }
+    .tips {
+        .title {
+            color: #775bc2;
+        }
+    }
+    .btnGroup .check {
+        background-color: #775bc2;
+    }
+    // .box_header {
+    //     border-bottom: solid 1px #c7c7c7;
+    // }
+}

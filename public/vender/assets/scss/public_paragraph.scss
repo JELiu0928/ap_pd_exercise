@@ -1,0 +1,191 @@
+/*
+
+* Override Pages default styles or create your own styles here
+
+*/
+body {
+    margin: 0;
+}
+ul {
+    margin: 0;
+    padding: 0;
+}
+li {
+    list-style-type: none;
+}
+p {
+    margin: 0;
+}
+img {
+    max-width: 100%;
+    display: block;
+}
+
+
+
+
+/**/
+//
+.flex {
+    display: flex;
+}
+//
+.left_shrink_10 {
+    padding-left: 10%;
+}
+.left_shrink_20 {
+    padding-left: 20%;
+}
+.left_shrink_30 {
+    padding-left: 30%;
+}
+.left_shrink_40 {
+    padding-left: 40%;
+}
+.left_shrink_50 {
+    padding-left: 50%;
+}
+.left_shrink_60 {
+    padding-left: 60%;
+}
+.left_shrink_70 {
+    padding-left: 70%;
+}
+.left_shrink_80 {
+    padding-left: 80%;
+}
+.left_shrink_90 {
+    padding-left: 90%;
+}
+//
+.right_shrink_10 {
+    padding-right: 10%;
+}
+.right_shrink_20 {
+    padding-right: 20%;
+}
+.right_shrink_30 {
+    padding-right: 30%;
+}
+.right_shrink_40 {
+    padding-right: 40%;
+}
+.right_shrink_50 {
+    padding-right: 50%;
+}
+.right_shrink_60 {
+    padding-right: 60%;
+}
+.right_shrink_70 {
+    padding-right: 70%;
+}
+.right_shrink_80 {
+    padding-right: 80%;
+}
+.right_shrink_90 {
+    padding-right: 90%;
+}
+//
+.w_100 {
+    width: 100%;
+}
+.w_90 {
+    width: 90%;
+}
+.w_80 {
+    width: 80%;
+}
+.w_70 {
+    width: 70%;
+}
+.w_60 {
+    width: 60%;
+}
+.w_50 {
+    width: 50%;
+}
+.w_40 {
+    width: 40%;
+}
+.w_30 {
+    width: 30%;
+}
+.w_20 {
+    width: 20%;
+}
+.w_10 {
+    width: 10%;
+}
+//
+.mrg_b_50 {
+    margin-bottom: 50px;
+}
+.mrg_b_100 {
+    margin-bottom: 100px;
+}
+//
+.float_left {
+    float: left;
+}
+.float_right {
+    float: right;
+}
+
+
+
+
+/**/
+//
+.img_block,
+.text_block, {
+    box-sizing: border-box;
+}
+
+.public_paragraph {
+    box-sizing: border-box;
+    width: 100%;
+    overflow: hidden;
+    p {
+        line-height: 1.6;
+    }
+}
+.public_paragraph_sec {
+    box-sizing: border-box;
+    &.row_start {
+        align-items: flex-start;
+    }
+    &.row_end{
+        align-items: flex-end;
+    }
+}
+.public_paragraph_wrapblock {
+    .img_block {
+
+    }
+    .frame {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+
+
+/**/
+@media (max-width:1440px) {
+}
+@media (max-width:1366px) {
+}
+@media (max-width:1024px) {
+}
+@media (max-width:768px) {
+}
+@media (max-width:600px) {
+    .public_paragraph_sec {
+        padding: 0 20px;
+    }
+    .text_block {
+        padding: 0;
+    }
+}
+@media (max-width:320px) {
+}

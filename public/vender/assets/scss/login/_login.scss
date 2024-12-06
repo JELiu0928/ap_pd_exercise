@@ -1,0 +1,60 @@
+//login 登入畫面CSS
+
+.wddLoginMain {
+    display: flex;
+    align-items: center;
+}
+
+//
+.wddLoginMain {
+    .bg_sec {
+        width: calc(100% - 450px);
+    }
+    .bg_photo {
+        width: 100%;
+        height: 100vh;
+        background-position: center center;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+}
+
+//
+.wddLoginMain {
+    .login_sec {
+        box-sizing: border-box;
+        width: 100%;
+        height: 100vh;
+        max-width: 450px;
+        padding: 0 3%;
+        .input_box {
+            border-radius: 3px;
+            border: solid 1px #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+            display: flex;
+            flex-direction: column;
+        }
+        input {
+            border: none;
+        }
+    }
+}
+
+//
+.wddLoginMain {
+    .login_btn {
+        cursor: pointer;
+        color: #fff;
+        font-size: 1.25rem;
+        width: 120px;
+        height: 40px;
+        border: none;
+        border-radius: 3px;
+        background-color: #10cfbd;
+        letter-spacing: 1px;
+    }
+    .login_btn:hover {
+        background-color: rgba(16,207,189,0.8);
+    }
+}

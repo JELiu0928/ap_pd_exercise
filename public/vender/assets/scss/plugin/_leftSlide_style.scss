@@ -1,0 +1,139 @@
+/*
+
+* Override Pages default styles or create your own styles here
+
+*/
+
+
+
+/*============================================================
+                        左邊Slide
+============================================================*/
+.left-slide {
+    width: 250px;
+    left: -190px;
+    z-index: 10;
+    // transform: translate3d(190px, 0px, 0px) !important;
+}
+
+.left-slide .sidebar-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    padding: 20px 20px 60px 16px;
+    .brand{
+        width: 21px;
+        height: 23px;
+    }
+    h2 {
+        color: #fff;
+        font-family: "CenturyGothicBold";
+        font-size: 18px;
+        line-height: normal;
+        margin: 6px 0;
+        letter-spacing: 1px;
+        user-select: none;
+        writing-mode: vertical-lr;
+        transform: rotate(180deg) translateX(3px)
+    }
+}
+.left-slide .sidebar-menu {
+    .menu-items {
+        li.open {
+            a .title {
+                color: #fff;
+            }
+            a .icon {
+                color: #26d4b5;
+            }
+        }
+        li a {
+            width: 100%;
+            padding: 0 16px;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+        }
+        li a .icon {
+            width: 14px;
+            margin-right: 20px;
+            transform: translateX(225px);
+            &:before {
+                display: flex;
+                justify-content: center;
+            }
+        }
+        li a > .sidebar-icon{
+            font-size: 15px;
+            margin-top: -3px;
+            margin-right: 8px;
+            color: white;
+        }
+        li a .title {
+            width: 80%;
+            display: none;
+        }
+        li a .icon-arrow {
+            margin-left: auto;
+            display: none;
+            margin-top: -3px;
+        }
+        li a .icon-arrow:after {
+            display: inline-block;
+            font-size: 16px;
+            font-family: FontAwesome;
+            height: auto;
+            content: "\f105";
+            font-weight: 300;
+            text-shadow: none;
+            transition: all 0.12s ease;
+        }
+    }
+}
+
+
+body.sidebar-visible {
+    .left-slide .sidebar-header {
+        align-items: center;
+        padding: 38px 0 60px 0;
+        .brand{
+            width: 35px;
+            height: 40px;
+        }
+        h2 {
+            font-size: 24px;
+            writing-mode: horizontal-tb;
+            transform: none;
+        }
+    }
+    .left-slide .menu-items {
+        li.open {
+            a .icon {
+                color: #fff;
+            }
+        }
+        li a{
+            padding: 0 32px;
+            justify-content: flex-start;
+        }
+        li a > .sidebar-icon{
+            margin-right: 14px;
+            
+        }
+        li a .icon-arrow {
+            display: block;
+        }
+        li a .icon {
+            color: #fff;
+            transform: translateX(0px);
+        }
+        li a .title {
+            display: block;
+        }
+    }
+}
+/*============================================================
+                        左邊Slide(end)
+============================================================*/
