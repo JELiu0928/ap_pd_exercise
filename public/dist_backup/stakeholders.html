@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW" data-overlayscrollbars-initialize>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Safari 電話號碼判斷-->
+    <meta content="telephone=no" name="format-detection">
+    <title>Power Wind</title>
+    <link rel="shortcut icon" href="./assets/img/favicon.ico" type="image/x-icon">
+    <!-- Google font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700;800;900&amp;family=Roboto:wght@300;400;500;700;900&amp;display=swap">
+    <!-- 共用樣式-->
+    <link rel="stylesheet" href="./assets/fonts/icomoon/style.css">
+    <link rel="stylesheet" href="https://cdn.wdd.idv.tw/fesd/tab3.0/fesd.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- 個別頁面 CSS-->
+    <!-- 主頁面 CSS-->
+    <link rel="stylesheet" href="./css/pages/stakeholders.css">
+    <!-- 共用 JS-->
+    <script defer src="https://cdn.wdd.idv.tw/js/jquery-3.6.3.min.js"></script>
+    <script defer src="https://cdn.wdd.idv.tw/fesd/tab3.0/fesdDB.min.js"></script>
+    <script defer src="https://cdn.wdd.idv.tw/fesd/tab3.0/fesd.min.js"></script>
+    <script defer src="./js/global.min.js"></script>
+    <script defer src="./js/common.min.js"></script>
+    <!-- 個別頁面引用 JS-->
+    <!-- 主頁面 JS-->
+    <script defer src="./js/pages/stakeholders.min.js"></script>
+  </head>
+  <body class="stakeholders" data-overlayscrollbars-initialize>
+    <h1 class="visuallyhidden">Power Wind</h1>
+    <!-- 進場動畫-->
+    <div class="first-entry">
+      <div class="logo"> 
+        <div class="logo-icon">
+          <div class="left-box"> </div>
+          <div class="right-box"> </div>
+          <div class="logo-arrow"> <img src="./assets/img/logo_arrow.svg" alt=""></div>
+        </div>
+        <div class="logo-text"> <img src="./assets/img/logo_text.svg" alt=""></div>
+      </div>
+    </div>
+    <div class="main-wrapper">
+      <!-- 導覽列-->
+      <nav class="navbar" nav-color="" data-aost data-aost-fade data-aost-start="150" data-aost-delay="200">
+        <!-- 黑白兩色nav-->
+        <!-- 可供客戶自由選擇-->
+        <!-- nav-color="black" / nav-color="white"-->
+        <div class="container">
+          <div class="left"><a class="logo logo-white" href="./index.html"><img alt="LOGO" src="./assets/img/logo_white.png"></a><a class="logo logo-color" href="./index.html"><img alt="LOGO" src="./assets/img/logo.png"></a></div>
+          <div class="right"> 
+            <ul class="menu">
+              <li class="menu-li" data-hover-item><a href="./about.html">柏文集團</a>
+                <!-- 品牌 下拉選單結構-->
+                <!-- 企業永續 下拉選單結構-->
+                <!-- 投資人 下拉選單結構-->
+              </li>
+              <li class="menu-li" data-hover-item><a href="./brands.html">品牌介紹</a>
+                <!-- 品牌 下拉選單結構-->
+                <div class="hover-menu" cssType="brands">
+                  <div class="wrap"> 
+                    <div class="hover-menuLeft">
+                      <div class="text-wrap"> 
+                        <h3 class="sub">Diversified sports brands</h3>
+                        <h2 class="main">品牌介紹</h2>
+                      </div>
+                    </div>
+                    <div class="hover-menuRight">
+                      <div class="menu-decs"><img src="./assets/img/index/s2_dec_02.png" alt=""></div>
+                      <!-- 以下為重複結構 logo圖 150x120 + 錨點連結--><a class="brand-logo" href="./brands.html">
+                        <div class="picBox">
+                          <picture> <img src="./assets/img/brands/logo_01_180x145.png" alt=""></picture>
+                        </div></a><a class="brand-logo" href="./brands.html">
+                        <div class="picBox">
+                          <picture> <img src="./assets/img/brands/logo_02_180x145.png" alt=""></picture>
+                        </div></a><a class="brand-logo" href="./brands.html">
+                        <div class="picBox">
+                          <picture> <img src="./assets/img/brands/logo_03_180x145.png" alt=""></picture>
+                        </div></a><a class="brand-logo" href="./brands.html">
+                        <div class="picBox">
+                          <picture> <img src="./assets/img/brands/logo_04_180x145.png" alt=""></picture>
+                        </div></a><a class="brand-logo" href="./brands.html">
+                        <div class="picBox">
+                          <picture> <img src="./assets/img/brands/logo_05_180x145.png" alt=""></picture>
+                        </div></a><a class="brand-logo" href="./brands.html">
+                        <div class="picBox">
+                          <picture> <img src="./assets/img/brands/logo_06_180x145.png" alt=""></picture>
+                        </div></a>
+                    </div>
+                  </div>
+                </div>
+                <!-- 企業永續 下拉選單結構-->
+                <!-- 投資人 下拉選單結構-->
+              </li>
+              <li class="menu-li" data-hover-item><a href="./esg.html">企業永續</a>
+                <!-- 品牌 下拉選單結構-->
+                <!-- 企業永續 下拉選單結構-->
+                <div class="hover-menu" cssType="esg">
+                  <div class="wrap"> 
+                    <div class="hover-menuLeft">
+                      <div class="text-wrap"> 
+                        <h3 class="sub">Corporate Sustainability</h3>
+                        <h2 class="main">企業永續</h2>
+                      </div>
+                    </div>
+                    <div class="hover-menuRight">
+                      <div class="menu-decs">
+                        <picture> <img src="./assets/img/index/s2_dec_01.png" alt=""></picture>
+                      </div>
+                      <div class="cate"><a class="cate-title" href="./esg_list.html">企業社會責任</a>
+                        <ul> 
+                          <li><a href="">履行社會責任情形</a></li>
+                          <li><a href="">友善職場</a></li>
+                          <li><a href="">社會參與</a></li>
+                          <li><a href="">永續環境</a></li>
+                          <li><a href="">獲獎事蹟</a></li>
+                        </ul>
+                      </div>
+                      <div class="cate-group"> 
+                        <div class="cate"><a class="cate-title" href="./governance.html">公司治理</a></div>
+                        <div class="cate"><a class="cate-title" href="./integrity.html">誠信經營</a></div>
+                        <div class="cate"><a class="cate-title" href="./stakeholders.html">利害關係人</a></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- 投資人 下拉選單結構-->
+              </li>
+              <li class="menu-li" data-hover-item><a href="./investor.html">投資人專區</a>
+                <!-- 品牌 下拉選單結構-->
+                <!-- 企業永續 下拉選單結構-->
+                <!-- 投資人 下拉選單結構-->
+                <div class="hover-menu" cssType="investor">
+                  <div class="wrap"> 
+                    <div class="hover-menuLeft">
+                      <div class="text-wrap"> 
+                        <h3 class="sub">Investor</h3>
+                        <h2 class="main">投資人專區</h2>
+                        <p class="text">股票代號：<span>8462</span></p>
+                      </div>
+                    </div>
+                    <div class="hover-menuRight">
+                      <div class="menu-decs">
+                        <picture> <img src="./assets/img/index/s2_dec_01.png" alt=""></picture>
+                      </div>
+                      <div class="cate">
+                        <h2 class="cate-title" href="">財務資訊</h2>
+                        <ul> 
+                          <li><a href="">財務報告書</a></li>
+                          <li><a href="">月營收資訊</a></li>
+                          <li><a href="">財務資訊新聞稿</a></li>
+                        </ul>
+                      </div>
+                      <div class="cate">
+                        <h2 class="cate-title" href="">股務資訊</h2>
+                        <ul> 
+                          <li><a href="">股東結構</a></li>
+                          <li><a href="">主要股東名單</a></li>
+                          <li><a href="">股東會資訊</a></li>
+                          <li><a href="">股利資訊</a></li>
+                          <li><a href="">法人說明會</a></li>
+                          <li><a href="">重大訊息公告</a></li>
+                        </ul>
+                      </div>
+                      <div class="cate"><a class="cate-title" href="./investor.html">投資人服務窗口</a></div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="menu-li" data-hover-item><a href="./news.html">最新消息</a>
+                <!-- 品牌 下拉選單結構-->
+                <!-- 企業永續 下拉選單結構-->
+                <!-- 投資人 下拉選單結構-->
+              </li>
+              <li class="menu-li" data-hover-item><a href="javascript:;">加入柏文</a>
+                <!-- 品牌 下拉選單結構-->
+                <!-- 企業永續 下拉選單結構-->
+                <!-- 投資人 下拉選單結構-->
+              </li>
+            </ul>
+            <div class="header-icon">
+              <div class="icon language"><i class="icon-language"></i>
+                <!-- 語系-->
+                <ul class="language-wrap">
+                  <li class="active" lan="tw"><a href="javascript:;">繁</a></li>
+                  <li lan="en"><a href="javascript:;">英</a></li>
+                </ul>
+              </div><a class="icon" href="javascript:;" data-modal-target="search"><i class="icon-search"></i></a><a class="icon mail" href="./contact.html"><i class="icon-contact"></i></a><a class="hamburger" href="javascript:;" data-modal-target="menu">
+                <div class="icon-left"></div>
+                <div class="icon-right"></div></a>
+            </div>
+          </div>
+        </div>
+      </nav><a class="side-menu" href="javascript:;" data-modal-target="menu">
+        <div class="hamburger"> 
+          <div class="icon-left"></div>
+          <div class="icon-right"></div>
+        </div>
+        <div class="menu-box"> 
+          <p>MENU</p>
+        </div></a>
+      <!-- 側邊選單燈箱-->
+      <modern-modal data-modal-id="menu">
+        <!-- 上方固定-->
+        <div class="menu-top">
+          <div class="top-group">
+            <div class="left"><a class="logo picBox" href="./index.html">
+                <picture> <img alt="LOGO" src="./assets/img/logo.png"></picture></a></div>
+            <div class="right">
+              <div class="header-icon">
+                <div class="icon language"><i class="icon-language"></i>
+                  <ul class="language-wrap">
+                    <li class="active" lan="tw"><a href="javascript:;">繁</a></li>
+                    <li lan="en"><a href="javascript:;">英</a></li>
+                  </ul>
+                </div><a class="icon" href="javascript:;" data-modal-target="search" data-modal-close><i class="icon-search"></i></a>
+              </div>
+              <div class="close-button" data-modal-close></div>
+            </div>
+          </div>
+        </div>
+        <div class="menu-container">
+          <div class="m-right">
+            <div class="data-group">
+              <div class="flex-group">
+                <div class="menu-all-wrap">
+                  <!-- 以下為 投資人、集團、ESG、最新消息 重複結構-->
+                  <div class="menu-box" unit-name="投資人專區">
+                    <div class="m-title"> 
+                      <p>投資人專區</p>
+                      <div class="m-btn-collapse">
+                        <div class="icon-more"></div>
+                      </div>
+                    </div>
+                    <div class="m-details">
+                      <ul>
+                        <li><a href="./investor.html">
+                            <p>總覽</p></a></li>
+                        <li><a href="./investor.html">
+                            <p>財務資訊</p></a></li>
+                        <li><a href="./investor.html">
+                            <p>股務資訊</p></a></li>
+                        <li><a href="./investor.html">
+                            <p>投資人服務窗口</p></a></li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="menu-box" unit-name="柏文集團">
+                    <div class="m-title"> 
+                      <p>柏文集團</p>
+                      <div class="m-btn-collapse">
+                        <div class="icon-more"></div>
+                      </div>
+                    </div>
+                    <div class="m-details">
+                      <ul>
+                        <li><a href="./about.html">
+                            <p>品牌理念</p></a></li>
+                        <li><a href="./about.html">
+                            <p>品牌殊榮</p></a></li>
+                        <li><a href="./about.html">
+                            <p>企業文化</p></a></li>
+                        <li><a href="./about.html">
+                            <p>集團歷程</p></a></li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="menu-box" unit-name="企業永續">
+                    <div class="m-title"> 
+                      <p>企業永續</p>
+                      <div class="m-btn-collapse">
+                        <div class="icon-more"></div>
+                      </div>
+                    </div>
+                    <div class="m-details">
+                      <ul>
+                        <li><a href="./esg.html">
+                            <p>總覽</p></a></li>
+                        <li><a href="./esg.html">
+                            <p>公司治理</p></a></li>
+                        <li><a href="./esg.html">
+                            <p>企業社會責任</p></a></li>
+                        <li><a href="./esg.html">
+                            <p>誠信經營</p></a></li>
+                        <li><a href="./esg.html">
+                            <p>利害關係人</p></a></li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="menu-box" unit-name="最新消息">
+                    <div class="m-title"> 
+                      <p>最新消息</p>
+                      <div class="m-btn-collapse">
+                        <div class="icon-more"></div>
+                      </div>
+                    </div>
+                    <div class="m-details">
+                      <ul>
+                        <li><a href="./news.html">
+                            <p>消息總覽</p></a></li>
+                        <li><a href="./news.html">
+                            <p>媒體報導</p></a></li>
+                        <li><a href="./news.html">
+                            <p>公益活動</p></a></li>
+                        <li><a href="./news.html">
+                            <p>品牌訊息</p></a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="menu-all-wrap">
+                  <!-- 以下為 品牌資料結構-->
+                  <div class="menu-box" unit-name="品牌介紹">
+                    <div class="m-title"> 
+                      <p>品牌介紹</p>
+                      <div class="m-btn-collapse">
+                        <div class="icon-more"></div>
+                      </div>
+                    </div>
+                    <div class="m-details">
+                      <ul>
+                        <li><a href="./brands.html">
+                            <p>Let's Roll</p></a></li>
+                        <li><a href="./brands.html">
+                            <p>CraZy Jump 肖跳</p></a></li>
+                        <li><a href="./brands.html">
+                            <p>KILL ZONE 鐳射戰場</p></a></li>
+                        <li><a href="./brands.html">
+                            <p>兒童體適能俱樂部</p></a></li>
+                        <li><a href="./brands.html">
+                            <p>人體工房</p></a></li>
+                        <li><a href="./brands.html">
+                            <p>fitness factory 健身工廠</p></a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="menu-bottom"> 
+                <!-- 社群按鈕  連結自定 無資料移除按鈕結構-->
+                <ul class="sns-icon"> 
+                  <li> <a class="icon-linkedin" href="javascript:;" target="_blank"></a></li>
+                  <li> <a class="icon-youtube" href="javascript:;" target="_blank"> </a></li>
+                  <li> <a class="icon-ig-square" href="javascript:;" target="_blank"></a></li>
+                  <li><a class="icon-line" href="javascript:;" target="_blank"></a></li>
+                  <li> <a class="icon-fb-square" href="javascript:;" target="_blank"></a></li>
+                </ul>
+                <ul class="center">
+                  <li> <a href="./contact.html">聯絡我們</a></li>
+                  <li> <a href="javascript:;" data-modal-target="privacy" data-modal-close>隱私權政策</a></li>
+                  <!-- 自定連結-->
+                  <li> <a href="javascript:;">加入柏文</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="m-left">
+            <div class="decs-menu dec-one">
+              <div class="dec-inner">
+                <picture> <img class="lazy" data-src="./assets/img/menu_dec_09.png" alt="alt"></picture>
+              </div>
+            </div>
+            <div class="menu-img">
+              <!-- 選單互動大圖 580 x 700-->
+              <!-- 預設一張(必填)img-name='default' + 主單元各一張 img-name='抓unit-name' (選填，不上圖的話img-name='default')， 共六張 -->
+              <div class="picBox"> 
+                <picture> <img class="lazy" data-src="./assets/img/other/menu_img_580x700_00.jpg" alt="" img-name="default"><img class="lazy" data-src="./assets/img/other/menu_img_580x700_01.jpg" alt="" img-name="投資人專區"><img class="lazy" data-src="./assets/img/other/menu_img_580x700_02.jpg" alt="" img-name="柏文集團"><img class="lazy" data-src="./assets/img/other/menu_img_580x700_03.jpg" alt="" img-name="企業永續"><img class="lazy" data-src="./assets/img/other/menu_img_580x700_04.jpg" alt="" img-name="最新消息"><img class="lazy" data-src="./assets/img/other/menu_img_580x700_05.jpg" alt="" img-name="品牌介紹">
+                </picture>
+              </div>
+            </div>
+          </div>
+        </div>
+      </modern-modal>
+      <!-- 隱私權政策燈箱 不開放後台編輯-->
+      <modern-modal data-modal-id="privacy" data-modal-animate="fade-up">
+        <div class="inner-text">
+          <div class="tag inner-unit-tag"> 
+            <p>PRIVACY POLICY</p>
+          </div>
+          <div class="title inner-unit-sub"> 
+            <p>隱私權政策</p>
+          </div>
+          <div class="des wt-content"> 
+            <p>柏文健康事業股份有限公司(以下簡稱「柏文」)非常重視會員的隱私權且遵循「個人資料保護法」之規定，因此制訂了隱私權保護政策，您可參考下列隱私權保護政策的內容。</p>
+          </div>
+        </div>
+        <div class="data-block">
+          <div class="block"> 
+            <div class="wrap item-sub-S"> 
+              <p>個人資料之安全</p>
+            </div>
+            <div class="contentbox">
+              <div class="content wt-content"> 
+                <p><span>保護會員的個人隱私柏文重要的經營理念，在未經會員同意之下，我們絕不會將會員的個人資料提供予任何與柏文服務無關之第三人。</span></p>
+              </div>
+            </div>
+          </div>
+          <div class="block"> 
+            <div class="wrap item-sub-S"> 
+              <p>個人資料的蒐集、處理、利用</p>
+            </div>
+            <div class="contentbox">
+              <div class="content wt-content"> 
+                <p><span>為配合政府「個人資料保護法」(下稱「個資法」)的實施，柏文僅將您個人資料的使用維護事項聲明如下：</span><br>(1) 柏文基於契約履行事項、行政管理、資訊提供及分析，及其他合於柏文營業活動所需之特定目的內，蒐集您的個人資料(資料類別請參照法務部公告「個人資料保護法之特定目的及個人資料之類別」代號C001、C002、C003、C011等 (包括姓名、身分證字號、出生日期、通訊地址、聯絡方式等之個人資料)。<br>(2) 柏文就您的個人資料僅在上開特定目的內，於台灣地區，供柏文及其子公司以合法合理方式利用，並以完成上開特定目的或柏文執行業務所必須之期間為個人資料利用期間。<br>(3) 您得選擇是否提供上開個人資料予柏文；然而，當您提供之個人資料未臻完備時，將可能影響前述特定目的之遂行，亦影響您後續相關權益。<br>(4) 您並同意以電子文件作為表示個人資料保護法令或其他法令所規定書面同意之方法。</p>
+              </div>
+            </div>
+          </div>
+          <div class="block"> 
+            <div class="wrap item-sub-S"> 
+              <p>個人資料保護政策</p>
+            </div>
+            <div class="contentbox">
+              <div class="content wt-content"> 
+                <p><span>我們將盡力以合理合法之技術及保護程序，保障您的個人資料。同時，柏文分別就組織管理、環境管理及作業管理上作周全管理，營造充分保障個資安全的服務環境，以杜絕您個人資料外流的疑慮：</span><br>(1) 組織管理：柏文內部設立個人資料保護管理小組，並建立「個人資料保護之管理」作業辦法，規劃個資蒐集處理及利用程序，設置應變程序及當事人行使權利之聯絡窗口，且落實員工個資教育訓練以及相關獎懲制度，以有效執行個人資料保護管理政策。<br>(2) 環境管理：依據作業內容性質，實施必要之門禁管理。就個資的儲存媒體妥善保管並建置相應的防災設備。<br>(3) 作業管理：界定個人資料範圍，定期清查公司個資檔案並建立清冊，於作業電腦相關設備上設定認證機制、紀錄機制及警示機制，並定期測試前揭機制的有效性及穩定性，同時對外妥善監督受託機關。對於任何可能侵害您權益的措施，柏文於知悉後必立即改進，並隨時歡迎各界指正。 您如就個人資料有任何諮詢需求，歡迎隨時洽柏文各厰館櫃檯或線上客服中心留下您寶貴的訊息，我們將有專人為您服務。</p>
+              </div>
+            </div>
+          </div>
+          <div class="block"> 
+            <div class="wrap item-sub-S"> 
+              <p>個人資料查詢或更正的方式</p>
+            </div>
+            <div class="contentbox">
+              <div class="content wt-content"> 
+                <p><span>個人資料之當事人權利得透過電話向柏文各廠館櫃檯或線上客服中心、官方APP或電子信箱(member@mail.fitnessfactory.tw)進行個人資料查詢閱覽、製給複製本，並補充或更正，或請求柏文停止蒐集、處理、利用或刪除您的個人資料，或停止寄發資料或資訊。</span></p>
+              </div>
+            </div>
+          </div>
+          <div class="block"> 
+            <div class="wrap item-sub-S"> 
+              <p>個人資料保存期限</p>
+            </div>
+            <div class="contentbox">
+              <div class="content wt-content"> 
+                <p><span>除法律上要求或允許保留較長期間者外，本公司將於達成此隱私權政策所定目的之所需期間內保留您的個人資訊。</span></p>
+              </div>
+            </div>
+          </div>
+          <div class="block"> 
+            <div class="wrap item-sub-S"> 
+              <p>Cookie</p>
+            </div>
+            <div class="contentbox">
+              <div class="content wt-content"> 
+                <p><span>為了便利會員使用，柏文網站會使用cookie技術，以便於提供會員所需要的服務；cookie是網站伺服器用來和會員瀏覽器進行溝通的一種技術，它可能在會員的電腦中隨機儲存字串，用以辨識區別使用者，若會員關閉cookie有可能導致無法順利登入網站或無法使用購物車等狀況。</span></p>
+              </div>
+            </div>
+          </div>
+          <div class="block"> 
+            <div class="wrap item-sub-S"> 
+              <p>隱私權保護政策修訂</p>
+            </div>
+            <div class="contentbox">
+              <div class="content wt-content"> 
+                <p><span>隨著市場環境的改變柏文將會不定時修訂隠私權政策，以因應會員服務與相關法律規範之變更。您可以隨時透過應用程式及柏文司官網查看我們的隱私權政策。如您繼續使用本服務，將視為您已同意柏文對於隱私權政策之修改。</span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="top-btn" data-anchor-target data-anchor-container="[data-modal-id=&quot;privacy&quot;] [data-overlayscrollbars-viewport]">
+          <div class="icon-scroll-down"></div>
+          <p>TOP</p>
+        </div><a class="close-button" href="javascript:;" data-modal-close></a>
+      </modern-modal>
+      <!-- 主要內容-->
+      <main>
+        <!--文字 黑或白 data-color='light'/'dark'-->
+        <div class="page-banner innerPage" data-color="light">
+          <div class="banner-main">
+            <!-- 圖片三張 電腦1920x500 平板1024x420 手機500x560-->
+            <div class="picBox">
+              <picture> 
+                <source media="(min-width: 1025px)" srcset="./assets/img/stakeholders/banner_pc_1920x500.jpg">
+                <source media="(min-width: 576px)" srcset="./assets/img/stakeholders/banner_ta_1024x420.jpg"><img src="./assets/img/stakeholders/banner_mb_500x560.jpg" alt="" loading="lazy">
+              </picture>
+            </div>
+            <div class="banner-content" data-aost data-aost-fade-up> 
+              <div class="content-box">
+                <div class="tag inner-unit-tag">
+                  <p>Stakeholders</p>
+                </div>
+                <div class="page-title inner-unit-sub">
+                  <h2>利害關係人</h2>
+                </div>
+                <div class="page-sub wt-content">
+                  <h3>與利害關係人建立透明且有效的溝通管道，藉由即時了解及回應利害關係人所關切的議題</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="common-bread" data-aost data-aost-clip-left>
+            <div class="bread-L">
+              <ul class="breadcrumb"> <a class="icon-bread_home" href="./index.html"></a>
+                <li class="bread-item"> <a href="././esg.html"> <span>企業永續</span></a></li>
+                <li class="bread-item"><span>利害關係人</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <section class="main">
+          <div class="section">
+            <div class="container">
+              <div class="block-wrap">
+                <div class="block">
+                  <div class="blk-title" data-aost data-aost-fade-up>
+                    <div class="ch">利害關係人之類別及其關注議題、溝通管道與回應方式</div>
+                    <p class="paragraph-text">本公司員工薪酬包含按月發給之薪資、績效獎金及年終獎金。薪資主要依據市場薪資行情、公司營運及總體經濟狀況，並考量公司競爭力、內部公平及合法性等制訂具競爭力之薪資制度。績效獎金係依據公司經營績效，並考核員工個人績效表現予以發放，以獎勵其貢獻，並激勵員工繼續努力。年終獎金則依據公司年度獲利狀況發放。<br>此外，員工均由本公司依法令規定辦理勞工保險及全民健康保險，並依相關法令享有保險給付權利。對於同仁生育、傷病、殘廢、老年、死亡等之給付，亦由本公司依「勞工保險條例」、「全民健康保險法」辦理轉請勞保局及健保局給付。<br>為辦理員工福利事項，本公司依「職工福利金條例」規定提撥福利金。本公司依據相關法令規定，設有職工福利委員會，以推行各項福利措施，如員工旅遊、生日禮金等，另有福利補助金之申請，如婚喪喜慶、生育補助等。此外，提供員工投保團體意外保險之補貼等措施，以使員工有更高的生活品質與工作保障。</p>
+                  </div>
+                            <div class="table-wrap">
+                              <div class="thead">
+                                <div class="tr mobile" data-aost data-aost-fade-up>
+                                  <div class="th">利害關係人資訊</div>
+                                </div>
+                                <div class="tr" data-aost data-aost-fade-up>
+                                  <div class="th">類別</div>
+                                  <div class="th">關注議題</div>
+                                  <div class="th">溝通管道、回應方式及頻率</div>
+                                  <div class="th">聯絡窗口資訊</div>
+                                </div>
+                              </div>
+                              <div class="tbody">
+                                <div class="tr" data-aost data-aost-fade-up>
+                                  <div class="collapse-header">
+                                    <div class="td" data-th="類別">
+                                      <div class="text">政府與主管機關</div>
+                                    </div>
+                                    <div class="collapse-btn">
+                                      <div class="icon"></div>
+                                    </div>
+                                  </div>
+                                  <div class="collapse-content">
+                                    <div class="td-group">
+                                      <div class="td" data-th="關注議題"><ul class="table-list"><li>法規遵循</li><li>公司治理</li><li>風險管理</li><li>主管機關溝通</li></ul></div>
+                                      <div class="td" data-th="溝通管道、回應方式及頻率"><ul class="table-list"><li>設置聯絡窗口，與主管機關維持良好互動。</li><li>不定期參與主管機關之法規宣導會或座談會。</li><li>主管機管政令宣達函文。</li><li>配合主管機關之監理及查核。</li></ul></div>
+                                      <div class="td" data-th="聯絡窗口資訊"><ul><li>發言人</li><li><i class="icon-title"></i><p>繆尚志 財務長</p></li><li><i class="icon-email"></i><a class="nocg" href="mailto:finance@pwind.com.tw">finance@pwind.com.tw</a></li></ul></div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="tr" data-aost data-aost-fade-up>
+                                  <div class="collapse-header">
+                                    <div class="td" data-th="類別">
+                                      <div class="text">員工</div>
+                                    </div>
+                                    <div class="collapse-btn">
+                                      <div class="icon"></div>
+                                    </div>
+                                  </div>
+                                  <div class="collapse-content">
+                                    <div class="td-group">
+                                      <div class="td" data-th="關注議題"><ul class="table-list"><li>員工薪酬與福利</li><li>員工考核機制</li><li>人才培育及發展</li><li>身心健康及工作環境安全</li><li>勞資關係</li><li>營運績效</li><li>企業形象</li></ul></div>
+                                      <div class="td" data-th="溝通管道、回應方式及頻率"><ul class="table-list"><li>設置聯絡窗口，並透過專人信箱收集員工意見反應及申訴。</li><li>公司內部網路平台不定期公告各項員工福利事項。</li><li>成立職工福利委員會，提供員工各項補助、贊助員工社團活動、每年提供並補助國內外旅遊。</li><li>每季辦理一次績效考核作業，每半年執行一次員工自我評估報告。</li><li>公司內部網路平台每月公告人事晉升及獎懲。</li><li>公司內部網路平台不定期公告內部教育訓練課程，並規定員工每年度應完成之學分數。</li><li>不定期提供外部教育訓練課程資訊。</li><li>每年免費提供員工檢康檢查及諮詢。</li><li>成立職業安全衛生委員會，至少每三個月開會一次。</li><li>每季召開一次勞資會議。</li><li>公司內部網路平台不定期公告重要營運訊息。</li></ul></div>
+                                      <div class="td" data-th="聯絡窗口資訊"><ul><li>總管理處</li><li><i class="icon-title"></i><p>龔秀玲 副總經理</p></li><li><i class="icon-email"></i><a class="nocg" href="mailto:anniekung@pwind.com.tw">anniekung@pwind.com.tw</a></li></ul></div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="tr" data-aost data-aost-fade-up>
+                                  <div class="collapse-header">
+                                    <div class="td" data-th="類別">
+                                      <div class="text">供應商</div>
+                                    </div>
+                                    <div class="collapse-btn">
+                                      <div class="icon"></div>
+                                    </div>
+                                  </div>
+                                  <div class="collapse-content">
+                                    <div class="td-group">
+                                      <div class="td" data-th="關注議題"><ul class="table-list"><li>供應商管理</li><li>法規遵循</li><li>企業形象</li></ul></div>
+                                      <div class="td" data-th="溝通管道、回應方式及頻率"><ul class="table-list"><li>設置聯絡窗口，並透過專人信箱收集供應商意見反應及申訴。</li><li>與供應商簽立合約，明訂相關規範。</li><li>每年執行一次供應商評鑑。</li></ul></div>
+                                      <div class="td" data-th="聯絡窗口資訊"><ul><li>總管理處</li><li><i class="icon-title"></i><p>龔秀玲 副總經理</p></li><li><i class="icon-email"></i><a class="nocg" href="mailto:anniekung@pwind.com.tw">anniekung@pwind.com.tw</a></li></ul></div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="tr" data-aost data-aost-fade-up>
+                                  <div class="collapse-header">
+                                    <div class="td" data-th="類別">
+                                      <div class="text">會員/顧客</div>
+                                    </div>
+                                    <div class="collapse-btn">
+                                      <div class="icon"></div>
+                                    </div>
+                                  </div>
+                                  <div class="collapse-content">
+                                    <div class="td-group">
+                                      <div class="td" data-th="關注議題"><ul class="table-list"><li>會員權益</li><li>服務/產品品質</li><li>資訊安全</li><li>法規遵循</li><li>災害與意外事故之預防及緊急應變措施</li></ul></div>
+                                      <div class="td" data-th="溝通管道、回應方式及頻率"><ul class="table-list"><li>設置會服專員，由專人立即回覆及處理相關申訴電話，透過專人信箱收集顧客/會員意見反應及申訴，以保障消費者權益。</li><li>不定期更新公告及宣傳資訊之管道：官網、Facebook社群網站、廣宣稿及廣告看板。</li><li>每月執行顧客/會員滿意度調查。</li></ul></div>
+                                      <div class="td" data-th="聯絡窗口資訊"><ul><li>營運處</li><li><i class="icon-title"></i><p>陳瑞杰 副總經理</p></li><li><i class="icon-email"></i><a class="nocg" href="mailto:service@pwind.com.tw">service@pwind.com.tw</a></li></ul></div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="tr" data-aost data-aost-fade-up>
+                                  <div class="collapse-header">
+                                    <div class="td" data-th="類別">
+                                      <div class="text">投資人</div>
+                                    </div>
+                                    <div class="collapse-btn">
+                                      <div class="icon"></div>
+                                    </div>
+                                  </div>
+                                  <div class="collapse-content">
+                                    <div class="td-group">
+                                      <div class="td" data-th="關注議題"><ul class="table-list"><li>營運績效及財務資訊</li><li>股東權益</li><li>公司治理</li><li>永續發展策略</li><li>風險管理</li><li>法規遵循</li><li>企業形象</li></ul></div>
+                                      <div class="td" data-th="溝通管道、回應方式及頻率"><ul class="table-list"><li>設置股務暨投資人關係聯絡窗口、發言人及代理發言人，提供雙向溝通之管道。</li><li>依法規辦理定期及不定期資訊申報事項，以利投資人於公開資訊觀測站查詢。</li><li>不定期更新公司網站投資人專區之揭露資訊</li></ul></div>
+                                      <div class="td" data-th="聯絡窗口資訊"><ul><li>發言人</li><li><i class="icon-title"></i><p>繆尚志 財務長</p></li><li><i class="icon-email"></i><a class="nocg" href="mailto:finance@pwind.com.tw">finance@pwind.com.tw</a></li></ul></div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="tr" data-aost data-aost-fade-up>
+                                  <div class="collapse-header">
+                                    <div class="td" data-th="類別">
+                                      <div class="text">媒體</div>
+                                    </div>
+                                    <div class="collapse-btn">
+                                      <div class="icon"></div>
+                                    </div>
+                                  </div>
+                                  <div class="collapse-content">
+                                    <div class="td-group">
+                                      <div class="td" data-th="關注議題"><ul class="table-list"><li>企業形象</li><li>營運策略</li><li>營運績效及財務資訊</li><li>服務/產品品質</li><li>股東權益</li><li>員工薪酬與福利</li></ul></div>
+                                      <div class="td" data-th="溝通管道、回應方式及頻率"><ul class="table-list"><li>設置股務暨投資人關係聯絡窗口、發言人及代理發言人，提供雙向溝通之管道。</li><li>依法規辦理定期及不定期資訊申報事項，以利投資人於公開資訊觀測站查詢。</li><li>不定期更新公司網站資訊。</li><li>定期發布財務資訊新聞稿：月營收新聞稿（每月一次）、財報新聞稿（每季一次）。</li></ul></div>
+                                      <div class="td" data-th="聯絡窗口資訊"><ul><li>發言人</li><li><i class="icon-title"></i><p>繆尚志 財務長</p></li><li><i class="icon-email"></i><a class="nocg" href="mailto:finance@pwind.com.tw">finance@pwind.com.tw</a></li></ul></div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="tr" data-aost data-aost-fade-up>
+                                  <div class="collapse-header">
+                                    <div class="td" data-th="類別">
+                                      <div class="text">社區居民及社會團體</div>
+                                    </div>
+                                    <div class="collapse-btn">
+                                      <div class="icon"></div>
+                                    </div>
+                                  </div>
+                                  <div class="collapse-content">
+                                    <div class="td-group">
+                                      <div class="td" data-th="關注議題"><ul class="table-list"><li>企業形象</li><li>社區參與</li><li>社會公益</li><li>產學合作</li></ul></div>
+                                      <div class="td" data-th="溝通管道、回應方式及頻率"><ul class="table-list"><li>行銷部為本公司落實社會公益及體育贊助項目之窗口，每年收集弱勢團體及體育選手等單位之贊助或捐贈等活動資訊。</li><li>每年執行社會公益及體育贊助項目。</li><li>每年提供產學合作機會。</li></ul></div>
+                                      <div class="td" data-th="聯絡窗口資訊"><ul><li>代理發言人</li><li><i class="icon-title"></i><p>公共關係事務部 吳幸樺經理</p></li><li><i class="icon-email"></i><a class="nocg" href="mailto:mkt@pwind.com.tw">mkt@pwind.com.tw</a></li></ul></div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <!--超過 10 個檔案才要出現頁碼-->
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="section">
+            <div class="container">
+              <div class="block-wrap">
+                <div class="block">
+                  <div class="blk-title" data-aost data-aost-fade-up>
+                    <div class="ch">供應鏈管理政策(隱藏)</div>
+                    <p class="paragraph-text">本公司與供應商長期合作且關係良好，並致力於採購管理及供應商管理。本公司要求供應商應遵守誠信經營原則及符合政府相關法令規範，且在環保、職業安全衛生或勞動人權等議題應共同遵循相關法規，共同建立穩定且優良之供應鏈，並共同善盡企業社會責任。<br>為確保供應商提供之原(物)料、零組件、商品等供貨來源及品質穩定，且符合標準化及規格化，並避免因不良品之發生及交貨時無謂之爭執與糾紛，本公司訂定供應商管理辦法，據以作為選擇供應商及規範供應商之參考，以建立健全之供應鏈，提升企業競爭力，達永續經營之目的。<br>此外，為確保交易雙方之公平交易往來，供應商與本公司簽訂合約時應出具反賄切結書。供應商如有違反本公司清廉交易政策、涉及違反合約內容或政府相關規範時，本公司得要求供應商給付違反清廉交易政策之懲罰性違約金及負損害賠償責任，並得立即解除或終止合約關係。</p>
+                  </div>
+                  <ul class="list-text">
+                    <li data-aost data-aost-fade-up>
+                      <div class="title">供應商管理範圍</div>
+                      <!-- 開文字編輯器-->
+                      <div class="text-editor paragraph-text"><p>包含各類採購（如物料、商品、工程類、資訊類、器材設備類、庶務及雜項等）及設計發包之供應商。</p></div>
+                    </li>
+                    <li data-aost data-aost-fade-up>
+                      <div class="title">供應商遴選及評估作業</div>
+                      <!-- 開文字編輯器-->
+                      <!-- 可上圖-->
+                      <div class="f-panzoom img-panzoom">
+                        <div class="zoom-toggle-btn"><i class="icon-zoom"></i></div>
+                        <div class="f-panzoom__viewport"><img class="f-panzoom__content lazy" data-src="./assets/img/stakeholders/paragraph-img01.jpg" alt=""></div>
+                      </div>
+                    </li>
+                    <li data-aost data-aost-fade-up>
+                      <div class="title">供應商評鑑作業</div>
+                      <!-- 開文字編輯器-->
+                      <div class="text-editor paragraph-text"><p>供應商評鑑作業主要分為二階段，第一階段為需求單位驗收時，需求單位依據每次交易之實際狀況，針對該供應商之交貨時間是否準時、交貨數量是否符合需求、產品或工程之品質是否符合要求、換貨或危機處理之時效性是否符合要求，以及整體服務之品質、態度及專業之表現等予以評分；第二階段為每年底執行年度評鑑時，由採購部執行之，評核之項目包含配合度、技術能力、產品之品質、服務之品質、價格合理性、產品是否取得相關認證/驗證、供應商是否取得相關認證/驗證（含環保、安全及衛生等相關證明）及其他等予以評分。評鑑方式採系統化之書面評核，評分結果分為「良好／中等／劣」三個等級，評鑑結果為「良好」者將持續保持合作關係，評鑑結果為「中等」者將續留其合格供應商資格並協助其成為優良供應商，評鑑結果為「劣」者則取消合格供應商資格且於次年度供應商名單淘汰之，另積極開發及培新供應商。</p></div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+      <!-- cookies-->
+      <!-- cookie 不開放後台編輯-->
+      <div class="cookie-block">
+        <div class="cookie-mask"></div>
+        <div class="cookie-main">
+          <div class="decs-cookie">
+            <div class="dec-inner">
+              <picture> <img class="lazy" data-src="./assets/img/menu_dec_10.png" alt="alt"></picture>
+            </div>
+          </div>
+          <div class="cookie-container"> 
+            <div class="deco-title">
+              <div class="main">
+                <p>COOKIE<span>宣告</span></p>
+              </div>
+              <div class="dot"> </div>
+              <div class="line"></div>
+            </div>
+            <div class="flex-group">
+              <div class="inner-text">
+                <div class="text">
+                  <p>關於本網站使用瀏覽器紀錄 Cookie 來提供您最好的使用體驗，我們使用的 Cookie 也包括了第三方 Cookie。相關資訊請訪問我們的隱私權與 Cookie 政策。如果您選擇繼續瀏覽或關閉這個提示，便表示您已接受我們的網站使用條款。</p>
+                </div>
+              </div>
+              <div class="btn-group"><a class="common-btn disagree" href="javascript:;" btn-color="gray"><span>拒絕接受</span>
+                  <div class="dot"></div>
+                  <div class="btn-line"> </div></a><a class="common-btn accept" href="javascript:;" btn-color="brown"><span>我知道了</span>
+                  <div class="dot"></div>
+                  <div class="btn-line"> </div></a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 頁腳-->
+      <footer data-aost data-aost-fade-up data-aost-start="100">
+        <div class="footer-container"> 
+          <div class="left"> 
+            <ul class="top">
+              <li> <a href="./about.html">
+                  <p class="en">About us</p>
+                  <p class="ch">柏文集團</p></a></li>
+              <li> <a href="./brands.html">
+                  <p class="en">Brands</p>
+                  <p class="ch">品牌介紹</p></a></li>
+              <li> <a href="./esg.html"> 
+                  <p class="en">ESG</p>
+                  <p class="ch">企業永續</p></a></li>
+              <li> <a href="./investor.html">
+                  <p class="en">investor</p>
+                  <p class="ch">投資人專區</p></a></li>
+              <li> <a href="./news.html">
+                  <p class="en">news center</p>
+                  <p class="ch">最新消息</p></a></li>
+              <li> <a href="javascript:;">
+                  <p class="en">Career</p>
+                  <p class="ch">加入柏文</p></a></li>
+            </ul>
+            <ul class="center">
+              <li> <a href="./contact.html">聯絡我們</a></li>
+              <li> <a href="javascript:;" data-modal-target="privacy">隱私權政策</a></li>
+            </ul>
+            <div class="bottom">
+              <div class="bottom-left"> 
+                <ul class="sns-icon"> 
+                  <li> <a class="icon-linkedin" href="javascript:;" target="_blank"></a></li>
+                  <li> <a class="icon-youtube" href="javascript:;" target="_blank"> </a></li>
+                  <li> <a class="icon-ig-square" href="javascript:;" target="_blank"></a></li>
+                  <li><a class="icon-line" href="javascript:;" target="_blank"></a></li>
+                  <li> <a class="icon-fb-square" href="javascript:;" target="_blank"></a></li>
+                </ul>
+              </div>
+              <div class="bottom-right"> 
+                <div class="copyright">
+                  <p>powerwind. all rights reserved.Design by wdd.</p>
+                </div>
+                <div class="top-btn" data-anchor-target=""><img src="./assets/img/scroll_up.svg" alt="">
+                  <p>TOP</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="right"><a class="footer-logo" href="./index.html"><img alt="LOGO" src="./assets/img/footer_logo_ce.png"></a></div>
+        </div>
+      </footer>
+      <!-- 搜尋燈箱-->
+      <!-- 搜尋燈箱-->
+      <modern-modal class="search-block" data-modal-id="search">
+        <div class="search-decs">
+          <div class="dec-inner">
+            <picture> <img class="lazy" data-src="./assets/img/other/search02.png" alt="alt"></picture>
+          </div>
+        </div>
+        <div class="search-decs dec-two">
+          <div class="dec-inner">
+            <picture> <img class="lazy" data-src="./assets/img/other/search01.png" alt="alt"></picture>
+          </div>
+        </div>
+        <div class="inner-group">
+          <div class="inner-text">
+            <div class="tag item-tit">
+              <p>Search</p>
+            </div>
+            <div class="title">
+              <p>全站搜尋</p>
+            </div>
+            <div class="des wt-content"> 
+              <p>我們提供最新消息、品牌介紹的進階搜尋功能，<br>您可以輸入關鍵字進行查找。</p>
+            </div>
+          </div>
+          <!-- 搜尋切換選單+查詢輸入欄位-->
+          <div class="data-block">
+            <div class="block-category">
+              <multipurpose-nav m4-type="collapse" m4-status="news" m4-option="{&quot;drag&quot;:{&quot;selected&quot;:true},&quot;collapse&quot;:{&quot;selected&quot;:true,&quot;placeholder&quot;:&quot;選擇子單元&quot;},&quot;dropdown&quot;:{&quot;value&quot;:&quot;all&quot;}}">
+                <div class="item" data-option="news">
+                  <div class="category">
+                    <p>最新消息</p>
+                  </div>
+                </div>
+                <div class="item" data-option="brands">
+                  <div class="category">
+                    <p>品牌介紹</p>
+                  </div>
+                </div>
+              </multipurpose-nav>
+            </div>
+            <div class="search-bar"> 
+              <div class="input-wrap">
+                <div class="s-delete">
+                  <div class="icon-plus"></div>
+                </div>
+                <input type="text" placeholder="輸入關鍵字......">
+              </div>
+              <!-- 搜尋網址後加上?result-block 可滑動到搜尋結果顯示區--><a class="s-search" href="./search_result.html?result-block">
+                <div class="icon-search"> </div></a>
+            </div>
+          </div>
+          <!-- 查詢關鍵字為共用 後台設定一次即可～-->
+          <div class="search-keyword">
+            <div class="info"> 
+              <div class="info-L">推薦查詢</div>
+              <div class="info-R">Quick Search</div>
+            </div>
+            <ul class="tag-box">
+              <li class="item">
+                <div class="deco"></div>
+                <p>KILL ZONE</p>
+              </li>
+              <li class="item">
+                <div class="deco"></div>
+                <p>Fitness Factory 健身工廠</p>
+              </li>
+              <li class="item">
+                <div class="deco"></div>
+                <p>2023 火熱夏令營</p>
+              </li>
+              <li class="item">
+                <div class="deco"></div>
+                <p>2023 IFBB PRO SHOW</p>
+              </li>
+              <li class="item">
+                <div class="deco"></div>
+                <p>人體工房</p>
+              </li>
+              <li class="item">
+                <div class="deco"></div>
+                <p>2023 IFBB PRO SHOW</p>
+              </li>
+            </ul>
+          </div>
+        </div><a class="close-button" href="javascript:;" data-modal-close></a>
+      </modern-modal>
+    </div>
+  </body>
+</html>

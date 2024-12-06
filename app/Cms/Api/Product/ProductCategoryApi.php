@@ -116,7 +116,7 @@ class ProductCategoryApi extends CmsApi implements GetTable, GetExport
             ->textCol('url_name', '網址名稱', 250)
             // ->selectCol('category_id', '所屬分類', $getListMuti)
             // ->dateCol('news_date', '消息日期')
-            // ->rankInputCol('w_rank', '排序')
+            ->rankInputCol('w_rank', '排序')
             ->radioButtonCol(['is_preview' => '預覽', 'is_visible' => '顯示狀態',])
             ->timestampCol('updated_at', '最後更新日期')
             ->setConfig(['draggable' => true, 'selectable' => true, 'multiSortable' => true, 'pagination' => $pagination])

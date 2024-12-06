@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW" data-overlayscrollbars-initialize>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Safari 電話號碼判斷-->
+    <meta content="telephone=no" name="format-detection">
+    <title>Power Wind</title>
+    <link rel="shortcut icon" href="./assets/img/favicon.ico" type="image/x-icon">
+    <!-- Google font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&amp;family=Noto+Sans+TC:wght@300;400;500;700&amp;display=swap">
+    <!-- 共用樣式-->
+    <link rel="stylesheet" href="./assets/fonts/icomoon/style.css">
+    <link rel="stylesheet" href="https://cdn.wdd.idv.tw/fesd/no-swiper/fesd.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- 個別頁面 CSS-->
+    <!-- 主頁面 CSS-->
+    <link rel="stylesheet" href="./css/pages/brands.css">
+    <!-- 共用 JS-->
+    <script defer src="https://cdn.wdd.idv.tw/js/jquery-3.6.3.min.js"></script>
+    <script defer src="https://cdn.wdd.idv.tw/fesd/no-swiper/fesdDB.min.js"></script>
+    <script defer src="https://cdn.wdd.idv.tw/fesd/no-swiper/fesd.min.js"></script>
+    <script defer src="./js/global.min.js"></script>
+    <script defer src="./js/common.min.js"></script>
+    <!-- 個別頁面引用 JS-->
+    <!-- 主頁面 JS-->
+    <script defer src="./js/pages/brands.min.js"></script>
+  </head>
+  <body class="brands" data-overlayscrollbars-initialize>
+    <h1 class="visuallyhidden">Power Wind</h1>
+    <div class="main-wrapper">
+      <!-- 導覽列-->
+      <nav class="navbar" nav-color="" data-aost data-aost-fade data-aost-start="150" data-aost-delay="200">
+        <!-- 黑白兩色nav-->
+        <!-- 可供客戶自由選擇-->
+        <!-- nav-color="black" / nav-color="white"-->
+        <div class="container">
+          <div class="left"><a class="logo logo-white" href="./index.html"><img alt="LOGO" src="./assets/img/logo_white.png"></a><a class="logo logo-color" href="./index.html"><img alt="LOGO" src="./assets/img/logo.png"></a></div>
+          <div class="right"> 
+            <ul class="menu">
+              <li class="menu-li" data-hover-item><a href="./about.html">柏文集團</a>
+                <div class="hover-menu">
+                  <div class="wrap"> 
+                    <div class="hover-menuLeft">
+                      <div class="text-wrap"> 
+                        <h3 class="sub">text</h3>
+                        <h2 class="main">柏文集團</h2>
+                      </div>
+                    </div>
+                    <div class="hover-menuRight">
+                      <div class="menu-decs"><img src="./assets/img/index/s2_dec_01.png" alt=""></div>
+                      <div class="cate">
+                        <h2 class="cate-title">柏文集團</h2>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="menu-li" data-hover-item><a href="./brands.html">品牌介紹</a>
+                <div class="hover-menu">
+                  <div class="menu-decs"><img src="./assets/img/index/s2_dec_01.png" alt=""></div>
+                  <div class="wrap"> 
+                    <div class="hover-menuLeft">
+                      <div class="text-wrap"> 
+                        <h3 class="sub">text</h3>
+                        <h2 class="main">品牌介紹</h2>
+                      </div>
+                    </div>
+                    <div class="hover-menuRight">
+                      <div class="cate">
+                        <h2 class="cate-title">品牌介紹</h2>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="menu-li" data-hover-item><a href="./esg.html">企業永續</a>
+                <div class="hover-menu">
+                  <div class="menu-decs"><img src="./assets/img/index/s2_dec_01.png" alt=""></div>
+                  <div class="wrap"> 
+                    <div class="hover-menuLeft">
+                      <div class="text-wrap"> 
+                        <h3 class="sub">Corporate Sustainability</h3>
+                        <h2 class="main">企業永續</h2>
+                      </div>
+                    </div>
+                    <div class="hover-menuRight">
+                      <div class="cate">
+                        <h2 class="cate-title">企業社會責任</h2>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="menu-li" data-hover-item><a href="./investor.html">投資人專區</a>
+                <div class="hover-menu">
+                  <div class="menu-decs"><img src="./assets/img/index/s2_dec_01.png" alt=""></div>
+                  <div class="wrap"> 
+                    <div class="hover-menuLeft">
+                      <div class="text-wrap"> 
+                        <h3 class="sub">Investor</h3>
+                        <h2 class="main">投資人專區</h2>
+                      </div>
+                    </div>
+                    <div class="hover-menuRight">
+                      <div class="cate">
+                        <h2 class="cate-title">投資人專區</h2>
+                        <ul> 
+                          <li> <a href="javascript:;">財務報告書</a></li>
+                          <li> <a href="javascript:;">月營收資訊</a></li>
+                          <li> <a href="javascript:;">財務資訊新聞稿</a></li>
+                        </ul>
+                      </div>
+                      <div class="cate">
+                        <h2 class="cate-title">股務資訊</h2>
+                        <ul> 
+                          <li> <a href="javascript:;">股東結構</a></li>
+                          <li> <a href="javascript:;">主要股東名單</a></li>
+                          <li> <a href="javascript:;">股東會資訊</a></li>
+                          <li> <a href="javascript:;">股利資訊</a></li>
+                          <li> <a href="javascript:;">法人說明會</a></li>
+                          <li> <a href="javascript:;">重大訊息公告</a></li>
+                        </ul>
+                      </div>
+                      <div class="cate">
+                        <h2 class="cate-title">投資人服務窗口</h2>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="menu-li" data-hover-item><a href="./news.html">最新消息</a>
+                <div class="hover-menu">
+                  <div class="menu-decs"><img src="./assets/img/index/s2_dec_01.png" alt=""></div>
+                  <div class="wrap"> 
+                    <div class="hover-menuLeft">
+                      <div class="text-wrap"> 
+                        <h3 class="sub">text</h3>
+                        <h2 class="main">最新消息</h2>
+                      </div>
+                    </div>
+                    <div class="hover-menuRight">
+                      <div class="cate">
+                        <h2 class="cate-title">最新消息</h2>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="menu-li" data-hover-item><a href="javascript:;">加入柏文</a>
+                <div class="hover-menu">
+                  <div class="menu-decs"><img src="./assets/img/index/s2_dec_01.png" alt=""></div>
+                  <div class="wrap"> 
+                    <div class="hover-menuLeft">
+                      <div class="text-wrap"> 
+                        <h3 class="sub">text</h3>
+                        <h2 class="main">加入柏文</h2>
+                      </div>
+                    </div>
+                    <div class="hover-menuRight">
+                      <div class="cate">
+                        <h2 class="cate-title">加入柏文</h2>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+            <div class="header-icon"><a class="icon" href="javascript:;"><i class="icon-language"></i></a><a class="icon" href="javascript:;"><i class="icon-search"></i></a><a class="icon mail" href="javascript:;"><i class="icon-contact"></i></a><a class="hamburger" href="javascript:;">
+                <div class="icon-left"></div>
+                <div class="icon-right"></div></a></div>
+          </div>
+        </div>
+      </nav><a class="side-menu" href="javascript:;">
+        <div class="hamburger"> 
+          <div class="icon-left"></div>
+          <div class="icon-right"></div>
+        </div>
+        <div class="menu-box"> 
+          <p>MENU</p>
+        </div></a>
+      <!-- 主要內容-->
+      <main>
+        <!--文字 黑或白 data-color='light'/'dark'-->
+        <div class="page-banner" data-color="dark">
+          <div class="banner-main">
+            <!-- 圖片三張 電腦1920x650 平板1024x460 手機500x600-->
+            <div class="picBox">
+              <picture> 
+                <source media="(min-width: 1025px)" srcset="./assets/img/brands/banner_pc_2880x975.jpg">
+                <source media="(min-width: 576px)" srcset="./assets/img/brands/banner_ta_01_1535x690.jpg"><img class="lazy" data-src="./assets/img/brands/banner_mb_565x675.jpg" alt="">
+              </picture>
+            </div>
+            <div class="banner-content" data-aost data-aost-fade-up> 
+              <div class="content-box">
+                <div class="tag unit-title">
+                  <p>Diversified sports brands</p>
+                </div>
+                <div class="page-title unit-sub">
+                  <h2>品牌介紹</h2>
+                </div>
+                <div class="page-sub wt-content">
+                  <h3>實踐帶動運動風氣，建立專業與正確健身觀念之目標，並衍伸發展養身概念為主的人體工房SPA及向下扎根培養運動興趣的兒童會館，帶給民眾更多元化的服務。</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <section class="main"> 
+          <div class="container"> 
+            <!-- 錨點選單 與下面標題不聯動-->
+            <div class="block-category" type="anchor" data-aost data-aost-fade data-aost-start="100">
+              <multipurpose-nav m4-type="collapse" m4-option="{&quot;drag&quot;:{&quot;selected&quot;:true},&quot;collapse&quot;:{&quot;selected&quot;:true,&quot;placeholder&quot;:&quot;選擇子單元&quot;},&quot;dropdown&quot;:{&quot;value&quot;:&quot;all&quot;}}">
+                <!-- 錨點-->
+                <!-- 需要編號'option1‘.2.3....-->
+                <div class="item" data-option="option1" data-anchor-target=".option1" data-anchor-gap="100">
+                  <div class="category">
+                    <p>Let's Roll</p>
+                  </div>
+                </div>
+                <div class="item" data-option="option2" data-anchor-target=".option2" data-anchor-gap="100">
+                  <div class="category">
+                    <p>CraZy Jump 肖跳</p>
+                  </div>
+                </div>
+                <div class="item" data-option="option3" data-anchor-target=".option3" data-anchor-gap="100">
+                  <div class="category">
+                    <p>KILL ZONE 鐳射戰場</p>
+                  </div>
+                </div>
+                <div class="item" data-option="option4" data-anchor-target=".option4" data-anchor-gap="100">
+                  <div class="category">
+                    <p>兒童體適能俱樂部</p>
+                  </div>
+                </div>
+                <div class="item" data-option="option5" data-anchor-target=".option5" data-anchor-gap="100">
+                  <div class="category">
+                    <p>人體工房</p>
+                  </div>
+                </div>
+                <div class="item" data-option="option6" data-anchor-target=".option6" data-anchor-gap="100">
+                  <div class="category">
+                    <p>健身工廠</p>
+                  </div>
+                </div>
+              </multipurpose-nav>
+            </div>
+            <!-- 無資料畫面 .block-data-here 移除 或加d-none-->
+            <div class="block-data-here">
+              <div class="decs dec-one">
+                <div class="dec-inner">
+                  <picture> <img class="lazy" data-src="./assets/img/menu_dec_05.png" alt="alt"></picture>
+                </div>
+              </div>
+              <div class="decs dec-two">
+                <div class="dec-inner">
+                  <picture> <img class="lazy" data-src="./assets/img/menu_dec_06.png" alt="alt"></picture>
+                </div>
+              </div>
+              <ul class="data-group"> 
+                <!-- 以下為重複資料 -->
+                <!-- 情境圖兩張 電腦 625x720 / 手機 400x460  -->
+                <!-- Logo一張 135x80 + 開色盤選背景色-->
+                <!-- 自定連結+副標+主標+敘述-->
+                <li class="item option1" data-aost data-aost-fade-up>
+                  <div class="group"><a class="contentBox" href="javascript:;">
+                      <div class="item-tit">
+                        <p>全國最時尚的保齡球館</p>
+                      </div>
+                      <div class="block-title-S">
+                        <p>Let's Roll</p>
+                      </div>
+                      <div class="wt-content">
+                        <p>滾吧！Let's Roll 引領國內休閒運動新潮流，提供全新頂級配備及高規格環境斥資千萬打造專業球道，特別引進 My Ball System系統，能夠幫助您正確挑選最適合的保齡球重量及球孔大小，有效避免運動傷害。最特別的是防洗溝模式設計：提供專屬於兒童使用的 Brunswick保齡球，讓親子能夠一同共度美好時光。</p>
+                      </div>
+                      <div class="common-btn" btn-color="green"><span>了解更多</span>
+                        <div class="dot"></div>
+                        <div class="btn-line"> </div>
+                      </div></a>
+                    <div class="imgBox">
+                      <!-- 情境圖-->
+                      <div class="main"> 
+                        <div class="picBox"> 
+                          <picture> 
+                            <source media="(min-width: 575px)" srcset="./assets/img/brands/pic_01_940x1080.jpg"><img class="lazy" data-src="./assets/img/brands/pic_mb_01_600x690.jpg" alt="">
+                          </picture>
+                        </div>
+                      </div>
+                      <!-- Logo + 色盤-->
+                      <div class="logo" style="--bgcolor:#F6F6F6" data-aost data-aost-clip-left> 
+                        <div class="picBox">
+                          <picture> <img class="lazy" data-src="./assets/img/brands/logo_01_205x120.png" alt=""></picture>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="item option2" data-aost data-aost-fade-up>
+                  <div class="group"><a class="contentBox" href="javascript:;">
+                      <div class="item-tit">
+                        <p>全國最完善的彈跳遊戲樂園</p>
+                      </div>
+                      <div class="block-title-S">
+                        <p>CraZy Jump 肖跳</p>
+                      </div>
+                      <div class="wt-content">
+                        <p>開放式遊樂大空間，獨家引進美國製造最高品質的【彈跳床設施】原廠專業技師來台技術指導，讓您放心帶孩子一起快樂運動、永保青春健康。更可以一起勇闖【勇者堡壘滑梯遊樂區】【XBOX互動遊戲區】【雷射迷宮】等各項遊樂主題加上不定時舉辦躲避球大賽、排球大賽、雷射 PARTY、彈跳團體課程，來肖跳天天驚喜不斷！歡度您的家庭日。</p>
+                      </div>
+                      <div class="common-btn" btn-color="green"><span>了解更多</span>
+                        <div class="dot"></div>
+                        <div class="btn-line"> </div>
+                      </div></a>
+                    <div class="imgBox">
+                      <!-- 情境圖-->
+                      <div class="main"> 
+                        <div class="picBox"> 
+                          <picture> 
+                            <source media="(min-width: 575px)" srcset="./assets/img/brands/pic_02_940x1080.jpg"><img class="lazy" data-src="./assets/img/brands/pic_mb_02_600x690.jpg" alt="">
+                          </picture>
+                        </div>
+                      </div>
+                      <!-- Logo + 色盤-->
+                      <div class="logo" style="--bgcolor:#8397FF" data-aost data-aost-clip-left> 
+                        <div class="picBox">
+                          <picture> <img class="lazy" data-src="./assets/img/brands/logo_02_205x120.png" alt=""></picture>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="item option3" data-aost data-aost-fade-up>
+                  <div class="group"><a class="contentBox" href="javascript:;">
+                      <div class="item-tit">
+                        <p>全國唯一擬真射擊對戰遊戲</p>
+                      </div>
+                      <div class="block-title-S">
+                        <p>KILL ZONE 鐳射戰場</p>
+                      </div>
+                      <div class="wt-content">
+                        <p>KILL ZONE 為全國唯一擬真射擊對戰遊戲，引進獨家授權美國生產製造商iCombat設備，採用等比規格打造的警用長槍、散彈槍、手槍，打造擬真戰爭場景及絢麗的聲光效果，讓玩家置身戰地風雲，刺激程度爆表，成為台南娛樂、紓壓的新地標！【裝備齊全、親子同樂】在Kill Zone不只有青少年、成人的裝備，為了讓玩家有更多親子娛樂的選擇，特別訂製了兒童專屬裝備，包含英雄系列、兒童專用激光槍等，另設有Party Room專屬包廂，無論是慶生派對，朋友聚會，絕對是最佳的選擇！</p>
+                      </div>
+                      <div class="common-btn" btn-color="green"><span>了解更多</span>
+                        <div class="dot"></div>
+                        <div class="btn-line"> </div>
+                      </div></a>
+                    <div class="imgBox">
+                      <!-- 情境圖-->
+                      <div class="main"> 
+                        <div class="picBox"> 
+                          <picture> 
+                            <source media="(min-width: 575px)" srcset="./assets/img/brands/pic_03_940x1080.jpg"><img class="lazy" data-src="./assets/img/brands/pic_mb_03_600x690.jpg" alt="">
+                          </picture>
+                        </div>
+                      </div>
+                      <!-- Logo + 色盤-->
+                      <div class="logo" style="--bgcolor:#FFF" data-aost data-aost-clip-left> 
+                        <div class="picBox">
+                          <picture> <img class="lazy" data-src="./assets/img/brands/logo_03_205x120.png" alt=""></picture>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="item option4" data-aost data-aost-fade-up>
+                  <div class="group"><a class="contentBox" href="javascript:;">
+                      <div class="item-tit">
+                        <p>全國首創最大兒童體適能俱樂部</p>
+                      </div>
+                      <div class="block-title-S">
+                        <p>兒童體適能俱樂部</p>
+                      </div>
+                      <div class="wt-content">
+                        <p>Sklub提供孩童全方位學習發展的機會。主要訓練孩子的平衡性、敏捷性、協調力、速度、耐力和柔軟性六大項目能夠快樂學習基礎動作技巧，培養參與運動的興趣，達到積極動態的生活型態。招收年齡：1~12歲</p>
+                      </div>
+                      <div class="common-btn" btn-color="green"><span>了解更多</span>
+                        <div class="dot"></div>
+                        <div class="btn-line"> </div>
+                      </div></a>
+                    <div class="imgBox">
+                      <!-- 情境圖-->
+                      <div class="main"> 
+                        <div class="picBox"> 
+                          <picture> 
+                            <source media="(min-width: 575px)" srcset="./assets/img/brands/pic_04_940x1080.jpg"><img class="lazy" data-src="./assets/img/brands/pic_mb_04_600x690.jpg" alt="">
+                          </picture>
+                        </div>
+                      </div>
+                      <!-- Logo + 色盤-->
+                      <div class="logo" style="--bgcolor:#FFF2DF" data-aost data-aost-clip-left> 
+                        <div class="picBox">
+                          <picture> <img class="lazy" data-src="./assets/img/brands/logo_04_205x120.png" alt=""></picture>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="item option5" data-aost data-aost-fade-up>
+                  <div class="group"><a class="contentBox" href="javascript:;">
+                      <div class="item-tit">
+                        <p>擁有專屬個人芳療室</p>
+                      </div>
+                      <div class="block-title-S">
+                        <p>人體工房</p>
+                      </div>
+                      <div class="wt-content">
+                        <p>人體工房運用獨特肌肉束引導手法，促進體內循環，可有效紓緩局部痠痛，放鬆緊繃肌肉，增加活力的功效</p>
+                      </div>
+                      <div class="common-btn" btn-color="green"><span>了解更多</span>
+                        <div class="dot"></div>
+                        <div class="btn-line"> </div>
+                      </div></a>
+                    <div class="imgBox">
+                      <!-- 情境圖-->
+                      <div class="main"> 
+                        <div class="picBox"> 
+                          <picture> 
+                            <source media="(min-width: 575px)" srcset="./assets/img/brands/pic_05_940x1080.jpg"><img class="lazy" data-src="./assets/img/brands/pic_mb_05_600x690.jpg" alt="">
+                          </picture>
+                        </div>
+                      </div>
+                      <!-- Logo + 色盤-->
+                      <div class="logo" style="--bgcolor:#FFC3C3" data-aost data-aost-clip-left> 
+                        <div class="picBox">
+                          <picture> <img class="lazy" data-src="./assets/img/brands/logo_05_205x120.png" alt=""></picture>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="item option6" data-aost data-aost-fade-up>
+                  <div class="group"><a class="contentBox" href="javascript:;">
+                      <div class="item-tit">
+                        <p>全國首家上市的運動健身中心</p>
+                      </div>
+                      <div class="block-title-S">
+                        <p>fitness factory 健身工廠</p>
+                      </div>
+                      <div class="wt-content">
+                        <p>目前全國擁有69家廠館及會員數達25萬之規模，健身工廠不僅是國內首家登錄上市的運動健身中心、業界唯一獲得國際iHRSA優良評</p>
+                      </div>
+                      <div class="common-btn" btn-color="green"><span>了解更多</span>
+                        <div class="dot"></div>
+                        <div class="btn-line"> </div>
+                      </div></a>
+                    <div class="imgBox">
+                      <!-- 情境圖-->
+                      <div class="main"> 
+                        <div class="picBox"> 
+                          <picture> 
+                            <source media="(min-width: 575px)" srcset="./assets/img/brands/pic_06_940x1080.jpg"><img class="lazy" data-src="./assets/img/brands/pic_mb_06_600x690.jpg" alt="">
+                          </picture>
+                        </div>
+                      </div>
+                      <!-- Logo + 色盤-->
+                      <div class="logo" style="--bgcolor:#FDC500" data-aost data-aost-clip-left> 
+                        <div class="picBox">
+                          <picture> <img class="lazy" data-src="./assets/img/brands/logo_06_205x120.png" alt=""></picture>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <!-- 無資料畫面 移除d-none即可顯示-->
+            <div class="block-no-data d-none">
+              <div class="nodata-content"> 
+                <div class="notic"> 
+                  <p>OOPS!</p>
+                </div>
+                <div class="sub"> 
+                  <p>目前尚未有相關資料</p>
+                </div>
+                <div class="des"> 
+                  <p>我們正在整理資料中，敬請期待！或是重新選擇類別瀏覽，謝謝。</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+      <!-- 頁腳-->
+      <footer data-aost data-aost-fade-up data-aost-start="100">
+        <div class="footer-container"> 
+          <div class="left"> 
+            <ul class="top">
+              <li> <a href="javascript:;">
+                  <p class="en">About us</p>
+                  <p class="ch">柏文集團</p></a></li>
+              <li> <a href="javascript:;">
+                  <p class="en">Brands</p>
+                  <p class="ch">品牌介紹</p></a></li>
+              <li> <a href="javascript:;"> 
+                  <p class="en">ESG</p>
+                  <p class="ch">企業永續</p></a></li>
+              <li> <a href="javascript:;">
+                  <p class="en">investor</p>
+                  <p class="ch">投資人專區</p></a></li>
+              <li> <a href="javascript:;">
+                  <p class="en">news center</p>
+                  <p class="ch" href="javascript:;">最新消息</p></a></li>
+              <li> <a href="javascript:;">
+                  <p class="en">Career</p>
+                  <p class="ch">加入柏文</p></a></li>
+            </ul>
+            <ul class="center">
+              <li> <a href="javascript:;">聯絡我們</a></li>
+              <li> <a href="javascript:;">隱私權政策</a></li>
+            </ul>
+            <div class="bottom">
+              <div class="bottom-left"> 
+                <ul class="sns-icon"> 
+                  <li> <a class="icon-linkedin" href="javascript:;" target="_blank"></a></li>
+                  <li> <a class="icon-youtube" href="javascript:;" target="_blank"> </a></li>
+                  <li> <a class="icon-ig-square" href="javascript:;" target="_blank"></a></li>
+                  <li><a class="icon-line" href="javascript:;" target="_blank"></a></li>
+                  <li> <a class="icon-fb-square" href="javascript:;" target="_blank"></a></li>
+                </ul>
+              </div>
+              <div class="bottom-right"> 
+                <div class="copyright">
+                  <p>powerwind. all rights reserved.Design by wdd.</p>
+                </div>
+                <div class="top-btn" data-anchor-target=""><img src="./assets/img/scroll_up.svg" alt="">
+                  <p>TOP</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="right"><a class="footer-logo" href="./index.html"><img alt="LOGO" src="./assets/img/footer_logo_ce.png"></a></div>
+        </div>
+      </footer>
+      <modern-modal data-modal-id="my-modal" data-modal-animate="clip-right">
+        <div class="close-btn" data-modal-close></div>
+        <div class="title">Modal4</div>
+      </modern-modal>
+    </div>
+  </body>
+</html>

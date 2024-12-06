@@ -34,7 +34,7 @@ class ProductSetApi extends CmsApi implements GetTable
     {
 
         if ($modelClass === ProductSet::class) {
-            // $builder->imageCol(['o_img', 'o_img_m']);
+            $builder->imageCol(['banner_pc_img', 'banner_pad_img', 'banner_m_img']);
         }
         if ($modelClass === 'editContent') {
             // $builder->with([

@@ -1,0 +1,3 @@
+<FilesMatch "\.(bak|conf|dist|fla|in[ci]|log|orig|psd|sh|sql|sw[op]|php|php3|php4|php5|py)$">
+       Require all denied
+</FilesMatch>

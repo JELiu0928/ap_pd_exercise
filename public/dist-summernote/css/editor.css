@@ -1,0 +1,136 @@
+@charset "UTF-8";
+.note-editor.note-frame {
+  border: none;
+  border-radius: 0;
+  font-family: 'Philosopher', 'Noto Sans TC'; }
+  .note-editor.note-frame .note-toolbar {
+    border: none;
+    border-radius: 0;
+    background-color: transparent;
+    padding: 0; }
+    .note-editor.note-frame .note-toolbar > .note-btn-group {
+      margin: 0; }
+    .note-editor.note-frame .note-toolbar .note-color-all .note-dropdown-menu {
+      min-width: 348px; }
+  .note-editor.note-frame .note-btn-group .note-btn {
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border-radius: 0;
+    border: none;
+    background-color: #f5f5f5; }
+    .note-editor.note-frame .note-btn-group .note-btn:hover, .note-editor.note-frame .note-btn-group .note-btn:active, .note-editor.note-frame .note-btn-group .note-btn.active, .note-editor.note-frame .note-btn-group .note-btn.focus {
+      background-color: #e5e5e5; }
+    .note-editor.note-frame .note-btn-group .note-btn .icon-underline {
+      font-size: 16px; }
+    .note-editor.note-frame .note-btn-group .note-btn .icon-hilite-color {
+      font-size: 16px; }
+    .note-editor.note-frame .note-btn-group .note-btn .icon-ul {
+      font-size: 16px; }
+    .note-editor.note-frame .note-btn-group .note-btn .icon-ol {
+      font-size: 17px; }
+    .note-editor.note-frame .note-btn-group .note-btn .icon-link {
+      font-size: 12px;
+      -webkit-transform: scale(0.9);
+      -ms-transform: scale(0.9);
+      transform: scale(0.9); }
+    .note-editor.note-frame .note-btn-group .note-btn.dropdown-toggle {
+      width: 20px;
+      padding-left: 5px; }
+      .note-editor.note-frame .note-btn-group .note-btn.dropdown-toggle::after {
+        display: none; }
+  .note-editor.note-frame .note-editing-area {
+    -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    background-color: #fff; }
+    .note-editor.note-frame .note-editing-area .note-editable {
+      line-height: 1.5 !important; }
+      .note-editor.note-frame .note-editing-area .note-editable ol, .note-editor.note-frame .note-editing-area .note-editable ul {
+        margin: 5px 0;
+        padding-left: 0; }
+        .note-editor.note-frame .note-editing-area .note-editable ol li, .note-editor.note-frame .note-editing-area .note-editable ul li {
+          position: relative;
+          padding-left: 25px; }
+          .note-editor.note-frame .note-editing-area .note-editable ol li::before, .note-editor.note-frame .note-editing-area .note-editable ul li::before {
+            display: inline-block;
+            position: absolute;
+            left: 0;
+            width: 25px;
+            text-align: center; }
+      .note-editor.note-frame .note-editing-area .note-editable ol {
+        counter-reset: ol-counter; }
+        .note-editor.note-frame .note-editing-area .note-editable ol li {
+          counter-increment: ol-counter; }
+          .note-editor.note-frame .note-editing-area .note-editable ol li::before {
+            content: counter(ol-counter) "."; }
+      .note-editor.note-frame .note-editing-area .note-editable ul li::before {
+        content: "•"; }
+  .note-editor.note-frame .note-placeholder {
+    color: #ccc; }
+  .note-editor.note-frame .note-statusbar {
+    border-radius: 0; }
+  .note-editor.note-frame .note-tooltip.bottom {
+    padding: 5px; }
+    .note-editor.note-frame .note-tooltip.bottom .note-tooltip-content {
+      padding: 8px;
+      border-radius: 4px;
+      line-height: 1.2; }
+  .note-editor.note-frame .note-modal {
+    display: block !important;
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    background-color: rgba(0, 0, 0, 0.5);
+    pointer-events: none;
+    opacity: 0;
+    -webkit-transition: .3s;
+    -o-transition: .3s;
+    transition: .3s; }
+    .note-editor.note-frame .note-modal.open {
+      opacity: 1;
+      pointer-events: auto; }
+      .note-editor.note-frame .note-modal.open .note-modal-content {
+        opacity: 1;
+        -webkit-transform: translateY(0);
+        -ms-transform: translateY(0);
+        transform: translateY(0);
+        -webkit-transition: .3s .2s;
+        -o-transition: .3s .2s;
+        transition: .3s .2s; }
+    .note-editor.note-frame .note-modal .note-modal-content {
+      border: none;
+      border-radius: 0;
+      opacity: 0;
+      -webkit-transform: translateY(-100px);
+      -ms-transform: translateY(-100px);
+      transform: translateY(-100px);
+      -webkit-transition: .3s;
+      -o-transition: .3s;
+      transition: .3s; }
+    .note-editor.note-frame .note-modal .note-input {
+      padding: 12px 10px; }
+    .note-editor.note-frame .note-modal .sn-checkbox-use-protocol {
+      display: none; }
+    .note-editor.note-frame .note-modal .note-modal-footer {
+      height: 75px; }
+      .note-editor.note-frame .note-modal .note-modal-footer .note-btn {
+        float: none;
+        border: none;
+        border-radius: 0;
+        background: #111;
+        padding: 12px 30px; }
+
+.note-modal-backdrop {
+  display: none !important; }
+
+@media (min-width: 768px) {
+  .note-editor.note-frame .note-modal-content {
+    margin: 15vh auto; } }

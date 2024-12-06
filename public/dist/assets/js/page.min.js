@@ -1,0 +1,1 @@
+import{$ as e}from"./vendor.min.js";import{i,c as o}from"./commons.min.js";e(async()=>{i(),o({selector:"main .collapseBox",single:!0}),e("multipurpose-nav").length>0&&e("multipurpose-nav")[0].update()});

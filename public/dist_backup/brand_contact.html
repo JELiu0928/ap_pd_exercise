@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW" data-overlayscrollbars-initialize>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Safari 電話號碼判斷-->
+    <meta content="telephone=no" name="format-detection">
+    <title>CRAZY JUMP 肖跳</title>
+    <link rel="shortcut icon" href="./assets/img/Brand/favicon.ico" type="image/x-icon">
+    <!-- Google font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700;800;900&amp;family=Roboto:wght@300;400;500;700;900&amp;display=swap">
+    <!-- 共用樣式-->
+    <link rel="stylesheet" href="./assets/fonts/icomoon/style.css">
+    <link rel="stylesheet" href="https://cdn.wdd.idv.tw/fesd/2024_v1.0/fesd.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- 個別頁面 CSS-->
+    <!-- 主頁面 CSS-->
+    <link rel="stylesheet" href="./css/pages/brand_contact.css">
+    <!-- 共用 JS-->
+    <script defer src="https://cdn.wdd.idv.tw/js/jquery-3.6.3.min.js"></script>
+    <script defer src="https://cdn.wdd.idv.tw/fesd/2024_v1.0/fesdDB.min.js"></script>
+    <script defer src="https://cdn.wdd.idv.tw/fesd/2024_v1.0/fesd.min.js"></script>
+    <script defer src="./js/global.min.js"></script>
+    <script defer src="./js/common.min.js"></script>
+    <!-- 個別頁面引用 JS-->
+    <!-- 主頁面 JS-->
+    <script defer src="./js/pages/brand_contact.min.js"></script>
+    <style>
+      :root{
+        --brandDeep: #1F2A68;
+        --brandSecondary: #F2E92B;
+        --brandDeep--txt: #FFF;
+        --brandSecondary--txt: #000;
+        --brandDeep--10: rgba(31, 42, 104, 0.1);
+        --brandSecondary--10: rgba(242, 233, 43, 0.1);
+        --brandGray: #C9CACA;
+      }
+      
+    </style>
+  </head>
+  <body class="brand_contact brandType" data-overlayscrollbars-initialize>
+    <h1 class="visuallyhidden">CRAZY JUMP 肖跳</h1>
+    <!-- 進場動畫-->
+    <!-- 分館入場動畫-->
+    <!-- 抓 Logo圖 170 x 170-->
+    <div class="first-entry">
+      <div class="logo"> 
+        <!-- 底色可選擇 品牌主色--brandDeep 色碼、品牌輔色--brandSecondary 色碼-->
+        <!-- 注意！！請帶入色碼 -->
+        <div class="logo-icon" style="--bgcolor:#1F2A68"></div>
+        <div class="logo-text">
+          <div class="picBox"><img src="./assets/img/Brand/logo_170x170.png" alt=""></div>
+        </div>
+      </div>
+    </div>
+    <div class="main-wrapper">
+      <!-- 導覽列-->
+      <!-- 側邊選單燈箱-->
+      <modern-modal data-modal-id="menu_brand">
+        <div class="menu-top">
+          <div class="top-group">
+            <div class="right">
+              <div class="header-icon">
+                <div class="icon language"><i class="icon-language"></i>
+                  <ul class="language-wrap">
+                    <li class="active" lan="tw"><a href="javascript:;">繁</a></li>
+                    <li lan="en"><a href="javascript:;">英</a></li>
+                  </ul>
+                </div><a class="icon" href="javascript:;" data-modal-target="brand_search" data-modal-close><i class="icon-search"></i></a>
+              </div>
+              <div class="close-button" data-modal-close></div>
+            </div>
+          </div>
+        </div>
+        <div class="menu-container">
+          <div class="m-right scroll-here" data-aost>
+            <div class="menu-all-wrap"><a class="menu-box" href="./brand_about.html" unit-name="品牌介紹">
+                <div class="m-tag"> 
+                  <p>ABOUT US</p>
+                </div>
+                <div class="m-title">
+                  <p>品牌介紹</p>
+                </div></a><a class="menu-box" href="./brand_news.html" unit-name="最新消息">
+                <div class="m-tag"> 
+                  <p>news</p>
+                </div>
+                <div class="m-title">
+                  <p>最新消息</p>
+                </div></a><a class="menu-box" href="./brand_service.html" unit-name="空間介紹">
+                <div class="m-tag"> 
+                  <p>Service</p>
+                </div>
+                <div class="m-title">
+                  <p>空間介紹</p>
+                </div></a><a class="menu-box" href="./brand_location.html" unit-name="門市據點">
+                <div class="m-tag"> 
+                  <p>Location</p>
+                </div>
+                <div class="m-title">
+                  <p>門市據點</p>
+                </div></a><a class="menu-box" href="./brand_product.html" unit-name="周邊商品">
+                <div class="m-tag"> 
+                  <p>Products</p>
+                </div>
+                <div class="m-title">
+                  <p>周邊商品</p>
+                </div></a><a class="menu-box" href="javascript:;" unit-name="加入我們">
+                <div class="m-tag"> 
+                  <p>Career</p>
+                </div>
+                <div class="m-title">
+                  <p>加入我們</p>
+                </div></a>
+            </div>
+          </div>
+        </div>
+        <div class="menu-bottom"> 
+          <ul class="sns-icon"> 
+            <li> <a class="icon-linkedin" href="javascript:;" target="_blank"></a></li>
+            <li> <a class="icon-youtube" href="javascript:;" target="_blank"> </a></li>
+            <li> <a class="icon-ig-square" href="javascript:;" target="_blank"></a></li>
+            <li><a class="icon-line" href="javascript:;" target="_blank"></a></li>
+            <li> <a class="icon-fb-square" href="javascript:;" target="_blank"></a></li>
+          </ul>
+          <ul class="center">
+            <li> <a href="./brand_index.html">回首頁</a></li>
+            <li> <a href="./brand_contact.html">聯絡我們</a></li>
+            <li> <a href="javascript:;" data-modal-target="privacy" data-modal-close>隱私權政策</a></li>
+            <li> <a href="./index.html">柏文集團網站</a></li>
+          </ul>
+        </div>
+      </modern-modal>
+      <!-- 隱私權政策燈箱 不開放後台編輯-->
+      <modern-modal data-modal-id="privacy" data-modal-animate="fade-up">
+        <div class="inner-text">
+          <div class="tag inner-unit-tag"> 
+            <p>PRIVACY POLICY</p>
+          </div>
+          <div class="title inner-unit-sub"> 
+            <p>隱私權政策</p>
+          </div>
+          <div class="des wt-content"> 
+            <p>柏文健康事業股份有限公司(以下簡稱「柏文」)非常重視會員的隱私權且遵循「個人資料保護法」之規定，因此制訂了隱私權保護政策，您可參考下列隱私權保護政策的內容。</p>
+          </div>
+        </div>
+        <div class="data-block">
+          <div class="block"> 
+            <div class="wrap item-sub-S"> 
+              <p>個人資料之安全</p>
+            </div>
+            <div class="contentbox">
+              <div class="content wt-content"> 
+                <p><span>保護會員的個人隱私柏文重要的經營理念，在未經會員同意之下，我們絕不會將會員的個人資料提供予任何與柏文服務無關之第三人。</span></p>
+              </div>
+            </div>
+          </div>
+          <div class="block"> 
+            <div class="wrap item-sub-S"> 
+              <p>個人資料的蒐集、處理、利用</p>
+            </div>
+            <div class="contentbox">
+              <div class="content wt-content"> 
+                <p><span>為配合政府「個人資料保護法」(下稱「個資法」)的實施，柏文僅將您個人資料的使用維護事項聲明如下：</span><br>(1) 柏文基於契約履行事項、行政管理、資訊提供及分析，及其他合於柏文營業活動所需之特定目的內，蒐集您的個人資料(資料類別請參照法務部公告「個人資料保護法之特定目的及個人資料之類別」代號C001、C002、C003、C011等 (包括姓名、身分證字號、出生日期、通訊地址、聯絡方式等之個人資料)。<br>(2) 柏文就您的個人資料僅在上開特定目的內，於台灣地區，供柏文及其子公司以合法合理方式利用，並以完成上開特定目的或柏文執行業務所必須之期間為個人資料利用期間。<br>(3) 您得選擇是否提供上開個人資料予柏文；然而，當您提供之個人資料未臻完備時，將可能影響前述特定目的之遂行，亦影響您後續相關權益。<br>(4) 您並同意以電子文件作為表示個人資料保護法令或其他法令所規定書面同意之方法。</p>
+              </div>
+            </div>
+          </div>
+          <div class="block"> 
+            <div class="wrap item-sub-S"> 
+              <p>個人資料保護政策</p>
+            </div>
+            <div class="contentbox">
+              <div class="content wt-content"> 
+                <p><span>我們將盡力以合理合法之技術及保護程序，保障您的個人資料。同時，柏文分別就組織管理、環境管理及作業管理上作周全管理，營造充分保障個資安全的服務環境，以杜絕您個人資料外流的疑慮：</span><br>(1) 組織管理：柏文內部設立個人資料保護管理小組，並建立「個人資料保護之管理」作業辦法，規劃個資蒐集處理及利用程序，設置應變程序及當事人行使權利之聯絡窗口，且落實員工個資教育訓練以及相關獎懲制度，以有效執行個人資料保護管理政策。<br>(2) 環境管理：依據作業內容性質，實施必要之門禁管理。就個資的儲存媒體妥善保管並建置相應的防災設備。<br>(3) 作業管理：界定個人資料範圍，定期清查公司個資檔案並建立清冊，於作業電腦相關設備上設定認證機制、紀錄機制及警示機制，並定期測試前揭機制的有效性及穩定性，同時對外妥善監督受託機關。對於任何可能侵害您權益的措施，柏文於知悉後必立即改進，並隨時歡迎各界指正。 您如就個人資料有任何諮詢需求，歡迎隨時洽柏文各厰館櫃檯或線上客服中心留下您寶貴的訊息，我們將有專人為您服務。</p>
+              </div>
+            </div>
+          </div>
+          <div class="block"> 
+            <div class="wrap item-sub-S"> 
+              <p>個人資料查詢或更正的方式</p>
+            </div>
+            <div class="contentbox">
+              <div class="content wt-content"> 
+                <p><span>個人資料之當事人權利得透過電話向柏文各廠館櫃檯或線上客服中心、官方APP或電子信箱(member@mail.fitnessfactory.tw)進行個人資料查詢閱覽、製給複製本，並補充或更正，或請求柏文停止蒐集、處理、利用或刪除您的個人資料，或停止寄發資料或資訊。</span></p>
+              </div>
+            </div>
+          </div>
+          <div class="block"> 
+            <div class="wrap item-sub-S"> 
+              <p>個人資料保存期限</p>
+            </div>
+            <div class="contentbox">
+              <div class="content wt-content"> 
+                <p><span>除法律上要求或允許保留較長期間者外，本公司將於達成此隱私權政策所定目的之所需期間內保留您的個人資訊。</span></p>
+              </div>
+            </div>
+          </div>
+          <div class="block"> 
+            <div class="wrap item-sub-S"> 
+              <p>Cookie</p>
+            </div>
+            <div class="contentbox">
+              <div class="content wt-content"> 
+                <p><span>為了便利會員使用，柏文網站會使用cookie技術，以便於提供會員所需要的服務；cookie是網站伺服器用來和會員瀏覽器進行溝通的一種技術，它可能在會員的電腦中隨機儲存字串，用以辨識區別使用者，若會員關閉cookie有可能導致無法順利登入網站或無法使用購物車等狀況。</span></p>
+              </div>
+            </div>
+          </div>
+          <div class="block"> 
+            <div class="wrap item-sub-S"> 
+              <p>隱私權保護政策修訂</p>
+            </div>
+            <div class="contentbox">
+              <div class="content wt-content"> 
+                <p><span>隨著市場環境的改變柏文將會不定時修訂隠私權政策，以因應會員服務與相關法律規範之變更。您可以隨時透過應用程式及柏文司官網查看我們的隱私權政策。如您繼續使用本服務，將視為您已同意柏文對於隱私權政策之修改。</span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="top-btn" data-anchor-target data-anchor-container="[data-modal-id=&quot;privacy&quot;] [data-overlayscrollbars-viewport]">
+          <div class="icon-scroll-down"></div>
+          <p>TOP</p>
+        </div><a class="close-button" href="javascript:;" data-modal-close></a>
+      </modern-modal>
+      <nav class="navbar" type="brandStyle" data-aost data-aost-fade data-aost-start="150">
+        <!-- Logo 建議尺寸 170 x 170-->
+        <div class="container">
+          <!-- 底色可選擇 品牌主色--brandDeep 色碼、品牌輔色--brandSecondary 色碼、黑色 #000、白色 #fff-->
+          <!-- 注意！！請帶入色碼 -->
+          <div class="left" style="--bgcolor:#1F2A68"><a class="logo logo-color picBox" href="./brand_index.html">
+              <picture> <img alt="LOGO" src="./assets/img/Brand/logo_170x170.png"></picture></a></div>
+          <div class="right"> 
+            <ul class="menu">
+              <!-- 以下為重複格式-->
+              <!-- 單元名稱可編輯 各單元可開關-->
+              <li class="menu-li" data-hover-item><a href="./brand_about.html">品牌介紹</a></li>
+              <li class="menu-li" data-hover-item><a href="./brand_news.html">最新消息</a></li>
+              <li class="menu-li" data-hover-item><a href="./brand_service.html">空間介紹</a></li>
+              <li class="menu-li" data-hover-item><a href="./brand_location.html">門市據點</a></li>
+              <li class="menu-li" data-hover-item><a href="./brand_product.html">周邊商品</a></li>
+            </ul>
+            <div class="powerwind"> <a href="./index.html">
+                <p> 柏文集團網站    </p></a></div>
+            <div class="header-icon">
+              <div class="icon language"><i class="icon-language"></i>
+                <ul class="language-wrap">
+                  <li class="active" lan="tw"><a href="javascript:;">繁</a></li>
+                  <li lan="en"><a href="javascript:;">英</a></li>
+                </ul>
+              </div><a class="icon" href="javascript:;" data-modal-target="brand_search"><i class="icon-search"></i></a><a class="icon mail" href="./brand_contact.html"><i class="icon-contact"></i></a><a class="hamburger" href="javascript:;" data-modal-target="menu_brand">
+                <div class="icon-left"></div>
+                <div class="icon-right"></div></a>
+            </div>
+          </div>
+        </div>
+      </nav><a class="side-menu" type="brandStyle" href="javascript:;" data-modal-target="menu_brand">
+        <div class="hamburger"> 
+          <div class="icon-left"></div>
+          <div class="icon-right"></div>
+        </div>
+        <div class="menu-box"> 
+          <p>MENU</p>
+        </div></a>
+      <!-- 主要內容-->
+      <main>
+        <!-- 文字 黑或白 data-color='light'/'dark'-->
+        <div class="page-banner" type="brandStyle" data-color="light">
+          <div class="banner-main">
+            <!-- 圖片三張 電腦1920x600 平板1024x460 手機500x600-->
+            <div class="picBox">
+              <picture> 
+                <source media="(min-width: 1025px)" data-srcset="./assets/img/Brand/other/banner_pc_1920x600.jpg">
+                <source media="(min-width: 576px)" data-srcset="./assets/img/Brand/other/banner_ta_1024x460.jpg"><img class="lazy" data-src="./assets/img/Brand/other/banner_mb_500x600.jpg" alt="">
+              </picture>
+            </div>
+            <div class="banner-content" data-aost data-aost-fade-up data-aost-start="100"> 
+              <div class="content-box">
+                <div class="tag unit-title">
+                  <p>Contact Us</p>
+                </div>
+                <div class="page-title unit-sub">
+                  <h2>聯絡我們</h2>
+                </div>
+                <div class="page-sub wt-content">
+                  <h3>如果您有任何問題、建議或合作意向，歡迎填寫下方聯絡表單與我們聯絡。我們的團隊將竭誠為您提供最好的支援與服務。</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <section class="main">
+          <div class="block title" data-aost data-aost-clip-left>
+            <div class="container">
+              <!-- 無側邊資料 加上nodata 展開-->
+              <div class="title-group" data-aost data-aost-fade-left>
+                <div class="block-tag">
+                  <p>Contact Info</p>
+                </div>
+                <div class="block-title-M">
+                  <p>聯絡資訊</p>
+                </div>
+                <div class="wt-content">
+                  <p>若有想要立即解決的問題，歡迎透過以下聯絡資訊來電諮詢，感謝您。</p>
+                </div>
+              </div>
+              <div class="data-group" data-aost data-aost-fade-right>
+                <!-- 公司電話 傳真 地址 這三個固定欄位 (內容可編輯無資料移除)-->
+                <!-- 之後可自由新增 logo + 標 + 內容-->
+                <!-- Logo 50x50 文字可編輯-->
+                <div class="group">
+                  <div class="deco-title">
+                    <div class="title"> 
+                      <p>高雄廠館</p>
+                    </div>
+                    <div class="deco-line"> </div>
+                  </div><a class="row nocg" href="tel:+886-7-3488000">
+                    <div class="icon"><i class="icon-phone"></i></div>
+                    <div class="content"> 
+                      <div class="title item-sub-S"> 
+                        <p>公司電話</p>
+                      </div>
+                      <div class="des wt-content"> 
+                        <p>(07) 791 - 7333</p>
+                      </div>
+                    </div></a><a class="row nocg" href="https://www.google.com/maps/search/高雄市前鎮區中安路1-1號 (skmpark大道西2F)" target="_blank">
+                    <div class="icon"><i class="icon-locationV2"></i></div>
+                    <div class="content"> 
+                      <div class="title item-sub-S"> 
+                        <p>公司地址</p>
+                      </div>
+                      <div class="des wt-content"> 
+                        <p>高雄市前鎮區中安路1-1號 (skmpark大道西2F)</p>
+                      </div>
+                    </div></a>
+                </div>
+                <div class="group">
+                  <div class="deco-title">
+                    <div class="title"> 
+                      <p>高雄2館</p>
+                    </div>
+                    <div class="deco-line"> </div>
+                  </div><a class="row nocg" href="tel:+886-7-3488000">
+                    <div class="icon"><i class="icon-phone"></i></div>
+                    <div class="content"> 
+                      <div class="title item-sub-S"> 
+                        <p>公司電話</p>
+                      </div>
+                      <div class="des wt-content"> 
+                        <p>(07) 791 - 7333</p>
+                      </div>
+                    </div></a><a class="row nocg" href="https://www.google.com/maps/search/高雄市前鎮區中安路1-1號 (skmpark大道西2F)" target="_blank">
+                    <div class="icon"><i class="icon-locationV2"></i></div>
+                    <div class="content"> 
+                      <div class="title item-sub-S"> 
+                        <p>公司地址</p>
+                      </div>
+                      <div class="des wt-content"> 
+                        <p>高雄市前鎮區中安路1-1號 (skmpark大道西2F)</p>
+                      </div>
+                    </div></a>
+                </div>
+                <div class="group">
+                  <div class="deco-title">
+                    <div class="title"> 
+                      <p>高雄3館</p>
+                    </div>
+                    <div class="deco-line"> </div>
+                  </div><a class="row nocg" href="tel:+886-7-3488000">
+                    <div class="icon"><i class="icon-phone"></i></div>
+                    <div class="content"> 
+                      <div class="title item-sub-S"> 
+                        <p>公司電話</p>
+                      </div>
+                      <div class="des wt-content"> 
+                        <p>(07) 791 - 7333</p>
+                      </div>
+                    </div></a><a class="row nocg" href="https://www.google.com/maps/search/高雄市前鎮區中安路1-1號 (skmpark大道西2F)" target="_blank">
+                    <div class="icon"><i class="icon-locationV2"></i></div>
+                    <div class="content"> 
+                      <div class="title item-sub-S"> 
+                        <p>公司地址</p>
+                      </div>
+                      <div class="des wt-content"> 
+                        <p>高雄市前鎮區中安路1-1號 (skmpark大道西2F)</p>
+                      </div>
+                    </div></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="block form-block">
+            <div class="container">
+              <div class="data-group">
+                <div class="title-group" data-aost data-aost-fade-up>
+                  <div class="block-tag">
+                    <p>Contact Form</p>
+                  </div>
+                  <div class="block-title-M">
+                    <p>聯絡表單</p>
+                  </div>
+                </div>
+                <!-- 必填:form-group 後加上 required-->
+                <!-- 錯誤:form-group 後加上 error-->
+                <!-- 表單開始 欄位固定 內容可編輯-->
+                <div class="wdd-form" data-aost data-aost-clip-left> 
+                  <div class="backgroundColor">
+                    <div class="form-row"> 
+                      <div class="form-grid">
+                        <label class="form-group required">
+                          <div class="subject">
+                            <p>聯絡姓名</p>
+                          </div>
+                          <div class="input-wrap">
+                            <input form-field="Name" type="text" placeholder="請填寫真實姓名">
+                          </div>
+                        </label>
+                      </div>
+                      <div class="form-grid">
+                        <label class="form-group required">
+                          <div class="subject">
+                            <p>公司名稱</p>
+                          </div>
+                          <div class="input-wrap">
+                            <input form-field="Company" type="text" placeholder="請填寫公司名稱">
+                          </div>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="form-row"> 
+                      <div class="form-grid">
+                        <label class="form-group required">
+                          <div class="subject">
+                            <p>電子信箱</p>
+                          </div>
+                          <div class="input-wrap">
+                            <input form-field="Email" type="text" placeholder="請填寫電子信箱">
+                          </div>
+                        </label>
+                      </div>
+                      <div class="form-grid">
+                        <label class="form-group required">
+                          <div class="subject">
+                            <p>聯繫手機</p>
+                          </div>
+                          <div class="input-wrap">
+                            <input form-field="Phone" type="text" placeholder="0912 345 678">
+                          </div>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="form-row"> 
+                      <div class="form-grid">
+                        <label class="form-group">
+                          <div class="subject">
+                            <p>聯繫電話</p>
+                          </div>
+                          <div class="input-wrap">
+                            <input form-field="Tel" type="text" placeholder="02 1234 5678">
+                          </div>
+                        </label>
+                      </div>
+                      <div class="form-grid">
+                        <label class="form-group">
+                          <div class="subject">
+                            <p>傳真號碼</p>
+                          </div>
+                          <div class="input-wrap">
+                            <input form-field="Fax" type="text" placeholder="02 1234 5678">
+                          </div>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="form-row"> 
+                      <div class="form-grid">
+                        <div class="form-group required">
+                          <div class="subject">
+                            <p>詢問主題</p>
+                          </div>
+                          <dropdown-el d4-placeholder="請選擇詢問主題" form-field="Category" field-type="isSelect">
+                            <li> 
+                              <p>政府與主管機關</p>
+                            </li>
+                            <li> 
+                              <p>員工</p>
+                            </li>
+                            <li> 
+                              <p>供應商</p>
+                            </li>
+                            <li> 
+                              <p>會員 / 顧客</p>
+                            </li>
+                            <li> 
+                              <p>投資人</p>
+                            </li>
+                            <li> 
+                              <p>媒體</p>
+                            </li>
+                            <li> 
+                              <p>社區居民 / 社會團體</p>
+                            </li>
+                            <li> 
+                              <p>其他</p>
+                            </li>
+                          </dropdown-el>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-row">
+                      <div class="form-grid">
+                        <label class="form-group textarea required">
+                          <div class="subject">
+                            <p>詢問內容</p>
+                          </div>
+                          <div class="input-wrap">
+                            <textarea class="textarea-scrollbar" form-field="Message" type="text" placeholder="請於此填寫想要詢問或瞭解的內容" name="Message"></textarea>
+                          </div>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="form-row">
+                      <div class="form-grid">
+                        <label class="form-group required verification">
+                          <div class="subject">
+                            <p>驗證碼</p>
+                          </div>
+                          <div class="input-wrap">
+                            <input type="text" placeholder="請輸入正確的驗證碼" form-field="verifyCode">
+                          </div><a class="refresh-btn" href="javascript:;"><img src="./assets/img/verify-code.jpg" alt="">
+                            <div class="icon-refresh"> </div></a>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-btn-group" data-aost data-aost-fade-up> <a class="common-btn form-clear" btn-color="brandGray" href="javascript:;"><span>重新填寫</span>
+                      <div class="dot"></div>
+                      <div class="btn-line"> </div></a>
+                    <!--送出成功 data-modal-id='submit_success']")[0].open()--><a class="common-btn form-submit" href="javascript:;" btn-color="main" onclick="console.log($('.wdd-form')[0].value);if($('.form-group.error').length){Anchor4.run({target:$('.form-group.error')[0],spacer:'nav.navbar'})}else{$(&quot;[data-modal-id='submit_success']&quot;)[0].open()}"><span>確認送出</span>
+                      <div class="dot"></div>
+                      <div class="btn-line"> </div></a>
+                  </div>
+                  <!-- 錯誤提示區 移除.d-none-->
+                  <div class="error-detail d-none">請填寫電子信箱 ; <br>請選擇詢問主題 ;<br>請填寫想要詢問或瞭解的內容</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- 表單成功燈箱 不開放編輯-->
+        <modern-modal data-modal-id="submit_success">
+          <div class="modal-text">
+            <div class="tag"> 
+              <p>Success!</p>
+            </div>
+            <div class="title"> 
+              <p>表單已成功送出</p>
+            </div>
+            <div class="text">
+              <p>表單已成功送出，後續將轉由相關人員進行合作評估。<br>如有進一步確認，將會與您聯繫，謝謝您的來信。</p>
+            </div><a class="common-btn" btn-color="main" href="javascript:;" data-modal-close><span>我知道了</span>
+              <div class="dot"></div>
+              <div class="btn-line"> </div></a>
+          </div>
+        </modern-modal>
+      </main>
+      <!-- cookies-->
+      <!-- cookie 不開放後台編輯-->
+      <div class="cookie-block" type="brandStyle">
+        <div class="cookie-mask"></div>
+        <div class="cookie-main">
+          <div class="cookie-container"> 
+            <div class="deco-title">
+              <div class="main">
+                <p>COOKIE<span>宣告</span></p>
+              </div>
+              <div class="dot"> </div>
+              <div class="line"></div>
+            </div>
+            <div class="flex-group">
+              <div class="inner-text">
+                <div class="text">
+                  <p>關於本網站使用瀏覽器紀錄 Cookie 來提供您最好的使用體驗，我們使用的 Cookie 也包括了第三方 Cookie。相關資訊請訪問我們的隱私權與 Cookie 政策。如果您選擇繼續瀏覽或關閉這個提示，便表示您已接受我們的網站使用條款。</p>
+                </div>
+              </div>
+              <div class="btn-group"><a class="common-btn disagree" href="javascript:;" btn-color="brandGray"><span>拒絕接受</span>
+                  <div class="dot"></div>
+                  <div class="btn-line"> </div></a><a class="common-btn accept" href="javascript:;" btn-color="main"><span>我知道了</span>
+                  <div class="dot"></div>
+                  <div class="btn-line"> </div></a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 頁腳-->
+      <footer type="brandStyle" data-aost data-aost-fade-up data-aost-start="100">
+        <div class="container"> <a class="topLogo" href="./brand_index.html">
+            <!-- Logo 建議尺寸 176 x 105-->
+            <div class="picBox"> 
+              <picture> <img src="./assets/img/Brand/logo_180x105.png" alt=""></picture>
+            </div></a>
+          <ul class="link-group">
+            <li><a class="link-item" href="./brand_about.html">
+                <div class="tag"> 
+                  <p>ABOUT US</p>
+                </div>
+                <div class="text"> 
+                  <p>品牌介紹</p>
+                </div></a></li>
+            <li><a class="link-item" href="./brand_news.html">
+                <div class="tag"> 
+                  <p>news</p>
+                </div>
+                <div class="text"> 
+                  <p>最新消息</p>
+                </div></a></li>
+            <li><a class="link-item" href="./brand_service.html">
+                <div class="tag"> 
+                  <p>Service</p>
+                </div>
+                <div class="text"> 
+                  <p>空間介紹</p>
+                </div></a></li>
+            <li><a class="link-item" href="./brand_location.html">
+                <div class="tag"> 
+                  <p>Location</p>
+                </div>
+                <div class="text"> 
+                  <p>門市據點</p>
+                </div></a></li>
+            <li><a class="link-item" href="./brand_product.html">
+                <div class="tag"> 
+                  <p>Products</p>
+                </div>
+                <div class="text"> 
+                  <p>周邊商品</p>
+                </div></a></li>
+            <li><a class="link-item" href="javascript:;">
+                <div class="tag"> 
+                  <p>Career</p>
+                </div>
+                <div class="text"> 
+                  <p>加入我們</p>
+                </div></a></li>
+          </ul>
+          <div class="bottom"> 
+            <div class="group">
+              <div class="group-L">
+                <ul class="sns-icon"> 
+                  <li> <a class="icon-linkedin" href="javascript:;" target="_blank"></a></li>
+                  <li> <a class="icon-youtube" href="javascript:;" target="_blank"> </a></li>
+                  <li> <a class="icon-ig-square" href="javascript:;" target="_blank"></a></li>
+                  <li><a class="icon-line" href="javascript:;" target="_blank"></a></li>
+                  <li> <a class="icon-fb-square" href="javascript:;" target="_blank"></a></li>
+                </ul>
+              </div>
+              <div class="group-R">
+                <ul>
+                  <li> <a href="./brand_contact.html">聯絡我們</a></li>
+                  <li> <a href="javascript:;" data-modal-target="privacy">隱私權政策</a></li>
+                  <li> <a href="./index.html">柏文集團網站</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="bottom-bottom"> 
+              <div class="copyright">
+                <p> <span>powerwind. all rights reserved.Design by </span><a href="https://www.wddgroup.com/">wdd.</a></p>
+              </div>
+              <div class="top-btn" data-anchor-target="">
+                <div class="icon-scroll-down"></div>
+                <p>TOP</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+      <!-- 搜尋燈箱-->
+      <!-- 搜尋燈箱-->
+      <modern-modal class="search-block" data-modal-id="brand_search">
+        <div class="inner-group">
+          <div class="inner-text">
+            <div class="inner-L">
+              <div class="tag item-tit">
+                <p>Search</p>
+              </div>
+              <div class="block-title-M">
+                <p>全站搜尋</p>
+              </div>
+            </div>
+            <div class="inner-R">
+              <div class="des wt-content"> 
+                <p>我們提供最新消息、品牌介紹的進階搜尋功能，您可以輸入關鍵字進行查找。</p>
+              </div>
+            </div>
+          </div>
+          <!-- 搜尋切換選單+查詢輸入欄位-->
+          <div class="data-block">
+            <div class="block-category">
+              <multipurpose-nav m4-type="collapse" m4-status="news" m4-option="{&quot;drag&quot;:{&quot;selected&quot;:true},&quot;collapse&quot;:{&quot;selected&quot;:true,&quot;placeholder&quot;:&quot;選擇子單元&quot;},&quot;dropdown&quot;:{&quot;value&quot;:&quot;all&quot;}}">
+                <div class="item" data-option="news">
+                  <div class="category">
+                    <p>最新消息</p>
+                  </div>
+                </div>
+                <div class="item" data-option="service">
+                  <div class="category">
+                    <p>服務項目</p>
+                  </div>
+                </div>
+              </multipurpose-nav>
+            </div>
+            <div class="search-bar"> 
+              <div class="input-wrap">
+                <div class="s-delete">
+                  <div class="icon-plus"></div>
+                </div>
+                <input type="text" placeholder="輸入關鍵字......">
+              </div>
+              <!-- 搜尋網址後加上?result-block 可滑動到搜尋結果顯示區--><a class="s-search" href="./brand_search_result.html?result-block">
+                <div class="icon-search"> </div></a>
+            </div>
+          </div>
+        </div><a class="close-button" href="javascript:;" data-modal-close></a>
+      </modern-modal>
+    </div>
+  </body>
+</html>

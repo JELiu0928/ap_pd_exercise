@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW" data-overlayscrollbars-initialize>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Safari 電話號碼判斷-->
+    <meta content="telephone=no" name="format-detection">
+    <title>CRAZY JUMP 肖跳</title>
+    <link rel="shortcut icon" href="./assets/img/Brand/favicon.ico" type="image/x-icon">
+    <!-- Google font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700;800;900&amp;family=Roboto:wght@300;400;500;700;900&amp;display=swap">
+    <!-- 共用樣式-->
+    <link rel="stylesheet" href="./assets/fonts/icomoon/style.css">
+    <link rel="stylesheet" href="https://cdn.wdd.idv.tw/fesd/2024_v1.0/fesd.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- 個別頁面 CSS-->
+    <!-- 主頁面 CSS-->
+    <link rel="stylesheet" href="./css/pages/brand_search_result.css">
+    <!-- 共用 JS-->
+    <script defer src="https://cdn.wdd.idv.tw/js/jquery-3.6.3.min.js"></script>
+    <script defer src="https://cdn.wdd.idv.tw/fesd/2024_v1.0/fesdDB.min.js"></script>
+    <script defer src="https://cdn.wdd.idv.tw/fesd/2024_v1.0/fesd.min.js"></script>
+    <script defer src="./js/global.min.js"></script>
+    <script defer src="./js/common.min.js"></script>
+    <!-- 個別頁面引用 JS-->
+    <!-- 主頁面 JS-->
+    <script defer src="./js/pages/brand_search_result.min.js"></script>
+    <style>
+      :root{
+        --brandDeep: #1F2A68;
+        --brandSecondary: #F2E92B;
+        --brandDeep--txt: #FFF;
+        --brandSecondary--txt: #000;
+        --brandDeep--10: rgba(31, 42, 104, 0.1);
+        --brandSecondary--10: rgba(242, 233, 43, 0.1);
+        --brandGray: #C9CACA;
+      }
+      
+    </style>
+  </head>
+  <body class="brand_search_result brandType" data-overlayscrollbars-initialize>
+    <h1 class="visuallyhidden">CRAZY JUMP 肖跳</h1>
+    <!-- 進場動畫-->
+    <!-- 分館入場動畫-->
+    <!-- 抓 Logo圖 170 x 170-->
+    <div class="first-entry">
+      <div class="logo"> 
+        <!-- 底色可選擇 品牌主色--brandDeep 色碼、品牌輔色--brandSecondary 色碼-->
+        <!-- 注意！！請帶入色碼 -->
+        <div class="logo-icon" style="--bgcolor:#1F2A68"></div>
+        <div class="logo-text">
+          <div class="picBox"><img src="./assets/img/Brand/logo_170x170.png" alt=""></div>
+        </div>
+      </div>
+    </div>
+    <div class="main-wrapper">
+      <!-- 導覽列-->
+      <!-- 主要內容-->
+      <main>
+        <section class="search-result search-block">
+          <div class="control-bar page-banner"> 
+            <div class="common-bread" data-aost data-aost-clip-left data-aost-start="100">
+              <div class="bread-L">
+                <!-- 麵包-->
+                <ul class="breadcrumb"> 
+                  <div class="icon-bread_home"></div>
+                  <li class="bread-item"> <a href="././brand_search_result.html"> <span>搜尋</span></a></li>
+                  <li class="bread-item"><span>搜尋結果</span></li>
+                </ul>
+              </div><a class="close-button" href="javascript:;" onclick="history.back()"></a>
+            </div>
+          </div>
+          <div class="container">
+            <div class="inner-group" data-aost data-aost-fade data-aost-start="100">
+              <!-- 文字固定-->
+              <div class="inner-text">
+                <div class="tag">
+                  <p>Search Result</p>
+                </div>
+                <div class="title">
+                  <p>搜尋結果</p>
+                </div>
+                <div class="des wt-content"> 
+                  <p>當前頁面為您的搜尋結果，若查找不到您想觀看的相關資訊，請重新在底下輸入框填入您想找尋的關鍵字</p>
+                </div>
+              </div>
+              <div class="data-block">
+                <div class="block-category search-category"> 
+                  <!-- 搜尋切換選單-->
+                  <!-- 載入頁面會抓 m4-status 的值顯示搜尋結果-->
+                  <multipurpose-nav m4-type="collapse" m4-status="news" m4-option="{&quot;drag&quot;:{&quot;selected&quot;:true},&quot;collapse&quot;:{&quot;selected&quot;:true,&quot;placeholder&quot;:&quot;選擇子單元&quot;},&quot;dropdown&quot;:{&quot;value&quot;:&quot;all&quot;}}">
+                    <div class="item" data-option="news">
+                      <div class="category">
+                        <p>最新消息</p>
+                      </div>
+                    </div>
+                    <div class="item" data-option="service">
+                      <div class="category">
+                        <p>服務項目</p>
+                      </div>
+                    </div>
+                  </multipurpose-nav>
+                </div>
+                <div class="search-bar"> 
+                  <div class="input-wrap">
+                    <div class="s-delete">
+                      <div class="icon-plus"></div>
+                    </div>
+                    <input type="text" placeholder="輸入關鍵字......" value="肖跳">
+                  </div>
+                  <!-- 搜尋網址後加上?result-block 可滑動到搜尋結果顯示區--><a class="s-search" href="./brand_search_result.html?result-block">
+                    <div class="icon-search"> </div></a>
+                </div>
+              </div>
+            </div>
+            <div class="result-block" data-anchor-id="result-block">
+              <!-- 最新消息區塊-->
+              <div class="result-data" pane-data="news">
+                <div class="result-text"> 
+                  <div class="title block-title-M">
+                    <p>搜尋結果</p>
+                  </div>
+                  <!-- 搜尋筆數-->
+                  <div class="group item-sub-S">
+                    <p>在 <span>最新消息</span> 中找到 <span>2</span> 件搜尋結果</p>
+                  </div>
+                </div>
+                <!-- 無資料.news-data-box 加上d-none-->
+                <!-- 篩選資料放這邊 結構跟brand_news.html的完全一樣-->
+                <ul class="news-data-box">
+                  <!-- 以下為重複結構-->
+                  <!-- 日期 + 分類標籤(可複選) + 標題 + 內頁連結-->
+                  <li class="item" data-aost data-aost-fade-up data-aost-start="100" data-aost-delay="100">  <a class="group" href="./brand_news_detail.html">
+                      <!-- 圖 620 x 405-->
+                      <div class="img-box">
+                        <div class="picBox"> 
+                          <picture> <img class="lazy" data-src="./assets/img/Brand/brand_news/pic_02_620x405.jpg" alt=""></picture>
+                        </div>
+                        <div class="plus"></div>
+                      </div>
+                      <div class="content-box">
+                        <div class="box-T wt-content-S"> 
+                          <div class="date">2023.09.01</div>
+                          <div class="bar-sort-box">
+                            <div class="bar-sort">
+                              <div class="tag-item">
+                                <p>活動訊息</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="box-B">
+                          <div class="item-sub-S">
+                            <p>生日派對！肖跳生日禮 生日當天壽星本人憑身份證入館免費</p>
+                          </div>
+                          <div class="des wt-content">
+                            <p>為維護廣大消費者及本公司從業員工的健康權益。自三月份起，如訪客或來賓近期出國紀錄（不限國家、區域），返國後 14 天內必須進行居家檢疫；居家檢疫期間之訪客不得入館。若因訪客隱瞞出國情事末主動告知且進入場館導致本公司來賓或員工之健康受損害，或造成本公司營業損失，並經杳明屬實者，本公司將主動協助並代替員工及來賓尋求法律途徑主張以及請求損害賠償，以全力捍衛所有來賓及員工健康權益。</p>
+                          </div>
+                        </div>
+                      </div></a></li>
+                  <li class="item" data-aost data-aost-fade-up data-aost-start="100" data-aost-delay="100">  <a class="group" href="./brand_news_detail.html">
+                      <!-- 圖 620 x 405-->
+                      <div class="img-box">
+                        <div class="picBox"> 
+                          <picture> <img class="lazy" data-src="./assets/img/Brand/brand_news/pic_03_620x405.jpg" alt=""></picture>
+                        </div>
+                        <div class="plus"></div>
+                      </div>
+                      <div class="content-box">
+                        <div class="box-T wt-content-S"> 
+                          <div class="date">2023.08.31</div>
+                          <div class="bar-sort-box">
+                            <div class="bar-sort">
+                              <div class="tag-item">
+                                <p>活動訊息</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="box-B">
+                          <div class="item-sub-S">
+                            <p>滾吧！保齡球館 消費享肖跳優惠</p>
+                          </div>
+                          <div class="des wt-content">
+                            <p>凡憑 滾吧！保齡球館 當日發票 $500（含）以上，至肖跳購票可贈送襪子一雙（一人限一次，一張發票）。</p>
+                          </div>
+                        </div>
+                      </div></a></li>
+                </ul>
+                <!-- 無資料結構-->
+                <!-- 移除d-none即可顯示-->
+                <div class="block-no-data d-none">
+                  <div class="nodata-content"> 
+                    <div class="notic"> 
+                      <p>OOPS!</p>
+                    </div>
+                    <div class="des"> 
+                      <p>目前尚未有相關資料，請嘗試輸入其他關鍵字，若有其他疑問，歡迎與我們聯繫詢問，謝謝。</p>
+                    </div>
+                  </div><a class="common-btn" href="./brand_contact.html" btn-color="main"><span>聯絡我們</span>
+                    <div class="dot"></div>
+                    <div class="btn-line"> </div></a>
+                </div>
+              </div>
+              <!-- 品牌介紹區塊-->
+              <div class="result-data" pane-data="service">
+                <div class="result-text"> 
+                  <div class="title block-title-M">
+                    <p>搜尋結果</p>
+                  </div>
+                  <div class="group item-sub-S">
+                    <p>在 <span>服務項目</span> 中找到 <span>4</span> 件搜尋結果</p>
+                  </div>
+                  <!-- 無資料.service-data-box 加上 d-none-->
+                  <!-- 篩選資料放這邊 結構跟brand_service.html的完全一樣-->
+                  <ul class="service-data-box">
+                    <!-- 以下為重複資料-->
+                    <li class="item" data-aost data-aost-fade-up>
+                      <div class="group">
+                        <div class="img-box">
+                          <div class="picBox"> 
+                            <picture>
+                              <source media="(min-width:576px )" data-srcset="./assets/img/Brand/brand_service/pic_pc_01_620x425.jpg"><img class="lazy" data-src="./assets/img/Brand/brand_service/pic_mb_01_335x230.jpg" alt="">
+                            </picture>
+                          </div>
+                        </div><a class="content-box" href="./brand_service_detail.html">
+                          <div class="box-T" data-aost data-aost-clip-left data-aost-delay="300">
+                            <div class="bar-sort-box">
+                              <div class="bar-sort">
+                                <div class="tag-item">
+                                  <p>信義館</p>
+                                </div>
+                                <div class="tag-item">
+                                  <p>西屯館</p>
+                                </div>
+                                <div class="tag-item">
+                                  <p>草衙館</p>
+                                </div>
+                                <div class="tag-item">
+                                  <p>鳳山館</p>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="title"> 
+                              <p>彈跳區</p>
+                            </div>
+                            <div class="des wt-content"> 
+                              <p>全國獨家引進美國製造最高品質的彈跳床設施，美國原廠專業技師來台技術指導，用國際視野規劃，台灣在地品牌，高規格現場管理，讓您及家中寶貝們在肖跳能放心的盡情享受彈跳床帶來的樂趣! 旋轉~跳躍~空翻~躲避球~強力灌籃! 想讓孩子體驗 NBA 明星般一躍而上，轟炸籃框的快感嗎？肖跳提供的彈跳床設備帶給您安全的環境及全新體驗感受~想像力是您及孩子唯一的局限!</p>
+                            </div>
+                          </div>
+                          <div class="common-btn" btn-color="main"><span>了解更多</span>
+                            <div class="dot"></div>
+                            <div class="btn-line"> </div>
+                          </div></a>
+                      </div>
+                    </li>
+                    <li class="item" data-aost data-aost-fade-up>
+                      <div class="group">
+                        <div class="img-box">
+                          <div class="picBox"> 
+                            <picture>
+                              <source media="(min-width:576px )" data-srcset="./assets/img/Brand/brand_service/pic_pc_02_620x425.jpg"><img class="lazy" data-src="./assets/img/Brand/brand_service/pic_mb_02_335x230.jpg" alt="">
+                            </picture>
+                          </div>
+                        </div><a class="content-box" href="./brand_service_detail.html">
+                          <div class="box-T" data-aost data-aost-clip-left data-aost-delay="300">
+                            <div class="bar-sort-box">
+                              <div class="bar-sort">
+                                <div class="tag-item">
+                                  <p>草衙館</p>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="title"> 
+                              <p>勇者堡壘</p>
+                            </div>
+                            <div class="des wt-content"> 
+                              <p>獨家由美國引進業界累積超過 40 年經驗，並專注打造世界級安全兒童遊樂器材的 PLAYWORLD 公司，專屬為肖跳打造勇者堡壘兒童多功能遊戲區，複合式多功能的玩法結合溜滑梯、吊橋等。透過遊戲過程，除了能提升孩子的體能，更能培養孩子學習如何俱備克服並挑戰困難的心理素質!</p>
+                            </div>
+                          </div>
+                          <div class="common-btn" btn-color="main"><span>了解更多</span>
+                            <div class="dot"></div>
+                            <div class="btn-line"> </div>
+                          </div></a>
+                      </div>
+                    </li>
+                    <li class="item" data-aost data-aost-fade-up>
+                      <div class="group">
+                        <div class="img-box">
+                          <div class="picBox"> 
+                            <picture>
+                              <source media="(min-width:576px )" data-srcset="./assets/img/Brand/brand_service/pic_pc_03_620x425.jpg"><img class="lazy" data-src="./assets/img/Brand/brand_service/pic_mb_03_335x230.jpg" alt="">
+                            </picture>
+                          </div>
+                        </div><a class="content-box" href="./brand_service_detail.html">
+                          <div class="box-T" data-aost data-aost-clip-left data-aost-delay="300">
+                            <div class="bar-sort-box">
+                              <div class="bar-sort">
+                                <div class="tag-item">
+                                  <p>信義館</p>
+                                </div>
+                                <div class="tag-item">
+                                  <p>草衙館</p>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="title"> 
+                              <p>雷射迷宮</p>
+                            </div>
+                            <div class="des wt-content"> 
+                              <p>雷射迷宮挑戰 (Laser Maze Challenge)，是相當緊張刺激的全新設施，玩家必須具備速度和靈活性，以最快的速度前進並避開雷射光束，使用時間越少，成績越好。 玩家還可以選擇挑戰的難度，難度越高雷射光束越密集，歡迎前來挑戰自己，往最高等級邁進。在雷射迷宮的外圍更有太陽系各行星的介紹，挑戰雷射迷宮還可以吸收天文知識。</p>
+                            </div>
+                          </div>
+                          <div class="common-btn" btn-color="main"><span>了解更多</span>
+                            <div class="dot"></div>
+                            <div class="btn-line"> </div>
+                          </div></a>
+                      </div>
+                    </li>
+                    <li class="item" data-aost data-aost-fade-up>
+                      <div class="group">
+                        <div class="img-box">
+                          <div class="picBox"> 
+                            <picture>
+                              <source media="(min-width:576px )" data-srcset="./assets/img/Brand/brand_service/pic_pc_04_620x425.jpg"><img class="lazy" data-src="./assets/img/Brand/brand_service/pic_mb_04_335x230.jpg" alt="">
+                            </picture>
+                          </div>
+                        </div><a class="content-box" href="./brand_service_detail.html">
+                          <div class="box-T" data-aost data-aost-clip-left data-aost-delay="300">
+                            <div class="bar-sort-box">
+                              <div class="bar-sort">
+                                <div class="tag-item">
+                                  <p>信義館</p>
+                                </div>
+                                <div class="tag-item">
+                                  <p>草衙館</p>
+                                </div>
+                                <div class="tag-item">
+                                  <p>鳳山館</p>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="title"> 
+                              <p>XBOX</p>
+                            </div>
+                            <div class="des wt-content"> 
+                              <p>獨家由美國引進業界累積超肖跳 Crazy Jump 與 XBOX 獨家合作，提供您最熱門的 XBOX 互動遊戲體驗。 XBOX One 具備進行動態遊戲互動與健身的 Kinect 新功能，為您帶來全新的遊戲與娛樂體驗，改變你對遊戲的方式。</p>
+                            </div>
+                          </div>
+                          <div class="common-btn" btn-color="main"><span>了解更多</span>
+                            <div class="dot"></div>
+                            <div class="btn-line"> </div>
+                          </div></a>
+                      </div>
+                    </li>
+                  </ul>
+                  <!-- 無資料結構 -->
+                  <!-- 移除d-none即可顯示-->
+                  <div class="block-no-data d-none">
+                    <div class="nodata-content"> 
+                      <div class="notic"> 
+                        <p>OOPS!</p>
+                      </div>
+                      <div class="des"> 
+                        <p>目前尚未有相關資料，請嘗試輸入其他關鍵字，若有其他疑問，歡迎與我們聯繫詢問，謝謝。</p>
+                      </div>
+                    </div><a class="common-btn" href="./brand_contact.html" btn-color="main"><span>聯絡我們</span>
+                      <div class="dot"></div>
+                      <div class="btn-line"> </div></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="top-btn" data-anchor-target>
+              <div class="icon-scroll-down"></div>
+              <p>TOP </p>
+            </div>
+          </div>
+        </section>
+      </main>
+      <!-- cookies-->
+      <!-- cookie 不開放後台編輯-->
+      <div class="cookie-block" type="brandStyle">
+        <div class="cookie-mask"></div>
+        <div class="cookie-main">
+          <div class="cookie-container"> 
+            <div class="deco-title">
+              <div class="main">
+                <p>COOKIE<span>宣告</span></p>
+              </div>
+              <div class="dot"> </div>
+              <div class="line"></div>
+            </div>
+            <div class="flex-group">
+              <div class="inner-text">
+                <div class="text">
+                  <p>關於本網站使用瀏覽器紀錄 Cookie 來提供您最好的使用體驗，我們使用的 Cookie 也包括了第三方 Cookie。相關資訊請訪問我們的隱私權與 Cookie 政策。如果您選擇繼續瀏覽或關閉這個提示，便表示您已接受我們的網站使用條款。</p>
+                </div>
+              </div>
+              <div class="btn-group"><a class="common-btn disagree" href="javascript:;" btn-color="brandGray"><span>拒絕接受</span>
+                  <div class="dot"></div>
+                  <div class="btn-line"> </div></a><a class="common-btn accept" href="javascript:;" btn-color="main"><span>我知道了</span>
+                  <div class="dot"></div>
+                  <div class="btn-line"> </div></a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 頁腳-->
+      <!-- 搜尋燈箱-->
+    </div>
+  </body>
+</html>

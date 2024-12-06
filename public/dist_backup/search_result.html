@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW" data-overlayscrollbars-initialize>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Safari 電話號碼判斷-->
+    <meta content="telephone=no" name="format-detection">
+    <title>Power Wind</title>
+    <link rel="shortcut icon" href="./assets/img/favicon.ico" type="image/x-icon">
+    <!-- Google font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700;800;900&amp;family=Roboto:wght@300;400;500;700;900&amp;display=swap">
+    <!-- 共用樣式-->
+    <link rel="stylesheet" href="./assets/fonts/icomoon/style.css">
+    <link rel="stylesheet" href="https://cdn.wdd.idv.tw/fesd/no-swiper/fesd.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- 個別頁面 CSS-->
+    <!-- 主頁面 CSS-->
+    <link rel="stylesheet" href="./css/pages/search_result.css">
+    <!-- 共用 JS-->
+    <script defer src="https://cdn.wdd.idv.tw/js/jquery-3.6.3.min.js"></script>
+    <script defer src="https://cdn.wdd.idv.tw/fesd/no-swiper/fesdDB.min.js"></script>
+    <script defer src="https://cdn.wdd.idv.tw/fesd/no-swiper/fesd.min.js"></script>
+    <script defer src="./js/global.min.js"></script>
+    <script defer src="./js/common.min.js"></script>
+    <!-- 個別頁面引用 JS-->
+    <!-- 主頁面 JS-->
+    <script defer src="./js/pages/search_result.min.js"></script>
+  </head>
+  <body class="search_result" data-overlayscrollbars-initialize>
+    <h1 class="visuallyhidden">Power Wind</h1>
+    <!-- 進場動畫-->
+    <div class="first-entry">
+      <div class="logo"> 
+        <div class="logo-icon">
+          <div class="left-box"> </div>
+          <div class="right-box"> </div>
+          <div class="logo-arrow"> <img src="./assets/img/logo_arrow.svg" alt=""></div>
+        </div>
+        <div class="logo-text"> <img src="./assets/img/logo_text.svg" alt=""></div>
+      </div>
+    </div>
+    <div class="main-wrapper">
+      <!-- 導覽列-->
+      <!-- 主要內容-->
+      <main>
+        <section class="search-result search-block">
+          <div class="control-bar page-banner"> 
+            <div class="common-bread" data-aost data-aost-clip-left data-aost-start="100">
+              <div class="bread-L">
+                <ul class="breadcrumb"> 
+                  <div class="icon-bread_home"></div>
+                  <li class="bread-item"> <a href="././search_result.html"> <span>搜尋</span></a></li>
+                  <li class="bread-item"><span>搜尋結果</span></li>
+                </ul>
+              </div><a class="close-button" href="javascript:;" onclick="history.back()"></a>
+            </div>
+          </div>
+          <div class="search-decs">
+            <div class="dec-inner">
+              <picture> <img class="lazy" data-src="./assets/img/other/search03.png" alt="alt"></picture>
+            </div>
+          </div>
+          <div class="search-decs dec-two">
+            <div class="dec-inner">
+              <picture> <img class="lazy" data-src="./assets/img/other/search04.png" alt="alt"></picture>
+            </div>
+          </div>
+          <div class="container">
+            <div class="inner-group" data-aost data-aost-fade data-aost-start="100">
+              <div class="inner-text">
+                <div class="tag">
+                  <p>Search Result</p>
+                </div>
+                <div class="title">
+                  <p>搜尋結果</p>
+                </div>
+                <div class="des wt-content"> 
+                  <p>當前頁面為您的搜尋結果，若查找不到您想觀看的相關資訊，請重新在底下輸入框填入您想找尋的關鍵字</p>
+                </div>
+              </div>
+              <div class="data-block">
+                <div class="block-category search-category"> 
+                  <!-- 搜尋切換選單-->
+                  <!-- 載入頁面會抓 m4-status 的值顯示搜尋結果-->
+                  <multipurpose-nav m4-type="collapse" m4-status="news" m4-option="{&quot;drag&quot;:{&quot;selected&quot;:true},&quot;collapse&quot;:{&quot;selected&quot;:true,&quot;placeholder&quot;:&quot;選擇子單元&quot;},&quot;dropdown&quot;:{&quot;value&quot;:&quot;all&quot;}}">
+                    <div class="item" data-option="news">
+                      <div class="category">
+                        <p>最新消息</p>
+                      </div>
+                    </div>
+                    <div class="item" data-option="brands">
+                      <div class="category">
+                        <p>品牌介紹</p>
+                      </div>
+                    </div>
+                  </multipurpose-nav>
+                </div>
+                <div class="search-bar"> 
+                  <div class="input-wrap">
+                    <div class="s-delete">
+                      <div class="icon-plus"></div>
+                    </div>
+                    <input type="text" placeholder="輸入關鍵字......" value="Fitness Factory 健身工廠">
+                  </div>
+                  <!-- 搜尋網址後加上?result-block 可滑動到搜尋結果顯示區--><a class="s-search" href="./search_result.html?result-block">
+                    <div class="icon-search"> </div></a>
+                </div>
+              </div>
+            </div>
+            <div class="result-block" data-anchor-id="result-block">
+              <!-- 最新消息區塊-->
+              <div class="result-data" pane-data="news">
+                <div class="result-text"> 
+                  <div class="title block-title-M">
+                    <p>搜尋結果</p>
+                  </div>
+                  <!-- 搜尋筆數-->
+                  <div class="group item-sub-S">
+                    <p>在 <span>最新消息</span> 中找到 <span>5</span> 件搜尋結果</p>
+                  </div>
+                </div>
+                <!-- 無資料.news-data-box 加上d-none-->
+                <!-- 篩選資料放這邊 結構跟news.html的完全一樣-->
+                <ul class="news-data-box">
+                  <!-- 以下為重複結構-->
+                  <!-- 日期 + 分類標籤(可複選) + 標題 + 內頁連結-->
+                  <li class="item" data-aost data-aost-fade-up>  <a class="group" href="./news_detail.html">
+                      <!-- 圖 350x230 -->
+                      <div class="picBox"> 
+                        <picture> <img src="./assets/img/news/pic_01_525x345.jpg" alt="" loading="lazy"></picture>
+                      </div>
+                      <div class="content-box">
+                        <div class="box-T wt-content-S"> 
+                          <div class="date">2023.09.28</div>
+                          <div class="bar-sort-box">
+                            <div class="bar-sort">
+                              <div class="tag-item">
+                                <p>品牌訊息</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="box-B">
+                          <div class="item-sub-S">
+                            <p>KILL ZONE鐳射戰場10月歡慶，限定朋友可享生日8折優惠</p>
+                          </div>
+                        </div>
+                      </div></a></li>
+                  <li class="item" data-aost data-aost-fade-up>  <a class="group" href="./news_detail.html">
+                      <!-- 圖 350x230 -->
+                      <div class="picBox"> 
+                        <picture> <img src="./assets/img/news/pic_02_525x345.jpg" alt="" loading="lazy"></picture>
+                      </div>
+                      <div class="content-box">
+                        <div class="box-T wt-content-S"> 
+                          <div class="date">2023.09.05</div>
+                          <div class="bar-sort-box">
+                            <div class="bar-sort">
+                              <div class="tag-item">
+                                <p>品牌訊息</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="box-B">
+                          <div class="item-sub-S">
+                            <p>上班族動起來 腰痠背痛out!</p>
+                          </div>
+                        </div>
+                      </div></a></li>
+                  <li class="item" data-aost data-aost-fade-up>  <a class="group" href="./news_detail.html">
+                      <!-- 圖 350x230 -->
+                      <div class="picBox"> 
+                        <picture> <img src="./assets/img/news/pic_03_525x345.jpg" alt="" loading="lazy"></picture>
+                      </div>
+                      <div class="content-box">
+                        <div class="box-T wt-content-S"> 
+                          <div class="date">2023.08.11</div>
+                          <div class="bar-sort-box">
+                            <div class="bar-sort">
+                              <div class="tag-item">
+                                <p>公益活動</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="box-B">
+                          <div class="item-sub-S">
+                            <p>健身工廠攜手眼球先生推猛男桌曆做公益</p>
+                          </div>
+                        </div>
+                      </div></a></li>
+                  <li class="item" data-aost data-aost-fade-up>  <a class="group" href="./news_detail.html">
+                      <!-- 圖 350x230 -->
+                      <div class="picBox"> 
+                        <picture> <img src="./assets/img/news/pic_04_525x345.jpg" alt="" loading="lazy"></picture>
+                      </div>
+                      <div class="content-box">
+                        <div class="box-T wt-content-S"> 
+                          <div class="date">2023.08.05</div>
+                          <div class="bar-sort-box">
+                            <div class="bar-sort">
+                              <div class="tag-item">
+                                <p>品牌訊息</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="box-B">
+                          <div class="item-sub-S">
+                            <p>人體工房讓您放鬆愛自己！專屬個人SPA芳療室，享受8月限定活動</p>
+                          </div>
+                        </div>
+                      </div></a></li>
+                  <li class="item" data-aost data-aost-fade-up>  <a class="group" href="./news_detail.html">
+                      <!-- 圖 350x230 -->
+                      <div class="picBox"> 
+                        <picture> <img src="./assets/img/news/pic_05_525x345.jpg" alt="" loading="lazy"></picture>
+                      </div>
+                      <div class="content-box">
+                        <div class="box-T wt-content-S"> 
+                          <div class="date">2023.06.12</div>
+                          <div class="bar-sort-box">
+                            <div class="bar-sort">
+                              <div class="tag-item">
+                                <p>品牌訊息</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="box-B">
+                          <div class="item-sub-S">
+                            <p>滾吧LET’S ROLL 2023火熱夏令營開始招生！</p>
+                          </div>
+                        </div>
+                      </div></a></li>
+                </ul>
+                <!-- 無資料結構-->
+                <!-- 移除d-none即可顯示-->
+                <div class="block-no-data d-none">
+                  <div class="nodata-content"> 
+                    <div class="notic"> 
+                      <p>OOPS!</p>
+                    </div>
+                    <div class="des"> 
+                      <p>目前尚未有相關資料，請嘗試輸入其他關鍵字，謝謝。</p>
+                    </div>
+                  </div>
+                  <!--快速搜尋關鍵字 無資料移除結構-->
+                  <!-- 查詢關鍵字為共用 後台設定一次即可～-->
+                  <div class="search-keyword">
+                    <div class="info"> 
+                      <div class="info-L">推薦查詢</div>
+                      <div class="info-R">Quick Search</div>
+                    </div>
+                    <ul class="tag-box">
+                      <li class="item">
+                        <div class="deco"></div>
+                        <p>KILL ZONE</p>
+                      </li>
+                      <li class="item">
+                        <div class="deco"></div>
+                        <p>Fitness Factory 健身工廠</p>
+                      </li>
+                      <li class="item">
+                        <div class="deco"></div>
+                        <p>2023 火熱夏令營</p>
+                      </li>
+                      <li class="item">
+                        <div class="deco"></div>
+                        <p>2023 IFBB PRO SHOW</p>
+                      </li>
+                      <li class="item">
+                        <div class="deco"></div>
+                        <p>人體工房</p>
+                      </li>
+                      <li class="item">
+                        <div class="deco"></div>
+                        <p>2023 IFBB PRO SHOW</p>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <!-- 品牌介紹區塊-->
+              <div class="result-data" pane-data="brands">
+                <div class="result-text"> 
+                  <div class="title block-title-M">
+                    <p>搜尋結果</p>
+                  </div>
+                  <div class="group item-sub-S">
+                    <p>在 <span>品牌介紹</span> 中找到 <span>2</span> 件搜尋結果</p>
+                  </div>
+                </div>
+                <!-- 無資料.brands-data-box加上d-none-->
+                <ul class="brands-data-box">
+                  <li class="item" data-aost data-aost-fade-up> 
+                    <!-- 以下為重複資料-->
+                    <!-- 抓品牌 >> Logo一張 180x145 + 色盤背景色-->
+                    <!-- 抓品牌 >> 連結+副標+主標+敘述--><a class="group" href="javascript:;">
+                      <div class="imgBox">
+                        <!-- Logo + 色盤-->
+                        <div class="logo" style="--bgcolor:#FDC500" data-aost data-aost-clip-left> 
+                          <div class="picBox">
+                            <picture> <img class="lazy" data-src="./assets/img/brands/logo_06_180x145.png" alt=""></picture>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="content-box">
+                        <div class="item-tit">
+                          <p>全國首家上市的運動健身中心</p>
+                        </div>
+                        <div class="title">
+                          <p>fitness factory 健身工廠</p>
+                        </div>
+                        <div class="wt-content">
+                          <p>目前全國擁有69家廠館及會員數達25萬之規模，健身工廠不僅是國內首家登錄上市的運動健身中心、業界唯一獲得國際iHRSA優良評</p>
+                        </div>
+                        <div class="common-btn" btn-color="green"><span>了解更多</span>
+                          <div class="dot"></div>
+                          <div class="btn-line"> </div>
+                        </div>
+                      </div></a>
+                  </li>
+                  <li class="item" data-aost data-aost-fade-up> 
+                    <!-- 以下為重複資料-->
+                    <!-- 抓品牌 >> Logo一張 180x145 + 色盤背景色-->
+                    <!-- 抓品牌 >> 連結+副標+主標+敘述--><a class="group" href="javascript:;">
+                      <div class="imgBox">
+                        <!-- Logo + 色盤-->
+                        <div class="logo" style="--bgcolor:#F6F6F6" data-aost data-aost-clip-left> 
+                          <div class="picBox">
+                            <picture> <img class="lazy" data-src="./assets/img/brands/logo_01_180x145.png" alt=""></picture>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="content-box">
+                        <div class="item-tit">
+                          <p>全國最時尚的保齡球館</p>
+                        </div>
+                        <div class="title">
+                          <p>Let's Roll</p>
+                        </div>
+                        <div class="wt-content">
+                          <p>滾吧！Let's Roll 引領國內休閒運動新潮流，提供全新頂級配備及高規格環境斥資千萬打造專業球道，特別引進 My Ball System系統，能夠幫助您正確挑選最適合的保齡球重量及球孔大小，有效避免運動傷害。最特別的是防洗溝模式設計：提供專屬於兒童使用的 Brunswick保齡球，讓親子能夠一同共度美好時光。</p>
+                        </div>
+                        <div class="common-btn" btn-color="green"><span>了解更多</span>
+                          <div class="dot"></div>
+                          <div class="btn-line"> </div>
+                        </div>
+                      </div></a>
+                  </li>
+                </ul>
+                <!-- 無資料結構 -->
+                <!-- 移除d-none即可顯示-->
+                <div class="block-no-data d-none">
+                  <div class="nodata-content"> 
+                    <div class="notic"> 
+                      <p>OOPS!</p>
+                    </div>
+                    <div class="des"> 
+                      <p>目前尚未有相關資料，請嘗試輸入其他關鍵字，謝謝。</p>
+                    </div>
+                  </div>
+                  <!--快速搜尋關鍵字 無資料移除結構-->
+                  <!-- 查詢關鍵字為共用 後台設定一次即可～-->
+                  <div class="search-keyword">
+                    <div class="info"> 
+                      <div class="info-L">推薦查詢</div>
+                      <div class="info-R">Quick Search</div>
+                    </div>
+                    <ul class="tag-box">
+                      <li class="item">
+                        <div class="deco"></div>
+                        <p>KILL ZONE</p>
+                      </li>
+                      <li class="item">
+                        <div class="deco"></div>
+                        <p>Fitness Factory 健身工廠</p>
+                      </li>
+                      <li class="item">
+                        <div class="deco"></div>
+                        <p>2023 火熱夏令營</p>
+                      </li>
+                      <li class="item">
+                        <div class="deco"></div>
+                        <p>2023 IFBB PRO SHOW</p>
+                      </li>
+                      <li class="item">
+                        <div class="deco"></div>
+                        <p>人體工房</p>
+                      </li>
+                      <li class="item">
+                        <div class="deco"></div>
+                        <p>2023 IFBB PRO SHOW</p>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="top-btn" data-anchor-target>
+              <div class="icon-scroll-down"></div>
+              <p>TOP </p>
+            </div>
+          </div>
+        </section>
+      </main>
+      <!-- cookies-->
+      <!-- cookie 不開放後台編輯-->
+      <div class="cookie-block">
+        <div class="cookie-mask"></div>
+        <div class="cookie-main">
+          <div class="decs-cookie">
+            <div class="dec-inner">
+              <picture> <img class="lazy" data-src="./assets/img/menu_dec_10.png" alt="alt"></picture>
+            </div>
+          </div>
+          <div class="cookie-container"> 
+            <div class="deco-title">
+              <div class="main">
+                <p>COOKIE<span>宣告</span></p>
+              </div>
+              <div class="dot"> </div>
+              <div class="line"></div>
+            </div>
+            <div class="flex-group">
+              <div class="inner-text">
+                <div class="text">
+                  <p>關於本網站使用瀏覽器紀錄 Cookie 來提供您最好的使用體驗，我們使用的 Cookie 也包括了第三方 Cookie。相關資訊請訪問我們的隱私權與 Cookie 政策。如果您選擇繼續瀏覽或關閉這個提示，便表示您已接受我們的網站使用條款。</p>
+                </div>
+              </div>
+              <div class="btn-group"><a class="common-btn disagree" href="javascript:;" btn-color="gray"><span>拒絕接受</span>
+                  <div class="dot"></div>
+                  <div class="btn-line"> </div></a><a class="common-btn accept" href="javascript:;" btn-color="gray"><span>我知道了</span>
+                  <div class="dot"></div>
+                  <div class="btn-line"> </div></a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 頁腳-->
+      <!-- 搜尋燈箱-->
+    </div>
+  </body>
+</html>

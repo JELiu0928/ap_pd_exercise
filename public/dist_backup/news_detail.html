@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW" data-overlayscrollbars-initialize>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Safari 電話號碼判斷-->
+    <meta content="telephone=no" name="format-detection">
+    <title>Power Wind</title>
+    <link rel="shortcut icon" href="./assets/img/favicon.ico" type="image/x-icon">
+    <!-- Google font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&amp;family=Noto+Sans+TC:wght@300;400;500;700&amp;display=swap">
+    <!-- 共用樣式-->
+    <link rel="stylesheet" href="./assets/fonts/icomoon/style.css">
+    <link rel="stylesheet" href="https://cdn.wdd.idv.tw/fesd/no-swiper/fesd.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- 個別頁面 CSS-->
+    <!-- 主頁面 CSS-->
+    <link rel="stylesheet" href="./css/pages/news_detail.css">
+    <!-- 共用 JS-->
+    <script defer src="https://cdn.wdd.idv.tw/js/jquery-3.6.3.min.js"></script>
+    <script defer src="https://cdn.wdd.idv.tw/fesd/no-swiper/fesdDB.min.js"></script>
+    <script defer src="https://cdn.wdd.idv.tw/fesd/no-swiper/fesd.min.js"></script>
+    <script defer src="./js/global.min.js"></script>
+    <script defer src="./js/common.min.js"></script>
+    <!-- 個別頁面引用 JS-->
+    <!-- 主頁面 JS-->
+    <script defer src="./js/pages/news_detail.min.js"></script>
+  </head>
+  <body class="news_detail" data-overlayscrollbars-initialize>
+    <h1 class="visuallyhidden">Power Wind</h1>
+    <div class="main-wrapper">
+      <!-- 導覽列-->
+      <nav class="navbar" nav-color="" data-aost data-aost-fade data-aost-start="150" data-aost-delay="200">
+        <!-- 黑白兩色nav-->
+        <!-- 可供客戶自由選擇-->
+        <!-- nav-color="black" / nav-color="white"-->
+        <div class="container">
+          <div class="left"><a class="logo logo-white" href="./index.html"><img alt="LOGO" src="./assets/img/logo_white.png"></a><a class="logo logo-color" href="./index.html"><img alt="LOGO" src="./assets/img/logo.png"></a></div>
+          <div class="right"> 
+            <ul class="menu">
+              <li class="menu-li" data-hover-item><a href="./about.html">柏文集團</a>
+                <div class="hover-menu">
+                  <div class="wrap"> 
+                    <div class="hover-menuLeft">
+                      <div class="text-wrap"> 
+                        <h3 class="sub">text</h3>
+                        <h2 class="main">柏文集團</h2>
+                      </div>
+                    </div>
+                    <div class="hover-menuRight">
+                      <div class="menu-decs"><img src="./assets/img/index/s2_dec_01.png" alt=""></div>
+                      <div class="cate">
+                        <h2 class="cate-title">柏文集團</h2>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="menu-li" data-hover-item><a href="./brands.html">品牌介紹</a>
+                <div class="hover-menu">
+                  <div class="menu-decs"><img src="./assets/img/index/s2_dec_01.png" alt=""></div>
+                  <div class="wrap"> 
+                    <div class="hover-menuLeft">
+                      <div class="text-wrap"> 
+                        <h3 class="sub">text</h3>
+                        <h2 class="main">品牌介紹</h2>
+                      </div>
+                    </div>
+                    <div class="hover-menuRight">
+                      <div class="cate">
+                        <h2 class="cate-title">品牌介紹</h2>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="menu-li" data-hover-item><a href="./esg.html">企業永續</a>
+                <div class="hover-menu">
+                  <div class="menu-decs"><img src="./assets/img/index/s2_dec_01.png" alt=""></div>
+                  <div class="wrap"> 
+                    <div class="hover-menuLeft">
+                      <div class="text-wrap"> 
+                        <h3 class="sub">Corporate Sustainability</h3>
+                        <h2 class="main">企業永續</h2>
+                      </div>
+                    </div>
+                    <div class="hover-menuRight">
+                      <div class="cate">
+                        <h2 class="cate-title">企業社會責任</h2>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="menu-li" data-hover-item><a href="./investor.html">投資人專區</a>
+                <div class="hover-menu">
+                  <div class="menu-decs"><img src="./assets/img/index/s2_dec_01.png" alt=""></div>
+                  <div class="wrap"> 
+                    <div class="hover-menuLeft">
+                      <div class="text-wrap"> 
+                        <h3 class="sub">Investor</h3>
+                        <h2 class="main">投資人專區</h2>
+                      </div>
+                    </div>
+                    <div class="hover-menuRight">
+                      <div class="cate">
+                        <h2 class="cate-title">投資人專區</h2>
+                        <ul> 
+                          <li> <a href="javascript:;">財務報告書</a></li>
+                          <li> <a href="javascript:;">月營收資訊</a></li>
+                          <li> <a href="javascript:;">財務資訊新聞稿</a></li>
+                        </ul>
+                      </div>
+                      <div class="cate">
+                        <h2 class="cate-title">股務資訊</h2>
+                        <ul> 
+                          <li> <a href="javascript:;">股東結構</a></li>
+                          <li> <a href="javascript:;">主要股東名單</a></li>
+                          <li> <a href="javascript:;">股東會資訊</a></li>
+                          <li> <a href="javascript:;">股利資訊</a></li>
+                          <li> <a href="javascript:;">法人說明會</a></li>
+                          <li> <a href="javascript:;">重大訊息公告</a></li>
+                        </ul>
+                      </div>
+                      <div class="cate">
+                        <h2 class="cate-title">投資人服務窗口</h2>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="menu-li" data-hover-item><a href="./news.html">最新消息</a>
+                <div class="hover-menu">
+                  <div class="menu-decs"><img src="./assets/img/index/s2_dec_01.png" alt=""></div>
+                  <div class="wrap"> 
+                    <div class="hover-menuLeft">
+                      <div class="text-wrap"> 
+                        <h3 class="sub">text</h3>
+                        <h2 class="main">最新消息</h2>
+                      </div>
+                    </div>
+                    <div class="hover-menuRight">
+                      <div class="cate">
+                        <h2 class="cate-title">最新消息</h2>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="menu-li" data-hover-item><a href="javascript:;">加入柏文</a>
+                <div class="hover-menu">
+                  <div class="menu-decs"><img src="./assets/img/index/s2_dec_01.png" alt=""></div>
+                  <div class="wrap"> 
+                    <div class="hover-menuLeft">
+                      <div class="text-wrap"> 
+                        <h3 class="sub">text</h3>
+                        <h2 class="main">加入柏文</h2>
+                      </div>
+                    </div>
+                    <div class="hover-menuRight">
+                      <div class="cate">
+                        <h2 class="cate-title">加入柏文</h2>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+            <div class="header-icon"><a class="icon" href="javascript:;"><i class="icon-language"></i></a><a class="icon" href="javascript:;"><i class="icon-search"></i></a><a class="icon mail" href="javascript:;"><i class="icon-contact"></i></a><a class="hamburger" href="javascript:;">
+                <div class="icon-left"></div>
+                <div class="icon-right"></div></a></div>
+          </div>
+        </div>
+      </nav><a class="side-menu" href="javascript:;">
+        <div class="hamburger"> 
+          <div class="icon-left"></div>
+          <div class="icon-right"></div>
+        </div>
+        <div class="menu-box"> 
+          <p>MENU</p>
+        </div></a>
+      <!-- 主要內容-->
+      <main>
+        <div class="page-banner onlyBread" data-color="gray" img-type="off">
+          <div class="common-bread" data-aost data-aost-clip-left>
+            <!-- 麵包 第一層回總覽 第二層進該分類總覽 第三層不用連結-->
+            <div class="bread-L">
+              <ul class="breadcrumb"> 
+                <div class="icon-bread_home"></div>
+                <li class="bread-item"> <a href="././news.html"> <span>最新消息</span></a></li>
+                <li class="bread-item"> <a href="././news.html"> <span>所有訊息</span></a></li>
+                <li class="bread-item"><span>柏文愛心義賣所得4萬餘善款 捐贈關愛之家善循環</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <section class="main">
+          <!-- 固定背景 可略-->
+          <div class="bg-sticky">
+            <div class="sticky-img">
+              <picture> 
+                <source media="(min-width: 575px )" srcset="./assets/img/news/content_bg.png"><img src="./assets/img/news/content_mb_bg.png" alt="" loading="lazy">
+              </picture>
+            </div>
+          </div>
+          <div class="share-box-outline" data-color="dark">
+            <div class="share-box">
+              <div class="inside" data-aost data-aost-fade data-aost-start="120" data-aost-delay="300"> 
+                <div class="share-icon">
+                  <div class="content"> 
+                    <div class="share btn-16"> 
+                      <p>SHARE</p>
+                    </div>
+                  </div>
+                  <!-- 社群分享-->
+                  <div class="icon-group" web-share> <a href="javascript:;" share-target="facebook">
+                      <div class="icon-fb_new"></div></a><a href="javascript:;" share-target="line">
+                      <div class="icon-line"></div></a><a href="javascript:;" share-target="url" copy-success="已複製連結" copy-text copy-duration>
+                      <div class="icon-link"></div></a></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="container">
+            <div class="main-content">
+              <div class="topic-box" data-aost data-aost-fade-up> 
+                <div class="topic-box-inner">
+                  <!-- 文章日期+分類+標題-->
+                  <div class="bar-group"> 
+                    <div class="date wt-content-S"> 
+                      <p>2023.02.20</p>
+                    </div>
+                    <div class="bar-sort-box">
+                      <!-- 點擊可跳轉回去該分類總覽-->
+                      <div class="bar-sort"><a class="tag-item" href="./news.html">
+                          <p>媒體報導</p></a><a class="tag-item" href="./news.html">
+                          <p>公益活動</p></a></div>
+                    </div>
+                  </div>
+                  <div class="topic-title unit-sub-S">
+                    <h2>柏文愛心義賣所得4萬餘善款 捐贈關愛之家善循環</h2>
+                  </div>
+                </div>
+              </div>
+              <!-- 段 落 編 輯 器 開 始 ------>
+              <div class="article-start">
+                <div class="_articleBlock">
+                  <article class="_article typeD" data-aost data-aost-fade> 
+                    <div class="_contentWrap">
+                      <h4 class="_H">LOVE X FITNESS 讓愛健壯</h4>
+                      <div class="_imgCover">
+                        <div class="_cover">
+                          <div class="_photo" video-id="14Bdf9QhSoM" video-type="youtube"><img src="./assets/img/news/art-01.jpg" alt=""></div>
+                          <p class="_description">愛心義賣活動花絮</p>
+                        </div>
+                      </div>
+                      <div class="_wordCover">
+                        <div class="_P">
+                          <p>本次愛心義賣主題是「LOVE X FITNESS 讓愛健壯」，由愛與健身之核心創造公益價值，讓有需要幫助的人、事、物，都可以因眾人愛心而健康、茁壯。「LOVE X FITNESS 讓愛健壯」(台北場)，義賣所得將捐贈財團法人台灣關愛基金會附設台北市私立關愛之子家園婦幼部；而捐贈物品則依照公益需求另外分類捐贈給財團法人伊甸社會福利基金會與五味屋花東偏鄉部落公益商店為孩童成長的盡一點微薄之力。</p><span class="_buttonCover"><a class="_button" href="javascript:;">了解更多</a></span>
+                        </div>
+                      </div>
+                    </div>
+                  </article>
+                  <article class="_article typeRR" data-aost data-aost-fade> 
+                    <div class="_contentWrap">
+                      <div class="_imgCover">
+                        <div class="_cover">
+                          <div class="_photo"><img src="./assets/img/news/art-02.jpg" alt=""></div>
+                          <p class="_description">柏文提倡善循環理念</p>
+                        </div>
+                      </div>
+                      <h4 class="_H">以善循環、將愛延續</h4>
+                      <div class="_P">
+                        <p>愛心義賣活動讓台灣更美好，柏文健康事業營運處副總陳瑞杰提倡「善循環」理念，「以善循環、將愛延續」將二手良品愛心義賣作為一個循環開端，環保又雙贏，集結眾人之力放大公益力量，將所得淨利捐贈社福機構，深獲柏文健康事業董事長陳尚義與品牌長陳尚文大力支持。此次會員與員工的捐贈物資特別踴躍，共募集了1635件項全新及二手物品，端午連假四天在圓山花博義賣成果豐碩，一共所得41236元，柏文健康事業從元月捐血活動，三月愛地球屏東種樹，五月白沙屯海岸淨灘，六月愛心義賣，下半年開始，柏文將投入更多人力心血，繼續愛地球，愛台灣，盼能成為社會拋磚引玉效果，為社會帶來更多正面影響力，讓公益更有力量。</p><span class="_buttonCover"><a class="_button" href="javascript:;">了解更多</a></span>
+                      </div>
+                    </div>
+                  </article>
+                  <article class="_article typeFBox" typefull-size="xl" typefull-boxcolor="rgba(234, 238, 240, 1)" data-aost data-aost-fade> 
+                    <div class="_backgroundWrap">
+                      <div class="_pc" style="background-image: url('./assets/img/news/art-04.jpg')"></div>
+                      <div class="_mobile" style="background-image: url('./assets/img/news/art-04.jpg')"></div>
+                    </div>
+                    <div class="_contentWrap">
+                      <div class="_imgCover">
+                        <div class="_cover">
+                          <div class="_photo"><img src="./assets/img/news/art-03.jpg" alt=""></div>
+                          <p class="_description">五月白沙屯海岸淨灘活動</p>
+                        </div>
+                      </div>
+                      <div class="_wordCover">
+                        <h4 class="_H">2023，從愛開始以善循環、將愛延續</h4>
+                        <div class="_P">
+                          <p>柏文健康事業從元月捐血活動，三月愛地球屏東種樹，五月白沙屯海岸淨灘，六月愛心義賣，下半年開始，柏文將投入更多人力心血，繼續愛地球，愛台灣，盼能成為社會拋磚引玉效果，為社會帶來更多正面影響力，讓公益更有力量。</p><span class="_buttonCover"><a class="_button" href="javascript:;">了解更多</a></span>
+                        </div>
+                      </div>
+                    </div>
+                  </article>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="other"> 
+          <!-- 從哪個類別進入，就是該類別的最新兩則，沒有訊息的話整個section移除-->
+          <div class="container" data-aost data-aost-clip-left>
+            <div class="block-title-group"> 
+              <div class="block-tag">
+                <p>Others</p>
+              </div>
+              <div class="block-title block-title-S">
+                <h2>其他消息</h2>
+              </div>
+              <div class="block-sub wt-content">
+                <h3>隨時關注我們的最新動態，其他更多資訊在這邊！</h3>
+              </div>
+            </div>
+            <ul class="news-data-box"> 
+              <!-- 以下為重複結構-->
+              <!-- 日期 + 分類標籤(可複選) + 標題 + 內頁連結-->
+              <li class="item" data-aost data-aost-fade-up>  <a class="group" href="./news_detail.html">
+                  <!-- 圖 350x230-->
+                  <div class="picBox"> 
+                    <picture> <img src="./assets/img/news/pic_01_525x345.jpg" alt="" loading="lazy"></picture>
+                  </div>
+                  <div class="content-box">
+                    <div class="box-T wt-content-S"> 
+                      <div class="date">2023.09.28</div>
+                      <div class="bar-sort-box">
+                        <div class="bar-sort">
+                          <div class="tag-item">
+                            <p>品牌訊息</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="box-B">
+                      <div class="item-sub-S">
+                        <p>KILL ZONE鐳射戰場10月歡慶，限定朋友可享生日8折優惠</p>
+                      </div>
+                    </div>
+                  </div></a></li>
+              <li class="item" data-aost data-aost-fade-up>  <a class="group" href="./news_detail.html">
+                  <!-- 圖 350x230-->
+                  <div class="picBox"> 
+                    <picture> <img src="./assets/img/news/pic_02_525x345.jpg" alt="" loading="lazy"></picture>
+                  </div>
+                  <div class="content-box">
+                    <div class="box-T wt-content-S"> 
+                      <div class="date">2023.09.05</div>
+                      <div class="bar-sort-box">
+                        <div class="bar-sort">
+                          <div class="tag-item">
+                            <p>品牌訊息</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="box-B">
+                      <div class="item-sub-S">
+                        <p>上班族動起來 腰痠背痛out!</p>
+                      </div>
+                    </div>
+                  </div></a></li>
+            </ul>
+          </div>
+        </section>
+      </main>
+      <!-- 頁腳-->
+      <footer data-aost data-aost-fade-up data-aost-start="100">
+        <div class="footer-container"> 
+          <div class="left"> 
+            <ul class="top">
+              <li> <a class="en" href="javascript:;">About us</a><a class="ch" href="javascript:;">柏文集團</a></li>
+              <li> <a class="en" href="javascript:;">Brands</a><a class="ch" href="javascript:;">品牌介紹</a></li>
+              <li> <a class="en" href="javascript:;">ESG</a><a class="ch" href="javascript:;">企業永續</a></li>
+              <li> <a class="en" href="javascript:;">investor</a><a class="ch" href="javascript:;">投資人專區</a></li>
+              <li> <a class="en" href="javascript:;">news center</a><a class="ch" href="javascript:;">最新消息</a></li>
+              <li> <a class="en" href="javascript:;">Career</a><a class="ch" href="javascript:;">加入柏文</a></li>
+            </ul>
+            <ul class="center">
+              <li> <a href="javascript:;">聯絡我們</a></li>
+              <li> <a href="javascript:;">隱私權政策</a></li>
+            </ul>
+            <div class="bottom">
+              <div class="bottom-left"> 
+                <ul class="sns-icon"> 
+                  <li> <a class="icon-linkedin" href="javascript:;" target="_blank"></a></li>
+                  <li> <a class="icon-youtube" href="javascript:;" target="_blank"> </a></li>
+                  <li> <a class="icon-ig-square" href="javascript:;" target="_blank"></a></li>
+                  <li><a class="icon-line" href="javascript:;" target="_blank"></a></li>
+                  <li> <a class="icon-fb-square" href="javascript:;" target="_blank"></a></li>
+                </ul>
+              </div>
+              <div class="bottom-right"> 
+                <div class="copyright">
+                  <p>powerwind. all rights reserved.Design by wdd.</p>
+                </div>
+                <div class="top-btn" data-anchor-target=""><img src="./assets/img/scroll_up.svg" alt="">
+                  <p>TOP</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="right"><a class="footer-logo" href="./index.html"><img alt="LOGO" src="./assets/img/footer_logo_ce.png"></a></div>
+        </div>
+      </footer>
+      <modern-modal data-modal-id="my-modal" data-modal-animate="clip-right">
+        <div class="close-btn" data-modal-close></div>
+        <div class="title">Modal4</div>
+      </modern-modal>
+    </div>
+  </body>
+</html>

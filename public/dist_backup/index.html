@@ -1,0 +1,1260 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW" data-overlayscrollbars-initialize>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Safari 電話號碼判斷-->
+    <meta content="telephone=no" name="format-detection">
+    <title>Power Wind</title>
+    <link rel="shortcut icon" href="./assets/img/favicon.ico" type="image/x-icon">
+    <!-- Google font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700;800;900&amp;family=Roboto:wght@300;400;500;700;900&amp;display=swap">
+    <!-- 共用樣式-->
+    <link rel="stylesheet" href="./assets/fonts/icomoon/style.css">
+    <link rel="stylesheet" href="https://cdn.wdd.idv.tw/fesd/2024_v1.0/fesd.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- 個別頁面 CSS-->
+    <!-- 主頁面 CSS-->
+    <link rel="stylesheet" href="./css/pages/index.css">
+    <!-- 共用 JS-->
+    <script defer src="https://cdn.wdd.idv.tw/js/jquery-3.6.3.min.js"></script>
+    <script defer src="https://cdn.wdd.idv.tw/fesd/2024_v1.0/fesdDB.min.js"></script>
+    <script defer src="https://cdn.wdd.idv.tw/fesd/2024_v1.0/fesd.min.js"></script>
+    <script defer src="./js/global.min.js"></script>
+    <script defer src="./js/common.min.js"></script>
+    <!-- 個別頁面引用 JS-->
+    <!-- 主頁面 JS-->
+    <script defer src="./js/pages/index.min.js"></script>
+  </head>
+  <body class="index" data-overlayscrollbars-initialize>
+    <h1 class="visuallyhidden">Power Wind</h1>
+    <!-- 進場動畫-->
+    <div class="first-entry">
+      <div class="logo"> 
+        <div class="logo-icon">
+          <div class="left-box"> </div>
+          <div class="right-box"> </div>
+          <div class="logo-arrow"> <img src="./assets/img/logo_arrow.svg" alt=""></div>
+        </div>
+        <div class="logo-text"> <img src="./assets/img/logo_text.svg" alt=""></div>
+      </div>
+    </div>
+    <div class="main-wrapper">
+      <!-- 導覽列-->
+      <nav class="navbar" nav-color="" data-aost data-aost-fade data-aost-start="150" data-aost-delay="200">
+        <!-- 黑白兩色nav-->
+        <!-- 可供客戶自由選擇-->
+        <!-- nav-color="black" / nav-color="white"-->
+        <div class="container">
+          <div class="left"><a class="logo logo-white" href="./index.html"><img alt="LOGO" src="./assets/img/logo_white.png"></a><a class="logo logo-color" href="./index.html"><img alt="LOGO" src="./assets/img/logo.png"></a></div>
+          <div class="right"> 
+            <ul class="menu">
+              <li class="menu-li" data-hover-item><a href="./about.html">柏文集團</a>
+                <!-- 品牌 下拉選單結構-->
+                <!-- 企業永續 下拉選單結構-->
+                <!-- 投資人 下拉選單結構-->
+              </li>
+              <li class="menu-li" data-hover-item><a href="./brands.html">品牌介紹</a>
+                <!-- 品牌 下拉選單結構-->
+                <div class="hover-menu" cssType="brands">
+                  <div class="wrap"> 
+                    <div class="hover-menuLeft">
+                      <div class="text-wrap"> 
+                        <h3 class="sub">Diversified sports brands</h3>
+                        <h2 class="main">品牌介紹</h2><a class="text" href="./brands.html">前往品牌總覽</a>
+                      </div>
+                    </div>
+                    <div class="hover-menuRight">
+                      <div class="menu-decs"><img src="./assets/img/index/s2_dec_02.png" alt=""></div>
+                      <!-- 以下為重複結構 logo圖 150x120 + 錨點連結--><a class="brand-logo" href="./brand_index.html">
+                        <div class="picBox">
+                          <picture> <img src="./assets/img/brands/logo_01_180x145.png" alt=""></picture>
+                        </div></a><a class="brand-logo" href="./brand_index.html">
+                        <div class="picBox">
+                          <picture> <img src="./assets/img/brands/logo_02_180x145.png" alt=""></picture>
+                        </div></a><a class="brand-logo" href="./brand_index.html">
+                        <div class="picBox">
+                          <picture> <img src="./assets/img/brands/logo_03_180x145.png" alt=""></picture>
+                        </div></a><a class="brand-logo" href="./brand_index.html">
+                        <div class="picBox">
+                          <picture> <img src="./assets/img/brands/logo_04_180x145.png" alt=""></picture>
+                        </div></a><a class="brand-logo" href="./brand_index.html">
+                        <div class="picBox">
+                          <picture> <img src="./assets/img/brands/logo_05_180x145.png" alt=""></picture>
+                        </div></a><a class="brand-logo" href="./brand_index.html">
+                        <div class="picBox">
+                          <picture> <img src="./assets/img/brands/logo_06_180x145.png" alt=""></picture>
+                        </div></a>
+                    </div>
+                  </div>
+                </div>
+                <!-- 企業永續 下拉選單結構-->
+                <!-- 投資人 下拉選單結構-->
+              </li>
+              <li class="menu-li" data-hover-item><a href="./esg.html">企業永續</a>
+                <!-- 品牌 下拉選單結構-->
+                <!-- 企業永續 下拉選單結構-->
+                <div class="hover-menu" cssType="esg">
+                  <div class="wrap"> 
+                    <div class="hover-menuLeft">
+                      <div class="text-wrap"> 
+                        <h3 class="sub">Corporate Sustainability</h3>
+                        <h2 class="main">企業永續</h2>
+                      </div>
+                    </div>
+                    <div class="hover-menuRight">
+                      <div class="menu-decs">
+                        <picture> <img src="./assets/img/index/s2_dec_01.png" alt=""></picture>
+                      </div>
+                      <div class="cate"><a class="cate-title" href="./esg_list.html">企業社會責任</a>
+                        <ul> 
+                          <li><a href="">履行社會責任情形</a></li>
+                          <li><a href="">友善職場</a></li>
+                          <li><a href="">社會參與</a></li>
+                          <li><a href="">永續環境</a></li>
+                          <li><a href="">獲獎事蹟</a></li>
+                        </ul>
+                      </div>
+                      <div class="cate-group"> 
+                        <div class="cate"><a class="cate-title" href="./governance.html">公司治理</a></div>
+                        <div class="cate"><a class="cate-title" href="./integrity.html">誠信經營</a></div>
+                        <div class="cate"><a class="cate-title" href="./stakeholders.html">利害關係人</a></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- 投資人 下拉選單結構-->
+              </li>
+              <li class="menu-li" data-hover-item><a href="./investor.html">投資人專區</a>
+                <!-- 品牌 下拉選單結構-->
+                <!-- 企業永續 下拉選單結構-->
+                <!-- 投資人 下拉選單結構-->
+                <div class="hover-menu" cssType="investor">
+                  <div class="wrap"> 
+                    <div class="hover-menuLeft">
+                      <div class="text-wrap"> 
+                        <h3 class="sub">Investor</h3>
+                        <h2 class="main">投資人專區</h2>
+                        <p class="text">股票代號：<span>8462</span></p>
+                      </div>
+                    </div>
+                    <div class="hover-menuRight">
+                      <div class="menu-decs">
+                        <picture> <img src="./assets/img/index/s2_dec_01.png" alt=""></picture>
+                      </div>
+                      <div class="cate">
+                        <h2 class="cate-title" href="">財務資訊</h2>
+                        <ul> 
+                          <li><a href="">財務報告書</a></li>
+                          <li><a href="">月營收資訊</a></li>
+                          <li><a href="">財務資訊新聞稿</a></li>
+                        </ul>
+                      </div>
+                      <div class="cate">
+                        <h2 class="cate-title" href="">股務資訊</h2>
+                        <ul> 
+                          <li><a href="">股東結構</a></li>
+                          <li><a href="">主要股東名單</a></li>
+                          <li><a href="">股東會資訊</a></li>
+                          <li><a href="">股利資訊</a></li>
+                          <li><a href="">法人說明會</a></li>
+                          <li><a href="">重大訊息公告</a></li>
+                        </ul>
+                      </div>
+                      <div class="cate"><a class="cate-title" href="./investor.html">投資人服務窗口</a></div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="menu-li" data-hover-item><a href="./news.html">最新消息</a>
+                <!-- 品牌 下拉選單結構-->
+                <!-- 企業永續 下拉選單結構-->
+                <!-- 投資人 下拉選單結構-->
+              </li>
+              <li class="menu-li" data-hover-item><a href="./career.html">加入柏文</a>
+                <!-- 品牌 下拉選單結構-->
+                <!-- 企業永續 下拉選單結構-->
+                <!-- 投資人 下拉選單結構-->
+              </li>
+            </ul>
+            <div class="header-icon">
+              <div class="icon language"><i class="icon-language"></i>
+                <!-- 語系-->
+                <ul class="language-wrap">
+                  <li class="active" lan="tw"><a href="javascript:;">繁</a></li>
+                  <li lan="en"><a href="javascript:;">英</a></li>
+                </ul>
+              </div><a class="icon" href="javascript:;" data-modal-target="search"><i class="icon-search"></i></a><a class="icon mail" href="./contact.html"><i class="icon-contact"></i></a><a class="hamburger" href="javascript:;" data-modal-target="menu">
+                <div class="icon-left"></div>
+                <div class="icon-right"></div></a>
+            </div>
+          </div>
+        </div>
+      </nav><a class="side-menu" href="javascript:;" data-modal-target="menu">
+        <div class="hamburger"> 
+          <div class="icon-left"></div>
+          <div class="icon-right"></div>
+        </div>
+        <div class="menu-box"> 
+          <p>MENU</p>
+        </div></a>
+      <!-- 側邊選單燈箱-->
+      <modern-modal data-modal-id="menu">
+        <!-- 上方固定-->
+        <div class="menu-top">
+          <div class="top-group">
+            <div class="left"><a class="logo picBox" href="./index.html">
+                <picture> <img alt="LOGO" src="./assets/img/logo.png"></picture></a></div>
+            <div class="right">
+              <div class="header-icon">
+                <div class="icon language"><i class="icon-language"></i>
+                  <ul class="language-wrap">
+                    <li class="active" lan="tw"><a href="javascript:;">繁</a></li>
+                    <li lan="en"><a href="javascript:;">英</a></li>
+                  </ul>
+                </div><a class="icon" href="javascript:;" data-modal-target="search" data-modal-close><i class="icon-search"></i></a>
+              </div>
+              <div class="close-button" data-modal-close></div>
+            </div>
+          </div>
+        </div>
+        <div class="menu-container">
+          <div class="m-right">
+            <div class="data-group">
+              <div class="flex-group">
+                <div class="menu-all-wrap">
+                  <!-- 以下為 投資人、集團、ESG、最新消息 重複結構-->
+                  <div class="menu-box" unit-name="投資人專區">
+                    <div class="m-title"> 
+                      <p>投資人專區</p>
+                      <div class="m-btn-collapse">
+                        <div class="icon-more"></div>
+                      </div>
+                    </div>
+                    <div class="m-details">
+                      <ul>
+                        <li><a href="./investor.html">
+                            <p>總覽</p></a></li>
+                        <li><a href="./investor.html">
+                            <p>財務資訊</p></a></li>
+                        <li><a href="./investor.html">
+                            <p>股務資訊</p></a></li>
+                        <li><a href="./investor.html">
+                            <p>投資人服務窗口</p></a></li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="menu-box" unit-name="柏文集團">
+                    <div class="m-title"> 
+                      <p>柏文集團</p>
+                      <div class="m-btn-collapse">
+                        <div class="icon-more"></div>
+                      </div>
+                    </div>
+                    <div class="m-details">
+                      <ul>
+                        <li><a href="./about.html">
+                            <p>品牌理念</p></a></li>
+                        <li><a href="./about.html">
+                            <p>品牌殊榮</p></a></li>
+                        <li><a href="./about.html">
+                            <p>企業文化</p></a></li>
+                        <li><a href="./about.html">
+                            <p>集團歷程</p></a></li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="menu-box" unit-name="企業永續">
+                    <div class="m-title"> 
+                      <p>企業永續</p>
+                      <div class="m-btn-collapse">
+                        <div class="icon-more"></div>
+                      </div>
+                    </div>
+                    <div class="m-details">
+                      <ul>
+                        <li><a href="./esg.html">
+                            <p>總覽</p></a></li>
+                        <li><a href="./esg.html">
+                            <p>公司治理</p></a></li>
+                        <li><a href="./esg.html">
+                            <p>企業社會責任</p></a></li>
+                        <li><a href="./esg.html">
+                            <p>誠信經營</p></a></li>
+                        <li><a href="./esg.html">
+                            <p>利害關係人</p></a></li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="menu-box" unit-name="最新消息">
+                    <div class="m-title"> 
+                      <p>最新消息</p>
+                      <div class="m-btn-collapse">
+                        <div class="icon-more"></div>
+                      </div>
+                    </div>
+                    <div class="m-details">
+                      <ul>
+                        <li><a href="./news.html">
+                            <p>消息總覽</p></a></li>
+                        <li><a href="./news.html">
+                            <p>媒體報導</p></a></li>
+                        <li><a href="./news.html">
+                            <p>公益活動</p></a></li>
+                        <li><a href="./news.html">
+                            <p>品牌訊息</p></a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="menu-all-wrap">
+                  <!-- 以下為 品牌資料結構-->
+                  <div class="menu-box" unit-name="品牌介紹">
+                    <div class="m-title"> 
+                      <p>品牌介紹</p>
+                      <div class="m-btn-collapse">
+                        <div class="icon-more"></div>
+                      </div>
+                    </div>
+                    <div class="m-details">
+                      <ul>
+                        <li><a href="./brands.html">
+                            <p>品牌總覽</p></a></li>
+                        <li><a href="./brand_index.html">
+                            <p>Let's Roll</p></a></li>
+                        <li><a href="./brand_index.html">
+                            <p>CraZy Jump 肖跳</p></a></li>
+                        <li><a href="./brand_index.html">
+                            <p>KILL ZONE 鐳射戰場</p></a></li>
+                        <li><a href="./brand_index.html">
+                            <p>兒童體適能俱樂部</p></a></li>
+                        <li><a href="./brand_index.html">
+                            <p>人體工房</p></a></li>
+                        <li><a href="./brand_index.html">
+                            <p>fitness factory 健身工廠</p></a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="menu-bottom"> 
+                <!-- 社群按鈕  連結自定 無資料移除按鈕結構-->
+                <ul class="sns-icon"> 
+                  <li> <a class="icon-linkedin" href="javascript:;" target="_blank"></a></li>
+                  <li> <a class="icon-youtube" href="javascript:;" target="_blank"> </a></li>
+                  <li> <a class="icon-ig-square" href="javascript:;" target="_blank"></a></li>
+                  <li><a class="icon-line" href="javascript:;" target="_blank"></a></li>
+                  <li> <a class="icon-fb-square" href="javascript:;" target="_blank"></a></li>
+                </ul>
+                <ul class="center">
+                  <li> <a href="./contact.html">聯絡我們</a></li>
+                  <li> <a href="javascript:;" data-modal-target="privacy" data-modal-close>隱私權政策</a></li>
+                  <!-- 自定連結-->
+                  <li> <a href="./career.html">加入柏文</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="m-left">
+            <div class="decs-menu dec-one">
+              <div class="dec-inner">
+                <picture> <img class="lazy" data-src="./assets/img/menu_dec_09.png" alt="alt"></picture>
+              </div>
+            </div>
+            <div class="menu-img">
+              <!-- 選單互動大圖 580 x 700-->
+              <!-- 預設一張(必填)img-name='default' + 主單元各一張 img-name='抓unit-name' (選填，不上圖的話img-name='default')， 共六張 -->
+              <div class="picBox"> 
+                <picture> <img class="lazy" data-src="./assets/img/other/menu_img_580x700_00.jpg" alt="" img-name="default"><img class="lazy" data-src="./assets/img/other/menu_img_580x700_01.jpg" alt="" img-name="投資人專區"><img class="lazy" data-src="./assets/img/other/menu_img_580x700_02.jpg" alt="" img-name="柏文集團"><img class="lazy" data-src="./assets/img/other/menu_img_580x700_03.jpg" alt="" img-name="企業永續"><img class="lazy" data-src="./assets/img/other/menu_img_580x700_04.jpg" alt="" img-name="最新消息"><img class="lazy" data-src="./assets/img/other/menu_img_580x700_05.jpg" alt="" img-name="品牌介紹">
+                </picture>
+              </div>
+            </div>
+          </div>
+        </div>
+      </modern-modal>
+      <!-- 隱私權政策燈箱 不開放後台編輯-->
+      <modern-modal data-modal-id="privacy" data-modal-animate="fade-up">
+        <div class="inner-text">
+          <div class="tag inner-unit-tag"> 
+            <p>PRIVACY POLICY</p>
+          </div>
+          <div class="title inner-unit-sub"> 
+            <p>隱私權政策</p>
+          </div>
+          <div class="des wt-content"> 
+            <p>柏文健康事業股份有限公司(以下簡稱「柏文」)非常重視會員的隱私權且遵循「個人資料保護法」之規定，因此制訂了隱私權保護政策，您可參考下列隱私權保護政策的內容。</p>
+          </div>
+        </div>
+        <div class="data-block">
+          <div class="block"> 
+            <div class="wrap item-sub-S"> 
+              <p>個人資料之安全</p>
+            </div>
+            <div class="contentbox">
+              <div class="content wt-content"> 
+                <p><span>保護會員的個人隱私柏文重要的經營理念，在未經會員同意之下，我們絕不會將會員的個人資料提供予任何與柏文服務無關之第三人。</span></p>
+              </div>
+            </div>
+          </div>
+          <div class="block"> 
+            <div class="wrap item-sub-S"> 
+              <p>個人資料的蒐集、處理、利用</p>
+            </div>
+            <div class="contentbox">
+              <div class="content wt-content"> 
+                <p><span>為配合政府「個人資料保護法」(下稱「個資法」)的實施，柏文僅將您個人資料的使用維護事項聲明如下：</span><br>(1) 柏文基於契約履行事項、行政管理、資訊提供及分析，及其他合於柏文營業活動所需之特定目的內，蒐集您的個人資料(資料類別請參照法務部公告「個人資料保護法之特定目的及個人資料之類別」代號C001、C002、C003、C011等 (包括姓名、身分證字號、出生日期、通訊地址、聯絡方式等之個人資料)。<br>(2) 柏文就您的個人資料僅在上開特定目的內，於台灣地區，供柏文及其子公司以合法合理方式利用，並以完成上開特定目的或柏文執行業務所必須之期間為個人資料利用期間。<br>(3) 您得選擇是否提供上開個人資料予柏文；然而，當您提供之個人資料未臻完備時，將可能影響前述特定目的之遂行，亦影響您後續相關權益。<br>(4) 您並同意以電子文件作為表示個人資料保護法令或其他法令所規定書面同意之方法。</p>
+              </div>
+            </div>
+          </div>
+          <div class="block"> 
+            <div class="wrap item-sub-S"> 
+              <p>個人資料保護政策</p>
+            </div>
+            <div class="contentbox">
+              <div class="content wt-content"> 
+                <p><span>我們將盡力以合理合法之技術及保護程序，保障您的個人資料。同時，柏文分別就組織管理、環境管理及作業管理上作周全管理，營造充分保障個資安全的服務環境，以杜絕您個人資料外流的疑慮：</span><br>(1) 組織管理：柏文內部設立個人資料保護管理小組，並建立「個人資料保護之管理」作業辦法，規劃個資蒐集處理及利用程序，設置應變程序及當事人行使權利之聯絡窗口，且落實員工個資教育訓練以及相關獎懲制度，以有效執行個人資料保護管理政策。<br>(2) 環境管理：依據作業內容性質，實施必要之門禁管理。就個資的儲存媒體妥善保管並建置相應的防災設備。<br>(3) 作業管理：界定個人資料範圍，定期清查公司個資檔案並建立清冊，於作業電腦相關設備上設定認證機制、紀錄機制及警示機制，並定期測試前揭機制的有效性及穩定性，同時對外妥善監督受託機關。對於任何可能侵害您權益的措施，柏文於知悉後必立即改進，並隨時歡迎各界指正。 您如就個人資料有任何諮詢需求，歡迎隨時洽柏文各厰館櫃檯或線上客服中心留下您寶貴的訊息，我們將有專人為您服務。</p>
+              </div>
+            </div>
+          </div>
+          <div class="block"> 
+            <div class="wrap item-sub-S"> 
+              <p>個人資料查詢或更正的方式</p>
+            </div>
+            <div class="contentbox">
+              <div class="content wt-content"> 
+                <p><span>個人資料之當事人權利得透過電話向柏文各廠館櫃檯或線上客服中心、官方APP或電子信箱(member@mail.fitnessfactory.tw)進行個人資料查詢閱覽、製給複製本，並補充或更正，或請求柏文停止蒐集、處理、利用或刪除您的個人資料，或停止寄發資料或資訊。</span></p>
+              </div>
+            </div>
+          </div>
+          <div class="block"> 
+            <div class="wrap item-sub-S"> 
+              <p>個人資料保存期限</p>
+            </div>
+            <div class="contentbox">
+              <div class="content wt-content"> 
+                <p><span>除法律上要求或允許保留較長期間者外，本公司將於達成此隱私權政策所定目的之所需期間內保留您的個人資訊。</span></p>
+              </div>
+            </div>
+          </div>
+          <div class="block"> 
+            <div class="wrap item-sub-S"> 
+              <p>Cookie</p>
+            </div>
+            <div class="contentbox">
+              <div class="content wt-content"> 
+                <p><span>為了便利會員使用，柏文網站會使用cookie技術，以便於提供會員所需要的服務；cookie是網站伺服器用來和會員瀏覽器進行溝通的一種技術，它可能在會員的電腦中隨機儲存字串，用以辨識區別使用者，若會員關閉cookie有可能導致無法順利登入網站或無法使用購物車等狀況。</span></p>
+              </div>
+            </div>
+          </div>
+          <div class="block"> 
+            <div class="wrap item-sub-S"> 
+              <p>隱私權保護政策修訂</p>
+            </div>
+            <div class="contentbox">
+              <div class="content wt-content"> 
+                <p><span>隨著市場環境的改變柏文將會不定時修訂隠私權政策，以因應會員服務與相關法律規範之變更。您可以隨時透過應用程式及柏文司官網查看我們的隱私權政策。如您繼續使用本服務，將視為您已同意柏文對於隱私權政策之修改。</span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="top-btn" data-anchor-target data-anchor-container="[data-modal-id=&quot;privacy&quot;] [data-overlayscrollbars-viewport]">
+          <div class="icon-scroll-down"></div>
+          <p>TOP</p>
+        </div><a class="close-button" href="javascript:;" data-modal-close></a>
+      </modern-modal>
+      <!-- 主要內容-->
+      <main>
+        <!-- banner-->
+        <section class="index-banner" data-aost data-aost-clip-left data-aost-start="150" data-aost-delay="100">
+          <div class="swiper swiper-banner"> 
+            <div class="swiper-wrapper"> 
+              <div class="swiper-slide">
+                <!-- header, 文字顏色, 下移箭頭跟隨 Banner swiper 切換-->
+                <!-- header - 黑/白 nav-color="black" & nav-color="white"-->
+                <!-- 文字顏色設定 - 大標(黑/白) & 副標(黑/白/綠/咖)可分別設定顏色 :-->
+                <!-- 大標 -> text-main-color="black" & text-main-color="white"-->
+                <!-- 副標 -> text-sub-color="black" & text-sub-color="white" & text-sub-color="green" & text-sub-color="brown"-->
+                <!-- 可設定文字排列(左/中/右) :-->
+                <!-- text-align="left" & text-align="center" & text-align="right"-->
+                <!-- 自定義連結-->
+                <!-- 圖片建議尺寸 - 電腦版 - 1920x1080(px), 平板版 - 1024x768(px), 手機版 - 500x895(px)--><a class="swiper-inner" href="javascript:;" nav-color="white" text-align="left" text-main-color="white" text-sub-color="white" data-swiper-parallax-x="100%">
+                  <div class="img-wrap">
+                    <picture> 
+                      <source media="(max-width: 576px)" data-srcset="./assets/img/index/index_banner_rwd_01_500x895.jpg">
+                      <source media="(max-width: 1025px)" data-srcset="./assets/img/index/index_banner_pad_01_1024x768.jpg"><img class="swiper-lazy" data-src="./assets/img/index/index_banner_01_1920x1080.jpg" alt="">
+                    </picture>
+                  </div>
+                  <div class="text-wrap">
+                    <div class="inner-text" data-aost data-aost-split>
+                      <p class="sub" data-split>Believe In Exercise</p>
+                      <div class="main">
+                        <h2 data-split>運動造就美好人生</h2>
+                        <h2 data-split>體驗不凡生活</h2>
+                      </div>
+                    </div>
+                    <div class="swiper-arrow">
+                      <div class="swiper-button btn-prev">
+                        <div class="icon-arrow-l"></div>
+                      </div>
+                      <div class="swiper-button btn-next">
+                        <div class="icon-arrow-r"></div>
+                      </div>
+                      <div class="swiper-pagination"></div>
+                    </div>
+                  </div></a>
+              </div>
+              <div class="swiper-slide">
+                <!-- header, 文字顏色, 下移箭頭跟隨 Banner swiper 切換-->
+                <!-- header - 黑/白 nav-color="black" & nav-color="white"-->
+                <!-- 文字顏色設定 - 大標(黑/白) & 副標(黑/白/綠/咖)可分別設定顏色 :-->
+                <!-- 大標 -> text-main-color="black" & text-main-color="white"-->
+                <!-- 副標 -> text-sub-color="black" & text-sub-color="white" & text-sub-color="green" & text-sub-color="brown"-->
+                <!-- 可設定文字排列(左/中/右) :-->
+                <!-- text-align="left" & text-align="center" & text-align="right"-->
+                <!-- 自定義連結-->
+                <!-- 圖片建議尺寸 - 電腦版 - 1920x1080(px), 平板版 - 1024x768(px), 手機版 - 500x895(px)--><a class="swiper-inner" href="javascript:;" nav-color="black" text-align="left" text-main-color="white" text-sub-color="green" data-swiper-parallax-x="100%">
+                  <div class="img-wrap">
+                    <picture> 
+                      <source media="(max-width: 576px)" data-srcset="./assets/img/index/index_banner_rwd_02_500x895.jpg">
+                      <source media="(max-width: 1025px)" data-srcset="./assets/img/index/index_banner_pad_02_1024x768.jpg"><img class="swiper-lazy" data-src="./assets/img/index/index_banner_02_1920x1080.jpg" alt="">
+                    </picture>
+                  </div>
+                  <div class="text-wrap">
+                    <div class="inner-text" data-aost data-aost-split>
+                      <p class="sub" data-split>Believe In Exercise</p>
+                      <div class="main">
+                        <h2 data-split>台灣運動健身</h2>
+                        <h2 data-split>專業品牌</h2>
+                      </div>
+                    </div>
+                    <div class="swiper-arrow">
+                      <div class="swiper-button btn-prev">
+                        <div class="icon-arrow-l"></div>
+                      </div>
+                      <div class="swiper-button btn-next">
+                        <div class="icon-arrow-r"></div>
+                      </div>
+                      <div class="swiper-pagination"></div>
+                    </div>
+                  </div></a>
+              </div>
+              <div class="swiper-slide">
+                <!-- header, 文字顏色, 下移箭頭跟隨 Banner swiper 切換-->
+                <!-- header - 黑/白 nav-color="black" & nav-color="white"-->
+                <!-- 文字顏色設定 - 大標(黑/白) & 副標(黑/白/綠/咖)可分別設定顏色 :-->
+                <!-- 大標 -> text-main-color="black" & text-main-color="white"-->
+                <!-- 副標 -> text-sub-color="black" & text-sub-color="white" & text-sub-color="green" & text-sub-color="brown"-->
+                <!-- 可設定文字排列(左/中/右) :-->
+                <!-- text-align="left" & text-align="center" & text-align="right"-->
+                <!-- 自定義連結-->
+                <!-- 圖片建議尺寸 - 電腦版 - 1920x1080(px), 平板版 - 1024x768(px), 手機版 - 500x895(px)--><a class="swiper-inner" href="javascript:;" nav-color="white" text-align="left" text-main-color="white" text-sub-color="brown" data-swiper-parallax-x="100%">
+                  <div class="img-wrap">
+                    <picture> 
+                      <source media="(max-width: 576px)" data-srcset="./assets/img/index/index_banner_rwd_03_500x895.jpg">
+                      <source media="(max-width: 1025px)" data-srcset="./assets/img/index/index_banner_pad_03_1024x768.jpg"><img class="swiper-lazy" data-src="./assets/img/index/index_banner_03_1920x1080.jpg" alt="">
+                    </picture>
+                  </div>
+                  <div class="text-wrap">
+                    <div class="inner-text" data-aost data-aost-split>
+                      <p class="sub" data-split>Exercise Also Strengthens The Mind</p>
+                      <div class="main">
+                        <h2 data-split>邀您一同</h2>
+                        <h2 data-split>健身也健心</h2>
+                      </div>
+                    </div>
+                    <div class="swiper-arrow">
+                      <div class="swiper-button btn-prev">
+                        <div class="icon-arrow-l"></div>
+                      </div>
+                      <div class="swiper-button btn-next">
+                        <div class="icon-arrow-r"></div>
+                      </div>
+                      <div class="swiper-pagination"></div>
+                    </div>
+                  </div></a>
+              </div>
+            </div>
+          </div>
+          <div class="slideDown-btn" data-anchor-target=".story-block" data-color data-anchor-speed="1600">
+            <p>Discover now</p><img src="./assets/img/index/scroll-down.svg" alt="">
+          </div>
+        </section>
+        <!-- 故事區塊-->
+        <section class="story-block fixed-start">
+          <!-- 背景裝飾 decs-->
+          <div class="decs dec-one">
+            <div class="dec-inner"><img class="lazy" data-src="./assets/img/index/s1_dec_01.png" alt="alt"></div>
+          </div>
+          <div class="decs dec-two">
+            <div class="dec-inner"><img class="lazy" data-src="./assets/img/index/s1_dec_02.png" alt="alt"></div>
+          </div>
+          <div class="container" data-aost data-aost-fade-up>
+            <div class="title-wrap">
+              <div class="block-wrap" text-color="black">
+                <p class="block-subtitle" text-color="gray">Diversified sports brands</p>
+                <div class="block-title">
+                  <!-- 標題前面的單詞可改變顏色 text-color="brown" & text-color="green"--><span text-color="brown">誠信</span><span>是我們的核心價值</span>
+                </div>
+                <p class="paragraph-text">強身為強國之根基，柏文供優質健身環境，將促進人民健康、宣導正確運動觀念做為設立之宗旨</p>
+              </div>
+              <a class="common-btn" btn-color="green"><span>了解更多</span>
+                <div class="dot"></div>
+                <div class="btn-line"> </div>
+              </a>
+            </div>
+            <div class="content-wrap" data-aost data-aost-clip-left>
+              <!-- 圖片建議尺寸 - 電腦版 1450x750(px), 手機版 335x500(px)-->
+              <div class="photo-wrap">
+                <picture> 
+                  <source media="(max-width: 576px)" data-srcset="./assets/img/index/s1_banner_rwd_335x500.jpg"><img class="lazy" data-src="./assets/img/index/s1_banner_1450x750.jpg" alt="">
+                </picture>
+              </div>
+              <!-- 此區塊電腦版時有開文字黑白兩色選擇 -->
+              <!-- text-color="white" & text-color="black"-->
+              <div class="text-wrap" text-color="white">
+                <div class="inner-wrap">
+                  <h3 class="sub">Explore more our story</h3>
+                  <h2 class="main">探索更多柏文的故事</h2>
+                  <p class="text">於2006年自高雄發跡起源，以國際視野打造南台灣第一座獨棟專業運動會館並積極推廣運動社區化、生活化</p>
+                </div>
+                <ul class="option">
+                  <li> <a href="javascript:;">
+                      <div class="hover"></div>
+                      <p>集團歷程</p></a></li>
+                  <li> <a href="javascript:;">
+                      <div class="hover"></div>
+                      <p>經營理念</p></a></li>
+                  <li> <a href="javascript:;">
+                      <div class="hover"></div>
+                      <p>未來展望</p></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- 最新消息區塊-->
+        <section class="news-block" data-aost>
+          <div class="left">
+            <div class="container">
+              <div class="left-container">
+                <!-- 背景裝飾decs-->
+                <div class="swiper-decs dec-one">
+                  <div class="dec-inner"><img class="lazy" data-src="./assets/img/index/s2_dec_01.png" alt="alt"></div>
+                </div>
+              </div>
+              <div class="swiper-container">
+                <div class="swiper swiper-news">
+                  <div class="swiper-wrapper">
+                    <div class="swiper-slide"> <a class="each-swiper" href="javascript:;">
+                        <div class="photo"> 
+                          <!-- 圖片建議尺寸 350x230(px)-->
+                          <div class="pic-wrap"> <img class="swiper-lazy" data-src="./assets/img/index/s2_swiper_01_350x230.jpg" alt=""></div>
+                        </div>
+                        <!-- 更新結構 2024.03.11-->
+                        <div class="inner-group">
+                          <div class="group">
+                            <!-- 日期-->
+                            <div class="date">
+                              <p>2022.03.05</p>
+                            </div>
+                            <!-- 標籤-->
+                            <div class="tag-box">
+                              <p class="tag-item"> <span>媒體報導</span><span>媒體報導</span><span>媒體報導</span>
+                              </p>
+                            </div>
+                          </div>
+                          <!-- 標題-->
+                          <h2 class="main">疫情解封萬金石馬拉松登場，教練提醒：腳勤前更重暖身</h2>
+                        </div></a></div>
+                    <div class="swiper-slide"> <a class="each-swiper" href="javascript:;">
+                        <div class="photo"> 
+                          <!-- 圖片建議尺寸 350x230(px)-->
+                          <div class="pic-wrap"> <img class="swiper-lazy" data-src="./assets/img/index/s2_swiper_02_350x230.jpg" alt=""></div>
+                        </div>
+                        <!-- 更新結構 2024.03.11-->
+                        <div class="inner-group">
+                          <div class="group">
+                            <!-- 日期-->
+                            <div class="date">
+                              <p>2022.03.05</p>
+                            </div>
+                            <!-- 標籤-->
+                            <div class="tag-box">
+                              <p class="tag-item"> <span>健身工廠</span>
+                              </p>
+                            </div>
+                          </div>
+                          <!-- 標題-->
+                          <h2 class="main">上班族動起來 腰痠背痛out!</h2>
+                        </div></a></div>
+                    <div class="swiper-slide"> <a class="each-swiper" href="javascript:;">
+                        <div class="photo"> 
+                          <!-- 圖片建議尺寸 350x230(px)-->
+                          <div class="pic-wrap"> <img class="swiper-lazy" data-src="./assets/img/index/s2_swiper_03_350x230.jpg" alt=""></div>
+                        </div>
+                        <!-- 更新結構 2024.03.11-->
+                        <div class="inner-group">
+                          <div class="group">
+                            <!-- 日期-->
+                            <div class="date">
+                              <p>2022.03.05</p>
+                            </div>
+                            <!-- 標籤-->
+                            <div class="tag-box">
+                              <p class="tag-item"> <span>公益活動</span>
+                              </p>
+                            </div>
+                          </div>
+                          <!-- 標題-->
+                          <h2 class="main">健身工廠攜手眼球先生推猛男桌曆做公益</h2>
+                        </div></a></div>
+                    <div class="swiper-slide"> <a class="each-swiper" href="javascript:;">
+                        <div class="photo"> 
+                          <!-- 圖片建議尺寸 350x230(px)-->
+                          <div class="pic-wrap"> <img class="swiper-lazy" data-src="./assets/img/index/s2_swiper_01_350x230.jpg" alt=""></div>
+                        </div>
+                        <!-- 更新結構 2024.03.11-->
+                        <div class="inner-group">
+                          <div class="group">
+                            <!-- 日期-->
+                            <div class="date">
+                              <p>2022.03.05</p>
+                            </div>
+                            <!-- 標籤-->
+                            <div class="tag-box">
+                              <p class="tag-item"> <span>媒體報導</span>
+                              </p>
+                            </div>
+                          </div>
+                          <!-- 標題-->
+                          <h2 class="main">疫情解封萬金石馬拉松登場，教練提醒：腳勤前更重暖身</h2>
+                        </div></a></div>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-arrow">
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button btn-prev">
+                  <div class="icon-arrow-l"></div>
+                </div>
+                <div class="swiper-button btn-next">
+                  <div class="icon-arrow-r"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="right">
+            <div class="container"> 
+              <div class="title-wrap">
+                <div class="block-wrap" text-color="white">
+                  <p class="block-subtitle">News Center</p>
+                  <div class="block-title">
+                    <!-- 標題前面的單詞可改變顏色--><span>最新動態</span>
+                  </div>
+                  <p class="paragraph-text">隨時關注我們的最新動態與品牌優惠資訊，給您第一手柏文集團的最新資訊！</p>
+                </div>
+                <div class="common-btn" btn-color="brown"><span>了解更多</span>
+                  <div class="dot"></div>
+                  <div class="btn-line"> </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- 品牌區塊-->
+        <section class="brand-block">
+          <!-- 背景裝飾decs-->
+          <div class="decs dec-one">
+            <div class="dec-inner"><img class="lazy" data-src="./assets/img/index/s3_dec_01.png" alt="alt"></div>
+          </div>
+          <div class="decs dec-two">
+            <div class="dec-inner"><img class="lazy" data-src="./assets/img/index/s3_dec_02.png" alt="alt"></div>
+          </div>
+          <div class="container"> 
+            <div class="title-wrap" data-aost data-aost-fade-up data-aost-start="100">
+              <div class="block-wrap" text-color="black">
+                <p class="block-subtitle" text-color="gray">Diversified sports brands</p>
+                <div class="block-title">
+                  <!-- 標題前面的單詞可改變顏色 text-color="brown" & text-color="green"--><span text-color="brown">多元</span><span>運動體驗健康生活每一天</span>
+                </div>
+                <p class="paragraph-text">實踐帶動運動風氣，建立專業與正確健身觀念之目標，並衍伸發展養身概念為主的人體工房SPA及向下扎根培養運動興趣的兒童會館，帶給民眾更多元化的服務。</p>
+              </div>
+              <div class="common-btn" btn-color="green"><span>了解更多</span>
+                <div class="dot"></div>
+                <div class="btn-line"> </div>
+              </div>
+            </div>
+            <!-- 此處規則為左右箭頭點擊切換輪播(電腦版 - 無法使用觸控滑動 & 手機版可左右滑動觸控滑動), -->
+            <!-- 點擊 logo 圖會直接跳到連結處, 點擊上方圖片 swiper 也會直接連到連結-->
+            <!-- 電腦版 - hover 上方圖片會有品牌詳細資訊, 手機版 - 點擊右上角 info 的 icon 會出現詳細資訊-->
+            <!-- hover logo 上方圖片也會換圖-->
+            <!-- swiper 上方品牌圖片與下方 logo 圖之連結須同步-->
+            <!-- 電腦版建議尺寸 1500x800(px), 手機版建議尺寸 750x975(px)-->
+            <div class="content-wrap" data-aost data-aost-clip-left data-aost-start="100">
+              <!-- 上方品牌圖片swiper-->
+              <div class="swiper swiper-brand"> 
+                <div class="swiper-wrapper"> 
+                  <div class="swiper-slide"><a class="pic-wrap" href="javascript:;" data-swiper-parallax-x="100%" data-no="li-1">
+                      <picture>
+                        <source media="(max-width: 768px)" data-srcset="./assets/img/index/s3_swiper_01_1500x800.jpg"><img class="swiper-lazy" data-src="./assets/img/index/s3_swiper_01_1500x800.jpg">
+                      </picture>
+                      <div class="text-wrap"> 
+                        <h3 class="block-subtitle">KILL ZONE </h3>
+                        <h2 class="block-title">鐳射戰場</h2>
+                        <p class="paragraph-text">輸入文字測試輸入文字測試輸入文字測試，全台唯一擬真槍枝等比等重</p>
+                        <div class="more-btn"> 
+                          <p>了解更多</p><i class="icon-plus"></i>
+                        </div>
+                      </div></a></div>
+                  <div class="swiper-slide"><a class="pic-wrap" href="javascript:;" data-swiper-parallax-x="100%" data-no="li-2">
+                      <picture> 
+                        <source media="(max-width: 768px)" data-srcset="https://picsum.photos/1500/800"><img class="swiper-lazy" data-src="https://picsum.photos/1500/800">
+                      </picture>
+                      <div class="text-wrap"> 
+                        <h3 class="block-subtitle">Fitness Factory</h3>
+                        <h2 class="block-title">健身工廠</h2>
+                        <p class="paragraph-text">輸入文字測試輸入文字測試輸入文字測試，「健身工廠」為亞洲及台灣首家通過並榮獲SGS Qualicert國際服務驗證標章之健身品牌</p>
+                        <div class="more-btn"> 
+                          <p>了解更多</p><i class="icon-plus"></i>
+                        </div>
+                      </div></a></div>
+                  <div class="swiper-slide"><a class="pic-wrap" href="javascript:;" data-swiper-parallax-x="100%" data-no="li-3">
+                      <picture> 
+                        <source media="(max-width: 768px)" data-srcset="https://picsum.photos/1500"><img class="swiper-lazy" data-src="https://picsum.photos/1500">
+                      </picture>
+                      <div class="text-wrap"> 
+                        <h3 class="block-subtitle">S KLUB</h3>
+                        <h2 class="block-title">兒童體適能俱樂部</h2>
+                        <p class="paragraph-text">輸入文字測試輸入文字測試輸入文字測試，Sklub 提供孩童全方位學習發展的機會。主要是訓練孩子的平衡性、敏捷性、協調力、速度、耐力和柔軟性六大項目，能夠快快樂樂學習基礎動作技巧，培養參與運動的興趣</p>
+                        <div class="more-btn"> 
+                          <p>了解更多</p><i class="icon-plus"></i>
+                        </div>
+                      </div></a></div>
+                  <div class="swiper-slide"><a class="pic-wrap" href="javascript:;" data-swiper-parallax-x="100%" data-no="li-4">
+                      <picture> 
+                        <source media="(max-width: 768px)" data-srcset="./assets/img/index/s3_swiper_01_1500x800.jpg"><img class="swiper-lazy" data-src="./assets/img/index/s3_swiper_01_1500x800.jpg">
+                      </picture>
+                      <div class="text-wrap"> 
+                        <h3 class="block-subtitle">Crazy jump</h3>
+                        <h2 class="block-title">肖跳</h2>
+                        <p class="paragraph-text">開放式遊樂大空間，獨家引進美國製造最高品質的【彈跳床設施】，原廠專業技師來台技術指導，讓您放心帶孩子一起快樂運動。</p>
+                        <div class="more-btn"> 
+                          <p>了解更多</p><i class="icon-plus"></i>
+                        </div>
+                      </div></a></div>
+                  <div class="swiper-slide"><a class="pic-wrap" href="javascript:;" data-swiper-parallax-x="100%" data-no="li-5">
+                      <picture>
+                        <source media="(max-width: 768px)" data-srcset="https://picsum.photos/1500"><img class="swiper-lazy" data-src="https://picsum.photos/1500">
+                      </picture>
+                      <div class="text-wrap"> 
+                        <h3 class="block-subtitle">LET'S ROLL </h3>
+                        <h2 class="block-title">滾吧</h2>
+                        <p class="paragraph-text">輸入文字測試輸入文字測試輸入文字測試，全國最時尚的保齡球館</p>
+                        <div class="more-btn"> 
+                          <p>了解更多</p><i class="icon-plus"></i>
+                        </div>
+                      </div></a></div>
+                  <div class="swiper-slide"><a class="pic-wrap" href="javascript:;" data-swiper-parallax-x="100%" data-no="li-6">
+                      <picture> 
+                        <source media="(max-width: 768px)" data-srcset="https://picsum.photos/1500/800"><img class="swiper-lazy" data-src="https://picsum.photos/1500/800">
+                      </picture>
+                      <div class="text-wrap"> 
+                        <h3 class="block-subtitle">spa</h3>
+                        <h2 class="block-title">人體工房</h2>
+                        <p class="paragraph-text">輸入文字測試輸入文字測試輸入文字測試，為每一位尋找舒放心靈的都會客們，提供了一個鬧中取靜舒適的悠閒空間。</p>
+                        <div class="more-btn"> 
+                          <p>了解更多</p><i class="icon-plus"></i>
+                        </div>
+                      </div></a></div>
+                </div>
+              </div>
+              <!-- 手機版提示按鍵-->
+              <div class="hint"> <img class="open" src="./assets/img/index/hint.svg" alt=""><img class="close" src="./assets/img/index/hint-close.svg" alt=""></div>
+              <!-- 下方 logo 圖 swiper-->
+              <!-- logo 建議尺寸 205x205(px)-->
+              <div class="brandLogoSwiper">
+                <div class="swiper swiper-brandLogo" thumbsslider="">
+                  <div class="swiper-wrapper">
+                    <div class="swiper-slide"><a class="li-wrap" href="javascript:;" data-no="li-1"> 
+                        <div class="pic_wrap"> <img class="swiper-lazy" data-src="./assets/img/brand_logo_01.png"></div></a></div>
+                    <div class="swiper-slide"><a class="li-wrap" href="javascript:;" data-no="li-2"> 
+                        <div class="pic_wrap"> <img class="swiper-lazy" data-src="./assets/img/brand_logo_02.png"></div></a></div>
+                    <div class="swiper-slide"><a class="li-wrap" href="javascript:;" data-no="li-3"> 
+                        <div class="pic_wrap"> <img class="swiper-lazy" data-src="./assets/img/brand_logo_03.png"></div></a></div>
+                    <div class="swiper-slide"><a class="li-wrap" href="javascript:;" data-no="li-4"> 
+                        <div class="pic_wrap"> <img class="swiper-lazy" data-src="./assets/img/brand_logo_04.png"></div></a></div>
+                    <div class="swiper-slide"><a class="li-wrap" href="javascript:;" data-no="li-5"> 
+                        <div class="pic_wrap"> <img class="swiper-lazy" data-src="./assets/img/brand_logo_05.png"></div></a></div>
+                    <div class="swiper-slide"><a class="li-wrap" href="javascript:;" data-no="li-6"> 
+                        <div class="pic_wrap"> <img class="swiper-lazy" data-src="./assets/img/brand_logo_06.png"></div></a></div>
+                  </div>
+                </div>
+                <div class="swiper-arrow">
+                  <div class="swiper-button btn-prev">
+                    <div class="icon-arrow-l"></div>
+                  </div>
+                  <div class="swiper-button btn-next">
+                    <div class="icon-arrow-r"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- 投資人區塊-->
+        <section class="investor-block">
+          <!-- 背景裝飾decs-->
+          <div class="decs dec-one">
+            <div class="dec-inner"><img class="lazy" data-src="./assets/img/index/s4_dec_01.png" alt="alt"></div>
+          </div>
+          <div class="decs dec-two">
+            <div class="dec-inner"><img class="lazy" data-src="./assets/img/index/s4_dec_02.png" alt="alt"></div>
+          </div>
+          <div class="container"> 
+            <div class="left" data-aost data-aost-fade-left data-aost-start="100"> 
+              <div class="title-wrap"> 
+                <div class="stock-num"> 
+                  <p>8462</p>
+                </div>
+                <div class="block-wrap" text-color="black">
+                  <p class="block-subtitle">Investor </p>
+                  <div class="block-title"><span>投資人專區</span></div>
+                  <p class="paragraph-text">柏文為第一間掛牌上市的健身中心，揭露公司資訊，為投資人提供更透明的服務</p>
+                </div>
+                <div class="common-btn" btn-color="green"><span>了解更多</span>
+                  <div class="dot"></div>
+                  <div class="btn-line"> </div>
+                </div>
+              </div>
+            </div>
+            <div class="right" data-aost data-aost-fade-right data-aost-start="100">
+              <div class="swiper swiper-investor">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide"> 
+                    <div class="photo"> 
+                      <!-- 圖片建議尺寸 620x450(px)-->
+                      <div class="pic-wrap"> <img class="swiper-lazy" data-src="./assets/img/index/s4_swiper_01_620x450.jpg" alt=""></div>
+                      <div class="content"> 
+                        <div class="top-title">
+                          <div class="icon"><img class="swiper-lazy" data-src="./assets/img/index/s4_icon_01_65x50.png" alt=""></div>
+                          <div class="word">
+                            <h2 class="main">財務資訊</h2>
+                            <h3 class="sub">Financial Information</h3>
+                          </div>
+                        </div>
+                        <ul class="option">
+                          <li> <a href="./index.html">
+                              <div class="hover"></div>
+                              <p>財務報告書</p></a></li>
+                          <li> <a href="./index.html">
+                              <div class="hover"></div>
+                              <p>月營收資訊</p></a></li>
+                          <li> <a href="./index.html">
+                              <div class="hover"></div>
+                              <p>財務資訊新聞稿</p></a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide"> 
+                    <div class="photo"> 
+                      <!-- 圖片建議尺寸 620x450(px)-->
+                      <div class="pic-wrap"> <img class="swiper-lazy" data-src="./assets/img/index/s4_swiper_02_620x450.jpg" alt=""></div>
+                      <div class="content"> 
+                        <div class="top-title">
+                          <div class="icon"><img class="swiper-lazy" data-src="./assets/img/index/s4_icon_02_65x50.png" alt=""></div>
+                          <div class="word">
+                            <h2 class="main">股務資訊</h2>
+                            <h3 class="sub">Stock Information</h3>
+                          </div>
+                        </div>
+                        <ul class="option">
+                          <li> <a href="./index.html">
+                              <div class="hover"></div>
+                              <p>股東結構 </p></a></li>
+                          <li> <a href="./index.html">
+                              <div class="hover"></div>
+                              <p>主要股東名單</p></a></li>
+                          <li> <a href="./index.html">
+                              <div class="hover"></div>
+                              <p>股東會資訊</p></a></li>
+                          <li> <a href="./index.html">
+                              <div class="hover"></div>
+                              <p>股利資訊</p></a></li>
+                          <li> <a href="./index.html">
+                              <div class="hover"></div>
+                              <p>股價資訊</p></a></li>
+                          <li> <a href="./index.html">
+                              <div class="hover"></div>
+                              <p>法人說明會</p></a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-arrow">
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button btn-prev">
+                  <div class="icon-arrow-l"></div>
+                </div>
+                <div class="swiper-button btn-next">
+                  <div class="icon-arrow-r"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- 社會責任區塊-->
+        <section class="sustain-block">
+          <!-- 背景裝飾decs-->
+          <div class="decs dec-one">
+            <div class="dec-inner"><img class="lazy" data-src="./assets/img/index/s5_dec_01.png" alt="alt"></div>
+          </div>
+          <div class="decs dec-two">
+            <div class="dec-inner"><img class="lazy" data-src="./assets/img/index/s5_dec_02.png" alt="alt"></div>
+          </div>
+          <div class="container" data-aost data-aost-fade-up data-aost-start="100">
+            <div class="title-wrap">
+              <div class="block-wrap" text-color="black" text-align="center">
+                <p class="block-subtitle" text-color="gray">Corporate Sustainability</p>
+                <div class="block-title">
+                  <!-- 單詞可改變顏色 text-color="brown" & text-color="green"--><span>經營</span><span text-color="green">社會責任</span><span>不遺餘力</span>
+                </div>
+                <p class="paragraph-text">柏文回饋社會不落人後，未來期能達到響應之效，讓需要幫助者能獲得所需</p>
+              </div>
+            </div>
+            <div class="content-wrap">
+              <div class="swiper swiper-sustain">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide"> <a class="each-swiper" href="javascript:;">
+                      <!-- 圖片建議尺寸 560x380(px)-->
+                      <div class="photo"> 
+                        <div class="pic-wrap"> <img class="swiper-lazy" data-src="./assets/img/index/s5_swiper_01_560x380.jpg" alt=""></div>
+                      </div>
+                      <div class="content"> 
+                        <h2 class="main">體育贊助</h2>
+                        <p class="text">柏文贊助多項運動自主練習場地與選手，未來期能達到響應之效，讓需要幫助者能獲得所需</p>
+                      </div></a></div>
+                  <div class="swiper-slide"> <a class="each-swiper" href="javascript:;">
+                      <!-- 圖片建議尺寸 560x380(px)-->
+                      <div class="photo"> 
+                        <div class="pic-wrap"> <img class="swiper-lazy" data-src="./assets/img/index/s5_swiper_02_560x380.jpg" alt=""></div>
+                      </div>
+                      <div class="content"> 
+                        <h2 class="main">產學合作</h2>
+                        <p class="text">柏文提供多所大學產學合作機會，加強產學雙向交流，發揮教育、訓練及服務等功能</p>
+                      </div></a></div>
+                  <div class="swiper-slide"> <a class="each-swiper" href="javascript:;">
+                      <!-- 圖片建議尺寸 560x380(px)-->
+                      <div class="photo"> 
+                        <div class="pic-wrap"> <img class="swiper-lazy" data-src="./assets/img/index/s5_swiper_01_560x380.jpg" alt=""></div>
+                      </div>
+                      <div class="content"> 
+                        <h2 class="main">體育贊助</h2>
+                        <p class="text">柏文贊助多項運動自主練習場地與選手，未來期能達到響應之效，讓需要幫助者能獲得所需</p>
+                      </div></a></div>
+                  <div class="swiper-slide"> <a class="each-swiper" href="javascript:;">
+                      <!-- 圖片建議尺寸 560x380(px)-->
+                      <div class="photo"> 
+                        <div class="pic-wrap"> <img class="swiper-lazy" data-src="./assets/img/index/s5_swiper_02_560x380.jpg" alt=""></div>
+                      </div>
+                      <div class="content"> 
+                        <h2 class="main">產學合作</h2>
+                        <p class="text">柏文提供多所大學產學合作機會，加強產學雙向交流，發揮教育、訓練及服務等功能</p>
+                      </div></a></div>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-arrow">
+              <div class="swiper-pagination"></div>
+              <div class="swiper-button btn-prev">
+                <div class="icon-arrow-l"></div>
+              </div>
+              <div class="swiper-button btn-next">
+                <div class="icon-arrow-r"></div>
+              </div>
+              <div class="common-btn" btn-color="green"><span>了解更多</span>
+                <div class="dot"></div>
+                <div class="btn-line"> </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+      <!-- cookies-->
+      <!-- cookie 不開放後台編輯-->
+      <div class="cookie-block">
+        <div class="cookie-mask"></div>
+        <div class="cookie-main">
+          <div class="decs-cookie">
+            <div class="dec-inner">
+              <picture> <img class="lazy" data-src="./assets/img/menu_dec_10.png" alt="alt"></picture>
+            </div>
+          </div>
+          <div class="cookie-container"> 
+            <div class="deco-title">
+              <div class="main">
+                <p>COOKIE<span>宣告</span></p>
+              </div>
+              <div class="dot"> </div>
+              <div class="line"></div>
+            </div>
+            <div class="flex-group">
+              <div class="inner-text">
+                <div class="text">
+                  <p>關於本網站使用瀏覽器紀錄 Cookie 來提供您最好的使用體驗，我們使用的 Cookie 也包括了第三方 Cookie。相關資訊請訪問我們的隱私權與 Cookie 政策。如果您選擇繼續瀏覽或關閉這個提示，便表示您已接受我們的網站使用條款。</p>
+                </div>
+              </div>
+              <div class="btn-group"><a class="common-btn disagree" href="javascript:;" btn-color="gray"><span>拒絕接受</span>
+                  <div class="dot"></div>
+                  <div class="btn-line"> </div></a><a class="common-btn accept" href="javascript:;" btn-color="brown"><span>我知道了</span>
+                  <div class="dot"></div>
+                  <div class="btn-line"> </div></a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 頁腳-->
+      <footer data-aost data-aost-fade-up data-aost-start="100">
+        <div class="footer-container"> 
+          <div class="left"> 
+            <ul class="top">
+              <li> <a href="./about.html">
+                  <p class="en">About us</p>
+                  <p class="ch">柏文集團</p></a></li>
+              <li> <a href="./brands.html">
+                  <p class="en">Brands</p>
+                  <p class="ch">品牌介紹</p></a></li>
+              <li> <a href="./esg.html"> 
+                  <p class="en">ESG</p>
+                  <p class="ch">企業永續</p></a></li>
+              <li> <a href="./investor.html">
+                  <p class="en">investor</p>
+                  <p class="ch">投資人專區</p></a></li>
+              <li> <a href="./news.html">
+                  <p class="en">news center</p>
+                  <p class="ch">最新消息</p></a></li>
+              <li> <a href="javascript:;">
+                  <p class="en">Career</p>
+                  <p class="ch">加入柏文</p></a></li>
+            </ul>
+            <ul class="center">
+              <li> <a href="./contact.html">聯絡我們</a></li>
+              <li> <a href="javascript:;" data-modal-target="privacy">隱私權政策</a></li>
+            </ul>
+            <div class="bottom">
+              <div class="bottom-left"> 
+                <ul class="sns-icon"> 
+                  <li> <a class="icon-linkedin" href="javascript:;" target="_blank"></a></li>
+                  <li> <a class="icon-youtube" href="javascript:;" target="_blank"> </a></li>
+                  <li> <a class="icon-ig-square" href="javascript:;" target="_blank"></a></li>
+                  <li><a class="icon-line" href="javascript:;" target="_blank"></a></li>
+                  <li> <a class="icon-fb-square" href="javascript:;" target="_blank"></a></li>
+                </ul>
+              </div>
+              <div class="bottom-right"> 
+                <div class="copyright">
+                  <p>powerwind. all rights reserved.Design by wdd.</p>
+                </div>
+                <div class="top-btn" data-anchor-target=""><img src="./assets/img/scroll_up.svg" alt="">
+                  <p>TOP</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="right"><a class="footer-logo" href="./index.html"><img alt="LOGO" src="./assets/img/footer_logo_ce.png"></a></div>
+        </div>
+      </footer>
+      <!-- 搜尋燈箱-->
+      <!-- 搜尋燈箱-->
+      <modern-modal class="search-block" data-modal-id="search">
+        <div class="search-decs">
+          <div class="dec-inner">
+            <picture> <img class="lazy" data-src="./assets/img/other/search02.png" alt="alt"></picture>
+          </div>
+        </div>
+        <div class="search-decs dec-two">
+          <div class="dec-inner">
+            <picture> <img class="lazy" data-src="./assets/img/other/search01.png" alt="alt"></picture>
+          </div>
+        </div>
+        <div class="inner-group">
+          <div class="inner-text">
+            <div class="tag item-tit">
+              <p>Search</p>
+            </div>
+            <div class="title">
+              <p>全站搜尋</p>
+            </div>
+            <div class="des wt-content"> 
+              <p>我們提供最新消息、品牌介紹的進階搜尋功能，<br>您可以輸入關鍵字進行查找。</p>
+            </div>
+          </div>
+          <!-- 搜尋切換選單+查詢輸入欄位-->
+          <div class="data-block">
+            <div class="block-category">
+              <multipurpose-nav m4-type="collapse" m4-status="news" m4-option="{&quot;drag&quot;:{&quot;selected&quot;:true},&quot;collapse&quot;:{&quot;selected&quot;:true,&quot;placeholder&quot;:&quot;選擇子單元&quot;},&quot;dropdown&quot;:{&quot;value&quot;:&quot;all&quot;}}">
+                <div class="item" data-option="news">
+                  <div class="category">
+                    <p>最新消息</p>
+                  </div>
+                </div>
+                <div class="item" data-option="brands">
+                  <div class="category">
+                    <p>品牌介紹</p>
+                  </div>
+                </div>
+              </multipurpose-nav>
+            </div>
+            <div class="search-bar"> 
+              <div class="input-wrap">
+                <div class="s-delete">
+                  <div class="icon-plus"></div>
+                </div>
+                <input type="text" placeholder="輸入關鍵字......">
+              </div>
+              <!-- 搜尋網址後加上?result-block 可滑動到搜尋結果顯示區--><a class="s-search" href="./search_result.html?result-block">
+                <div class="icon-search"> </div></a>
+            </div>
+          </div>
+          <!-- 查詢關鍵字為共用 後台設定一次即可～-->
+          <div class="search-keyword">
+            <div class="info"> 
+              <div class="info-L">推薦查詢</div>
+              <div class="info-R">Quick Search</div>
+            </div>
+            <ul class="tag-box">
+              <li class="item">
+                <div class="deco"></div>
+                <p>KILL ZONE</p>
+              </li>
+              <li class="item">
+                <div class="deco"></div>
+                <p>Fitness Factory 健身工廠</p>
+              </li>
+              <li class="item">
+                <div class="deco"></div>
+                <p>2023 火熱夏令營</p>
+              </li>
+              <li class="item">
+                <div class="deco"></div>
+                <p>2023 IFBB PRO SHOW</p>
+              </li>
+              <li class="item">
+                <div class="deco"></div>
+                <p>人體工房</p>
+              </li>
+              <li class="item">
+                <div class="deco"></div>
+                <p>2023 IFBB PRO SHOW</p>
+              </li>
+            </ul>
+          </div>
+        </div><a class="close-button" href="javascript:;" data-modal-close></a>
+      </modern-modal>
+    </div>
+  </body>
+</html>

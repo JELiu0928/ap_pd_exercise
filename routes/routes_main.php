@@ -13,7 +13,7 @@ use App\Http\Controllers\Front\TestController;
 
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\Front\ProductController;
 use App\Http\Controllers\LeonBuilder\LeonBuilderController;
 
 $all = function () {
@@ -31,42 +31,42 @@ $all = function () {
         Route::match(['get', 'post'], '/Sitemap', [LeonBuilderController::class, 'Sitemap']);
     });
     Route::group(['prefix' => 'api'], function () {
-        Route::match(['post','get'],'/',[DailyApiController::class, 'index']);
-        Route::match(['post','get'],'getToken',[DailyApiController::class, 'getToken']);
-        Route::post('revokeToken',[DailyApiController::class, 'revokeToken']);
+        Route::match(['post', 'get'], '/', [DailyApiController::class, 'index']);
+        Route::match(['post', 'get'], 'getToken', [DailyApiController::class, 'getToken']);
+        Route::post('revokeToken', [DailyApiController::class, 'revokeToken']);
 
-        Route::match(['post','get'],'getTokenExpir',[DailyApiController::class, 'getTokenExpir']);
-        Route::post('RefreshToken',[DailyApiController::class, 'RefreshToken']);
-        
-        Route::group(['prefix' => '/account','middleware'=>'api'], function () {
-            Route::post('register',[DailyAccountController::class, 'create']);
-            Route::put('{account_id}/edit',[DailyAccountController::class, 'edit']);
-            Route::delete('{account_id}/delete',[DailyAccountController::class, 'delete']);
-            Route::match(['get','post'],'show/{action?}',[DailyAccountController::class, 'index']);
+        Route::match(['post', 'get'], 'getTokenExpir', [DailyApiController::class, 'getTokenExpir']);
+        Route::post('RefreshToken', [DailyApiController::class, 'RefreshToken']);
+
+        Route::group(['prefix' => '/account', 'middleware' => 'api'], function () {
+            Route::post('register', [DailyAccountController::class, 'create']);
+            Route::put('{account_id}/edit', [DailyAccountController::class, 'edit']);
+            Route::delete('{account_id}/delete', [DailyAccountController::class, 'delete']);
+            Route::match(['get', 'post'], 'show/{action?}', [DailyAccountController::class, 'index']);
         });
 
-        Route::group(['prefix' => '/show','middleware'=>'api'], function () {
-            Route::match(['post','get'],'article/{article_id?}',[DailyArticleController::class, 'index']);
-            Route::match(['post','get'],'project/{project_id?}',[DailyProjectController::class, 'index']);
-            Route::match(['post','get'],'unit/{unit_id?}',[DailyUnitController::class, 'index']);
+        Route::group(['prefix' => '/show', 'middleware' => 'api'], function () {
+            Route::match(['post', 'get'], 'article/{article_id?}', [DailyArticleController::class, 'index']);
+            Route::match(['post', 'get'], 'project/{project_id?}', [DailyProjectController::class, 'index']);
+            Route::match(['post', 'get'], 'unit/{unit_id?}', [DailyUnitController::class, 'index']);
         });
 
-        Route::group(['prefix' => '/create','middleware'=>'api'], function () {
-            Route::post('article',[DailyArticleController::class, 'create']);
-            Route::post('project',[DailyProjectController::class, 'create']);
-            Route::post('unit',[DailyUnitController::class, 'create']);
+        Route::group(['prefix' => '/create', 'middleware' => 'api'], function () {
+            Route::post('article', [DailyArticleController::class, 'create']);
+            Route::post('project', [DailyProjectController::class, 'create']);
+            Route::post('unit', [DailyUnitController::class, 'create']);
         });
 
-        Route::group(['prefix' => '/edit','middleware'=>'api'], function () {
-            Route::put('{id}/article',[DailyArticleController::class, 'edit']);
-            Route::put('{id}/unit',[DailyUnitController::class, 'edit']);
-            Route::put('{id}/project',[DailyProjectController::class, 'edit']);
+        Route::group(['prefix' => '/edit', 'middleware' => 'api'], function () {
+            Route::put('{id}/article', [DailyArticleController::class, 'edit']);
+            Route::put('{id}/unit', [DailyUnitController::class, 'edit']);
+            Route::put('{id}/project', [DailyProjectController::class, 'edit']);
         });
 
-        Route::group(['prefix' => '/delete','middleware'=>'api'], function () {
-            Route::delete('{id}/article',[DailyArticleController::class, 'delete']);
-            Route::delete('{id}/unit',[DailyUnitController::class, 'delete']);
-            Route::delete('{id}/project',[DailyProjectController::class, 'delete']);
+        Route::group(['prefix' => '/delete', 'middleware' => 'api'], function () {
+            Route::delete('{id}/article', [DailyArticleController::class, 'delete']);
+            Route::delete('{id}/unit', [DailyUnitController::class, 'delete']);
+            Route::delete('{id}/project', [DailyProjectController::class, 'delete']);
         });
 
     })->middleware('api');
@@ -78,11 +78,24 @@ $all = function () {
             Route::match(['get', 'post'], '/', [HomeController::class, 'index']);
             Route::match(['get', 'post'], '/article/{class}/{two}/{three}', [EsgController::class, 'article_detail'])->defaults(
                 'sitemap',
-                ['param'=>'{class}','col'=>'url_name','model'=>'Datalist', 'pk'=>'id','with'=>
-                    ['is_multiple'=>true,'fk'=>'parent_id','param'=>'{two}','col'=>'img_row','model'=>'Datalist_content', 'pk'=>'id', 'with'=>
-                        ['is_multiple'=>true,'fk'=>'second_id','param'=>'{three}','col'=>'image','model'=>'Datalist_content_img', 'pk'=>'id']
-                    ],
-                ]);
+                [
+                    'param' => '{class}',
+                    'col' => 'url_name',
+                    'model' => 'Datalist',
+                    'pk' => 'id',
+                    'with' =>
+                        [
+                            'is_multiple' => true,
+                            'fk' => 'parent_id',
+                            'param' => '{two}',
+                            'col' => 'img_row',
+                            'model' => 'Datalist_content',
+                            'pk' => 'id',
+                            'with' =>
+                                ['is_multiple' => true, 'fk' => 'second_id', 'param' => '{three}', 'col' => 'image', 'model' => 'Datalist_content_img', 'pk' => 'id']
+                        ],
+                ]
+            );
             Route::match(['get', 'post'], '/test', [TestController::class, 'test']);
             Route::match(['get', 'post'], '/testLock', [TestController::class, 'lock']);
             Route::match(['get', 'post'], '/testPlus', [TestController::class, 'plus']);
@@ -99,9 +112,15 @@ $all = function () {
 
             Route::group(['prefix' => '/linenotify'], function () {
                 Route::get('/', [LineNotifyController::class, 'index']);
-                Route::get('getToken',[LineNotifyController::class, 'getToken']);
-                Route::get('sendMessage',[LineNotifyController::class, 'sendMessage']);
-                Route::get('status',[LineNotifyController::class, 'status']);
+                Route::get('getToken', [LineNotifyController::class, 'getToken']);
+                Route::get('sendMessage', [LineNotifyController::class, 'sendMessage']);
+                Route::get('status', [LineNotifyController::class, 'status']);
+            });
+            Route::group(['prefix' => '/product'], function () {
+                Route::get('/', [ProductController::class, 'index']);
+                // Route::get('getToken',[LineNotifyController::class, 'getToken']);
+                // Route::get('sendMessage',[LineNotifyController::class, 'sendMessage']);
+                // Route::get('status',[LineNotifyController::class, 'status']);
             });
         });
     });
