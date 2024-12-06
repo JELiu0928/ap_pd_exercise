@@ -184,13 +184,14 @@
                                     'value' => !empty($data['banner_title']) ? $data['banner_title'] : '',
                                     'toolbar' => 'simple',
                                 ]) }}
-                                {{ UnitMaker::textSummernote([
-                                    'name' => $model . '[banner_intro]',
-                                    'title' => '簡述',
-                                    'tip' =>
-                                        '單行輸入，如需使用上標，請使用&lt;sup&gt;內容&lt;/sup&gt;，內容不支援CSS、JQ、JS等語法，特殊符號如 : @#$%?/\|*.及全形也盡量避免。<br>同內頁banner標題。',
-                                    'value' => !empty($data['banner_intro']) ? $data['banner_intro'] : '',
-                                    'toolbar' => 'simple',
+                                {{-- @dd(M('ProductCategory')::getCategorySeriesList()) --}}
+                                {{ UnitMaker::select2([
+                                    'name' => $model . '[series_id]',
+                                    'title' => '所屬系列',
+                                    'value' => !empty($data['series_id']) ? $data['series_id'] : '',
+                                    'options' => M('ProductCategory')::getCategorySeriesList(),
+                                    'tip' => '請選擇所屬類別',
+                                    'disabled' => '',
                                 ]) }}
                                 {{ UnitMaker::textInput([
                                     'name' => $model . '[url_name]',
@@ -231,8 +232,7 @@
                                     'class' => '',
                                 ]) }} --}}
                             @endif
-
-
+                            {{-- 內頁設定 --}}
                             @if ($formKey == 'ProductInner')
                                 {{ UnitMaker::radio_area([
                                     'name' => $model . '[banner_title_color]',
@@ -405,313 +405,14 @@
                                     ],
                                 ]) }}
                             @endif
+                            {{-- 段落編輯 --}}
                             @if ($formKey == 'article')
                                 @include('Fantasy.cms_view.back_article_v3', [
                                     'Model' => 'ProductArticle',
                                     'ThreeModel' => 'ProductArticleImg',
                                 ])
                             @endif
-                            {{-- 產品概述彈性區 --}}
-                            @if ($formKey == 'Overview')
-                                {{ UnitMaker::textInput([
-                                    'name' => $model . '[overview_title]',
-                                    'title' => '標題',
-                                    'tip' => '',
-                                    'value' => !empty($data['overview_title']) ? $data['overview_title'] : '',
-                                ]) }}
-                                {{ UnitMaker::textInput([
-                                    'name' => $model . '[overview_intro]',
-                                    'title' => '簡述',
-                                    'tip' => '',
-                                    'value' => !empty($data['overview_intro']) ? $data['overview_intro'] : '',
-                                ]) }}
-                                {{-- {{ UnitMaker::textSummernote([
-                                    'name' => $model . '[overview_content_title]',
-                                    'title' => '內容標題',
-                                    'tip' =>
-                                        '單行輸入，如需使用上標，請使用&lt;sup&gt;內容&lt;/sup&gt;，內容不支援CSS、JQ、JS等語法，特殊符號如 : @#$%?/\|*.及全形也盡量避免。<br>同內頁banner標題。',
-                                    'value' => !empty($data['overview_content_title']) ? $data['overview_content_title'] : '',
-                                    'toolbar' => 'simple',
-                                ]) }}
-                                {{ UnitMaker::textSummernote([
-                                    'name' => $model . '[series_intro]',
-                                    'title' => '內容簡述',
-                                    'tip' =>
-                                        '單行輸入，如需使用上標，請使用&lt;sup&gt;內容&lt;/sup&gt;，內容不支援CSS、JQ、JS等語法，特殊符號如 : @#$%?/\|*.及全形也盡量避免。<br>同內頁banner標題。',
-                                    'value' => !empty($data['series_intro']) ? $data['series_intro'] : '',
-                                    'toolbar' => 'simple',
-                                ]) }} --}}
-                                {{ UnitMaker::WNsonTable([
-                                    'sort' => 'yes', //是否可以調整順序
-                                    'sort_field' => 'w_rank', //自訂排序欄位
-                                    'teach' => 'no',
-                                    'hasContent' => 'yes', //是否可展開
-                                    'tip' => '',
-                                    'hidden_create' => 'yes', //是否可新增
-                                    'create' => 'yes', //是否可新增
-                                    'delete' => 'yes', //是否可刪除
-                                    'copy' => 'yes', //是否可複製
-                                    'MultiImgcreate' => 'yes', //使用多筆圖片
-                                    'imageColumn' => 'img', //預設圖片欄位
-                                    'SecondIdColumn' => 'category_id', //關聯鍵
-                                    'value' => !empty($associationData['son']['ProductCategoryOverview'])
-                                        ? $associationData['son']['ProductCategoryOverview']
-                                        : [],
-                                    'name' => 'ProductCategoryOverview',
-                                    'tableSet' => [
-                                        [
-                                            'type' => 'just_show',
-                                            'title' => '標題',
-                                            'value' => 'title',
-                                            'auto' => true,
-                                        ],
-                                        [
-                                            'type' => 'radio_btn',
-                                            'title' => '預覽',
-                                            'value' => 'is_preview',
-                                            'default' => 1,
-                                        ],
-                                        [
-                                            'type' => 'radio_btn',
-                                            'title' => '是否顯示',
-                                            'value' => 'is_visible',
-                                        ],
-                                    ],
-                                    'tabSet' => [
-                                        [
-                                            'title' => '內容編輯',
-                                            'content' => [
-                                                [
-                                                    'type' => 'textSummernote',
-                                                    'value' => 'title',
-                                                    'title' => '標題',
-                                                    'tip' => '',
-                                                    'auto' => true,
-                                                    'toolbar' => 'simple',
-                                                ],
-                                                [
-                                                    'type' => 'textSummernote',
-                                                    'value' => 'intro',
-                                                    'title' => '簡述',
-                                                    'tip' => '',
-                                                    'auto' => true,
-                                                    'toolbar' => 'simple',
-                                                ],
-                                                [
-                                                    'type' => 'radio_area',
-                                                    'value' => 'type',
-                                                    'title' => '圖片位置',
-                                                    'tip' => '',
-                                                    'options' => [
-                                                        ['key' => 0, 'title' => '置左'],
-                                                        ['key' => 1, 'title' => '置右'],
-                                                        ['key' => 2, 'title' => '無圖'],
-                                                    ],
-                                                ],
-                                                [
-                                                    'type' => 'image_group',
-                                                    'title' => '概述區圖片',
-                                                    'image_array' => [
-                                                        [
-                                                            'title' => '',
-                                                            'value' => 'img',
-                                                            'set_size' => 'yes',
-                                                            'width' => '720',
-                                                            'height' => '825',
-                                                        ],
-                                                    ],
-                                                    'tip' => '建議尺寸：720 x 825 像素<br> 圖片解析度限制:72DPI，檔案格式限定:JPG、PNG、GIF。',
-                                                ],
-                                                [
-                                                    'type' => 'textInput',
-                                                    'value' => 'img_intro',
-                                                    'title' => '圖片描述',
-                                                    'tip' => '',
-                                                    'auto' => true,
-                                                ],
-                                            ],
-                                        ],
-                                    ],
-                                ]) }}
-                            @endif
-                            {{-- 產品優勢區 --}}
-                            @if ($formKey == 'Advantages')
-                                {{ UnitMaker::textInput([
-                                    'name' => $model . '[advantages_zone_title]',
-                                    'title' => '標題',
-                                    'tip' =>
-                                        '單行輸入，如需使用上標，請使用&lt;sup&gt;內容&lt;/sup&gt;，內容不支援CSS、JQ、JS等語法，特殊符號如 : @#$%?/\|*.及全形也盡量避免。<br>同內頁banner標題。',
-                                    'value' => !empty($data['advantages_zone_title']) ? $data['advantages_zone_title'] : '',
-                                    'toolbar' => 'simple',
-                                ]) }}
-                                {{ UnitMaker::textInput([
-                                    'name' => $model . '[advantages_zone_intro]',
-                                    'title' => '簡述',
-                                    'tip' =>
-                                        '單行輸入，如需使用上標，請使用&lt;sup&gt;內容&lt;/sup&gt;，內容不支援CSS、JQ、JS等語法，特殊符號如 : @#$%?/\|*.及全形也盡量避免。<br>同內頁banner標題。',
-                                    'value' => !empty($data['advantages_zone_intro']) ? $data['advantages_zone_intro'] : '',
-                                    'toolbar' => 'simple',
-                                ]) }}
-                                {{ UnitMaker::radio_area([
-                                    'name' => $model . '[advantages_zone_title_color]',
-                                    'title' => '標題顏色',
-                                    'value' => '',
-                                    'options' => [
-                                        ['key' => 'black', 'title' => '黑色'],
-                                        ['key' => 'white', 'title' => '白色'],
-                                        ['key' => 'gradient', 'title' => '漸層'],
-                                    ],
-                                    'tip' => '若無選擇背景圖，標題顏色若選擇白色，前台將自動顯示為黑色',
-                                    'value' => !empty($data['advantages_zone_title_color']) ? $data['advantages_zone_title_color'] : '',
-                                ]) }}
-                                {{ UnitMaker::radio_area([
-                                    'name' => $model . '[advantages_zone_intro_color]',
-                                    'title' => '簡述顏色',
-                                    'value' => '',
-                                    'options' => [
-                                        [
-                                            'key' => 'black',
-                                            'title' => '黑色',
-                                        ],
-                                        [
-                                            'key' => 'white',
-                                            'title' => '白色',
-                                        ],
-                                    ],
-                                    'tip' => '若無選擇背景圖，前台將自動顯示為黑色',
-                                    'value' => !empty($data['advantages_zone_intro_color']) ? $data['advantages_zone_intro_color'] : '',
-                                ]) }}
-                                {{ UnitMaker::radio_area([
-                                    'name' => $model . '[advantages_zone_bg_color]',
-                                    'title' => '背景顏色',
-                                    'value' => '',
-                                    'options' => [
-                                        [
-                                            'key' => 'white',
-                                            'title' => '白色',
-                                        ],
-                                        [
-                                            'key' => 'gray',
-                                            'title' => '灰色',
-                                        ],
-                                    ],
-                                    'tip' => '',
-                                    'value' => !empty($data['advantages_zone_bg_color']) ? $data['advantages_zone_bg_color'] : '',
-                                ]) }}
-                                {{ UnitMaker::imageGroup([
-                                    'title' => '背景圖片',
-                                    'image_array' => [
-                                        [
-                                            'name' => $model . '[advantages_zone_img]',
-                                            'title' => '',
-                                            'value' => !empty($data['advantages_zone_img']) ? $data['advantages_zone_img'] : '',
-                                            'set_size' => 'yes',
-                                            'width' => '1440',
-                                            'height' => '1315',
-                                        ],
-                                    ],
-                                    'tip' => '建議尺寸：1440 x 1315 像素，圖片解析度限制:72DPI，檔案格式限定:JPG、PNG、GIF。',
-                                ]) }}
-                                {{ UnitMaker::WNsonTable([
-                                    'sort' => 'yes', //是否可以調整順序
-                                    'sort_field' => 'w_rank', //自訂排序欄位
-                                    'teach' => 'no',
-                                    'hasContent' => 'yes', //是否可展開
-                                    'tip' => '',
-                                    'create' => 'yes', //是否可新增
-                                    'delete' => 'yes', //是否可刪除
-                                    'copy' => 'yes', //是否可複製
-                                    'MultiImgcreate' => 'yes', //使用多筆圖片
-                                    'imageColumn' => 'imageGroup', //預設圖片欄位
-                                    'SecondIdColumn' => 'category_id', //第二層與第一層關聯
-                                    'value' => !empty($associationData['son']['ProductCategoryAdvantagesTags'])
-                                        ? $associationData['son']['ProductCategoryAdvantagesTags']
-                                        : [], //第二層
-                                    'name' => 'ProductCategoryAdvantagesTags',
-                                    'tableSet' => [
-                                        [
-                                            'type' => 'just_show',
-                                            'title' => '標題',
-                                            'value' => 'title',
-                                            'auto' => true,
-                                        ],
-                                        [
-                                            'type' => 'radio_btn',
-                                            'title' => '預覽',
-                                            'value' => 'is_preview',
-                                            'default' => 1,
-                                        ],
-                                        [
-                                            'type' => 'radio_btn',
-                                            'title' => '是否顯示',
-                                            'value' => 'is_visible',
-                                        ],
-                                    ],
-                                    'tabSet' => [
-                                        [
-                                            'title' => '名稱編輯',
-                                            'content' => [
-                                                [
-                                                    'type' => 'textSummernote',
-                                                    'value' => 'title',
-                                                    'title' => '標題',
-                                                    // 'tip' => '',
-                                                    'default' => '',
-                                                    'auto' => true,
-                                                    'disabled' => '',
-                                                    'class' => '',
-                                                    'toolbar' => 'simple',
-                                                ],
-                                            ],
-                                        ],
-                                        [
-                                            'title' => '內容編輯',
-                                            'content' => [],
-                                            'is_three' => 'yes',
-                                            'create' => 'yes',
-                                            'delete' => 'yes',
-                                            'copy' => 'yes',
-                                            'sort_field' => '', //自訂排序欄位
-                                            'three_model' => 'ProductCategoryAdvantagesLists', //第三層關聯
-                                            'three' => [
-                                                'SecondIdColumn' => 'tag_id', //第三層與第二層關聯
-                                                'title' => 'ProductCategoryAdvantagesLists',
-                                                'tip' => '',
-                                                'three_tableSet' => [
-                                                    [
-                                                        'type' => 'just_show',
-                                                        'title' => '標題',
-                                                        'value' => 'title',
-                                                        'auto' => true,
-                                                    ],
-                                                ],
-                                                'three_content' => [
-                                                    [
-                                                        'type' => 'textInput',
-                                                        'value' => 'title',
-                                                        'title' => '標題',
-                                                        'tip' => '',
-                                                        'default' => '',
-                                                        'auto' => true,
-                                                        'disabled' => '',
-                                                        'class' => '',
-                                                    ],
-                                                    [
-                                                        'type' => 'textSummernote',
-                                                        'value' => 'intro',
-                                                        'title' => '簡述',
-                                                        'tip' => '',
-                                                        'default' => '',
-                                                        'auto' => true,
-                                                        'disabled' => '',
-                                                        'toolbar' => 'simple',
-                                                    ],
-                                                ],
-                                            ],
-                                        ],
-                                    ],
-                                ]) }}
-                            @endif
+
                             @if ($formKey == 'CategorySeries')
                                 {{ UnitMaker::textSummernote([
                                     'name' => $model . '[series_zone_title]',

@@ -25,15 +25,19 @@ class ProductSeries extends FrontBase
 		}
 		$this->setTable($TableName);
 	}
-	// public function ProductCategoryOverview()
-	// {
-	// 	return $this->hasMany(ProductCategoryOverview::class, 'category_id');
-	// }
+	public function ProductCategory()
+	{
+		return $this->belongsTo(ProductCategory::class, 'category_id');
+	}
 
-	// public function ProductCategoryOverviewList()
-	// {
-	// 	return $this->hasMany(ProductCategoryOverviewList::class, 'category_id');
-	// }
+	public function ProductItem()
+	{
+		return $this->hasMany(ProductItem::class, 'series_id');
+	}
+	public function items()
+	{
+		return $this->hasMany(ProductItem::class, 'series_id')->isVisible();
+	}
 
 	// public function ProductCategoryAdvantagesTags()
 	// {

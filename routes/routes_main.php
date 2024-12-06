@@ -118,7 +118,7 @@ $all = function () {
             });
             Route::group(['prefix' => '/product'], function () {
                 Route::get('/', [ProductController::class, 'index']);
-                // Route::get('getToken',[LineNotifyController::class, 'getToken']);
+                Route::get('/{categoryURL}', [ProductController::class, 'list']);
                 // Route::get('sendMessage',[LineNotifyController::class, 'sendMessage']);
                 // Route::get('status',[LineNotifyController::class, 'status']);
             });

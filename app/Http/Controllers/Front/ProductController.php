@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Front;
 
 use App\Models\Product\ProductCategory;
+use App\Models\Product\ProductCategoryOverview;
+use App\Models\Product\ProductSeries;
 use App\Models\Product\ProductSet;
 use Illuminate\Http\Request;
 use View;
@@ -21,11 +23,12 @@ class ProductController extends FrontBaseController
 		// }
 		self::$unit = ProductSet::first();
 		View::share('unit', self::$unit);
+
 	}
 	public function index(Request $request)
 	{
 		$unitSet = ProductSet::formatFiles(['banner_pc_img', 'banner_pad_img', 'banner_m_img'])->first();
-		// dd($unit_set);
+		// dd($unitSet);
 		$productCategories = ProductCategory::formatFiles(['list_img'])->doSort()->get();
 		// dd($productCategories);
 		return view(
@@ -38,8 +41,31 @@ class ProductController extends FrontBaseController
 			]
 		);
 	}
-	public function sub(Request $request)
+	public function list(Request $request, )
 	{
-		return view(self::$blade_template . '.home.index', ['basic_seo' => Seo()]);
+		// $unitSet = ProductSet::formatFiles(['banner_pc_img', 'banner_pad_img', 'banner_m_img'])->first();
+		$categoryURL = $request->categoryURL ?? '';
+		// dd($categoryURL);
+		$productCategories = ProductCategory::formatFiles(['list_img'])->doSort()->get();
+		$category = ProductCategory::formatFiles(['list_img', 'banner_pc_img', 'banner_pad_img', 'banner_m_img'])
+			->where('url_name', $categoryURL)->doSort()->first();
+		// dump($category);
+		$cateOverviews = ProductCategory::with('overviews')->where('url_name', $categoryURL)->first();
+		$cateOverviewLists = ProductCategory::with('overviewLists')->where('url_name', $categoryURL)->first();
+		$cateAdvantages = ProductCategory::with('advantagesTags.advantagesLists')->where('url_name', $categoryURL)->first();
+		// dd($cateOverviews);
+		// $cateAdvantages = ProductCategory::with('advantagesTags.advantagesLists')->where('url_name', $categoryURL)->first();
+		$cateProducts = ProductCategory::with('series.items')->where('url_name', $categoryURL)->first();
+		// dump($cateProducts->series);
+
+		return view(self::$blade_template . '.product.list', [
+			'category' => $category,
+			'productCategories' => $productCategories,
+			'cateOverviews' => $cateOverviews,
+			'cateOverviewLists' => $cateOverviewLists,
+			'cateAdvantages' => $cateAdvantages,
+			'cateProducts' => $cateProducts,
+			'basic_seo' => Seo()
+		]);
 	}
 }

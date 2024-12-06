@@ -216,11 +216,11 @@
                                             'title' => '列表圖片',
                                             'value' => !empty($data['list_img']) ? $data['list_img'] : '',
                                             'set_size' => 'yes',
-                                            'width' => '400',
-                                            'height' => '370',
+                                            'width' => '810',
+                                            'height' => '575',
                                         ],
                                     ],
-                                    'tip' => '<br>圖片解析度限制:72DPI，檔案格式限定:JPG、PNG、GIF。',
+                                    'tip' => '建議尺寸：810 x 575 像素。圖片解析度限制:72DPI，檔案格式限定:JPG、PNG、GIF。',
                                 ]) }}
                                 {{ UnitMaker::radio_btn([
                                     'name' => $model . '[is_list_img_show]',
@@ -512,7 +512,7 @@
                                         ],
                                     ],
                                     'tip' => '',
-                                    'value' => !empty($data['banner_intro_color']) ? $data['banner_subtitle_color'] : '',
+                                    'value' => !empty($data['banner_intro_color']) ? $data['banner_intro_color'] : '',
                                 ]) }}
                                 {{ UnitMaker::radio_area([
                                     'name' => $model . '[banner_text_location]',
@@ -728,7 +728,7 @@
                                     'tip' => '若無選擇背景圖，前台將自動顯示為黑色',
                                     'value' => !empty($data['advantages_zone_intro_color']) ? $data['advantages_zone_intro_color'] : '',
                                 ]) }}
-                                {{ UnitMaker::radio_area([
+                                {{-- {{ UnitMaker::radio_area([
                                     'name' => $model . '[advantages_zone_bg_color]',
                                     'title' => '背景顏色',
                                     'value' => '',
@@ -744,7 +744,7 @@
                                     ],
                                     'tip' => '',
                                     'value' => !empty($data['advantages_zone_bg_color']) ? $data['advantages_zone_bg_color'] : '',
-                                ]) }}
+                                ]) }} --}}
                                 {{ UnitMaker::imageGroup([
                                     'title' => '背景圖片',
                                     'image_array' => [
@@ -808,6 +808,13 @@
                                                     'disabled' => '',
                                                     'class' => '',
                                                     'toolbar' => 'simple',
+                                                ],
+                                                [
+                                                    'type' => 'radio_area',
+                                                    'value' => 'advantages_zone_bg_color',
+                                                    'title' => '優勢區列表背景顏色',
+                                                    'tip' => '',
+                                                    'options' => [['key' => 'white', 'title' => '白色'], ['key' => 'gray', 'title' => '灰色']],
                                                 ],
                                             ],
                                         ],

@@ -28,4 +28,8 @@ class ProductCategoryAdvantagesTags extends FrontBase
 	{
 		return $this->hasMany(ProductCategoryAdvantagesLists::class, 'tag_id');
 	}
+	public function advantagesLists()
+	{
+		return $this->hasMany(ProductCategoryAdvantagesLists::class, 'tag_id');
+	}
 }

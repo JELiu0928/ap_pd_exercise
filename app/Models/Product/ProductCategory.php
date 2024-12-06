@@ -43,8 +43,18 @@ class ProductCategory extends FrontBase
 	{
 		return $this->hasMany(ProductCategoryOverview::class, 'category_id');
 	}
+	public function overviews()
+	{
+		// dd('---', ProductCategoryOverview::isVisible()->get());
+		return $this->hasMany(ProductCategoryOverview::class, 'category_id')->isVisible()->formatFiles(['img']);
+		// return $this->hasMany(ProductCategoryOverview::class, 'category_id');
+	}
 
 	public function ProductCategoryOverviewList()
+	{
+		return $this->hasMany(ProductCategoryOverviewList::class, 'category_id');
+	}
+	public function overviewLists()
 	{
 		return $this->hasMany(ProductCategoryOverviewList::class, 'category_id');
 	}
@@ -52,6 +62,19 @@ class ProductCategory extends FrontBase
 	public function ProductCategoryAdvantagesTags()
 	{
 		return $this->hasMany(ProductCategoryAdvantagesTags::class, 'category_id');
+	}
+	public function advantagesTags()
+	{
+		return $this->hasMany(ProductCategoryAdvantagesTags::class, 'category_id');
+	}
+	public function ProductSeries()
+	{
+		return $this->hasMany(ProductSeries::class, 'category_id');
+	}
+	public function series()
+	{
+		return $this->hasMany(ProductSeries::class, 'category_id');
+		return $this->hasMany(ProductSeries::class, 'category_id')->isVisible();
 	}
 	public static function getList()
 	{
@@ -62,6 +85,52 @@ class ProductCategory extends FrontBase
 				'title' => $item['simple_title']
 			];
 		})->keyBy('key');
+	}
+	public static function getCategorySeriesList()
+	{
+		// dd(ProductCategory::get());
+
+
+		// $list = self::with('ProductSeries')
+		// 	->select('id', 'simple_title')
+		// 	->get()
+		// 	->map(function ($cate) {
+		// 		// dd($cate);
+		// 		return $cate->ProductSeries->mapWithKeys(function ($item) use ($cate) {
+		// 			// dd($item);
+
+		// 			return [
+		// 				$item->id => [
+		// 					'key' => $item->id,
+		// 					'title' => $cate->simple_title . '>' . $item->title
+		// 				]
+		// 			];
+		// 		});  // 扁平化嵌套集合;
+		// 		// return $list;
+		// 	})->flatten(1)->toArray();
+		// return $list;
+		$list = self::with('ProductSeries')
+			->select('id', 'simple_title')
+			->get()
+			->mapWithKeys(function ($cate) {
+				// 扁平化 ProductSeries 的结果，直接返回数组，而不是嵌套 Collection
+				return $cate->ProductSeries->mapWithKeys(function ($item) use ($cate) {
+					return [
+						$item->id => [  // 用 ProductSeries 的 id 作为键
+							'key' => $item->id,
+							'title' => $cate->simple_title . ' > ' . $item->title
+						]
+					];
+				});
+			})
+			->toArray();  // 最终转化为数组，避免 Collection
+
+		return $list;
+	}
+	//product/url_name
+	public function getHalfUrlAttribute()
+	{
+		return 'product/' . ($this->url_name ?? '');
 	}
 
 

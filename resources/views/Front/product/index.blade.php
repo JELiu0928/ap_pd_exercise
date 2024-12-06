@@ -1,15 +1,15 @@
 @extends('Front.template')
 
 @section('css')
-    <link rel="stylesheet" crossorigin href="/dist/assets/css/product.min.css?v={{ BaseFunction::getV() }}"">
+    <link rel="stylesheet" crossorigin href="/dist/assets/css/product.min.css?v={{ BaseFunction::getV() }}">
 @endsection
 
 @section('script')
-    <script type="module" crossorigin src="/dist/assets/js/product.min.js?v={{ BaseFunction::getV() }}""></script>
+    <script type="module" crossorigin src="/dist/assets/js/product.min.js?v={{ BaseFunction::getV() }}"></script>
 @endsection
 
 @section('script_back')
-    <link rel="modulepreload" crossorigin href="/dist/assets/js/process.min.js?v={{ BaseFunction::getV() }}"">
+    <link rel="modulepreload" crossorigin href="/dist/assets/js/process.min.js?v={{ BaseFunction::getV() }}">
     {{-- <script type="module" src="/bk/product/consult.js?v={{ BaseFunction::getV() }}""></script> --}}
 
 @endsection
@@ -32,7 +32,8 @@
             <div class="container">
                 <div class="breadcrumb">
                     <ul>
-                        <li> <a class="icon" href="./index.html"><i class="icon-home"></i></a></li>
+                        <li> <a class="icon" href="{{ BaseFunction::b_url('/') }}"><i class="icon-home"></i></a>
+                        </li>
                         <li><span class="categoryBtn">{{ $unitSet['title'] }}</span></li>
                     </ul>
                 </div>
@@ -79,16 +80,21 @@
                     <p class="paragraphText-w">{{ $unitSet['content_subtitle'] }}</p>
                     <p class="unitBlockSub">{{ $unitSet['content_title'] }}</p>
                 </div>
-                <div class="item-outer"><!-- 圖片建議尺寸 810x575(px)-->
+                <div class="item-outer">
+                    <!-- 圖片建議尺寸 810x575(px)-->
                     @foreach ($productCategories as $key => $cate)
-                        <div class="item" anchor-target=""><a class="photo" href="./product_list.html">
-                                <picture>
-                                    <source srcset="{{ $cate['list_img_url'] }}" media="(max-width: 900px)">
-                                    <img class="lazy" data-src="{{ $cate['list_img_url'] }}" alt="">
-                                </picture>
-                            </a>
+                        <div class="item" anchor-target="">
+                            @if ($cate['is_list_img_show'] == 1)
+                                {{-- @dd(BaseFunction::b_url($cate['half_url'])) --}}
+                                <a class="photo" href="{{ BaseFunction::b_url($cate['half_url']) }}">
+                                    <picture>
+                                        <source srcset="{{ $cate['list_img_url'] }}" media="(max-width: 900px)">
+                                        <img class="lazy" data-src="{{ $cate['list_img_url'] }}" alt="">
+                                    </picture>
+                                </a>
+                            @endif
                             <div class="content">
-                                <div class="inner"><a href="./product_list.html">
+                                <div class="inner"><a href="{{ BaseFunction::b_url($cate['half_url']) }}">
                                         <p class="itemTitle-l">{!! $cate['banner_title'] !!}</p>
                                     </a>
                                     <div class="text">
@@ -96,8 +102,9 @@
                                             <p class="paragraphText">{!! $cate['banner_intro'] !!}</p>
                                         </div>
                                     </div>
-                                </div><a class="button" href="./product_list.html"> <ripple-btn class="plus blue large"
-                                        r4-hover="true" data-cotton><i class="icon-plus"></i></ripple-btn></a>
+                                </div><a class="button" href="{{ BaseFunction::b_url($cate['half_url']) }}"> <ripple-btn
+                                        class="plus blue large" r4-hover="true" data-cotton><i
+                                            class="icon-plus"></i></ripple-btn></a>
                             </div>
                         </div>
                         {{-- <div class="item" anchor-target="2">

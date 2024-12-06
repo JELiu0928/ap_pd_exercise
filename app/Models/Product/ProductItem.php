@@ -29,6 +29,10 @@ class ProductItem extends FrontBase
 	{
 		return $this->hasMany(ProductItemKeyword::class, 'item_id');
 	}
+	public function productItemKeywords()
+	{
+		return $this->hasMany(ProductItemKeyword::class, 'item_id')->isVisible();
+	}
 
 	// public function ProductCategoryOverviewList()
 	// {

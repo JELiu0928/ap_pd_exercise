@@ -123,10 +123,10 @@
     {{-- <!-- 非共用的Js --> --}}
     @yield('script')
     {{-- <!-- 共用的Js--> --}}
-    <script type="module" crossorigin src="/dist/assets/js/style.min.js"></script>
-    <script type="module" crossorigin src="/dist/assets/js/vendor.min.js"></script>
-    <script type="module" crossorigin src="/dist/assets/js/xwadex.fesd.min.js"></script>
-    <script type="module" crossorigin src="/dist/assets/js/commons.min.js"></script>
+    <script type="module" crossorigin src="/dist/assets/js/style.min.js?v={{ BaseFunction::getV() }}"></script>
+    <script type="module" crossorigin src="/dist/assets/js/vendor.min.js?v={{ BaseFunction::getV() }}"></script>
+    <script type="module" crossorigin src="/dist/assets/js/xwadex.fesd.min.js?v={{ BaseFunction::getV() }}"></script>
+    <script type="module" crossorigin src="/dist/assets/js/commons.min.js?v={{ BaseFunction::getV() }}"></script>
     {{-- <script type="module" crossorigin src="/bk/other/search.js"></script> --}}
 
 
