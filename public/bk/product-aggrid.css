@@ -1,0 +1,109 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 70px;
+    background-color: #f8f8f8;
+    padding: 0 30px;
+}
+
+header .logo {
+    margin-right: 15px;
+}
+
+header .logo img {
+    display: block;
+    width: auto;
+    height: 30px;
+}
+
+header .text {
+    font-weight: 500;
+}
+
+.container {
+    padding: 0 35px;
+}
+
+.tips {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 50px;
+    letter-spacing: 0.5px;
+    margin: 0;
+}
+
+#myGrid {
+    margin-top: 10px;
+}
+
+.ag-header-container,
+.ag-center-cols-container {
+    min-width: 100%;
+}
+
+.ag-header-cell:last-child .ag-header-cell-resize::after {
+    background-color: transparent;
+}
+
+.ag-header-row {
+    min-width: 100%;
+}
+
+.ag-header-row-column-group+.ag-header-row {
+    border-top: none !important;
+}
+
+.ag-header-row:not(:first-child) {
+    border-top: var(--ag-borders-critical) var(--ag-border-color);
+}
+
+.ag-header-row:not(:first-child) .ag-header-cell:not(.ag-header-span-height.ag-header-span-total),
+.ag-header-row:not(:first-child) .ag-header-group-cell.ag-header-group-cell-with-group {
+    border-top: 0;
+}
+
+.button-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100px;
+}
+
+.button-wrap .button {
+    width: 300px;
+    height: 55px;
+    color: #fff;
+    background-color: #2bb0a1;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 55px;
+    letter-spacing: 0.5px;
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
+}
+
+.checkbox-css:hover {
+    border: rgb(134, 134, 134) 1px solid;
+}
+
+.custom-checkbox:hover {
+    cursor: pointer;
+}
+
+.custom-checkbox {
+    width: 20px;
+    height: 20px;
+}

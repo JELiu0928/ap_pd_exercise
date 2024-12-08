@@ -41,7 +41,8 @@
     <link type="text/css" rel="stylesheet" href="{{ asset('/vender/assets/js/spectrum/spectrum.css') }}" />
     <!--icomoon(2019/7/25 引入) -->
     <link type="text/css" rel="stylesheet" href="{{ asset('/vender/assets/font/icomoon/style.css') }}" />
-
+ {{-- 後台燈箱工具 --}}
+ <script type="text/javascript" src="/bk/bk-modal.js?v={{ BaseFunction::getV() }}"></script>
     {{-- 資料夾樹 --}}
     <link href="{{ asset('/vender/assets/css/tree/jquerysctipttop.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('/vender/assets/css/tree/quicksand.css') }}" rel="stylesheet" type="text/css">
@@ -53,6 +54,14 @@
     <link rel="stylesheet" href="{{ asset('dist-summernote/css/editor.css') }}" attr="attr" />
     <link rel="stylesheet" href="{{ asset('/vender/assets/font/fmsIcon/style.css') }}">
     <link rel="stylesheet" href="{{ asset('/vender/assets/css/custom_aggrid.css') }}">
+       {{-- 後台燈箱工具 --}}
+       <link rel="stylesheet" href="/bk/bk-modal.css">
+       {{-- ag-grid css --}}
+       {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ag-grid-community/styles/ag-grid.css"> --}}
+        {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ag-grid-community/styles/ag-theme-alpine.css"> --}}
+       <link rel="stylesheet" href="/bk/ag-grid.css">
+       <link rel="stylesheet" href="/bk/ag-theme-alpine.css">
+
     <!--============  引入FantasyAllcss  ============-->
     <!--============  頁面JS  ============-->
     <script type="text/javascript">
@@ -293,6 +302,13 @@
     <script src="{{ asset('/vender/backend/js/tree/filetree.js') }}"></script>
     {{-- 資料夾樹 end --}}
 
+    {{-- ag-grid js --}}
+    {{-- <script src="https://cdn.jsdelivr.net/npm/ag-grid-community/dist/ag-grid-community.min.js"></script> --}}
+    <script type="text/javascript" src="/bk/ag-grid-community.min.js?v={{ BaseFunction::getV() }}"></script>
+
+    {{-- <script src=""></script> --}}
+
+    
     {{-- 非共用的JS區塊 --}}
     @yield('script')
     {{-- <script type="text/javascript" src="{{ asset('/vender/backend/js/fms/fms.js') }}"></script>

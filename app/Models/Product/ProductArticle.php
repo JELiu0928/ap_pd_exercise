@@ -27,6 +27,10 @@ class ProductArticle extends FrontBase
 	{
 		return $this->hasMany(ProductArticleImg::class, 'second_id')->doSort();
 	}
+	public function articleImgs()
+	{
+		return $this->hasMany(ProductArticleImg::class, 'second_id')->doSort();
+	}
 
 
 	public static function scopeDownIsPost($query)

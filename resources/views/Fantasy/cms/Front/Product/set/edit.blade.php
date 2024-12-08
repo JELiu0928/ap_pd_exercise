@@ -132,6 +132,27 @@
                                     'value' => !empty($data['content_title']) ? $data['content_title'] : '',
                                 ]) }}
                             @endif
+                            {{-- 產品頁面 --}}
+                            @if ($formKey == 'detail')
+                            {{-- {{ UnitMaker::textInput([
+                                'name' => $model . '[detail_anchor1]',
+                                'title' => '介紹區標題',
+                                'tip' => '',
+                                'value' => !empty($data['detail_anchor1']) ? $data['detail_anchor1'] : '',
+                            ]) }}
+                            {{ UnitMaker::textInput([
+                                'name' => $model . '[detail_anchor2]',
+                                'title' => '規格表區標題',
+                                'tip' => '',
+                                'value' => !empty($data['detail_anchor2']) ? $data['detail_anchor2'] : '',
+                            ]) }}
+                            {{ UnitMaker::textInput([
+                                'name' => $model . '[detail_anchor3]',
+                                'title' => '相關文章區標題',
+                                'tip' => '',
+                                'value' => !empty($data['detail_anchor3']) ? $data['detail_anchor3'] : '',
+                            ]) }} --}}
+                            @endif
                         </ul>
                     </section>
                 </div>

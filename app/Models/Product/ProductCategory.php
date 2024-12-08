@@ -56,7 +56,7 @@ class ProductCategory extends FrontBase
 	}
 	public function overviewLists()
 	{
-		return $this->hasMany(ProductCategoryOverviewList::class, 'category_id');
+		return $this->hasMany(ProductCategoryOverviewList::class, 'category_id')->isVisible();
 	}
 
 	public function ProductCategoryAdvantagesTags()

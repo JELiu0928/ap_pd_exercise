@@ -359,4 +359,33 @@ export const summernoteSetting = {
             },
         },
     },
+    article_news: {
+        placeholder: "Type some words ...",
+        tabsize: 2,
+        height: 250,
+        lang: "zh-TW", 
+        toolbar: [
+            ['font', ['bold', 'underline','superscript','subscript']],
+            ["para", ["ul", "ol"]],
+            ["insert", ["link"]],
+            ["lbox_fms_open", ["fmsbtn"]],
+        ],
+        icons: {
+            bold: "icon-bold",
+            underline: "icon-underline",
+            link: "icon-link",
+        },
+        callbacks: {
+            onImageUpload: function onImageUpload(data) {
+                data.pop();
+            },
+            onPaste: function (e) {
+                var bufferText = (
+                    (e.originalEvent || e).clipboardData || window.clipboardData
+                ).getData("Text");
+                e.preventDefault();
+                document.execCommand("insertText", false, bufferText);
+            },
+        },
+    },
 };

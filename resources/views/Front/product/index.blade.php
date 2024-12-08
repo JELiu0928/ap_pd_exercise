@@ -83,7 +83,7 @@
                 <div class="item-outer">
                     <!-- 圖片建議尺寸 810x575(px)-->
                     @foreach ($productCategories as $key => $cate)
-                        <div class="item" anchor-target="">
+                        <div class="item" anchor-target="{{$key +1}}">
                             @if ($cate['is_list_img_show'] == 1)
                                 {{-- @dd(BaseFunction::b_url($cate['half_url'])) --}}
                                 <a class="photo" href="{{ BaseFunction::b_url($cate['half_url']) }}">

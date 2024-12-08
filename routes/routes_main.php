@@ -14,6 +14,7 @@ use App\Http\Controllers\Front\TestController;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Front\ProductController;
+use App\Http\Controllers\Front\ProductAggridController;
 use App\Http\Controllers\LeonBuilder\LeonBuilderController;
 
 $all = function () {
@@ -119,8 +120,26 @@ $all = function () {
             Route::group(['prefix' => '/product'], function () {
                 Route::get('/', [ProductController::class, 'index']);
                 Route::get('/{categoryURL}', [ProductController::class, 'list']);
+                Route::get('/{categoryURL}/{productURL}', [ProductController::class, 'detail']);
                 // Route::get('sendMessage',[LineNotifyController::class, 'sendMessage']);
                 // Route::get('status',[LineNotifyController::class, 'status']);
+            });
+            // ag-grid
+            Route::group(['prefix' => '/Ajax'], function () {
+                Route::group(['prefix' => '/cms'], function () {
+                    // Route::post('/getItemSpecificationCmsView', [AggridController::class, 'itemSpecificationCmsView'])->middleware(['auth']);
+                    // Route::post('/getItemOverviewSpecificationCmsView', [AggridController::class, 'itemOverviewSpecificationCmsView'])->middleware(['auth']);
+                    // Route::post('/getItemOrderingSpecificationCmsView', [AggridController::class, 'itemOrderingSpecificationCmsView'])->middleware(['auth']);
+                    // Route::post('/getItemOptionalSpecificationCmsView', [AggridController::class, 'itemOptionalSpecificationCmsView'])->middleware(['auth']);
+
+                    // Route::post('/itemSpecification', [AggridController::class, 'itemSpecification'])->middleware(['auth']);
+                    // Route::post('/itemOverviewSpecification', [AggridController::class, 'itemOverviewSpecification'])->middleware(['auth']);
+                    // Route::post('/itemOrderingSpecification', [AggridController::class, 'itemOrderingSpecification'])->middleware(['auth']);
+                    // Route::post('/itemOptionalSpecification', [AggridController::class, 'itemOptionalSpecification'])->middleware(['auth']);
+                    
+                    Route::post('/getItemSpecificationCmsView', [ProductAggridController::class, 'itemSpecificationCmsView'])->middleware(['auth']);
+                
+                });
             });
         });
     });

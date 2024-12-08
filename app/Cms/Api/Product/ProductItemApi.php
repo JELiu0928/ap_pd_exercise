@@ -38,7 +38,7 @@ class ProductItemApi extends CmsApi implements GetTable, GetExport
         'ProductArticleImg' => ProductArticleImg::class,
     ];
     protected $copyArray = [
-        // 'Datalist_content' => ['Datalist_content_img' => 'second_id'],
+        'ProductArticle' => ['ProductArticleImg' => 'second_id'],
         // 'Datalist_son' => ['Datalist_three' => 'second_id'],
         // 'Datalist' => ['Datalist_content' => 'parent_id', 'Datalist_son' => 'parent_id'],
     ];
@@ -57,19 +57,10 @@ class ProductItemApi extends CmsApi implements GetTable, GetExport
         if ($modelClass === 'editContent') {
             $builder->with([
                 'ProductItemKeyword',
-                // 'ProductCategoryOverviewList',
-                // 'ProductCategoryAdvantagesTags.ProductCategoryAdvantagesLists'
+                'ProductArticle.ProductArticleImg',
 
             ]);
-            //     ->with([
-            //         'Datalist_son' => function ($q) {
-            //             $q->with([
-            //                 'Datalist_three' => function ($q2) {
-            //                     $q2->orderBy('w_rank');
-            //                 },
-            //             ])->orderBy('w_rank');
-            //         }
-            //     ]);
+      
         }
         return $builder;
     }
@@ -117,8 +108,9 @@ class ProductItemApi extends CmsApi implements GetTable, GetExport
         // dd(M('ProductCategory')::getList()->toArray());
         $colSetting = ColumnSet::make()
             // ->selectCol('series_id', '所屬系列', ProductSeries::getList()->toArray(), 200)
-            ->textCol('simple_title', '標題', 250)
-            ->textCol('url_name', '網址名稱', 250)
+            ->textCol('simple_title', '標題', 200)
+            ->selectCol('series_id', '所屬系列', M('ProductSeries')::getSeriesList()->toArray(), 280)
+            ->textCol('url_name', '網址名稱', 200)
             ->rankInputCol('w_rank', '排序')
             ->radioButtonCol(['is_preview' => '預覽', 'is_visible' => '顯示狀態'])
             ->timestampCol('updated_at', '最後更新日期')

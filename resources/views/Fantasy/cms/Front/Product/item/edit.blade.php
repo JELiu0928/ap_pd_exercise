@@ -184,12 +184,15 @@
                                     'value' => !empty($data['banner_title']) ? $data['banner_title'] : '',
                                     'toolbar' => 'simple',
                                 ]) }}
-                                {{-- @dd(M('ProductCategory')::getCategorySeriesList()) --}}
+                                {{-- @dump(M('ProductSeries')::with('category')->get()) --}}
+                                {{-- @dump(M('ProductCategory')::getCategorySeriesList()) --}}
+                                {{-- @dump(M('ProductSeries')::getSeriesList()) --}}
                                 {{ UnitMaker::select2([
                                     'name' => $model . '[series_id]',
                                     'title' => '所屬系列',
                                     'value' => !empty($data['series_id']) ? $data['series_id'] : '',
-                                    'options' => M('ProductCategory')::getCategorySeriesList(),
+                                    // 'options' => M('ProductCategory')::getCategorySeriesList(),
+                                    'options' => M('ProductSeries')::getSeriesList(),
                                     'tip' => '請選擇所屬類別',
                                     'disabled' => '',
                                 ]) }}
@@ -263,7 +266,7 @@
                                     'tip' => '',
                                     'value' => !empty($data['banner_intro_color']) ? $data['banner_subtitle_color'] : '',
                                 ]) }}
-                                {{ UnitMaker::radio_area([
+                                {{-- {{ UnitMaker::radio_area([
                                     'name' => $model . '[banner_text_location]',
                                     'title' => 'banner文字位置',
                                     'value' => '',
@@ -274,7 +277,7 @@
                                     ],
                                     'tip' => '',
                                     'value' => !empty($data['banner_text_location']) ? $data['banner_text_location'] : '',
-                                ]) }}
+                                ]) }} --}}
                                 {{ UnitMaker::imageGroup([
                                     'title' => 'banner',
                                     'image_array' => [
@@ -407,10 +410,16 @@
                             @endif
                             {{-- 段落編輯 --}}
                             @if ($formKey == 'article')
-                                @include('Fantasy.cms_view.back_article_v3', [
-                                    'Model' => 'ProductArticle',
-                                    'ThreeModel' => 'ProductArticleImg',
+                            {{-- @include('Fantasy.cms_view.back_article_v3', [ --}}
+                            @include('Fantasy.cms_view.back_article_news', [
+                                'Model' => 'ProductArticle',
+                                'ThreeModel' => 'ProductArticleImg',
                                 ])
+                            @endif
+                            @if ($formKey == 'Specification')
+                            <br>
+                            <inpunt class="bkSpecificationBtn" type = "hidden"></inpunt>
+                            <br>
                             @endif
 
                             @if ($formKey == 'CategorySeries')
