@@ -5,6 +5,9 @@ namespace App\Cms\Api\Product;
 use App\Http\Controllers\OptionFunction;
 use App\Models\Product\ProductArticle;
 use App\Models\Product\ProductArticleImg;
+use App\Models\Product\ProductItemPart;
+use App\Models\Product\ProductItemSpecContent;
+use App\Models\Product\ProductItemSpecTitle;
 use App\Services\Cms\agGrid\ColumnSet;
 use App\Services\Cms\api\method\GetExport;
 use App\Services\Cms\api\method\GetTable;
@@ -36,6 +39,9 @@ class ProductItemApi extends CmsApi implements GetTable, GetExport
         'ProductItemKeyword' => ProductItemKeyword::class,
         'ProductArticle' => ProductArticle::class,
         'ProductArticleImg' => ProductArticleImg::class,
+        'ProductItemPart' => ProductItemPart::class,
+        'ProductItemSpecTitle' => ProductItemSpecTitle::class,
+        'ProductItemSpecContent' => ProductItemSpecContent::class,
     ];
     protected $copyArray = [
         'ProductArticle' => ['ProductArticleImg' => 'second_id'],
@@ -57,10 +63,12 @@ class ProductItemApi extends CmsApi implements GetTable, GetExport
         if ($modelClass === 'editContent') {
             $builder->with([
                 'ProductItemKeyword',
+                'ProductItemPart',
                 'ProductArticle.ProductArticleImg',
+                'ProductItemSpecTitle.ProductItemSpecContent'
 
             ]);
-      
+
         }
         return $builder;
     }

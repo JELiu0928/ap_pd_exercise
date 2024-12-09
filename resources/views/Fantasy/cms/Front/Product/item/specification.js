@@ -1,233 +1,144 @@
-$(document).ready(function () {
-    if ($('.editSentBtn').length > 0) {
-        var specificationNewForm = $(`
+if ($(".editSentBtn").length > 0) {
+    var specificationNewForm = $(`
             <a style="float:left;padding: 6px 8px;margin-bottom: 10px;display: inline-flex;align-items:center;background-color: #c00;color: #fff;cursor: pointer;">
-                <li class="overviewSpecificationForm">產品規格表管理</li>
+                <li class="specificationForm">產品規格表管理</li>
             </a>
         `);
 
-        $('.bkSpecificationBtn').before(specificationNewForm);
-        $('.overviewSpecificationForm').on('click', async () => {
-            if (confirm('要使用本按鈕功能必須先進行存檔，按下確定後將會自動儲存')) {
-                $('.editSentBtnCustom').click();
-            } else {
-                return;
-            }
-            bkModalInit('item-specification-modal');
-            bkModalOpen('item-specification-modal', itemSpecificationModalSet);  // 開啟燈箱
-        });
-
-        function itemSpecificationModalSet() {
-            // 確保 modal 內容已經加載
-            $('#item-specification-modal').on('shown.bs.modal', function () {
-                // 資料加載開始
-                const gridDiv = document.querySelector('#productSpecificationGrid');
-                
-                if (!gridDiv) {
-                    console.error('Grid container with id productSpecificationGrid not found!');
-                    return;
-                }
-
-                // 顯示轉圈圈
-                $(`#item-specification-modal .loader`).fadeIn(300);
-
-                // 初始化空的 AG Grid
-                const gridOptions = initAgGrid('productSpecificationGrid', [], []);
-                
-                // 載入資料
-                sendDataToBackend(gridOptions);
-            });
+    $(".bkSpecificationBtn").before(specificationNewForm);
+    $(".specificationForm").on("click", async () => {
+        if (confirm("要使用本按鈕功能必須先進行存檔，按下確定後將會自動儲存")) {
+            $(".editSentBtnCustom").click();
+        } else {
+            return;
         }
-
-        function sendDataToBackend(gridOptions) {
-            gridOptions.api.stopEditing();  // 停止編輯
-
-            const updatedData = [];
-            gridOptions.api.forEachNode((node) => {
-                updatedData.push(node.data);
+        bkModalInit("item-specification-modal"); // 初始化燈箱
+        bkModalOpen("item-specification-modal", itemSpecificationModalSet); // 開啟燈箱
+    });
+    function itemSpecificationModalSet() {
+        let sendData = {
+            itemId: dataID,
+        };
+        console.log("sendData==", sendData);
+        itemSpecificationAggridAjax(sendData);
+    }
+    function itemSpecificationAggridAjax(sendData = {}) {
+        $.ajax({
+            type: "post",
+            url:
+                $(".base-url-plus").val() +
+                "/" +
+                $(".base-location").val() +
+                "/Ajax/cms/getItemSpecificationCmsView",
+            data: JSON.stringify(sendData),
+            headers: {
+                "content-type": "application/json",
+                "x-csrf-token": $("#_token").val(),
+            },
+        })
+            .done(function (res) {
+                console.log("res = ", res);
+                $("#item-specification-modal .bk-modal-content").append(
+                    res.view
+                );
+                specAggridInit();
+                bkModalLoaded("item-specification-modal");
+            })
+            .fail(function () {
+                console.log("something not right.");
+                bkModalLoaded("item-specification-modal");
             });
+    }
 
+    function specAggridInit() {
+        // console.log("未解析前", $("#productColumns").val());
+        let productColumns = JSON.parse($("#productColumns").val());
+        let productData = JSON.parse($("#productData").val());
+        console.log("Columns:", productColumns);
+        console.log("productData:", productData);
+        let aggridOptions = {
+            rowHeight: 50, //設定行高為30px,預設為25px
+            columnDefs: productColumns,
+            // rowData: [],
+            rowData: productData,
+            // onGridReady: function () {
+            // //表格建立完成後執行的事件
+            // // itemSpecificationAggridOptions.api.sizeColumnsToFit();//調整表格大小自適應
+            // },
+            defaultColDef: {
+                editable: true, //單元表格是否可編輯
+                enableRowGroup: true,
+                enablePivot: true,
+                enableValue: true,
+                sortable: true, //開啟排序
+                resizable: true, //是否可以調整列大小，就是拖曳改變列大小
+                filter: true, //開啟刷選
+                // cellEditor: "agLargeTextCellEditor", // 啟用多行文字輸入
+                // width: 150,
+                cellEditorParams: {
+                    maxLength: 65535,
+                },
+            },
+            pagination: false, //開啟分頁（前端分頁）
+            paginationAutoPageSize: false, //依照網頁高度自動分頁（前端分頁）
+            suppressMovableColumns: true,
+            suppressDragLeaveHidesColumns: true,
+            tooltipShowDelay: 1000,
+            columnHoverHighlight: true,
+            //******************設定置頂行樣式**********
+            getRowStyle: function (params) {
+                if (params.node.rowPinned) {
+                    return {
+                        "font-weight": "bold",
+                        color: "red",
+                    };
+                }
+            },
+        };
+        //在dom載入完成後 初始化agGrid完成
+        let eGridDivSpecification = document.querySelector(
+            "#productSpecificationGrid"
+        );
+        new agGrid.Grid(eGridDivSpecification, aggridOptions);
+        aggridOptions.columnApi.autoSizeColumn();
+
+        // 送出
+        $(".productAggridSendBtn").on("click", function () {
+            aggridOptions.api.stopEditing();
+            let data = {};
+            data.data = [];
+            // console.log("產品ＩＤ", $("#itemId").val());
+            data.itemId = $("#itemId").val();
+            // data.use_self_caption = $("#itemSpecificationUseSelfCaption").val();
+            // 取每一個型號那行的資料
+            aggridOptions.api.forEachNode((r, key) => {
+                data["data"][key] = r.data;
+                console.log("r.data", r.data);
+            });
+            data = JSON.stringify(data);
+            // console.log("data", data);
             $.ajax({
                 type: "post",
-                url: $('.base-url-plus').val() + '/' + $('.base-location').val() + "/Ajax/cms/getItemSpecificationCmsView",
-                data: JSON.stringify({ rows: updatedData }),
+                url:
+                    $(".base-url-plus").val() +
+                    "/" +
+                    $(".base-location").val() +
+                    "/Ajax/cms/updateSpecificationInfo",
+                data: data,
                 headers: {
-                    'content-type': 'application/json',
-                    'x-csrf-token': $("#_token").val(),
-                },
-                beforeSend: function () {
-                    // 這裡可以繼續保持顯示轉圈圈
+                    "content-type": "application/json",
+                    "x-csrf-token": $("#_token").val(),
                 },
             }).done(function (res) {
-                // 資料加載完成後，添加返回的視圖內容
-                $('#item-specification-modal .bk-modal-content').append(res.view);
-
-                // 初始化 AG Grid
-                const gridOptions = initAgGrid(
-                    'productSpecificationGrid', 
-                    res.columnDefs, 
-                    res.rowData
-                );
-
-                // 資料加載完成後，隱藏轉圈圈
-                console.log('資料加載完成，隱藏轉圈圈');
-                bkModalLoaded('item-specification-modal'); // 確保這行被正確執行
-
-            }).fail(function () {
-                console.log('ajax錯誤');
-                // 資料加載錯誤，隱藏轉圈圈
-                console.log('資料加載錯誤，隱藏轉圈圈');
-                bkModalLoaded('item-specification-modal');
+                console.log(res);
+                if (res.status) {
+                    alert("儲存成功!");
+                    aggridOptions.rowData = JSON.parse(res.resData);
+                    aggridOptions.api.setRowData(aggridOptions.rowData);
+                } else {
+                    alert("儲存失敗，請重新整理頁面再次操作");
+                }
             });
-        }
-
-        function initAgGrid(gridContainerId, columnDefs, rowData) {
-            const gridOptions = {
-                columnDefs: columnDefs,
-                rowData: rowData,
-                defaultColDef: {
-                    sortable: true,
-                    filter: true,
-                    resizable: true,
-                    editable: true,
-                },
-                pagination: true,
-                paginationPageSize: 10,
-            };
-
-            const gridDiv = document.querySelector(`#${gridContainerId}`);
-            new agGrid.Grid(gridDiv, gridOptions);
-            return gridOptions;
-        }
+        });
     }
-});
-
-// $(document).ready(function () {
-//     if ($('.editSentBtn').length > 0) {
-//         var specificationNewForm = $(`
-//             <a style="float:left;padding: 6px 8px;margin-bottom: 10px;display: inline-flex;align-items:center;background-color: #c00;color: #fff;cursor: pointer;">
-//                 <li class="overviewSpecificationForm">產品規格表管理</li>
-//             </a>
-//         `);
-
-//         $('.bkSpecificationBtn').before(specificationNewForm);
-//         $('.overviewSpecificationForm').on('click', async () => {
-//             if (confirm('要使用本按鈕功能必須先進行存檔，按下確定後將會自動儲存')) {
-//                 $('.editSentBtnCustom').click();
-//             } else {
-//                 return;
-//             }
-//             bkModalInit('item-specification-modal');
-//             bkModalOpen('item-specification-modal', itemSpecificationModalSet);
-//         });
-
-//         function itemSpecificationModalSet() {
-//             // 確保 modal 內容已經加載
-//             $('#item-specification-modal').on('shown.bs.modal', function () {
-//                 const gridDiv = document.querySelector('#productSpecificationGrid');
-                
-//                 if (!gridDiv) {
-//                     console.error('Grid container with id productSpecificationGrid not found!');
-//                     return;
-//                 }
-        
-//                 // 初始化空的 AG Grid
-//                 const gridOptions = initAgGrid('productSpecificationGrid', [], []);
-                
-//                 // 在這裡你可以繼續處理表格資料和事件
-//                 // $('.loadDataBtn').on('click', () => {
-//                 //     sendDataToBackend(gridOptions); // 資料載入
-                    
-//                 // });
-//                 bkModalLoaded('item-specification-modal');
-
-
-//             });
-//         }
-
-//         $('.loadDataBtn').on('click', () => {
-//             sendDataToBackend(gridOptions);
-//             // bkModalLoaded('item-specification-modal');
-
-//         });
-//     }
-
-//     function sendDataToBackend(gridOptions) {
-//         gridOptions.api.stopEditing();
-
-//         const updatedData = [];
-//         gridOptions.api.forEachNode((node) => {
-//             updatedData.push(node.data);
-//         });
-
-//         $.ajax({
-//             type: "post",
-//             url: $('.base-url-plus').val() + '/' + $('.base-location').val() + "/Ajax/cms/getItemSpecificationCmsView",
-//             data: JSON.stringify({ rows: updatedData }),
-//             headers: {
-//                 'content-type': 'application/json',
-//                 'x-csrf-token': $("#_token").val(),
-//             }
-//         }).done(function (res) {
-//             $('#item-specification-modal .bk-modal-content').append(res.view);
-//             const gridOptions = initAgGrid(
-//                 'productSpecificationGrid', 
-//                 res.columnDefs, 
-//                 res.rowData
-//             );
-
-//             bkModalLoaded('item-specification-modal');
-//         }).fail(function () {
-//             console.log('ajax錯誤');
-//         });
-//     }
-
-//     function initAgGrid(gridContainerId, columnDefs, rowData) {
-//         const gridOptions = {
-//             columnDefs: columnDefs,
-//             rowData: rowData,
-//             defaultColDef: {
-//                 sortable: true,
-//                 filter: true,
-//                 resizable: true,
-//                 editable: true,
-//             },
-//             pagination: true,
-//             paginationPageSize: 10,
-//         };
-    
-//         const gridDiv = document.querySelector(`#${gridContainerId}`);
-//         new agGrid.Grid(gridDiv, gridOptions);
-//         return gridOptions;
-//     }
-
-//     function onCellEdit(params) {
-//         console.log('編輯結束的數據：', params.data);
-//     }
-
-//     async function sendProductSpecificationData(gridOptions) {
-//         gridOptions.api.stopEditing();
-
-//         const updatedData = [];
-//         gridOptions.api.forEachNode((node) => {
-//             updatedData.push(node.data);
-//         });
-
-//         try {
-//             const response = await $.ajax({
-//                 type: 'POST',
-//                 url: $('.base-url-plus').val() + '/' + $('.base-location').val() + "/Ajax/cms/saveItemSpecification",
-//                 data: JSON.stringify({ rows: updatedData }),
-//                 contentType: 'application/json',
-//                 headers: {
-//                     'x-csrf-token': $('#_token').val(),
-//                 },
-//             });
-//             alert('數據保存成功');
-//             console.log('後端響應：', response);
-//         } catch (error) {
-//             console.error('數據保存失敗', error);
-//             alert('數據保存失敗');
-//         }
-//     }
-// });
+}

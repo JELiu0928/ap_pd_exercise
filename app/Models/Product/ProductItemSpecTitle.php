@@ -26,11 +26,19 @@ class ProductItemSpecTitle extends FrontBase
 		}
 		$this->setTable($TableName);
 	}
-    public function ProductItemSpecContent()
+	public function ProductItemSpecContent()
 	{
-		return $this->hasMany(ProductItemSpecContent::class, 'spec_id')->doSort();
+		return $this->hasMany(ProductItemSpecContent::class, 'spec_id');
 	}
-    // protected static function boot()
+	public function contents()
+	{
+		return $this->hasMany(ProductItemSpecContent::class, 'spec_id');
+	}
+	public function ProductItem()
+	{
+		return $this->belongsTo(ProductItem::class, 'item_id')->doSort();
+	}
+	// protected static function boot()
 	// {
 	// 	parent::boot();
 	// 	static::saving(function ($model) {

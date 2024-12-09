@@ -410,16 +410,125 @@
                             @endif
                             {{-- 段落編輯 --}}
                             @if ($formKey == 'article')
-                            {{-- @include('Fantasy.cms_view.back_article_v3', [ --}}
-                            @include('Fantasy.cms_view.back_article_news', [
-                                'Model' => 'ProductArticle',
-                                'ThreeModel' => 'ProductArticleImg',
+                                {{-- @include('Fantasy.cms_view.back_article_v3', [ --}}
+                                @include('Fantasy.cms_view.back_article_news', [
+                                    'Model' => 'ProductArticle',
+                                    'ThreeModel' => 'ProductArticleImg',
                                 ])
                             @endif
+
+                            @if ($formKey == 'SpecTitle')
+                                {{ UnitMaker::WNsonTable([
+                                    'sort' => 'yes', //是否可以調整順序
+                                    'sort_field' => 'w_rank', //自訂排序欄位
+                                    'teach' => 'no',
+                                    'hasContent' => 'yes', //是否可展開
+                                    'tip' => '',
+                                    'create' => 'yes', //是否可新增
+                                    'delete' => 'yes', //是否可刪除
+                                    'copy' => 'yes', //是否可複製
+                                    'MultiImgcreate' => 'yes', //使用多筆圖片
+                                    'imageColumn' => 'imageGroup', //預設圖片欄位
+                                    'SecondIdColumn' => 'item_id', //關聯鍵
+                                    'value' => !empty($associationData['son']['ProductItemSpecTitle'])
+                                        ? $associationData['son']['ProductItemSpecTitle']
+                                        : [],
+                                    'name' => 'ProductItemSpecTitle',
+                                    'tableSet' => [
+                                        [
+                                            'type' => 'just_show',
+                                            'title' => '表頭標題',
+                                            'value' => 'title',
+                                            'auto' => true,
+                                        ],
+                                        [
+                                            'type' => 'radio_btn',
+                                            'title' => '預覽',
+                                            'value' => 'is_preview',
+                                            'default' => 1,
+                                        ],
+                                        [
+                                            'type' => 'radio_btn',
+                                            'title' => '是否顯示',
+                                            'value' => 'is_visible',
+                                        ],
+                                    ],
+                                    'tabSet' => [
+                                        [
+                                            'title' => '內容編輯',
+                                            'content' => [
+                                                [
+                                                    'type' => 'textInput',
+                                                    'value' => 'title',
+                                                    'title' => '表頭標題',
+                                                    'tip' => '',
+                                                    'default' => '',
+                                                    'auto' => true,
+                                                    'disabled' => '',
+                                                    'class' => '',
+                                                ],
+                                            ],
+                                        ],
+                                    ],
+                                ]) }}
+                            @endif
                             @if ($formKey == 'Specification')
-                            <br>
-                            <inpunt class="bkSpecificationBtn" type = "hidden"></inpunt>
-                            <br>
+                                <br>
+                                <inpunt class="bkSpecificationBtn" type = "hidden"></inpunt>
+                                <br>
+                                <hr>
+                                <h4 style="font-weight: bold">次項目管理</h4>
+                                {{ UnitMaker::WNsonTable([
+                                    'sort' => 'yes', //是否可以調整順序
+                                    'sort_field' => 'w_rank', //自訂排序欄位
+                                    'teach' => 'no',
+                                    'hasContent' => 'yes', //是否可展開
+                                    'tip' => '',
+                                    'create' => 'yes', //是否可新增
+                                    'delete' => 'yes', //是否可刪除
+                                    'copy' => 'yes', //是否可複製
+                                    'MultiImgcreate' => 'yes', //使用多筆圖片
+                                    'imageColumn' => 'imageGroup', //預設圖片欄位
+                                    'SecondIdColumn' => 'item_id', //關聯鍵
+                                    'value' => !empty($associationData['son']['ProductItemPart']) ? $associationData['son']['ProductItemPart'] : [],
+                                    'name' => 'ProductItemPart',
+                                    'tableSet' => [
+                                        [
+                                            'type' => 'just_show',
+                                            'title' => '標題',
+                                            'value' => 'title',
+                                            'auto' => true,
+                                        ],
+                                        [
+                                            'type' => 'radio_btn',
+                                            'title' => '預覽',
+                                            'value' => 'is_preview',
+                                            'default' => 1,
+                                        ],
+                                        [
+                                            'type' => 'radio_btn',
+                                            'title' => '是否顯示',
+                                            'value' => 'is_visible',
+                                        ],
+                                    ],
+                                    'tabSet' => [
+                                        [
+                                            'title' => '內容編輯',
+                                            'content' => [
+                                                [
+                                                    'type' => 'textInput',
+                                                    'value' => 'title',
+                                                    'title' => '表頭標題',
+                                                    'tip' => '',
+                                                    'default' => '',
+                                                    'auto' => true,
+                                                    'disabled' => '',
+                                                    'class' => '',
+                                                ],
+                                            ],
+                                        ],
+                                    ],
+                                ]) }}
                             @endif
 
                             @if ($formKey == 'CategorySeries')

@@ -26,19 +26,23 @@ class ProductItemPart extends FrontBase
 		}
 		$this->setTable($TableName);
 	}
-    public function ProductItemSpecContent()
+	public function ProductItemSpecContent()
 	{
 		return $this->hasMany(ProductItemSpecContent::class, 'part_id')->doSort();
 	}
+	// public function contents()
+	// {
+	// 	return $this->hasMany(ProductItemSpecContent::class, 'part_id')->doSort()->isVisible();
+	// }
 	public function ProductItem()
 	{
 		return $this->belongsTo(ProductItem::class, 'item_id');
 	}
-    // public function specTitles()
-    // {
-    //     return $this->belongsToMany(ProductItemSpecTitle::class, 'product_item_part_spec_title', 'part_id', 'spec_id');
-    // }
-    // protected static function boot()
+	// public function specTitles()
+	// {
+	//     return $this->belongsToMany(ProductItemSpecTitle::class, 'product_item_part_spec_title', 'part_id', 'spec_id');
+	// }
+	// protected static function boot()
 	// {
 	// 	parent::boot();
 	// 	static::saving(function ($model) {

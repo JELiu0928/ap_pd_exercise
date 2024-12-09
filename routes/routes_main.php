@@ -136,9 +136,10 @@ $all = function () {
                     // Route::post('/itemOverviewSpecification', [AggridController::class, 'itemOverviewSpecification'])->middleware(['auth']);
                     // Route::post('/itemOrderingSpecification', [AggridController::class, 'itemOrderingSpecification'])->middleware(['auth']);
                     // Route::post('/itemOptionalSpecification', [AggridController::class, 'itemOptionalSpecification'])->middleware(['auth']);
-                    
+
                     Route::post('/getItemSpecificationCmsView', [ProductAggridController::class, 'itemSpecificationCmsView'])->middleware(['auth']);
-                
+                    Route::post('/updateSpecificationInfo', [ProductAggridController::class, 'updateSpecificationInfo'])->middleware(['auth']); //操作需要登入
+
                 });
             });
         });

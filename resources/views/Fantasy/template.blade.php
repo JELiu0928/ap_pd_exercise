@@ -7,7 +7,8 @@
     <meta charset="utf-8" />
     <title>Fantasy - {{ $unitTitle }}</title>
     <!--============  Meta宣告  ============-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no" />
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no" />
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-touch-fullscreen" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
@@ -20,69 +21,86 @@
     <link rel="icon" type="image/x-icon" href="{{ asset('/vender/assets/img/Fantasy-icon.svg') }}" />
     <!--============  引入外掛css  ============-->
     <link href="{{ asset('/vender/assets/plugins/pace/pace-theme-flash.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('/vender/assets/plugins/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('/vender/assets/plugins/font-awesome/css/font-awesome.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('/vender/assets/plugins/jquery-scrollbar/jquery.scrollbar.css') }}" rel="stylesheet" type="text/css" media="screen" />
-    <link href="{{ asset('/vender/assets/plugins/select2/css/select2.min.css') }}" rel="stylesheet" type="text/css" media="screen" />
-    <link href="{{ asset('/vender/assets/plugins/switchery/css/switchery.min.css') }}" rel="stylesheet" type="text/css" media="screen" />
+    <link href="{{ asset('/vender/assets/plugins/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet"
+        type="text/css" />
+    <link href="{{ asset('/vender/assets/plugins/font-awesome/css/font-awesome.css') }}" rel="stylesheet"
+        type="text/css" />
+    <link href="{{ asset('/vender/assets/plugins/jquery-scrollbar/jquery.scrollbar.css') }}" rel="stylesheet"
+        type="text/css" media="screen" />
+    <link href="{{ asset('/vender/assets/plugins/select2/css/select2.min.css') }}" rel="stylesheet" type="text/css"
+        media="screen" />
+    <link href="{{ asset('/vender/assets/plugins/switchery/css/switchery.min.css') }}" rel="stylesheet" type="text/css"
+        media="screen" />
     <!--模仿ios開關按鈕-->
     {{-- <link href="{{ asset('/vender/assets/plugins/summernote/summernote.css') }}" rel="stylesheet" type="text/css"
     media="screen" /> --}}
-    <link href="{{ asset('/vender/assets/plugins/bootstrap-datepicker/css/datepicker3.css') }}" rel="stylesheet" type="text/css" media="screen" />
-    <link href="{{ asset('/vender/assets/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css') }}" rel="stylesheet" type="text/css" media="screen" />
-    <link href="{{ asset('/vender/assets/plugins/bootstrap-timepicker/bootstrap-timepicker.min.css') }}" rel="stylesheet" type="text/css" media="screen" />
+    <link href="{{ asset('/vender/assets/plugins/bootstrap-datepicker/css/datepicker3.css') }}" rel="stylesheet"
+        type="text/css" media="screen" />
+    <link href="{{ asset('/vender/assets/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css') }}"
+        rel="stylesheet" type="text/css" media="screen" />
+    <link href="{{ asset('/vender/assets/plugins/bootstrap-timepicker/bootstrap-timepicker.min.css') }}"
+        rel="stylesheet" type="text/css" media="screen" />
     <link href="/vender/pages/css/pages-icons.css" rel="stylesheet" type="text/css" />
     <link class="main-stylesheet" href="/vender/pages/css/pages.css" rel="stylesheet" type="text/css" />
     <!--datatable-->
-    <link type="text/css" rel="stylesheet" href="{{ asset('/vender/assets/plugins/jquery-datatable/media/css/jquery.dataTables.css' ) }}" />
-    <link type="text/css" rel="stylesheet" href="{{ asset('/vender/assets/plugins/jquery-datatable/extensions/FixedColumns/css/dataTables.fixedColumns.min.css' ) }}" />
-    <link media="screen" type="text/css" rel="stylesheet" href="{{ asset('/vender/assets/plugins/datatables-responsive/css/datatables.responsive.css' ) }}" />
+    <link type="text/css" rel="stylesheet"
+        href="{{ asset('/vender/assets/plugins/jquery-datatable/media/css/jquery.dataTables.css') }}" />
+    <link type="text/css" rel="stylesheet"
+        href="{{ asset('/vender/assets/plugins/jquery-datatable/extensions/FixedColumns/css/dataTables.fixedColumns.min.css') }}" />
+    <link media="screen" type="text/css" rel="stylesheet"
+        href="{{ asset('/vender/assets/plugins/datatables-responsive/css/datatables.responsive.css') }}" />
     <!--color-picker(2018/4/3 引入)-->
     <link type="text/css" rel="stylesheet" href="{{ asset('/vender/assets/js/spectrum/spectrum.css') }}" />
     <!--icomoon(2019/7/25 引入) -->
     <link type="text/css" rel="stylesheet" href="{{ asset('/vender/assets/font/icomoon/style.css') }}" />
- {{-- 後台燈箱工具 --}}
- <script type="text/javascript" src="/bk/bk-modal.js?v={{ BaseFunction::getV() }}"></script>
+
+
+    {{-- 後台燈箱工具 --}}
+    <script type="text/javascript" src="/bk/bk-modal.js?v={{ BaseFunction::getV() }}"></script>
+
+
     {{-- 資料夾樹 --}}
     <link href="{{ asset('/vender/assets/css/tree/jquerysctipttop.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('/vender/assets/css/tree/quicksand.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('/vender/assets/css/tree/filetree.css') }}" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     {{-- 資料夾樹 end --}}
-    <link rel="stylesheet" href="{{ asset('dist-summernote/css/summernote/summernote-lite.min.css') }}" attr="attr" />
+    <link rel="stylesheet" href="{{ asset('dist-summernote/css/summernote/summernote-lite.min.css') }}"
+        attr="attr" />
     <link rel="stylesheet" href="{{ asset('dist-summernote/icon/style.css') }}" attr="attr" />
     <link rel="stylesheet" href="{{ asset('dist-summernote/css/editor.css') }}" attr="attr" />
     <link rel="stylesheet" href="{{ asset('/vender/assets/font/fmsIcon/style.css') }}">
     <link rel="stylesheet" href="{{ asset('/vender/assets/css/custom_aggrid.css') }}">
-       {{-- 後台燈箱工具 --}}
-       <link rel="stylesheet" href="/bk/bk-modal.css">
-       {{-- ag-grid css --}}
-       {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ag-grid-community/styles/ag-grid.css"> --}}
-        {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ag-grid-community/styles/ag-theme-alpine.css"> --}}
-       <link rel="stylesheet" href="/bk/ag-grid.css">
-       <link rel="stylesheet" href="/bk/ag-theme-alpine.css">
+
+
+    {{-- 後台燈箱工具 --}}
+    <link rel="stylesheet" href="/bk/bk-modal.css?v={{ BaseFunction::getV() }}">
+    {{-- ag-grid css --}}
+    <link rel="stylesheet" href="/bk/ag-grid.css?v={{ BaseFunction::getV() }}">
+    <link rel="stylesheet" href="/bk/ag-theme-alpine.css?v={{ BaseFunction::getV() }}">
 
     <!--============  引入FantasyAllcss  ============-->
     <!--============  頁面JS  ============-->
     <script type="text/javascript">
-        window.onload = function () {
+        window.onload = function() {
             // fix for windows 8
             if (navigator.appVersion.indexOf("Windows NT 6.2") != -1)
                 document.head.innerHTML +=
                 "<link rel=\"stylesheet\" type=\"text/css\" href=\"{{ asset('/vender/pages/css/windows.chrome.fix.css') }}\" />";
         }
-
     </script>
     <!-- 非共用的Css -->
     @yield('css')
     <!-- 非共用的Css(絕對後面那種) -->
     @yield('css_back')
-    <link rel="stylesheet" type="text/css" href="{{ asset('/vender/assets/css/FantasyAllcss.css?v=').BaseFunction::getV() }}" />
+    <link rel="stylesheet" type="text/css"
+        href="{{ asset('/vender/assets/css/FantasyAllcss.css?v=') . BaseFunction::getV() }}" />
 </head>
 
 <body class="@yield('bodySetting')">
     <!--阻擋視窗 想要阻擋視窗出現 就在 block_out 後面再加ㄧ個 show-->
-    <div id="temp_div_blockout" class="block_out" style="background-color: rgba(255, 255, 255, 0.3); user-select: none;">
+    <div id="temp_div_blockout" class="block_out"
+        style="background-color: rgba(255, 255, 255, 0.3); user-select: none;">
         <div class="box" style="background-color: rgba(0, 0, 0, 0)">
             <div class="progress-circle-indeterminate"></div>
         </div>
@@ -122,25 +140,26 @@
                 <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
             </div>
             <button class="login_btn loginBtn" type="submit">Sign in</button>
-            <div class="forwho">{{config('cms.ProjectName')}}</br>All Rights Reserved.<span>Fantasy By WDD</span></div>
+            <div class="forwho">{{ config('cms.ProjectName') }}</br>All Rights Reserved.<span>Fantasy By WDD</span>
+            </div>
         </article>
     </div>
     <article class="article_lbox">
         <div class="article_container">
-          @foreach(config('article') as $val)
-          <div class="article_item" data-key="{{$val['key']}}">
-            <div class="article_sub">
-              <img src="/vender/assets/img/article4/{{$val['key']}}.jpg">
-              <p>{{$val['title']}}</p>
-            </div>
-          </div>
-          @endforeach
+            @foreach (config('article') as $val)
+                <div class="article_item" data-key="{{ $val['key'] }}">
+                    <div class="article_sub">
+                        <img src="/vender/assets/img/article4/{{ $val['key'] }}.jpg">
+                        <p>{{ $val['title'] }}</p>
+                    </div>
+                </div>
+            @endforeach
         </div>
-      </article>
-      <article class="coordinate_lbox">
+    </article>
+    <article class="coordinate_lbox">
         <div class="coordinate_container">
             <div class="coordinate_img">
-                <div  id="pinContainer" class="coordinate_pin">
+                <div id="pinContainer" class="coordinate_pin">
                     <img id="pinImage" src="/vender/assets/img/pin.svg">
                 </div>
                 <img id="mainImage" src="/vender/assets/img/global_map_1400x720.png">
@@ -228,13 +247,11 @@
     <!---->
     <script type="text/javascript" src="{{ asset('/vender/assets/plugins/bootstrap/js/bootstrap.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('/vender/assets/plugins/jquery/jquery-easy.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('/vender/assets/plugins/jquery-unveil/jquery.unveil.min.js') }}">
-    </script>
+    <script type="text/javascript" src="{{ asset('/vender/assets/plugins/jquery-unveil/jquery.unveil.min.js') }}"></script>
     <!--lazy load img-->
     <script type="text/javascript" src="{{ asset('/vender/assets/plugins/jquery-ios-list/jquery.ioslist.min.js') }}">
     </script>
-    <script type="text/javascript" src="{{ asset('/vender/assets/plugins/jquery-actual/jquery.actual.min.js') }}">
-    </script>
+    <script type="text/javascript" src="{{ asset('/vender/assets/plugins/jquery-actual/jquery.actual.min.js') }}"></script>
     <!--一個即使物件display:none 也還是可以抓到寬高的插件-->
     <script type="text/javascript" src="{{ asset('/vender/assets/plugins/jquery-scrollbar/jquery.scrollbar.min.js') }}">
     </script>
@@ -255,27 +272,35 @@
     </script>
     <!--input裡有tag的插件-->
     <script type="text/javascript" src="{{ asset('/vender/assets/plugins/moment/moment.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('/vender/assets/plugins/bootstrap-daterangepicker/zh-tw.js') }}">
-    </script>
+    <script type="text/javascript" src="{{ asset('/vender/assets/plugins/bootstrap-daterangepicker/zh-tw.js') }}"></script>
 
-    <script type="text/javascript" src="{{ asset('/vender/assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('/vender/assets/plugins/bootstrap-datepicker/js/locales/bootstrap-datepicker.zh-TW.js') }}"></script>
+    <script type="text/javascript"
+        src="{{ asset('/vender/assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js') }}"></script>
+    <script type="text/javascript"
+        src="{{ asset('/vender/assets/plugins/bootstrap-datepicker/js/locales/bootstrap-datepicker.zh-TW.js') }}"></script>
 
-    <script type="text/javascript" src="{{ asset('/vender/assets/plugins/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('/vender/assets/plugins/bootstrap-timepicker/bootstrap-timepicker.min.js') }}"></script>
+    <script type="text/javascript"
+        src="{{ asset('/vender/assets/plugins/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
+    <script type="text/javascript"
+        src="{{ asset('/vender/assets/plugins/bootstrap-timepicker/bootstrap-timepicker.min.js') }}"></script>
     {{-- <script type="text/javascript" src="{{ asset('/vender/pages/js/pages.js') }}"></script> --}}
     <!--模板(template)js-->
     <!--============  引入JS  ============-->
     <!--datatable-->
-    <script type="text/javascript" src="{{ asset('/vender/assets/plugins/jquery-datatable/media/js/jquery.dataTables.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('/vender/assets/plugins/jquery-datatable/extensions/TableTools/js/dataTables.tableTools.min.js') }}">
+    <script type="text/javascript"
+        src="{{ asset('/vender/assets/plugins/jquery-datatable/media/js/jquery.dataTables.min.js') }}"></script>
+    <script type="text/javascript"
+        src="{{ asset('/vender/assets/plugins/jquery-datatable/extensions/TableTools/js/dataTables.tableTools.min.js') }}">
     </script>
-    <script type="text/javascript" src="{{ asset('/vender/assets/plugins/jquery-datatable/extensions/Bootstrap/jquery-datatable-bootstrap.js') }}">
+    <script type="text/javascript"
+        src="{{ asset('/vender/assets/plugins/jquery-datatable/extensions/Bootstrap/jquery-datatable-bootstrap.js') }}">
     </script>
     <script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>
-    <script type="text/javascript" src="{{ asset('/vender/assets/plugins/jquery-datatable/extensions/FixedColumns/js/dataTables.fixedColumns.min.js') }}">
+    <script type="text/javascript"
+        src="{{ asset('/vender/assets/plugins/jquery-datatable/extensions/FixedColumns/js/dataTables.fixedColumns.min.js') }}">
     </script>
-    <script type="text/javascript" src="{{ asset('/vender/assets/plugins/jquery-datatable/extensions/FixedHeader/js/dataTables.fixedHeader.min.js') }}">
+    <script type="text/javascript"
+        src="{{ asset('/vender/assets/plugins/jquery-datatable/extensions/FixedHeader/js/dataTables.fixedHeader.min.js') }}">
     </script>
     <!--table-->
     {{-- <script type="text/javascript" src="{{ asset('/vender/backend/js/tables.js') }}"></script>疑似未使用#HondaDebug --}}
@@ -287,7 +312,8 @@
     </script>{{-- 僅在上傳檔案時fms有使用#HondaDebug --}}
     <script type="text/javascript" src="{{ asset('/vender/backend/js/custom.js') }}"></script>
     <script type="text/javascript" src="{{ asset('/vender/backend/js/js_builder.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('/vender/assets/js/fantasy_main_leon.js?v=').BaseFunction::getV() }}"></script>
+    <script type="text/javascript" src="{{ asset('/vender/assets/js/fantasy_main_leon.js?v=') . BaseFunction::getV() }}">
+    </script>
     <!--==========  後端用JS  ==========-->
 
     <script type="text/javascript" src="/vender/backend/js/cms/cms_backend.js?v={{ BaseFunction::getV() }}"></script>
@@ -303,12 +329,11 @@
     {{-- 資料夾樹 end --}}
 
     {{-- ag-grid js --}}
-    {{-- <script src="https://cdn.jsdelivr.net/npm/ag-grid-community/dist/ag-grid-community.min.js"></script> --}}
     <script type="text/javascript" src="/bk/ag-grid-community.min.js?v={{ BaseFunction::getV() }}"></script>
 
     {{-- <script src=""></script> --}}
 
-    
+
     {{-- 非共用的JS區塊 --}}
     @yield('script')
     {{-- <script type="text/javascript" src="{{ asset('/vender/backend/js/fms/fms.js') }}"></script>
@@ -347,7 +372,7 @@
         $('#fantasy_alert_box p').text(content['msg']);
         $('#fantasy_alert_box button.checkBtn.success').html(btn_setting['confirm_txt'] != undefined ? btn_setting[
             'confirm_txt'] : 'OK');
-        $('#fantasy_alert_box button.checkBtn.success').off('click').click(function () {
+        $('#fantasy_alert_box button.checkBtn.success').off('click').click(function() {
             if (btn_setting['confirm'] != undefined) btn_setting['confirm']();
             $('#fantasy_alert_box').removeClass('open');
         });
@@ -364,20 +389,21 @@
         $('#fantasy_confirm_box p').text(content['msg']);
         $('#fantasy_confirm_box button.checkBtn.success').html('<i class="fa fa-check"></i>' + (btn_setting[
             'confirm_txt'] != undefined ? btn_setting['confirm_txt'] : 'CONFIRM'));
-        $('#fantasy_confirm_box button.checkBtn.null').html('<i class="fa fa-remove"></i>' + (btn_setting['cancel_txt'] !=
+        $('#fantasy_confirm_box button.checkBtn.null').html('<i class="fa fa-remove"></i>' + (btn_setting[
+                'cancel_txt'] !=
             undefined ? btn_setting['cancel_txt'] : 'CANCEL'));
-        $('#fantasy_confirm_box button.checkBtn.success').off('click').click(function () {
+        $('#fantasy_confirm_box button.checkBtn.success').off('click').click(function() {
             if (btn_setting['confirm'] != undefined) btn_setting['confirm']();
             $('#fantasy_confirm_box').removeClass('open');
         });
-        $('#fantasy_confirm_box button.checkBtn.null').off('click').click(function () {
+        $('#fantasy_confirm_box button.checkBtn.null').off('click').click(function() {
             if (btn_setting['cancel'] != undefined) btn_setting['cancel']();
             $('#fantasy_confirm_box').removeClass('open');
         });
     }
     //全選事件
-    $(document).on('click', '.__multiple2all', function () {
-        var all = $(this).closest('div').find('select option').map(function (val, index) {
+    $(document).on('click', '.__multiple2all', function() {
+        var all = $(this).closest('div').find('select option').map(function(val, index) {
             return $(index).val();
         }).get();
 
@@ -386,10 +412,9 @@
         select.val(all);
         select.trigger('change');
     })
-    $(document).on('click', '.__multiple2all_close', function () {
+    $(document).on('click', '.__multiple2all_close', function() {
         var select = $(this).closest('div').find('select');
         select.val('');
         select.trigger('change');
     });
-
 </script>

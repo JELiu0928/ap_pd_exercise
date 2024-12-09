@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Front;
 
 use App\Models\Product\ProductCategory;
 use App\Models\Product\ProductCategoryOverview;
+use App\Models\Product\ProductItemSpecContent;
 use App\Models\Product\ProductSeries;
 use App\Models\Product\ProductSet;
 use Illuminate\Http\Request;
@@ -56,9 +57,7 @@ class ProductController extends FrontBaseController
         // dd($cateOverviews);
         // $cateAdvantages = ProductCategory::with('advantagesTags.advantagesLists')->where('url_name', $categoryURL)->first();
         $cateProducts = ProductCategory::with('series.items')->where('url_name', $categoryURL)->first();
-        // dump($cateProducts);
-        // dump(count($cateProducts->series));
-        // dump(count($cateProducts->articles) );
+
         $is_overview = false;
         $is_overviewList = false;
         $is_advantages = false;
@@ -98,24 +97,15 @@ class ProductController extends FrontBaseController
         // $unitSet = ProductSet::formatFiles(['banner_pc_img', 'banner_pad_img', 'banner_m_img'])->first();
         $categoryURL = $request->categoryURL ?? '';
         $productURL = $request->productURL ?? '';
-        // dump($productURL);
-        // $productCategories = ProductCategory::formatFiles(['list_img'])->doSort()->get();
-        // $category = ProductCategory::formatFiles(['list_img', 'banner_pc_img', 'banner_pad_img', 'banner_m_img'])
-        // 	->where('url_name', $categoryURL)->doSort()->first();
-        // // dump($category);
-        // $cateOverviews = ProductCategory::with('overviews')->where('url_name', $categoryURL)->first();
-        // $cateOverviewLists = ProductCategory::with('overviewLists')->where('url_name', $categoryURL)->first();
-        // $cateAdvantages = ProductCategory::with('advantagesTags.advantagesLists')->where('url_name', $categoryURL)->first();
-        // // dd($cateOverviews);
-        // // $cateAdvantages = ProductCategory::with('advantagesTags.advantagesLists')->where('url_name', $categoryURL)->first();
-        // dd(ProductItem::first());
-        $productInfo = ProductItem::with(['series.category', 'keywords', 'articles.articleImgs'])
+
+        $query = ProductItem::with(['series.category', 'keywords', 'articles.articleImgs'])
             ->formatFiles(['list_img', 'banner_pc_img', 'banner_pad_img', 'banner_m_img', 'product_pc_img', 'product_m_img'])
             ->where('url_name', $productURL)
             ->whereHas('series.category', function ($query) use ($categoryURL) {
                 $query->where('url_name', $categoryURL);
-            })
-            ->first();
+            });
+
+        $productInfo = $query->first();
         // dump($productInfo);
         // dump(count($productInfo->articles));
         $is_article = false;
@@ -123,15 +113,37 @@ class ProductController extends FrontBaseController
             $is_article = true;
         }
         // dump('article是',$is_article);
+
+        // 產品規格表
+
+        $productItem = ProductItem::with(['series.category', 'parts', 'specTitles.contents'])
+            ->where('url_name', $productURL)
+            ->whereHas('series.category', function ($query) use ($categoryURL) {
+                $query->where('url_name', $categoryURL);
+            })->first();
+        // dump($productItem->first());
+
+        // $productItemSpec = $SpecQuery->with(['parts', 'specTitles'])->first();
+        $specParts = $productItem->parts;
+        $specTitles = $productItem->specTitles;
+
+        $contents = ProductItemSpecContent::whereIn('spec_id', $specTitles->pluck('id'))->get();
+        // dump($contents);
+        $specContentArr = [];
+        foreach ($contents as $content) {
+            $specContentArr[$content->spec_id][$content->part_id] = $content->content;
+        }
+        // dd($specContentArr);
         return view(self::$blade_template . '.product.detail', [
             'productInfo' => $productInfo,
             'is_article' => $is_article, //產品類別
-            // 'cateOverviews' => $cateOverviews, //概述
-            // 'cateOverviewLists' => $cateOverviewLists, //概述List
+            'specTitles' => $specTitles, //表頭
+            'specParts' => $specParts, //型號
+            'specContentArr' => $specContentArr, //處理過的內容
             // 'cateAdvantages' => $cateAdvantages,
             // 'cateProducts' => $cateProducts,
             'basic_seo' => Seo()
         ]);
     }
-    
+
 }
