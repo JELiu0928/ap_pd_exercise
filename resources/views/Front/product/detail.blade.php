@@ -34,7 +34,6 @@
                         <a href="{{ BaseFunction::b_url('/product') }}"><span class="categoryBtn">產品專區</span></a>
                     </li>
                     <li>
-                        {{-- @dump($productInfo['series']['category']['half_url']) --}}
                         <a href="{{ BaseFunction::b_url($productInfo->series->category['half_url']) }}"><span
                                 class="categoryBtn">{!! $productInfo->series->category['banner_title'] !!}</span></a>
                     </li>
@@ -217,7 +216,6 @@
                                             <p>Part Number</p>
                                         </div>
                                         {{-- 表頭 --}}
-                                        {{-- @dd($specTitles) --}}
                                         @foreach ($specTitles as $title)
                                             <div class="td">
                                                 <p>{{ $title['title'] }}</p>
@@ -446,4 +444,4 @@
     </main>
     @include('Front.include.footerArea')
 
-@show
+@endsection

@@ -159,7 +159,6 @@
                         <div class="bottom-block" data-aost>
                             <div class="text-block">
                                 <div class="title">
-                                    {{-- @dd($category) --}}
                                     <div class="itemTitle-lw">{!! nl2br($category['series_zone_title']) !!}</div>
                                 </div>
                                 <div class="text">
@@ -225,7 +224,6 @@
                     <div class="grid right">
                         <!-- 右區塊有開背景兩色 白 & 灰 bg-color="white" & bg-color="gray"-->
                         <tab-el t4-name="advantage-tab">
-                            {{-- @dd($cateAdvantages->advantagesTags->advantagesLists) --}}
                             @foreach ($cateAdvantages->advantagesTags as $tag)
                                 <div class="tab-panel" t4-role="tabPanel"
                                     bg-color="{{ $tag['advantages_zone_bg_color'] }}">
@@ -252,7 +250,6 @@
         @endif
 
         <!-- 相關產品-->
-        {{-- @dump($is_product) --}}
         @if ($is_product)
             <section class="all-products" d-grid anchor-target="3">
                 <div class="container" data-aost>
@@ -266,20 +263,16 @@
                             </div>
                         @endif
                     </div>
-                    {{-- @dd($cate) --}}
                     <div class="card-outer">
                         @foreach ($cateProducts->series as $series)
-                            {{-- @dump('===',$cateProducts->half_url) --}}
                             @foreach ($series->items as $item)
                                 <div class="card">
                                     <a class="pic"
                                         href="{{ BaseFunction::b_url($cateProducts['half_url']) . '/' . $item['url_name'] }}">
                                         <picture>
-                                            {{-- /dist/assets/img/solution/pic_02_660x450.jpg --}}
                                             <img class="lazy" data-src="{{ $item['list_img_url'] }}" alt="">
                                         </picture>
                                     </a>
-                                    {{-- @dump(BaseFunction::b_url($cate['half_url'])) --}}
                                     <div class="text">
                                         <a class="itemTitle-w"
                                             href="{{ BaseFunction::b_url($cateProducts['half_url']) . '/' . $item['url_name'] }}">
@@ -337,4 +330,4 @@
     </main>
     @include('Front.include.footerArea')
 
-@show
+@endsection

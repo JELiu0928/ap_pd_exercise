@@ -9,7 +9,8 @@
 @endsection
 
 @section('script_back')
-    <link rel="modulepreload" crossorigin href="/dist/assets/js/process.min.js?v={{ BaseFunction::getV() }}">
+{{-- process切版沒有 --}}
+    {{-- <link rel="modulepreload" crossorigin href="/dist/assets/js/process.min.js?v={{ BaseFunction::getV() }}"> --}}
     {{-- <script type="module" src="/bk/product/consult.js?v={{ BaseFunction::getV() }}""></script> --}}
 
 @endsection
@@ -85,7 +86,6 @@
                     @foreach ($productCategories as $key => $cate)
                         <div class="item" anchor-target="{{$key +1}}">
                             @if ($cate['is_list_img_show'] == 1)
-                                {{-- @dd(BaseFunction::b_url($cate['half_url'])) --}}
                                 <a class="photo" href="{{ BaseFunction::b_url($cate['half_url']) }}">
                                     <picture>
                                         <source srcset="{{ $cate['list_img_url'] }}" media="(max-width: 900px)">
@@ -128,4 +128,4 @@
     </main>
     @include('Front.include.footerArea')
 
-@show
+@stop

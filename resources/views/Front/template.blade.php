@@ -59,21 +59,16 @@
 
     {{-- Google Tag Manager --}}
     @if (isset($basic_seo['seo_ga']) && !empty($basic_seo['seo_ga']))
+        {{-- <!-- Global site tag (gtag.js) - Google Analytics --> --}}
+        <script async src="https://www.googletagmanager.com/gtag/js?id={{ $basic_seo['seo_ga'] }}"></script>
         <script>
-            (function(i, s, o, g, r, a, m) {
-                i['GoogleAnalyticsObject'] = r;
-                i[r] = i[r] || function() {
-                    (i[r].q = i[r].q || []).push(arguments)
-                }, i[r].l = 1 * new Date();
-                a = s.createElement(o),
-                    m = s.getElementsByTagName(o)[0];
-                a.async = 1;
-                a.src = g;
-                m.parentNode.insertBefore(a, m)
-            })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+            window.dataLayer = window.dataLayer || [];
 
-            ga('create', "{{ $basic_seo['seo_ga'] }}", 'auto');
-            ga('send', 'pageview');
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag('js', new Date());
+            gtag('config', '{{ $basic_seo['seo_ga'] }}');
         </script>
     @endif
     @if (!empty($basic_seo['seo_gtm']))
@@ -123,10 +118,10 @@
     {{-- <!-- 非共用的Js --> --}}
     @yield('script')
     {{-- <!-- 共用的Js--> --}}
-    <script type="module" crossorigin src="/dist/assets/js/style.min.js?v={{ BaseFunction::getV() }}"></script>
-    <script type="module" crossorigin src="/dist/assets/js/vendor.min.js?v={{ BaseFunction::getV() }}"></script>
-    <script type="module" crossorigin src="/dist/assets/js/xwadex.fesd.min.js?v={{ BaseFunction::getV() }}"></script>
-    <script type="module" crossorigin src="/dist/assets/js/commons.min.js?v={{ BaseFunction::getV() }}"></script>
+    <script type="module" crossorigin src="/dist/assets/js/style.min.js"></script>
+    <script type="module" crossorigin src="/dist/assets/js/vendor.min.js"></script>
+    <script type="module" crossorigin src="/dist/assets/js/xwadex.fesd.min.js"></script>
+    <script type="module" crossorigin src="/dist/assets/js/commons.min.js"></script>
     {{-- <script type="module" crossorigin src="/bk/other/search.js"></script> --}}
 
 
@@ -173,10 +168,11 @@
     <link rel="stylesheet" href="{{ asset('/LeonBuilder/excel-v3/dist/jsuites.css') }}" type="text/css" /> --}}
     {{-- <script nonce="{{$nonce}}" defer src="{{url('/vender/assets/js/leon_blade.js')}}"></script> --}}
 
-    <script defer src="{{ asset('vender/assets/js/custom/axios.min.js?' . BaseFunction::getV()) }}"></script>
+    {{-- <script defer src="{{ asset('vender/assets/js/custom/axios.min.js?' . BaseFunction::getV()) }}"></script> --}}
 
     {{-- 非共用的JS區塊(更後面) --}}
 
 </body>
 
 </html>
+searchInput
