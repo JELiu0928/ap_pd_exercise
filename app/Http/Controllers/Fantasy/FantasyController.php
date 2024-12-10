@@ -295,7 +295,8 @@ class FantasyController extends BackendController
             foreach ($data as $key => $row) {
                 $tempVal = [];
                 foreach ($row as $key2 => $row2) {
-                    if ($key == 0) $temp['col'][] = $key2;
+                    if ($key == 0)
+                        $temp['col'][] = $key2;
                     $tempVal[] = $row2;
                 }
                 $temp['val'][] = $tempVal;
@@ -305,7 +306,8 @@ class FantasyController extends BackendController
         $dataArr = json_encode($dataArr, true);
         return view('export_excel', ['dataArr' => $dataArr]);
     }
-    public function getSvgDimensions($svgFilePath) {
+    public function getSvgDimensions($svgFilePath)
+    {
         // 確保文件存在
         if (!file_exists($svgFilePath)) {
             return null;
@@ -319,166 +321,166 @@ class FantasyController extends BackendController
         preg_match('/height=["\']?(\d+)(px)?["\']?/', $svgContent, $heightMatches);
 
         // 提取數據
-        $width = isset($widthMatches[1]) ? (int)$widthMatches[1] : null;
-        $height = isset($heightMatches[1]) ? (int)$heightMatches[1] : null;
+        $width = isset($widthMatches[1]) ? (int) $widthMatches[1] : null;
+        $height = isset($heightMatches[1]) ? (int) $heightMatches[1] : null;
 
-        return [ $width, $height];
+        return [$width, $height];
     }
     //上傳設計稿圖片
     public function uploadDesign(Request $request)
     {
         $upload = $request->upload ?: '';
         $folder = $request->folder ?: '';
-        if(!empty($upload)){
-        set_time_limit(0);
+        if (!empty($upload)) {
+            set_time_limit(0);
             $SelectPath = public_path($folder);
             $SelectPath = self::dir_path($SelectPath);
             $public_resources = [""];
-            if($folder == '/resources'){
+            if ($folder == '/resources') {
                 $public_resources = glob($SelectPath . '*');
             }
-        foreach ($public_resources as $public_resources_val) {
-            $branch = basename($public_resources_val);
-            //分館資料夾
-            $upload_path = [];
-            $main_folder = [];
-            //有分館
-            if (!empty($branch)) {
-                $folderPath = 'resources/' . $branch;
-                DB::table('basic_fms_folder')->updateOrInsert(['title' => $branch, 'parent_id' => 1], [
-                    'parent_id' => 1,
-                    'self_level' => 1,
-                    'is_private' => 0,
-                    'can_use' => '[]',
-                    'title' => $branch,
-                    'create_id' => 1,
-                    'created_at' => date('Y-m-d H:i:s'),
-                    'updated_at' => date('Y-m-d H:i:s')
-                ]);
-                $main_folder = M('Fmsfolder')::where('title', $branch)->where('parent_id', 1)->first();
-            } else {
+            foreach ($public_resources as $public_resources_val) {
+                $branch = basename($public_resources_val);
+                //分館資料夾
+                $upload_path = [];
+                $main_folder = [];
+                //有分館
+                if (!empty($branch)) {
+                    $folderPath = 'resources/' . $branch;
+                    DB::table('basic_fms_folder')->updateOrInsert(['title' => $branch, 'parent_id' => 1], [
+                        'parent_id' => 1,
+                        'self_level' => 1,
+                        'is_private' => 0,
+                        'can_use' => '[]',
+                        'title' => $branch,
+                        'create_id' => 1,
+                        'created_at' => date('Y-m-d H:i:s'),
+                        'updated_at' => date('Y-m-d H:i:s')
+                    ]);
+                    $main_folder = M('Fmsfolder')::where('title', $branch)->where('parent_id', 1)->first();
+                } else {
                     $folderPath = $folder;
                     $main_folder = M('Fmsfolder')::where('id', 1)->first();
-            }
-            $getPath = $folderPath . '/assets/img';
-            if (!file_exists(public_path($getPath))) {
-                $getPath = 'assets/img';
-            }
-            if (!file_exists(public_path($getPath))) {
-                $getPath = '';
-            }
-            if (!empty($getPath)) {
+                }
+                $getPath = $folderPath . '/assets/img';
+                if (!file_exists(public_path($getPath))) {
+                    $getPath = 'assets/img';
+                }
+                if (!file_exists(public_path($getPath))) {
+                    $getPath = '';
+                }
+                if (!empty($getPath)) {
                     $upload_path[] = public_path($getPath);
-            }
-            $getPathVideo = $folderPath . '/assets/video';
-            if (!file_exists(public_path($getPathVideo))) {
-                $getPathVideo = 'assets/video';
-            }
-            if (!file_exists(public_path($getPathVideo))) {
-                $getPathVideo = '';
-            }
-            if (!empty($getPathVideo)) {
+                }
+                $getPathVideo = $folderPath . '/assets/video';
+                if (!file_exists(public_path($getPathVideo))) {
+                    $getPathVideo = 'assets/video';
+                }
+                if (!file_exists(public_path($getPathVideo))) {
+                    $getPathVideo = '';
+                }
+                if (!empty($getPathVideo)) {
                     $upload_path[] = public_path($getPathVideo);
-            }
-                foreach ($upload_path as $key=>$Path) {
+                }
+                foreach ($upload_path as $key => $Path) {
                     //建立根目錄
-                    if(!empty($branch)){
+                    if (!empty($branch)) {
                         $tempPath = str_replace($public_resources_val, '', $Path);
-                        $tempPath = public_path('upload/design/' .$branch. $tempPath);
-                    }else{
+                        $tempPath = public_path('upload/design/' . $branch . $tempPath);
+                    } else {
                         $tempPath = str_replace($SelectPath, '', $Path);
                         $tempPath = public_path('upload/design/' . $tempPath);
                     }
-                    if(!file_exists($tempPath)){
+                    if (!file_exists($tempPath)) {
                         mkdir($tempPath, 0755, true);
                     }
-                $r = self::dir_list($Path);
+                    $r = self::dir_list($Path);
                     //先建立資料夾
                     foreach ($r as $file) {
                         if (!is_file($file)) {
-                            if(!empty($branch)){
+                            if (!empty($branch)) {
                                 $tempPath = str_replace($public_resources_val, '', $file);
-                                $tempPath = public_path('upload/design/' .$branch. $tempPath);
-                            }else{
+                                $tempPath = public_path('upload/design/' . $branch . $tempPath);
+                            } else {
                                 $tempPath = str_replace($SelectPath, '', $file);
                                 $tempPath = public_path('upload/design/' . $tempPath);
                             }
-                            if(!file_exists($tempPath)){
+                            if (!file_exists($tempPath)) {
                                 mkdir($tempPath, 0755, true);
                             }
                         }
                     }
-                foreach ($r as $file) {
-                    if (is_file($file)) {
-                            if(!empty($branch)){
+                    foreach ($r as $file) {
+                        if (is_file($file)) {
+                            if (!empty($branch)) {
                                 $tempPath = str_replace($public_resources_val, '', $file);
-                                $tempPath = $branch. $tempPath;
-                            }else{
+                                $tempPath = $branch . $tempPath;
+                            } else {
                                 $tempPath = str_replace($SelectPath, '', $file);
                             }
                             $tempPath = str_replace(pathinfo($file)['basename'], '', $tempPath);
-                        $folder = pathinfo(str_replace($Path, '', $file))['dirname'];
-                        $folder = explode('/', $folder);
-                        $thisdata = ['folder_key' => $main_folder['title'], 'parent_id' => $main_folder['parent_id']];
-                        $son_model = $main_folder;
-                        foreach ($folder as $v) {
-                            if (!empty($v) && $v != '\\') {
-                                DB::table('basic_fms_folder')->updateOrInsert(['title' => $v, 'parent_id' => $son_model['id']], [
-                                    'parent_id' => $son_model['id'],
-                                    'self_level' => $son_model['self_level'] + 1,
-                                    'is_private' => 0,
-                                    'can_use' => '[]',
-                                    'title' => $v,
-                                    'create_id' => 1,
-                                    'created_at' => date('Y-m-d H:i:s'),
-                                    'updated_at' => date('Y-m-d H:i:s')
-                                ]);
-                                $thisdata['folder_key'] = $v;
-                                $thisdata['parent_id'] = $son_model['id'];
-                                $son_model = M('Fmsfolder')::where('title', $v)->where('parent_id', $son_model['id'])->first();
+                            $folder = pathinfo(str_replace($Path, '', $file))['dirname'];
+                            $folder = explode('/', $folder);
+                            $thisdata = ['folder_key' => $main_folder['title'], 'parent_id' => $main_folder['parent_id']];
+                            $son_model = $main_folder;
+                            foreach ($folder as $v) {
+                                if (!empty($v) && $v != '\\') {
+                                    DB::table('basic_fms_folder')->updateOrInsert(['title' => $v, 'parent_id' => $son_model['id']], [
+                                        'parent_id' => $son_model['id'],
+                                        'self_level' => $son_model['self_level'] + 1,
+                                        'is_private' => 0,
+                                        'can_use' => '[]',
+                                        'title' => $v,
+                                        'create_id' => 1,
+                                        'created_at' => date('Y-m-d H:i:s'),
+                                        'updated_at' => date('Y-m-d H:i:s')
+                                    ]);
+                                    $thisdata['folder_key'] = $v;
+                                    $thisdata['parent_id'] = $son_model['id'];
+                                    $son_model = M('Fmsfolder')::where('title', $v)->where('parent_id', $son_model['id'])->first();
+                                }
                             }
-                        }
-                        $this_folder = M('Fmsfolder')::where('title', $thisdata['folder_key'])->where('parent_id', $thisdata['parent_id'])->first();
+                            $this_folder = M('Fmsfolder')::where('title', $thisdata['folder_key'])->where('parent_id', $thisdata['parent_id'])->first();
                             $fileInfo = pathinfo($file);
                             $fileKey = md5($tempPath . $fileInfo['basename']);
-                        $getimagesize = getimagesize($file);
-                            if($fileInfo['extension'] == 'svg'){
+                            $getimagesize = getimagesize($file);
+                            if ($fileInfo['extension'] == 'svg') {
                                 $getimagesize = self::getSvgDimensions($file);
                             }
                             copy($file, public_path('upload/design/' . $tempPath . $fileInfo['basename']));
                             $real_m_route = '/upload/design/' . $tempPath . $fileInfo['basename'];
-                        //超過1000*1000不縮圖
+                            //超過1000*1000不縮圖
                             if (!empty($getimagesize) && !in_array($fileInfo['extension'], ['svg', 'gif', 'mp4', 'ico'])) {
-                                $real_m_route = ($getimagesize[0] <= 1920 && $getimagesize[1] <= 1920) ? FmsController::get_thumbnail('/upload/design/'.$tempPath, $fileInfo['filename'], $fileInfo['extension']) : $real_m_route;
-                        }
+                                $real_m_route = ($getimagesize[0] <= 1920 && $getimagesize[1] <= 1920) ? FmsController::get_thumbnail('/upload/design/' . $tempPath, $fileInfo['filename'], $fileInfo['extension']) : $real_m_route;
+                            }
                             DB::table('basic_fms_file')->updateOrInsert(['file_key' => $fileKey], [
-                            'folder_id' => $this_folder['id'],
-                            'created_user' => 1,
+                                'folder_id' => $this_folder['id'],
+                                'created_user' => 1,
                                 'title' => $fileInfo['filename'],
                                 'real_route' => '/upload/design/' . $tempPath . $fileInfo['basename'],
-                            'real_m_route' => $real_m_route,
+                                'real_m_route' => $real_m_route,
                                 'type' => $fileInfo['extension'],
-                            'size' => filesize($file),
+                                'size' => filesize($file),
                                 'resolution' => ($getimagesize[0] ?? '') . 'x' . ($getimagesize[1] ?? ''),
-                            'img_w' => $getimagesize[0] ?? '',
-                            'img_h' => $getimagesize[1] ?? '',
-                            'created_at' => date('Y-m-d H:i:s'),
-                            'updated_at' => date('Y-m-d H:i:s'),
-                        ]);
+                                'img_w' => $getimagesize[0] ?? '',
+                                'img_h' => $getimagesize[1] ?? '',
+                                'created_at' => date('Y-m-d H:i:s'),
+                                'updated_at' => date('Y-m-d H:i:s'),
+                            ]);
+                        }
                     }
                 }
             }
-        }
-        dd('ok');
-        }else{
+            dd('ok');
+        } else {
             echo '<p>如果多分館不同切版,要放在resources裡面,例如：resources/site1  resources/site2</p>';
-            $folderList = collect(array_diff(scandir(public_path($folder)), array('..', '.')))->filter(function ($item, $key) use($folder){
-                return is_dir(public_path($folder.'/'.$item));
+            $folderList = collect(array_diff(scandir(public_path($folder)), array('..', '.')))->filter(function ($item, $key) use ($folder) {
+                return is_dir(public_path($folder . '/' . $item));
             });
             echo '<table>';
-            foreach($folderList as $val){
+            foreach ($folderList as $val) {
                 echo '<tr>';
-                echo '<td><a href="/uploadDesign?folder='.urlencode($folder.'/'.$val).'">'.$folder.'/'.$val.'</a></td><td><a style="margin-left: 30px;" href="/uploadDesign?upload=true&folder='.urlencode($folder.'/'.$val).'">上傳</a></td>';
+                echo '<td><a href="/uploadDesign?folder=' . urlencode($folder . '/' . $val) . '">' . $folder . '/' . $val . '</a></td><td><a style="margin-left: 30px;" href="/uploadDesign?upload=true&folder=' . urlencode($folder . '/' . $val) . '">上傳</a></td>';
                 echo '</tr>';
             }
             echo '</table>';
@@ -520,16 +522,16 @@ class FantasyController extends BackendController
 
 
     public function uploadDesignWithFolder(Request $request)
-	{
-        dump('start:'.date('Y-m-d H:i:s'));
+    {
+        dump('start:' . date('Y-m-d H:i:s'));
         // 想上傳的資料夾位置(切版資料)
-		// $upload_path = 'downloadOri/Audio';
+        // $upload_path = 'downloadOri/Audio';
         // // 想傳到哪邊
         // $fms_folder = 'downloadOri/wddTest';
         // // FMS第一層名稱
         // $first_folder_name = 'wddUpload';
         // 想上傳的資料夾位置(切版資料)
-		$upload_path = 'dist/assets/img';
+        $upload_path = 'dist/assets/img';
         // 想傳到哪邊
         $fms_folder = 'upload/design';
         // FMS第一層名稱
@@ -538,7 +540,7 @@ class FantasyController extends BackendController
         $this->upload_path_temp = $upload_path;
 
         // 建立fms資料夾
-        DB::table('basic_fms_folder')->updateOrInsert(['parent_id' => 0,'title' => $first_folder_name], [
+        DB::table('basic_fms_folder')->updateOrInsert(['parent_id' => 0, 'title' => $first_folder_name], [
             'parent_id' => 0,
             'self_level' => 0,
             'is_private' => 0,
@@ -551,85 +553,84 @@ class FantasyController extends BackendController
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s')
         ]);
-        if(!is_dir(public_path($fms_folder))){
+        if (!is_dir(public_path($fms_folder))) {
             mkdir(public_path($fms_folder), 0755, true);
         }
 
-		$r = self::dir_list_recursive($upload_path);
+        $r = self::dir_list_recursive($upload_path);
         // dd($r);
-		foreach ($r as $file) {
-            self::uploadFile($file,$upload_path,$first_folder_name,0,$fms_folder);
-		}
-		dd('done!!!:'.date('Y-m-d H:i:s'));
-	}
+        foreach ($r as $file) {
+            self::uploadFile($file, $upload_path, $first_folder_name, 0, $fms_folder);
+        }
+        dd('done!!!:' . date('Y-m-d H:i:s'));
+    }
     public function dir_list_recursive($path, $exts = '', $list = array())
-	{
-		$path = self::dir_path($path);
-		$files = glob($path . '*');
-		foreach ($files as $v) {
-			if (!$exts || preg_match('/\.($exts)/i', $v)) {
-                if(!is_dir($v)){
+    {
+        $path = self::dir_path($path);
+        $files = glob($path . '*');
+        foreach ($files as $v) {
+            if (!$exts || preg_match('/\.($exts)/i', $v)) {
+                if (!is_dir($v)) {
                     $list[] = ['name' => $v];
+                } else {
+                    $list[] = ['name' => $v, 'in_forder' => self::dir_list_recursive($v)];
                 }
-				else{
-					$list[] = ['name' => $v , 'in_forder' => self::dir_list_recursive($v)];
-				}
-			}
-		}
-		return $list;
-	}
-	public function uploadFile($file,$upload_path,$parent_folder_title,$parent_folder_level,$fms_folder)
+            }
+        }
+        return $list;
+    }
+    public function uploadFile($file, $upload_path, $parent_folder_title, $parent_folder_level, $fms_folder)
     {
         // 若此檔不是資料夾
-		if (!isset($file['in_forder'])) {
+        if (!isset($file['in_forder'])) {
             $file = $file['name'];
             // dd($folder);
 
             $folder = pathinfo(str_replace($upload_path, '', $file))['dirname'];
-			$folder = explode('/', $folder);
+            $folder = explode('/', $folder);
 
-			$filename = pathinfo($file)['filename'];
-			$fms_file_name = str_replace('/', '_', str_replace($this->upload_path_temp, '', $file));
-            if(strpos($fms_file_name, '.')!== false){
+            $filename = pathinfo($file)['filename'];
+            $fms_file_name = str_replace('/', '_', str_replace($this->upload_path_temp, '', $file));
+            if (strpos($fms_file_name, '.') !== false) {
                 $fms_file_name = substr($fms_file_name, 0, strpos($fms_file_name, '.'));
             }
-			$temp_name = str_replace('/', '_', str_replace($upload_path.'/', '', $file));
-			$temp_array = explode('.', $temp_name);
-			$ext = end($temp_array);
-			$getimagesize = getimagesize($file);
-            echo ( $temp_name."檔案更新\t");
-            if(is_file(public_path($fms_folder .'/'. $temp_name))){
-                unlink(public_path($fms_folder .'/'. $temp_name));
+            $temp_name = str_replace('/', '_', str_replace($upload_path . '/', '', $file));
+            $temp_array = explode('.', $temp_name);
+            $ext = end($temp_array);
+            $getimagesize = getimagesize($file);
+            echo ($temp_name . "檔案更新\t");
+            if (is_file(public_path($fms_folder . '/' . $temp_name))) {
+                unlink(public_path($fms_folder . '/' . $temp_name));
             }
-			copy($file, public_path($fms_folder .'/'. $temp_name));
-			$real_m_route = '/'. $fms_folder.'/'. $temp_name;
-			//超過1000*1000不縮圖
-			if (!empty($getimagesize) && !in_array($ext, ['svg', 'gif', 'mp4', 'ico'])) {
-				$real_m_route = ($getimagesize[0] <= 1920 && $getimagesize[1] <= 1920) ? FmsController::get_thumbnail('/'.$fms_folder, $temp_array[0], $ext) : $real_m_route;
-			}
-            $parent_folder_temp = M('Fmsfolder')::where('parent_id', $parent_folder_level)->where('title',$parent_folder_title)->first();
-			DB::table('basic_fms_file')->updateOrInsert(['file_key' => $fms_file_name], [
-				'folder_id' => $parent_folder_temp['id'],
-				'created_user' => 1,
-				'title' => $filename,
-				'real_route' => '/'. $fms_folder.'/'. $temp_name,
-				'real_m_route' => $real_m_route,
-				'type' => $ext,
-				'size' => filesize($file),
-				'img_w' => $getimagesize[0] ?? '',
-				'img_h' => $getimagesize[1] ?? '',
-				'created_at' => date('Y-m-d H:i:s'),
-				'updated_at' => date('Y-m-d H:i:s'),
-			]);
+            copy($file, public_path($fms_folder . '/' . $temp_name));
+            $real_m_route = '/' . $fms_folder . '/' . $temp_name;
+            //超過1000*1000不縮圖
+            if (!empty($getimagesize) && !in_array($ext, ['svg', 'gif', 'mp4', 'ico'])) {
+                $real_m_route = ($getimagesize[0] <= 1920 && $getimagesize[1] <= 1920) ? FmsController::get_thumbnail('/' . $fms_folder, $temp_array[0], $ext) : $real_m_route;
+            }
+            $parent_folder_temp = M('Fmsfolder')::where('parent_id', $parent_folder_level)->where('title', $parent_folder_title)->first();
+            DB::table('basic_fms_file')->updateOrInsert(['file_key' => $fms_file_name], [
+                'folder_id' => $parent_folder_temp['id'],
+                'created_user' => 1,
+                'title' => $filename,
+                'real_route' => '/' . $fms_folder . '/' . $temp_name,
+                'real_m_route' => $real_m_route,
+                'type' => $ext,
+                'size' => filesize($file),
+                'img_w' => $getimagesize[0] ?? '',
+                'img_h' => $getimagesize[1] ?? '',
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ]);
             // rename(public_path($file),public_path($fms_folder .'/'. $temp_name));
-		}
+        }
         // 遞迴檢查資料夾
-        else{
-            $parent_folder_temp = M('Fmsfolder')::where('parent_id', $parent_folder_level)->where('title',$parent_folder_title)->first();
+        else {
+            $parent_folder_temp = M('Fmsfolder')::where('parent_id', $parent_folder_level)->where('title', $parent_folder_title)->first();
             $folder_title_temp = pathinfo(str_replace($upload_path, '', $file['name']))['basename'];
-            DB::table('basic_fms_folder')->updateOrInsert(['parent_id' => $parent_folder_temp['id'],'title' => $folder_title_temp], [
+            DB::table('basic_fms_folder')->updateOrInsert(['parent_id' => $parent_folder_temp['id'], 'title' => $folder_title_temp], [
                 'parent_id' => $parent_folder_temp['id'],
-                'self_level' => $parent_folder_temp['self_level']+1,
+                'self_level' => $parent_folder_temp['self_level'] + 1,
                 'is_private' => 0,
                 'can_use' => '[]',
                 'last_edit_user' => 1,
@@ -640,16 +641,16 @@ class FantasyController extends BackendController
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ]);
-            $fms_folder=$fms_folder.'/'.$folder_title_temp;
+            $fms_folder = $fms_folder . '/' . $folder_title_temp;
             $upload_path = $file['name'];
-            if(!is_dir(public_path($fms_folder))){
+            if (!is_dir(public_path($fms_folder))) {
                 mkdir(public_path($fms_folder), 0755, true);
             }
             $r = self::dir_list_recursive($upload_path);
             foreach ($r as $file) {
-                self::uploadFile($file,$upload_path,$folder_title_temp,$parent_folder_temp['id'],$fms_folder);
+                self::uploadFile($file, $upload_path, $folder_title_temp, $parent_folder_temp['id'], $fms_folder);
             }
-            dump($folder_title_temp.' 完成:'.date('Y-m-d H:i:s'));
+            dump($folder_title_temp . ' 完成:' . date('Y-m-d H:i:s'));
         }
     }
 
@@ -704,7 +705,8 @@ class FantasyController extends BackendController
             $link = $a->getAttribute('href');
             // 排除非內部網址和錨點
             if (strpos($link, $website_url) !== false && strpos($link, '#') === false) {
-                if (!isset($this->UrlList[$link])) $this->UrlList[$link] = 0;
+                if (!isset($this->UrlList[$link]))
+                    $this->UrlList[$link] = 0;
             }
         }
     }
@@ -735,18 +737,20 @@ class FantasyController extends BackendController
     {
         //取得所有檔案含資料夾路徑
         $files = \Storage::disk('s3')->allFiles('/');
-        $prefix = config('fms.s3_prefix').'/';
+        $prefix = config('fms.s3_prefix') . '/';
         //只抓取 public資料夾下的檔案
-        foreach($files as $key => $row){
-            if( strpos($row,'public/') !== false ) $files[$key] = str_replace($prefix,'',$row);
-            else unset($files[$key]);
+        foreach ($files as $key => $row) {
+            if (strpos($row, 'public/') !== false)
+                $files[$key] = str_replace($prefix, '', $row);
+            else
+                unset($files[$key]);
         }
 
         //製作folder file
-        $s3Folder = Fmsfolder::where('self_level',0)
-            ->where('title','s3')
+        $s3Folder = Fmsfolder::where('self_level', 0)
+            ->where('title', 's3')
             ->first();
-        if(empty($s3Folder)){
+        if (empty($s3Folder)) {
             $s3Folder = new Fmsfolder;
             $s3Folder['parent_id'] = 0;
             $s3Folder['self_level'] = 0;
@@ -758,34 +762,34 @@ class FantasyController extends BackendController
         }
         $folder = [];
         $folder['s3'] = $s3Folder['id'];
-        foreach($files as $key => $row){
-            $temp = explode('/',$row);
+        foreach ($files as $key => $row) {
+            $temp = explode('/', $row);
             $file = array_pop($temp);
-            if(isset($folder[implode('/',$temp)])){
-                $folderID = $folder[implode('/',$temp)];
-            }
-            else{
-                $folderID = self::S3GenerateFolder($temp,$folder['s3']);
-                $folder[implode('/',$temp)] = $folderID;
+            if (isset($folder[implode('/', $temp)])) {
+                $folderID = $folder[implode('/', $temp)];
+            } else {
+                $folderID = self::S3GenerateFolder($temp, $folder['s3']);
+                $folder[implode('/', $temp)] = $folderID;
             }
 
-            self::S3GenerateFile($folderID,$row);
+            self::S3GenerateFile($folderID, $row);
         }
 
         return 'done';
     }
 
-    public function S3GenerateFolder(array $folderNameArr,$parentID)
+    public function S3GenerateFolder(array $folderNameArr, $parentID)
     {
         //第幾層資料夾
         $lv = 1;
 
-        foreach($folderNameArr as $key => $row){
-            $check = Fmsfolder::where('self_level',$lv)
-                ->where('title',$row)
+        foreach ($folderNameArr as $key => $row) {
+            $check = Fmsfolder::where('self_level', $lv)
+                ->where('title', $row)
                 ->first();
-            if(!empty($check)) $parentID = $check['id'];
-            else{
+            if (!empty($check))
+                $parentID = $check['id'];
+            else {
                 $db = new Fmsfolder;
                 $db['parent_id'] = $parentID;
                 $db['self_level'] = $lv;
@@ -797,29 +801,29 @@ class FantasyController extends BackendController
 
                 $parentID = $db['id'];
             }
-            $lv ++;
+            $lv++;
         }
         return $parentID;
     }
     public function S3GenerateFile(int $folderID, string $fileRoute)
     {
-        $prefix = config('fms.s3_prefix').'/';
-        $n1 = explode('/',$fileRoute);
+        $prefix = config('fms.s3_prefix') . '/';
+        $n1 = explode('/', $fileRoute);
         $n2 = array_pop($n1);
-        $n3 = explode('.',$n2);
+        $n3 = explode('.', $n2);
         $fileName = array_shift($n3);
         $type = array_pop($n3);
         $fileKey = $fileRoute;
         $db = new FmsFile;
         $db['use_s3'] = 1;
-        $db['file_key'] = '_'.str_replace(' ','_',str_replace('/','_',$fileKey));
+        $db['file_key'] = '_' . str_replace(' ', '_', str_replace('/', '_', $fileKey));
         $db['folder_id'] = $folderID;
         $db['branch_id'] = 1;
         $db['title'] = $fileName;
-        $db['real_route'] = '/'.$prefix.$fileRoute;
-        $db['real_m_route'] = '/'.$prefix.$fileRoute;
+        $db['real_route'] = '/' . $prefix . $fileRoute;
+        $db['real_m_route'] = '/' . $prefix . $fileRoute;
         $db['type'] = $type;
-        $db['size'] = \Storage::disk('s3')->size($prefix.$fileRoute);
+        $db['size'] = \Storage::disk('s3')->size($prefix . $fileRoute);
         $db->save();
     }
 
@@ -847,27 +851,27 @@ class FantasyController extends BackendController
             'updated_at' => date('Y-m-d H:i:s'),
         ]);
 
-        $folder = Fmsfolder::where('parent_id',0)->where('title',$folder_name)->first();
+        $folder = Fmsfolder::where('parent_id', 0)->where('title', $folder_name)->first();
 
         $datas = self::dir_list_recursive($upload_path);
 
-        self::uploadFileToS3_recursive($datas,$folder['id']);
+        self::uploadFileToS3_recursive($datas, $folder['id']);
 
         return 'done';
     }
 
-    public function uploadFileToS3_recursive($datas,$folderID)
+    public function uploadFileToS3_recursive($datas, $folderID)
     {
         $upload_path = 'dist/assets/img';
         $fms_folder = 'upload/design';
 
         $s3 = \Storage::disk('s3');
-        $prefix = '/'.config('fms.s3_prefix');
-        $filePath = $prefix.'/'.$fms_folder;
-        $folder = Fmsfolder::where('id',$folderID)->first();
-        foreach($datas as $key => $row){
-            if(!empty($row['in_forder'])){
-                $temp_name = explode('/',$row['name']);
+        $prefix = '/' . config('fms.s3_prefix');
+        $filePath = $prefix . '/' . $fms_folder;
+        $folder = Fmsfolder::where('id', $folderID)->first();
+        foreach ($datas as $key => $row) {
+            if (!empty($row['in_forder'])) {
+                $temp_name = explode('/', $row['name']);
                 $temp_name = array_pop($temp_name);
                 DB::table('basic_fms_folder')
                     ->updateOrInsert(
@@ -877,7 +881,7 @@ class FantasyController extends BackendController
                         ],
                         [
                             'parent_id' => $folder['id'],
-                            'self_level' => $folder['self_level']+1,
+                            'self_level' => $folder['self_level'] + 1,
                             'is_private' => 0,
                             'can_use' => '[]',
                             'last_edit_user' => 1,
@@ -889,27 +893,26 @@ class FantasyController extends BackendController
                             'updated_at' => date('Y-m-d H:i:s'),
                         ]
                     );
-                $nextFolder = Fmsfolder::where('parent_id',$folder['id'])->where('title',$temp_name)->first();
+                $nextFolder = Fmsfolder::where('parent_id', $folder['id'])->where('title', $temp_name)->first();
                 dump($row['name']);
-                self::uploadFileToS3_recursive($row['in_forder'],$nextFolder['id']);
-            }
-            else{
+                self::uploadFileToS3_recursive($row['in_forder'], $nextFolder['id']);
+            } else {
                 $info = pathinfo($row['name']);
                 $getimagesize = getimagesize($row['name']);
 
-                $saveS3 = $s3->put($filePath.'/'.$row['name'], file_get_contents($row['name']),'public');
-                $temp_name = explode('/',$row['name']);
+                $saveS3 = $s3->put($filePath . '/' . $row['name'], file_get_contents($row['name']), 'public');
+                $temp_name = explode('/', $row['name']);
                 $temp_name = array_pop($temp_name);
-                $temp_name_arr = explode('.',$temp_name);
+                $temp_name_arr = explode('.', $temp_name);
                 array_pop($temp_name_arr);
-                $temp_name = implode('.',$temp_name_arr);
-                if($saveS3){
-                    DB::table('basic_fms_file')->updateOrInsert(['file_key' => str_replace('/','_',$row['name'])], [
+                $temp_name = implode('.', $temp_name_arr);
+                if ($saveS3) {
+                    DB::table('basic_fms_file')->updateOrInsert(['file_key' => str_replace('/', '_', $row['name'])], [
                         'folder_id' => $folder['id'],
                         'created_user' => 1,
                         'title' => $temp_name,
-                        'real_route' => $prefix.'/'.$fms_folder.'/'.$row['name'],
-                        'real_m_route' => $prefix.'/'.$fms_folder.'/'.$row['name'],
+                        'real_route' => $prefix . '/' . $fms_folder . '/' . $row['name'],
+                        'real_m_route' => $prefix . '/' . $fms_folder . '/' . $row['name'],
                         'type' => $info['extension'],
                         'size' => filesize($row['name']),
                         'img_w' => $getimagesize[0] ?? '',
@@ -938,25 +941,26 @@ class FantasyController extends BackendController
         dd($privateKey);
     }
 
-    public function changePWD(Request $req){
+    public function changePWD(Request $req)
+    {
         // dd(Session::get('fantasy_user'));
-        $user=Session::get('fantasy_user');
+        $user = Session::get('fantasy_user');
         if (!$user) {
-            $type='no-login';
+            $type = 'no-login';
             return $type;
         }
 
-        if($req->pwd!==$req->pwd2){
-            $type='pwd';
+        if ($req->pwd !== $req->pwd2) {
+            $type = 'pwd';
             return $type;
         }
 
 
-        $user=FantasyUsers::find($user['id']);
-        $user['password']=bcrypt($req->pwd);
+        $user = FantasyUsers::find($user['id']);
+        $user['password'] = bcrypt($req->pwd);
         $user->save();
         Session::forget('fantasy_user');
-        $type='success';
+        $type = 'success';
         return $type;
         // dd($req->all());
     }

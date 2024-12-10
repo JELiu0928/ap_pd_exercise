@@ -1,9 +1,8 @@
 <!-- 導覽列-->
 <nav class="navbar" data-aost d-grid>
     <div class="container"><a class="logo" href="index.html"><img class="lazy normal" data-src="/dist/assets/img/logo.svg"
-                alt="alt"><img class="lazy white" data-src="/dist/assets/img/logo-white.svg"
-                alt="alt"></a>
-                <!-- 連結固定 4 個，可自行定義--><!-- data-after="" 為中文 (hover 後效果) ; span 標籤內為英文 (hover 前效果)-->
+                alt="alt"><img class="lazy white" data-src="/dist/assets/img/logo-white.svg" alt="alt"></a>
+        <!-- 連結固定 4 個，可自行定義--><!-- data-after="" 為中文 (hover 後效果) ; span 標籤內為英文 (hover 前效果)-->
         <div class="unit-group"><a class="unit" href="./solution.html" data-after="解決方案"> <span>SOLUTION </span></a><a
                 class="unit" href="./product.html" data-after="產品專區"> <span>PRODUCTS</span></a><a class="unit"
                 href="./investor.html" data-after="投資人"><span>INVESTORS</span></a><a class="unit" href="./esg.html"

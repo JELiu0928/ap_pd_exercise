@@ -443,6 +443,12 @@
                                         ],
                                         [
                                             'type' => 'radio_btn',
+                                            'title' => '開啟篩選',
+                                            'value' => 'is_filter',
+                                            'default' => 0,
+                                        ],
+                                        [
+                                            'type' => 'radio_btn',
                                             'title' => '預覽',
                                             'value' => 'is_preview',
                                             'default' => 1,
@@ -525,9 +531,23 @@
                                                     'disabled' => '',
                                                     'class' => '',
                                                 ],
+                                                [
+                                                    'type' => 'filePicker',
+                                                    'value' => 'file',
+                                                    'title' => '檔案',
+                                                    'tip' => '',
+                                                    'auto' => true,
+                                                ],
                                             ],
                                         ],
                                     ],
+                                ]) }}
+                                {{ UnitMaker::textSummernote([
+                                    'name' => $model . '[spec_note]',
+                                    'title' => '規格表備註',
+                                    'tip' => '',
+                                    'value' => !empty($data['spec_note']) ? $data['spec_note'] : '',
+                                    'toolbar' => 'news',
                                 ]) }}
                             @endif
 

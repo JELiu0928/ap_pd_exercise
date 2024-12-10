@@ -121,6 +121,7 @@ $all = function () {
                 Route::get('/', [ProductController::class, 'index']);
                 Route::get('/{categoryURL}', [ProductController::class, 'list']);
                 Route::get('/{categoryURL}/{productURL}', [ProductController::class, 'detail']);
+                Route::get('/{categoryURL}/{productURL}/2', [ProductController::class, 'detail2']);
                 // Route::get('sendMessage',[LineNotifyController::class, 'sendMessage']);
                 // Route::get('status',[LineNotifyController::class, 'status']);
             });

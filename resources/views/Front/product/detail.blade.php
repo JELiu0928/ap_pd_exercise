@@ -1,21 +1,24 @@
 @extends('Front.template')
 
 @section('css')
-    {{-- <link rel="stylesheet" crossorigin href="/dist/assets/css/product.min.css?v={{ BaseFunction::getV() }}"> --}}
-    {{-- <link rel="stylesheet" crossorigin href="/dist/assets/css/product_list.min.css?v={{ BaseFunction::getV() }}"> --}}
-    <link rel="stylesheet" crossorigin href="/dist/assets/css/product_detail.min.css" />
-    </head @endsection @section('script') {{-- <script type="module" crossorigin src="/dist/assets/js/product.min.js?v={{ BaseFunction::getV() }}"></script> --}} <script type="module" crossorigin src="/dist/assets/js/product_list.min.js?v={{ BaseFunction::getV() }}"></script>
+    <link rel="stylesheet" crossorigin href="/dist/assets/css/product_detail.min.css?v={{ BaseFunction::getV() }}" />
+
+@endsection
+@section('script')
+    {{-- <script type="module" crossorigin src="/dist/assets/js/product.min.js?v={{ BaseFunction::getV() }}"></script> --}}
+    {{-- <script type="module" crossorigin src="/dist/assets/js/product_list.min.js?v={{ BaseFunction::getV() }}"></script> --}}
+    <script type="module" crossorigin src="/dist/assets/js/product_detail.min.js?v={{ BaseFunction::getV() }}"></script>
 
 @endsection
 
 @section('script_back')
-    <script type="module" crossorigin src="/dist/assets/js/product_detail.min.js"></script>
-
-@endsection
+    <script defer type="module" src="/bk/product/index.js?v={{ BaseFunction::getV() }}"></script>
+@stop
 
 @section('bodyClass', 'product_detail')
 @section('content')
     @include('Front.include.headerArea')
+
     <!-- 主要內容-->
     <main>
         <!-- banner 背景圖片建議尺寸: 電腦 2880x1035(px), 平板 1535x750(px), 手機 560x1255(px)-->
@@ -34,6 +37,7 @@
                         <a href="{{ BaseFunction::b_url('/product') }}"><span class="categoryBtn">產品專區</span></a>
                     </li>
                     <li>
+                        {{-- @dump($productInfo['series']['category']['half_url']) --}}
                         <a href="{{ BaseFunction::b_url($productInfo->series->category['half_url']) }}"><span
                                 class="categoryBtn">{!! $productInfo->series->category['banner_title'] !!}</span></a>
                     </li>
@@ -94,7 +98,8 @@
                             <div class="text-block">
                                 <h3 class="itemTitle-w">{!! $productInfo['banner_keyword_title'] !!}</h3>
                                 <div class="paragraphText">{!! $productInfo['banner_keyword_intro'] !!}</div>
-                                <!-- 關鍵字標籤--><!-- 自訂按鈕文字、連結-->
+                                <!-- 關鍵字標籤-->
+                                <!-- 自訂按鈕文字、連結-->
                                 <!-- 若無上連結, 請把 href 移除-->
                                 <div class="keywords-block">
                                     @foreach ($productInfo->keywords as $keyword)
@@ -180,26 +185,37 @@
                 <div class="collapseTarget">
                     <div>
                         <div class="dropdown-wrap">
-                            <dropdown-el class="dropdown1" d4-placeholder="density">
-                                <li data-option="customID">Density</li>
-                                <li>16Mb</li>
-                                <li>32Mb</li>
-                                <li>64Mb</li>
-                                <li>128Mb</li>
-                            </dropdown-el><dropdown-el class="dropdown2" d4-placeholder="voltage">
+                            @foreach ($dropdownArr as $spec)
+                                {{-- @dump($spec) --}}
+                                <dropdown-el class="dropdown1 bk-drop" bk-dropdown-spec-id="{{ $spec['spec_id'] }}"
+                                    d4-placeholder="{{ $spec['spec_title'] }}">
+                                    <li data-option="customID" class="bk-spec-item">
+                                        {{ $spec['spec_title'] }}
+                                    </li>
+                                    @foreach ($spec['content'] as $content)
+                                        <li class="bk-spec-item">{{ $content }}</li>
+                                    @endforeach
+                                    {{-- <li>32Mb</li>
+                                    <li>64Mb</li>
+                                    <li>128Mb</li> --}}
+                                </dropdown-el>
+                            @endforeach
+                            {{-- <dropdown-el class="dropdown2" d4-placeholder="voltage">
                                 <li data-option="customID">Voltage</li>
                                 <li>1.8V</li>
-                            </dropdown-el><dropdown-el class="dropdown3" d4-placeholder="config">
+                            </dropdown-el>
+                            <dropdown-el class="dropdown3" d4-placeholder="config">
                                 <li data-option="customID">Config.</li>
                                 <li>X4</li>
-                            </dropdown-el><dropdown-el class="dropdown4" d4-placeholder="rate">
+                            </dropdown-el>
+                            <dropdown-el class="dropdown4" d4-placeholder="rate">
                                 <li data-option="customID">Data rate (Mbps)</li>
                                 <li>84</li>
                                 <li>133</li>
                                 <li>144</li>
                                 <li>333</li>
-                            </dropdown-el>
-                            <div class="delete-button">
+                            </dropdown-el> --}}
+                            <div class="delete-button bk-clearFilter">
                                 <div class="icon"><i class="icon-delete"></i></div>
                                 <p>清除條件</p>
                             </div>
@@ -216,8 +232,9 @@
                                             <p>Part Number</p>
                                         </div>
                                         {{-- 表頭 --}}
+                                        {{-- @dd($specTitles) --}}
                                         @foreach ($specTitles as $title)
-                                            <div class="td">
+                                            <div class="td" bk-spec-title-id="{{ $title['id'] }}">
                                                 <p>{{ $title['title'] }}</p>
                                             </div>
                                         @endforeach
@@ -235,35 +252,40 @@
                                     <!-- 加入諮詢, 在 tr 加上 added 的 class-->
                                     <!-- 下載檔案 / 加入諮詢 有兩組結構(電腦版與手機版), 再麻煩同步串接-->
                                     @foreach ($specParts as $part)
-                                        <div class="tr">
+                                        {{-- @dump($part) --}}
+                                        <div class="tr bk-tr" bk-part-id="{{ $part['id'] }}">
                                             <div class="td fixed-left">
                                                 <p>{{ $part['title'] }}</p>
                                                 <div class="row-flex rwd action">
                                                     <a class="flex" href="javascript:;" target="_blank">
-                                                        <div class="icon"><i class="icon-download"></i></div>
+                                                        <div class="icon">
+                                                            <i class="icon-download"> </i>
+                                                        </div>
                                                     </a>
                                                     <div class="flex addConsult"
                                                         onclick="document.body.fesd.addConsult()">
-                                                        <div class="icon"><i class="icon-plus"></i><i
-                                                                class="icon-check"></i></div>
+                                                        <div class="icon">
+                                                            <i class="icon-plus"></i>
+                                                            <i class="icon-check"></i>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                             @foreach ($specTitles as $title)
-                                                <div class="td">
+                                                {{-- @dump($title) --}}
+                                                <div class="td" bk-title-spec-id="{{ $title['id'] }}">
                                                     <p>{!! isset($specContentArr[$title->id][$part->id]) ? $specContentArr[$title->id][$part->id] : '' !!}</p>
                                                 </div>
                                             @endforeach
-
-
                                             <div class="td action fixed-right">
                                                 <a class="flex" href="javascript:;" target="_blank">
                                                     <div class="icon"><i class="icon-download"></i></div>
                                                     <p class="paragraphText">下載檔案</p>
                                                 </a>
                                                 <div class="flex addConsult" onclick="document.body.fesd.addConsult()">
-                                                    <div class="icon"><i class="icon-plus"></i><i
-                                                            class="icon-check"></i>
+                                                    <div class="icon">
+                                                        <i class="icon-plus"></i>
+                                                        <i class="icon-check"></i>
                                                     </div>
                                                     <p class="paragraphText">加入諮詢</p>
                                                 </div>
@@ -278,11 +300,12 @@
                         <div class="icon"><i class="icon-drag"></i></div>
                         <p class="paragraphText-s">拖曳表格即可瀏覽完整資訊</p>
                     </div>
-                    <!-- 表格底下皆有預留文字敘述欄位, 可參考 investor_financial_revenue.html 之 .table-text 的結構-->
-                    <div class="table-text">
-                        <div class="paragraphText">愛普（6531 TW）13 日發佈重大訊息，以新台幣 5 億元取得來頡科技股份有限公司（6799 TW）4
-                            佰萬股股份，藉此一投資案，愛普可提升公司資金運用效益，同時也期望將愛普 3D 堆疊先進封裝經驗和技術進一步推展至電源管理應用領域。</div>
-                    </div>
+                    {{-- <!-- 表格底下皆有預留文字敘述欄位, 可參考 investor_financial_revenue.html 之 .table-text 的結構--> --}}
+                    @if (!empty(strip_tags($productInfo->spec_note)))
+                        <div class="table-text">
+                            <div class="paragraphText">{!! nl2br($productInfo->spec_note) !!}</div>
+                        </div>
+                    @endif
                 </div>
             </div>
         </section>
@@ -337,7 +360,8 @@
                 </div>
             </div>
         </section>
-        <!-- 相關產品--><!--***- 11.15 修正 breakline 位置 父層 section 補 data-aost -->
+        <!-- 相關產品-->
+        <!--***- 11.15 修正 breakline 位置 父層 section 補 data-aost -->
         <section class="related-products" d-grid data-aost>
             <div class="breakLine"></div>
             <div class="container" data-aost>

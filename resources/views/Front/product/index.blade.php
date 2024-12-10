@@ -9,7 +9,7 @@
 @endsection
 
 @section('script_back')
-{{-- process切版沒有 --}}
+    {{-- process切版沒有 --}}
     {{-- <link rel="modulepreload" crossorigin href="/dist/assets/js/process.min.js?v={{ BaseFunction::getV() }}"> --}}
     {{-- <script type="module" src="/bk/product/consult.js?v={{ BaseFunction::getV() }}""></script> --}}
 
@@ -18,7 +18,6 @@
 @section('bodyClass', 'product')
 @section('content')
     @include('Front.include.headerArea')
-
     <main>
         <!-- 共用總覽 banner 設定--><!-- 標題文字顏色: 黑/白/漸層, 黑 title-color="black", 白 title-color="white", 漸層 title-color="gradient"--><!-- 描述文字顏色(麵包屑顏色跟隨描述文字): 黑/白, 黑 sub-color="black", 白 sub-color="white"--><!-- 圖片建議尺寸: 電腦 2880x750(px), 平板 1535x675(px), 手機 560x675(px)-->
         <section class="common-banner" d-grid detect-target data-aost data-aost-fade title-color="black" sub-color="black"
@@ -33,8 +32,7 @@
             <div class="container">
                 <div class="breadcrumb">
                     <ul>
-                        <li> <a class="icon" href="{{ BaseFunction::b_url('/') }}"><i class="icon-home"></i></a>
-                        </li>
+                        <li> <a class="icon" href="{{ BaseFunction::b_url('/') }}"><i class="icon-home"></i></a></li>
                         <li><span class="categoryBtn">{{ $unitSet['title'] }}</span></li>
                     </ul>
                 </div>
@@ -54,14 +52,15 @@
             <div class="container" data-aost data-aost-fade>
                 <div class="common-categoryBar fixStyle">
                     <div class="cate-outer">
-                        <!-- m4-status="" 預設 active 選項及出現的內容-->
-                        <multipurpose-nav m4-type="drag" m4-option="{&quot;drag&quot;:{&quot;selected&quot;:false}}"
-                            m4-status="">
+                        <!-- m4-status="" 預設 active 選項及出現的內容--><multipurpose-nav m4-type="drag"
+                            m4-option="{&quot;drag&quot;:{&quot;selected&quot;:false}}" m4-status="">
                             @foreach ($productCategories as $cate)
-                                <li class="item"><a class="category" href="javascript:;"
+                                <li class="item">
+                                    <a class="category" href="javascript:;"
                                         data-anchor-target="[anchor-target=&quot;1&quot;]">
                                         <p class="categoryBtn">{!! $cate['banner_title'] !!}</p>
-                                    </a></li>
+                                    </a>
+                                </li>
                             @endforeach
                             <li class="item"><a class="category" href="javascript:;"
                                     onclick="document.body.fesd.ajaxConsult()">
@@ -84,7 +83,7 @@
                 <div class="item-outer">
                     <!-- 圖片建議尺寸 810x575(px)-->
                     @foreach ($productCategories as $key => $cate)
-                        <div class="item" anchor-target="{{$key +1}}">
+                        <div class="item" anchor-target="{{ $key + 1 }}">
                             @if ($cate['is_list_img_show'] == 1)
                                 <a class="photo" href="{{ BaseFunction::b_url($cate['half_url']) }}">
                                     <picture>
@@ -93,6 +92,7 @@
                                     </picture>
                                 </a>
                             @endif
+
                             <div class="content">
                                 <div class="inner"><a href="{{ BaseFunction::b_url($cate['half_url']) }}">
                                         <p class="itemTitle-l">{!! $cate['banner_title'] !!}</p>
@@ -107,25 +107,13 @@
                                             class="icon-plus"></i></ripple-btn></a>
                             </div>
                         </div>
-                        {{-- <div class="item" anchor-target="2">
-                            <div class="content">
-                                <div class="inner"><a href="./product_list.html">
-                                        <p class="itemTitle-l">S-SiCap<sup>TM</sup></p>
-                                    </a>
-                                    <div class="text">
-                                        <div>
-                                            <p class="paragraphText">高電容值密度、低等效串聯電感及等效串聯電阻</p>
-                                        </div>
-                                    </div>
-                                </div><a class="button" href="./product_list.html"> <ripple-btn class="plus blue large"
-                                        r4-hover="true" data-cotton><i class="icon-plus"></i></ripple-btn></a>
-                            </div>
-                        </div> --}}
                     @endforeach
+
                 </div>
             </div>
         </section>
     </main>
+
     @include('Front.include.footerArea')
 
 @stop

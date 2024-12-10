@@ -115,6 +115,14 @@
                 src="https://www.facebook.com/tr?id={{ $basic_seo['seo_pixel'] }}&ev=PageView&noscript=1" /></noscript>
     @endif
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&amp;family=Roboto:wght@300;400;500&amp;display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="/dist/assets/fonts/icomoon/style.css">
+
     {{-- <!-- 非共用的Js --> --}}
     @yield('script')
     {{-- <!-- 共用的Js--> --}}
@@ -124,17 +132,9 @@
     <script type="module" crossorigin src="/dist/assets/js/commons.min.js"></script>
     {{-- <script type="module" crossorigin src="/bk/other/search.js"></script> --}}
 
-
     @yield('script_back')
-
-
     {{-- <!-- 共用的Css --> --}}
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&amp;family=Roboto:wght@300;400;500&amp;display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="/dist/assets/fonts/icomoon/style.css">
+
 
     <link rel="stylesheet" crossorigin href="/dist/assets/css/style.min.css">
     {{-- <!-- 非共用的Css --> --}}

@@ -84,54 +84,63 @@ export function colorPickerSetting() {
                 .text(color);
             self.val(color); // #ff0000
         },
-        beforeShow: function(container) {
+        beforeShow: function (container) {
             let _thisBefor = $(this);
-            _thisBefor.spectrum("container").find('.color_picker_palette').remove();
-            let html = '<div class="color_picker_palette"><label>常用顏色</label><div class="color_picker_list"></div></div>';
+            _thisBefor
+                .spectrum("container")
+                .find(".color_picker_palette")
+                .remove();
+            let html =
+                '<div class="color_picker_palette"><label>常用顏色</label><div class="color_picker_list"></div></div>';
             _thisBefor.spectrum("container").append(html);
             $.ajax({
                 url: "//" + location.host + "/Fantasy/Color",
-                type: 'GET',
-                dataType: 'JSON',
+                type: "GET",
+                dataType: "JSON",
                 cache: false,
                 data: {
-                    action: 'load',
-                    color: ''
-                }
-            }).done(function (response) {
-                const color_div = response
-                    .map(function (val) {
-                        return (
-                            '<div><span data-color="' +
-                            val +
-                            '" style="background-color:' +
-                            val +
-                            ';"></span><a class="color_picker_del"><i class="fa fa-remove"></i></a></div>'
-                        );
-                    })
-                    .join("");
-                $(".color_picker_list").html(color_div);
-                $('.color_picker_list span').on('click', function () {
-                    let color = $(this).attr('data-color');
-                    self.parent("div")
-                        .children("div.ticket_field")
-                        .children("p")
-                        .text(color);
-                    self.val(color); // #ff0000
-                    _thisBefor.spectrum("set", color);
+                    action: "load",
+                    color: "",
+                },
+            })
+                .done(function (response) {
+                    const color_div = response
+                        .map(function (val) {
+                            return (
+                                '<div><span data-color="' +
+                                val +
+                                '" style="background-color:' +
+                                val +
+                                ';"></span><a class="color_picker_del"><i class="fa fa-remove"></i></a></div>'
+                            );
+                        })
+                        .join("");
+                    $(".color_picker_list").html(color_div);
+                    $(".color_picker_list span").on("click", function () {
+                        let color = $(this).attr("data-color");
+                        self.parent("div")
+                            .children("div.ticket_field")
+                            .children("p")
+                            .text(color);
+                        self.val(color); // #ff0000
+                        _thisBefor.spectrum("set", color);
+                    });
+                    $(".color_picker_del").on("click", function () {
+                        let _color = $(this)
+                            .closest("div")
+                            .find("span")
+                            .attr("data-color");
+                        if (confirm("是否刪除?")) {
+                            reload_color("del", _color);
+                            $(this).closest("div").remove();
+                        }
+                    });
+                })
+                .fail(function () {
+                    console.log("data error");
                 });
-                $('.color_picker_del').on('click', function () {
-                    let _color = $(this).closest('div').find('span').attr('data-color');
-                    if (confirm('是否刪除?')) {
-                        reload_color('del', _color);
-                        $(this).closest('div').remove();
-                    }
-                });
-            }).fail(function () {
-                console.log("data error");
-            });
             // return false; // Will never show up
-        }
+        },
     };
 }
 
@@ -147,28 +156,28 @@ export const datePickerSetting = {
         autoclose: true,
         language: "zh-TW",
         format: "yyyy-mm-dd",
-    }
+    },
 };
 export const timePickerSetting = {
     default: {
         enableTime: true,
         noCalendar: true,
-        dateFormat: 'H:i',
-        defaultTime: '00:00',
+        dateFormat: "H:i",
+        defaultTime: "00:00",
         time_24hr: true,
         showSeconds: false, // Display seconds
-        showMeridian: false //Do not display AM/PM options
+        showMeridian: false, //Do not display AM/PM options
     },
     custom: {
         enableTime: true,
         noCalendar: true,
-        dateFormat: 'H:i:s',
-        defaultTime: '00:00:00',
+        dateFormat: "H:i:s",
+        defaultTime: "00:00:00",
         time_24hr: true,
         showSeconds: true, // Display seconds
-        showMeridian: false //Do not display AM/PM options
+        showMeridian: false, //Do not display AM/PM options
     },
-}
+};
 var FmsButton = function (context) {
     var ui = $.summernote.ui;
 
@@ -193,8 +202,8 @@ var FmsButton = function (context) {
                     frame.html(response.blade);
                     $("#folder_id").val(response.folder_id);
 
-                    $("body")[0].fms_data_key = 'summernote';
-                    $("body")[0].fms_data_type = 'img';
+                    $("body")[0].fms_data_key = "summernote";
+                    $("body")[0].fms_data_type = "img";
                     //需啟動的JS
                     fms_lightbox();
 
@@ -286,8 +295,8 @@ export const summernoteSetting = {
             link: "icon-link",
         },
         callbacks: {
-            onChange: function(contents, $editable) {
-                if(contents == "<p><br></p>"){
+            onChange: function (contents, $editable) {
+                if (contents == "<p><br></p>") {
                     $($editable).html("");
                 }
             },
@@ -318,11 +327,38 @@ export const summernoteSetting = {
             link: "icon-link",
         },
         callbacks: {
-            onChange: function(contents, $editable) {
-                if(contents == "<p><br></p>"){
+            onChange: function (contents, $editable) {
+                if (contents == "<p><br></p>") {
                     $($editable).html("");
                 }
             },
+            onImageUpload: function onImageUpload(data) {
+                data.pop();
+            },
+            onPaste: function (e) {
+                var bufferText = (
+                    (e.originalEvent || e).clipboardData || window.clipboardData
+                ).getData("Text");
+                e.preventDefault();
+                document.execCommand("insertText", false, bufferText);
+            },
+        },
+    },
+    news: {
+        placeholder: "Type some words ...",
+        tabsize: 2,
+        height: 250,
+        lang: "zh-TW",
+        toolbar: [
+            ["font", ["bold", "superscript", "subscript"]],
+            ["para", ["ul"]],
+        ],
+        icons: {
+            bold: "icon-bold",
+            underline: "icon-underline",
+            link: "icon-link",
+        },
+        callbacks: {
             onImageUpload: function onImageUpload(data) {
                 data.pop();
             },
@@ -339,10 +375,8 @@ export const summernoteSetting = {
         placeholder: "Type some words ...",
         tabsize: 2,
         height: 250,
-        lang: "zh-TW", 
-        toolbar: [
-            ['font', ['bold','superscript','subscript']],
-        ],
+        lang: "zh-TW",
+        toolbar: [["font", ["bold", "superscript", "subscript"]]],
         icons: {
             bold: "icon-bold",
         },
@@ -363,9 +397,9 @@ export const summernoteSetting = {
         placeholder: "Type some words ...",
         tabsize: 2,
         height: 250,
-        lang: "zh-TW", 
+        lang: "zh-TW",
         toolbar: [
-            ['font', ['bold', 'underline','superscript','subscript']],
+            ["font", ["bold", "underline", "superscript", "subscript"]],
             ["para", ["ul", "ol"]],
             ["insert", ["link"]],
             ["lbox_fms_open", ["fmsbtn"]],

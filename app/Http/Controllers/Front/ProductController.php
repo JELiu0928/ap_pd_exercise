@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Front;
 
 use App\Models\Product\ProductCategory;
 use App\Models\Product\ProductCategoryOverview;
+use App\Models\Product\ProductItemPart;
 use App\Models\Product\ProductItemSpecContent;
+use App\Models\Product\ProductItemSpecTitle;
 use App\Models\Product\ProductSeries;
 use App\Models\Product\ProductSet;
 use Illuminate\Http\Request;
@@ -48,7 +50,7 @@ class ProductController extends FrontBaseController
         $categoryURL = $request->categoryURL ?? '';
         // dd($categoryURL);
         $productCategories = ProductCategory::formatFiles(['list_img'])->doSort()->get();
-        $category = ProductCategory::formatFiles(['list_img', 'banner_pc_img', 'banner_pad_img', 'banner_m_img'])
+        $category = ProductCategory::formatFiles(['list_img', 'banner_pc_img', 'banner_pad_img', 'banner_m_img', 'advantages_zone_img'])
             ->where('url_name', $categoryURL)->doSort()->first();
         // dump($category);
         $cateOverviews = ProductCategory::with('overviews')->where('url_name', $categoryURL)->first();
@@ -65,6 +67,7 @@ class ProductController extends FrontBaseController
         if (count($cateOverviews->overviews) > 0) {
             $is_overview = true;
         }
+        // dd('==', $cateOverviewLists);
         if (count($cateOverviewLists->overviewLists) > 0) {
             $is_overviewList = true;
         }
@@ -115,7 +118,6 @@ class ProductController extends FrontBaseController
         // dump('article是',$is_article);
 
         // 產品規格表
-
         $productItem = ProductItem::with(['series.category', 'parts', 'specTitles.contents'])
             ->where('url_name', $productURL)
             ->whereHas('series.category', function ($query) use ($categoryURL) {
@@ -133,17 +135,58 @@ class ProductController extends FrontBaseController
         foreach ($contents as $content) {
             $specContentArr[$content->spec_id][$content->part_id] = $content->content;
         }
-        // dd($specContentArr);
+
+        // 下拉
+        $itemID = ProductItem::where('url_name', $request->productURL)->pluck('id')->first();
+        // dd($itemID);
+        $partIDs = ProductItemPart::isVisible()->get()->pluck('id');
+        $isFilterSpecIDs = ProductItemSpecTitle::isVisible()
+            ->where('item_id', $itemID)
+            ->where('is_filter', 1)
+            ->get()
+            ->pluck('id');
+        // dump($isFilterSpecIDs);
+        //所有型號的內容
+        $partContents = ProductItemSpecContent::with('specTitle')
+            ->where('item_id', $itemID)
+            ->whereIn('part_id', $partIDs)
+            ->whereIn('spec_id', $isFilterSpecIDs)
+            ->get();
+
+        // dump($partContents);
+        $dropdownArr = [];
+        foreach ($partContents as $key => $content) {
+            # code...
+            $specID = $content['spec_id'];
+            // dump($content);
+            if (!isset($dropdownArr[$specID])) {
+                $dropdownArr[$specID] = [
+                    'spec_title' => $content->specTitle['title'],
+                    'spec_id' => $content['spec_id'],
+                    'content' => []
+                ];
+            }
+            if (!in_array($content['content'], $dropdownArr[$specID]['content'])) {
+                // dump($dropdownArr[$specID]['content']);
+                $dropdownArr[$specID]['content'][] = $content['content'];
+            }
+        }
+
+        // dump($dropdownArr);
         return view(self::$blade_template . '.product.detail', [
             'productInfo' => $productInfo,
             'is_article' => $is_article, //產品類別
             'specTitles' => $specTitles, //表頭
             'specParts' => $specParts, //型號
             'specContentArr' => $specContentArr, //處理過的內容
-            // 'cateAdvantages' => $cateAdvantages,
+            'dropdownArr' => $dropdownArr, //下拉選單
             // 'cateProducts' => $cateProducts,
             'basic_seo' => Seo()
         ]);
+    }
+    public function detail2(Request $request)
+    {
+        return view(self::$blade_template . '.product.detail2', ['basic_seo' => Seo()]);
     }
 
 }

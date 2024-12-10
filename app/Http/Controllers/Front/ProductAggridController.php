@@ -36,9 +36,9 @@ class ProductAggridController extends FrontBaseController
             'headerName' => '型號', // 表頭名稱
             'field' => 'part', // 對應的欄位名稱
             'editable' => false, // 型號欄位不允許編輯
-            'pinned' => 'left', // 固定在左側
-            'width' => 150, // 設定欄寬
-            'headerTooltip' => '型號', // 工具提示
+            // 'pinned' => 'left', // 固定在左側
+            'width' => 200, // 設定欄寬
+            // 'headerTooltip' => '型號', // 工具提示
         ];
 
         if ($productItem) {
@@ -49,9 +49,9 @@ class ProductAggridController extends FrontBaseController
                         'headerName' => $specTitle->title, // 使用規格標題作為表頭
                         'field' => (string) $specTitle->id, // 'field' 是用來對應資料模型中的欄位，它告訴表格元件每一個列（column）應該顯示哪個資料欄位的值。
                         'editable' => true, // 使得列可編輯
-                        'pinned' => 'left', // 將表頭固定在左側
-                        'width' => 200, // 設定列寬
-                        'headerTooltip' => $specTitle->title, // 顯示規格的工具提示
+                        // 'pinned' => 'left', // 將表頭固定在左側
+                        // 'width' => 200, // 設定列寬
+                        // 'headerTooltip' => $specTitle->title, // 顯示規格的工具提示
                     ];
 
                 }

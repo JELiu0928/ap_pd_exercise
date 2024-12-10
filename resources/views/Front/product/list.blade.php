@@ -24,18 +24,18 @@
     @include('Front.include.headerArea')
 
     <!-- 主要內容-->
+
+
     <main>
         <!-- 共用內頁 banner 設定-->
-        <!-- 標題文字顏色: 黑/白/漸層, 黑 title-color="black", 白 title-color="white", 漸層 title-color="gradient"-->
-        <!-- 描述文字顏色(麵包屑顏色跟隨描述文字): 黑/白, 黑 sub-color="black", 白 sub-color="white"-->
-        <!-- 圖片建議尺寸: 電腦 2880x675(px), 平板 1535x675(px), 手機 750x900(px)-->
+        <!-- 標題文字顏色: 黑/白/漸層, 黑 title-color="black", 白 title-color="white", 漸層 title-color="gradient"--><!-- 描述文字顏色(麵包屑顏色跟隨描述文字): 黑/白, 黑 sub-color="black", 白 sub-color="white"--><!-- 圖片建議尺寸: 電腦 2880x675(px), 平板 1535x675(px), 手機 750x900(px)-->
         <section class="detail-banner" d-grid data-aost detect-target data-aost-fade
             title-color="{{ $category['banner_title_color'] }}" sub-color="{{ $category['banner_intro_color'] }}"
             text-align="{{ $category['banner_text_location'] }}">
             <div class="breadcrumb">
                 <ul>
-                    <li><a class="icon" href="{{ BaseFunction::b_url('') }}"><i class="icon-home"></i></a></li>
-                    <li><a href="{{ BaseFunction::b_url('product') }}"><span class="categoryBtn">產品專區</span></a></li>
+                    <li> <a class="icon" href="{{ BaseFunction::b_url('') }}"><i class="icon-home"></i></a></li>
+                    <li><a href="{{ BaseFunction::b_url('product') }}"><span class="categoryBtn">產品專區新</span></a></li>
                     <li><span class="categoryBtn">{!! $category['banner_title'] !!}</span></li>
                 </ul>
             </div>
@@ -44,11 +44,12 @@
                     <div class="bg">
                         <picture>
                             <source data-srcset="{{ $category['banner_m_img_url'] }}" media="(max-width: 575px)">
-                            <source data-srcset="{{ $category['banner_pad_img_url'] }}" media="(max-width: 1200px)">
-                            <img class="lazy" data-src="{{ $category['banner_pc_img_url'] }}" alt="">
+                            <source data-srcset="{{ $category['banner_pad_img_url'] }}" media="(max-width: 1200px)"><img
+                                class="lazy" data-src="{{ $category['banner_pc_img_url'] }}" alt="">
                         </picture>
                     </div>
                 @endif
+
                 <div class="container">
                     <div class="content-block">
                         <div class="wrapper">
@@ -71,6 +72,7 @@
                         <!-- m4-status="" 預設 active 選項及出現的內容-->
                         <multipurpose-nav m4-type="drag" m4-option="{&quot;drag&quot;:{&quot;selected&quot;:false}}"
                             m4-status="1">
+                            {{-- 不會換active --}}
                             @foreach ($productCategories as $key => $cate)
                                 <li class="item" data-option="{{ $key + 1 }}">
                                     <a class="category" href="{{ BaseFunction::b_url($cate['half_url']) }}">
@@ -79,8 +81,7 @@
                                 </li>
                             @endforeach
                             <li class="item" data-option="3">
-                                <a class="category" href="javascript:;"
-                                    onclick="document.body.fesd.ajaxConsult()">
+                                <a class="category" href="javascript:;" onclick="document.body.fesd.ajaxConsult()">
                                     <div class="categoryBtn">
                                         <p>線上產品諮詢清單</p>
                                         <div class="icon"> <i class="icon-consult"></i></div>
@@ -111,6 +112,7 @@
                                         <p class="categoryBtn">{{ $category['product_title'] }}</p>
                                     </a></li>
                             @endif
+
                         </multipurpose-nav>
                     </div>
                 </div>
@@ -137,7 +139,7 @@
                                 <div class="item" data-type="photo-left" data-aost>
                                     <div class="photo-outer">
                                         <div class="photo">
-                                            <img data-src="{{ $overview['img_url'] }}" alt="">
+                                            <img class="lazy" data-src="{{ $overview['img_url'] }}" alt="">
                                         </div>
                                         <div class="desc">
                                             <p>{!! $overview['img_intro'] !!}</p>
@@ -148,28 +150,35 @@
                                             <div class="itemTitle-lw">{!! nl2br($overview['title']) !!}</div>
                                         </div>
                                         <div class="text">
-                                            <div class="paragraphText">{!! nl2br($overview['intro']) !!} </div>
+                                            <div class="paragraphText">{!! nl2br($overview['intro']) !!}</div>
                                         </div>
                                     </div>
                                 </div>
                             @endforeach
+
                         </div>
                     @endif
+                    {{-- @dd($is_overviewList) --}}
+
                     @if ($is_overviewList)
                         <div class="bottom-block" data-aost>
                             <div class="text-block">
+                                {{-- @if (!empty(strip_tags($category->series_zone_title))) --}}
                                 <div class="title">
                                     <div class="itemTitle-lw">{!! nl2br($category['series_zone_title']) !!}</div>
                                 </div>
-                                <div class="text">
-                                    <div class="paragraphText">{!! nl2br($category['series_zone_intro']) !!}</div>
-                                </div>
+                                {{-- @endif --}}
+                                @if (!empty(strip_tags($category->series_zone_intro)))
+                                    <div class="text">
+                                        <div class="paragraphText">{!! nl2br($category['series_zone_intro']) !!}</div>
+                                    </div>
+                                @endif
                             </div>
                             <div class="content">
                                 @foreach ($cateOverviews->overviewLists as $overviewList)
                                     <div class="item">
                                         <div class="itemTitle-w">{!! nl2br($overviewList['title']) !!}</div>
-                                        <div class="paragraphText">{!! nl2br($overviewList['intro']) !!} </div>
+                                        <div class="paragraphText">{!! nl2br($overviewList['intro']) !!}</div>
                                     </div>
                                 @endforeach
                             </div>
@@ -179,6 +188,8 @@
                 </div>
             </section>
         @endif
+        @dump($category)
+
         @if ($is_advantages)
             <section class="advantage-block" anchor-target="2">
                 <!--***- 11.15 狀態新增-->
@@ -187,10 +198,14 @@
                 <div class="container" data-aost data-bg="true" title-color="black" text-color="black">
                     <div class="grid left">
                         <!-- 若無上背景圖, 需把 .bg 結構移除-->
-                        <div class="bg">
-                            <picture><img class="lazy" data-src="/dist/assets/img/product/advantage_bg_1440x1315.jpg"
-                                    alt=""></picture>
-                        </div>
+                        @if (!empty($category['advantages_zone_img']))
+                            <div class="bg">
+                                <picture>
+                                    <img class="lazy" data-src="{{ $category['advantages_zone_img_url'] }}"
+                                        alt="">
+                                </picture>
+                            </div>
+                        @endif
                         <div class="wrapper">
                             <div class="unitTitle-block left">
                                 <div class="title">
@@ -201,7 +216,8 @@
                                         <p>{{ $category['advantages_zone_intro'] }}</p>
                                     </div>
                                 @endif
-                            </div><!--***- 11.12 tab 更改結構形式--><!-- collapse 選單-->
+                            </div>
+                            <!--***- 11.12 tab 更改結構形式--><!-- collapse 選單-->
                             <div class="common-category">
                                 <div class="cate-outer">
                                     <!-- m4-status="" 預設 active 選項及出現的內容-->
@@ -213,9 +229,11 @@
                                                 t4-control="advantage-tab" t4-role="tab"
                                                 data-anchor-target=".advantage-block">
                                                 <div class="spread-btn paragraphText" style="--hoverball: #2E2E2E">
-                                                    {!! $tag['title'] !!}</div>
+                                                    {!! $tag['title'] !!}
+                                                </div>
                                             </li>
                                         @endforeach
+
                                     </multipurpose-nav>
                                 </div>
                             </div>
@@ -232,13 +250,14 @@
                                             @foreach ($tag->advantagesLists as $list)
                                                 <ripple-btn class="item" r4-hover="true" data-cotton>
                                                     <div class="title">
-                                                        <div class="itemTitle-w">{!! $list['title'] !!}</div>
+                                                        <p class="itemTitle-w">{!! $list['title'] !!}</p>
                                                     </div>
                                                     <div class="text">
                                                         <div class="paragraphText">{!! $list['intro'] !!}</div>
                                                     </div>
                                                 </ripple-btn>
                                             @endforeach
+
                                         </div>
                                     </div>
                                 </div>
@@ -248,7 +267,6 @@
                 </div>
             </section>
         @endif
-
         <!-- 相關產品-->
         @if ($is_product)
             <section class="all-products" d-grid anchor-target="3">
@@ -288,40 +306,18 @@
                                                 </div>
                                             </div>
                                             <div class="btn">
-                                                <a href="{{ BaseFunction::b_url($cateProducts['half_url']) . '/' . $item['url_name'] }}">
-                                                    <div class="common-btn"><span class="buttonText">More</span></div>
+                                                <a
+                                                    href="{{ BaseFunction::b_url($cateProducts['half_url']) . '/' . $item['url_name'] }}">
+                                                    <div class="common-btn">
+                                                        <span class="buttonText">More</span>
+                                                    </div>
                                                 </a>
                                             </div>
                                         </div>
                                     </div>
-
                                 </div>
                             @endforeach
                         @endforeach
-                        {{-- 
-                        <div class="card"> <a class="pic" href="product_detail.html">
-                                <picture><img class="lazy" data-src="/dist/assets/img/solution/pic_03_660x450.jpg"
-                                        alt=""></picture>
-                            </a>
-                            <div class="text"> <a class="itemTitle-w" href="product_detail.html">
-                                    <p>OPI & HPI</p>
-                                </a>
-                                <div class="paragraphText">
-                                    <p>數據機連網設備、物聯網、邊緣運算人工智慧、智慧顯示裝置、穿戴式應用</p>
-                                </div>
-                                <div class="bot">
-                                    <div class="tag">
-                                        <div class="tagItem">
-                                            <p class="categoryBtn">PSRAM </p>
-                                        </div>
-                                    </div>
-                                    <div class="btn"> <a href="product_detail.html">
-                                            <div class="common-btn"><span class="buttonText">More</span></div>
-                                        </a></div>
-                                </div>
-                            </div>
-                        </div> --}}
-
                     </div>
                 </div>
             </section>
