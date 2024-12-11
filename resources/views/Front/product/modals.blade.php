@@ -5,7 +5,7 @@
         <div class="consult-container">
             <div class="unitTitle-block center">
                 <div class="sub">
-                    <p>222線上產品諮詢清單</p>
+                    <p>線上產品諮詢清單</p>
                 </div>
                 <div class="text">
                     <p>以下列表為加入線上諮詢清單的產品，確認無誤後可填寫聯絡人資訊，相關單位工作人員將盡快聯繫您。</p>
@@ -13,16 +13,18 @@
             </div>
             <div class="consult-content" step-active="1">
                 <!-- 步驟 1-->
+                {{-- @dump($partItemCounts) --}}
+
                 <div class="block active" step-target="1">
                     <div class="grid step-block"><span class="step">01</span>
                         <span class="itemTitle-w">確認諮詢產品</span>
-                        <span class="total paragraphText-w">共計：0 項</span>
+                        <span class="total paragraphText-w bk-total-count">共計：{{$partItemCounts}} 項</span>
                     </div>
                     <div class="grid consult-list">
-                        <p class="paragraphText-w">產品諮詢清單</p>
+                        <p class="paragraphText-w">222產品諮詢清單</p>
                         <div class="list-outer">
                             <!-- 若無加入項目, list-group 加上 .d-none, .no-consult 移除 .d-none-->
-                            <div class="list-group bk-list-group">
+                            <div class="list-group bk-list-group {{$partItemCounts == 0 ? 'd-none' : '' }}">
                                 @include('Front.product.consult_pd_list')
                                 {{-- @foreach ($partItems as $item)
                                     <div class="list">
@@ -120,7 +122,7 @@
                                     </div>
                                 </div> --}}
                             </div>
-                            <div class="no-consult d-none">
+                            <div class="no-consult @if ($partItemCounts != 0) d-none @endif ">
                                 <div class="icon">
                                     <i class="icon-warning"></i>
                                 </div>
@@ -143,8 +145,8 @@
                         </div>
                     </div>
                     <div class="btn-group">
-                        <a class="default-btn" href="javascript:;" color="light-gray" size="large"
-                            onclick="document.body.fesd.ajaxAllDelete()">
+                        <a class="default-btn bk-delete-all" href="javascript:;" color="light-gray" size="large"
+                            {{--onclick="document.body.fesd.ajaxAllDelete()"--}}>
                             <div class="txt">移除所有產品 </div>
                         </a>
                         <!--***- 11.13 新增 spread-btn 的 class, 以及 style="--hoverball: #2E2E2E" 的屬性-->

@@ -5,6 +5,9 @@ import { _consult } from "./consult.js";
 $(function () {
     _detail.handleDropdownClick();
     _detail.clearFilter();
+
+
+    _consult.initPage();
     _consult.handleConsultClick();
     _consult.openLightBox();
     _consult.deletePartClick();

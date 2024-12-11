@@ -252,8 +252,8 @@
                                     <!-- 加入諮詢, 在 tr 加上 added 的 class-->
                                     <!-- 下載檔案 / 加入諮詢 有兩組結構(電腦版與手機版), 再麻煩同步串接-->
                                     @foreach ($specParts as $part)
-                                        {{-- @dump($part) --}}
-                                        <div class="tr bk-tr {{ 'bk-part-' . $part['id'] }}"
+                                        {{-- @dump(in_array($part['id'],$sessionPartIDs)) --}}
+                                        <div class="tr bk-tr {{ 'bk-part-' . $part['id'] }} {{is_array($sessionPartIDs) && in_array($part['id'],$sessionPartIDs) ? 'added' : '' }} "
                                             bk-part-id="{{ $part['id'] }}">
                                             <div class="td fixed-left">
                                                 <p>{{ $part['title'] }}</p>

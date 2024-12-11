@@ -189,6 +189,7 @@ class ProductController extends FrontBaseController
             'specContentArr' => $specContentArr, //處理過的內容
             'dropdownArr' => $dropdownArr, //下拉選單
             'partItemCounts' => $partItemCounts ?? 0,
+            'sessionPartIDs' => $sessionPartIDs,
             'basic_seo' => Seo(),
             // 'view' => View::make(self::$blade_template . '.product.consult_pd_list', [
             'partItems' => $partItems ?? [],
@@ -212,22 +213,33 @@ class ProductController extends FrontBaseController
         if (!empty($itemID)) {
             $key = array_search($partID, $partIDList); //index位置
             // dd('$key==', $key);
-            if ($key !== false) {
-                unset($partIDList[$key]);
-                //刪除被選擇的後重新設置
+            // if ($key !== false) {
+            //     unset($partIDList[$key]);
+            //     //刪除被選擇的後重新設置
+            //     $res['count'] = count($partIDList);
+            //     Session::put('partIDList', $partIDList);
+            //     Session::save(); //可加可不加，增加可讀性
+            // } else {
+            //     $res['status'] = false;
+            // }
+            if (($key = array_search($partID, $partIDList)) !== false) {
+                unset($partIDList[$key]); // 刪除該項
+                $partIDList = array_values($partIDList); // 重建索引
+                $res['count'] = count($partIDList);
                 Session::put('partIDList', $partIDList);
-                Session::save(); //可加可不加，增加可讀性
-            } else {
-                $res['status'] = false;
+                // dump('多少',$res['count'] );
             }
         }
+        return $res;
+    }
+    public function deleteAllFromConsultList(Request $request)
+    {
+        $res = [];
+        $res['status'] = true;
 
+        Session::forget('partIDList');
+        $res['count'] = 0;
 
-
-        // $partID = $request->all();
-        // $res['result'] = $partID;
-        // $partID = $request->all();
-        // dd('del partID', $partID);
         return $res;
     }
     // public function validatedPart($partID) : Returntype {
@@ -280,16 +292,18 @@ class ProductController extends FrontBaseController
     }
     public function getConsultData(Request $request)
     {
+        // $res
         $partIDList = Session::get('partIDList', []);
         $partItems = ProductItemPart::with('item.series.category')->whereIn('id', $partIDList)->isVisible()->get();
+        $count = count($partIDList);
+
         // dd('partItems', $partItems);
         return response([
             'view' => View::make(self::$blade_template . '.product.consult_pd_list', [
                 'partItems' => $partItems,
             ])->render(),
-            // 'ids' => $list,
-            // 'count' => $consult_count,
-            // 'consult_list_count_text' => $consult_list_count_text,
+            'partIDList' => $partIDList,
+            'count' => $count
         ]);
 
     }

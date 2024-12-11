@@ -132,6 +132,7 @@ $all = function () {
                 // Route::group(['prefix' => '/ajax'], function () {
                 Route::post('/addProductToConsultList', [ProductController::class, 'addProductToConsultList']);
                 Route::post('/deleteProductFromConsultList', [ProductController::class, 'deleteProductFromConsultList']);
+                Route::post('/deleteAllFromConsultList', [ProductController::class, 'deleteAllFromConsultList']);
                 Route::get('/getConsultData', [ProductController::class, 'getConsultData']);
                 // });
                 // ag-grid
