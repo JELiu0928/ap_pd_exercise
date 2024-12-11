@@ -98,32 +98,25 @@ class ProductConsultApi extends CmsApi implements GetTable
         //     3 => ['key' => '3', 'title' => '多筆分類3'],
         //     4 => ['key' => '4', 'title' => '多筆分類4'],
         // ];
-        $colSetting = ColumnSet::make();
-        // ->imageCol('o_img', 'imageGroup')
-        // ->textCol('textInput', 'textInput', 250)
-        // ->textCol('textArea', 'textArea', 250)
-        // ->radioButtonCol('radio_btn', 'radio_btn')
-        // ->selectCol('radio_area', 'radio_area', OptionFunction::ProductConsult_radio_area())
-        // ->selectCol('select2', 'select2', $getList)
-        // ->selectMultiCol('select2Multi', 'select2Multi', $getListMuti)
-        // ->colorCol('colorPicker', 'colorPicker')
-        // ->dateCol('datePicker', 'datePicker')
-        // ->rankInputCol('w_rank', '排序')->radioButtonCol(['is_preview' => '預覽', 'is_visible' => '顯示狀態',])
-        // ->timestampCol('updated_at', '最後更新日期')
-        // ->setConfig(['draggable' => true, 'selectable' => true, 'multiSortable' => true, 'pagination' => $pagination])
-        // ->setDefault('sortable', true);
+        $colSetting = ColumnSet::make()
+            ->textCol('companyName', '公司名稱', 250)
+            ->textCol('name', '姓名', 250)
+            ->radioButtonCol(['is_read' => '已處理'])
+            ->timestampCol('updated_at', '最後更新日期')
+            ->setConfig(['draggable' => true, 'selectable' => true, 'multiSortable' => true, 'pagination' => $pagination]);
 
-        $role = $this->getRoles();
-        // $role = $this->basicRole(true);
+        // 是否開批次
+        $role = $this->basicRole(false);
+        // return TableResponse::create($colSet, 'ProductConsult', $data, $this->cmsMenu, $role, '諮詢表單管理', (int) $totalPage, (int) $site_page, (int) $perCount, (int) $totalCount);
         return TableResponse::create($colSetting, 'ProductConsult', $data, $this->cmsMenu, $role, '總覽管理', (int) $totalPage, (int) $site_page, (int) $perCount, (int) $totalCount);
     }
-    // public function getExport(): ExportResponse
-    // {
-    //     $sql = $this->basicSql(ProductConsult::class);
-    //     $data = (clone $sql)->get();
-    //     $colSetting = ColumnSet::make()->textCol(['textInput' => 'textInput', 'lang_textInput' => 'lang_textInput', 'textInputTarget' => 'textInputTarget', 'textInputTargetAcc' => 'textInputTargetAcc', 'textArea' => 'textArea', 'lang_textArea' => 'lang_textArea', 'radio_btn' => 'radio_btn',]);
-    //     return ExportResponse::create($colSetting, $data);
-    // }
+    public function getExport(): ExportResponse
+    {
+        $sql = $this->basicSql(ProductConsult::class);
+        $data = (clone $sql)->get();
+        $colSetting = ColumnSet::make()->textCol(['textInput' => 'textInput', 'lang_textInput' => 'lang_textInput', 'textInputTarget' => 'textInputTarget', 'textInputTargetAcc' => 'textInputTargetAcc', 'textArea' => 'textArea', 'lang_textArea' => 'lang_textArea', 'radio_btn' => 'radio_btn',]);
+        return ExportResponse::create($colSetting, $data);
+    }
 
     protected function check(): bool
     {

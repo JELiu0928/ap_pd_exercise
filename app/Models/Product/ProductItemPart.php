@@ -38,6 +38,10 @@ class ProductItemPart extends FrontBase
 	{
 		return $this->belongsTo(ProductItem::class, 'item_id');
 	}
+	public function item()
+	{
+		return $this->belongsTo(ProductItem::class, 'item_id')->isVisible();
+	}
 	// public function specTitles()
 	// {
 	//     return $this->belongsToMany(ProductItemSpecTitle::class, 'product_item_part_spec_title', 'part_id', 'spec_id');

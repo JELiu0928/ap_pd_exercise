@@ -188,7 +188,7 @@
                 </div>
             </section>
         @endif
-        @dump($category)
+        {{-- @dump($category) --}}
 
         @if ($is_advantages)
             <section class="advantage-block" anchor-target="2">

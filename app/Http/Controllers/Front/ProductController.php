@@ -12,6 +12,7 @@ use App\Models\Product\ProductSet;
 use Illuminate\Http\Request;
 use View;
 use BaseFunction;
+use Session;
 use App\Http\Controllers\OptionFunction;
 use App\Models\Product\ProductItem;
 
@@ -172,7 +173,14 @@ class ProductController extends FrontBaseController
             }
         }
 
-        // dump($dropdownArr);
+        $sessionPartIDs = Session::get('partIDList');
+        // dump($sessionPartIDs);
+        if (!empty($sessionPartIDs)) {
+            $partItems = self::getConsult($sessionPartIDs);
+            $partItemCounts = count($partItems);
+        }
+
+        // dd($partItems);
         return view(self::$blade_template . '.product.detail', [
             'productInfo' => $productInfo,
             'is_article' => $is_article, //產品類別
@@ -180,13 +188,121 @@ class ProductController extends FrontBaseController
             'specParts' => $specParts, //型號
             'specContentArr' => $specContentArr, //處理過的內容
             'dropdownArr' => $dropdownArr, //下拉選單
-            // 'cateProducts' => $cateProducts,
-            'basic_seo' => Seo()
+            'partItemCounts' => $partItemCounts ?? 0,
+            'basic_seo' => Seo(),
+            // 'view' => View::make(self::$blade_template . '.product.consult_pd_list', [
+            'partItems' => $partItems ?? [],
+            // ])->render(),
         ]);
     }
-    public function detail2(Request $request)
+    public function deleteProductFromConsultList(Request $request)
     {
-        return view(self::$blade_template . '.product.detail2', ['basic_seo' => Seo()]);
-    }
+        $res = [];
+        $res['status'] = true;
 
+        $partIDList = Session::get('partIDList', []);
+        // dump($partIDList);
+        $partID = $request->get('partID');
+        // dd($partID);
+        // $res['partIDs'] = [];
+        $itemID = ProductItem::with('parts')->isVisible()->whereHas('parts', function ($q) use ($partID) {
+            $q->where('id', $partID);
+        })->pluck('id')->first();
+
+        if (!empty($itemID)) {
+            $key = array_search($partID, $partIDList); //index位置
+            // dd('$key==', $key);
+            if ($key !== false) {
+                unset($partIDList[$key]);
+                //刪除被選擇的後重新設置
+                Session::put('partIDList', $partIDList);
+                Session::save(); //可加可不加，增加可讀性
+            } else {
+                $res['status'] = false;
+            }
+        }
+
+
+
+        // $partID = $request->all();
+        // $res['result'] = $partID;
+        // $partID = $request->all();
+        // dd('del partID', $partID);
+        return $res;
+    }
+    // public function validatedPart($partID) : Returntype {
+    //     $itemID = ProductItem::with('parts')->isVisible()->whereHas('parts', function ($q) use ($partID) {
+    //         $q->where('id', $partID);
+    //     })->pluck('id')->first();
+
+    // }
+    public function addProductToConsultList(Request $request)
+    {
+        // Session::forget('partIDList');
+
+        $res = [];
+        $res['status'] = true;
+        $res['partIDs'] = [];
+        // partIDList 為以產品id為資料的陣列
+        $partIDList = Session::get('partIDList', []);
+
+        // dd($request->all());
+        //取得前端傳入id 一次一個
+        $partID = $request->get('partID') ?? 0;
+        $itemID = ProductItem::with('parts')->isVisible()->whereHas('parts', function ($q) use ($partID) {
+            $q->where('id', $partID);
+        })->pluck('id')->first();
+        // dd('ssss', $itemID);
+        // dd('==>', ProductItem::with('ProductItemPart')->get());
+        //檢驗產品是否合法
+        if (!empty($itemID)) {
+            $partItem = ProductItemPart::with('item.series.category')
+                ->where('id', $partID)
+                ->first();
+        }
+        // dd('partItem', $partItem);
+        if (empty($partItem)) {
+            $res['status'] = false;
+            return $res;
+        }
+
+        //檢驗是否已記錄 加入陣列
+        if (!in_array($partID, $partIDList)) {
+            $partIDList[] = $partID;
+            Session::put('partIDList', $partIDList);
+            Session::save(); //可加可不加，增加可讀性
+        }
+
+        $res['count'] = count($partIDList);
+        $res['partIDs'] = $partIDList;
+
+        return $res;
+    }
+    public function getConsultData(Request $request)
+    {
+        $partIDList = Session::get('partIDList', []);
+        $partItems = ProductItemPart::with('item.series.category')->whereIn('id', $partIDList)->isVisible()->get();
+        // dd('partItems', $partItems);
+        return response([
+            'view' => View::make(self::$blade_template . '.product.consult_pd_list', [
+                'partItems' => $partItems,
+            ])->render(),
+            // 'ids' => $list,
+            // 'count' => $consult_count,
+            // 'consult_list_count_text' => $consult_list_count_text,
+        ]);
+
+    }
+    public function getConsult($ids)
+    {
+        $tempList = [];
+        foreach ($ids as $id) {
+            if (!in_array($id, $tempList)) {
+                array_push($tempList, $id);
+            }
+        }
+        $partItems = ProductItemPart::with('item.series.category')->whereIn('id', $tempList)->isVisible()->get();
+
+        return $partItems;
+    }
 }

@@ -253,7 +253,8 @@
                                     <!-- 下載檔案 / 加入諮詢 有兩組結構(電腦版與手機版), 再麻煩同步串接-->
                                     @foreach ($specParts as $part)
                                         {{-- @dump($part) --}}
-                                        <div class="tr bk-tr" bk-part-id="{{ $part['id'] }}">
+                                        <div class="tr bk-tr {{ 'bk-part-' . $part['id'] }}"
+                                            bk-part-id="{{ $part['id'] }}">
                                             <div class="td fixed-left">
                                                 <p>{{ $part['title'] }}</p>
                                                 <div class="row-flex rwd action">
@@ -262,8 +263,8 @@
                                                             <i class="icon-download"> </i>
                                                         </div>
                                                     </a>
-                                                    <div class="flex addConsult"
-                                                        onclick="document.body.fesd.addConsult()">
+                                                    {{-- rwd --}}
+                                                    <div class="flex addConsult bk-add-consult-btn" {{-- onclick="document.body.fesd.addConsult()"> --}}>
                                                         <div class="icon">
                                                             <i class="icon-plus"></i>
                                                             <i class="icon-check"></i>
@@ -282,7 +283,8 @@
                                                     <div class="icon"><i class="icon-download"></i></div>
                                                     <p class="paragraphText">下載檔案</p>
                                                 </a>
-                                                <div class="flex addConsult" onclick="document.body.fesd.addConsult()">
+                                                {{-- <div class="flex addConsult" onclick="document.body.fesd.addConsult()"> --}}
+                                                <div class="flex addConsult bk-add-consult-btn">
                                                     <div class="icon">
                                                         <i class="icon-plus"></i>
                                                         <i class="icon-check"></i>

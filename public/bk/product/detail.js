@@ -70,5 +70,3 @@ function setOddEvenColor() {
         }
     });
 }
-
-$(".addConsult").on("click", function () {});

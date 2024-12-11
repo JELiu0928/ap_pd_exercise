@@ -1,4 +1,5 @@
 <modern-modal data-modal-id="consult-modal" data-modal-animate="fade-up">
+    {{-- @dd($aaa) --}}
     <div class="close-btn" data-modal-close></div>
     <div class="modal-container">
         <div class="consult-container">
@@ -21,41 +22,44 @@
                         <p class="paragraphText-w">產品諮詢清單</p>
                         <div class="list-outer">
                             <!-- 若無加入項目, list-group 加上 .d-none, .no-consult 移除 .d-none-->
-                            <div class="list-group">
-                                <div class="list">
-                                    <div class="row">
-                                        <ul>
-                                            <li class="paragraphText-s">
-                                                <span>產品類別</span>
-                                                <span>IoT RAM<sup>TM</sup></span>
-                                            </li>
-                                            <li class="paragraphText-s">
-                                                <span>產品系列</span>
-                                                <span>PSRAM</span>
-                                            </li>
-                                            <li class="paragraphText-s">
-                                                <span>產品項目</span>
-                                                <span>SPI & QSPI</span>
-                                            </li>
-                                        </ul>
-                                        <div class="main">
-                                            <p class="itemTitle-w">APS1604M-SQR</p>
-                                        </div>
-                                        <div class="form-row">
-                                            <div class="form-grid">
-                                                <label class="form-group textarea small">
-                                                    <div class="input-wrap">
-                                                        <textarea class="textarea-scrollbar" form-field="note1" type="text" placeholder="新增備註..." name="description"></textarea>
-                                                    </div>
-                                                </label>
+                            <div class="list-group bk-list-group">
+                                @include('Front.product.consult_pd_list')
+                                {{-- @foreach ($partItems as $item)
+                                    <div class="list">
+                                        <div class="row">
+                                            <ul>
+                                                <li class="paragraphText-s">
+                                                    <span>產品類別 "{{ $item['id'] }}"</span>
+                                                    <span>{!! $item->item['banner_title'] !!}</span>
+                                                </li>
+                                                <li class="paragraphText-s">
+                                                    <span>產品系列</span>
+                                                    <span>{!! $item->item->series['title'] !!}</span>
+                                                </li>
+                                                <li class="paragraphText-s">
+                                                    <span>產品項目</span>
+                                                    <span>{!! $item->item->series->category['banner_title'] !!}</span>
+                                                </li>
+                                            </ul>
+                                            <div class="main">
+                                                <p class="itemTitle-w">{{ $item['title'] }}</p>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-grid">
+                                                    <label class="form-group textarea small">
+                                                        <div class="input-wrap">
+                                                            <textarea class="textarea-scrollbar" form-field="note1" type="text" placeholder="新增備註..." name="description"></textarea>
+                                                        </div>
+                                                    </label>
+                                                </div>
                                             </div>
                                         </div>
+                                        <div class="icon delete" onclick="document.body.fesd.ajaxDelete()">
+                                            <i class="icon-delete"></i>
+                                        </div>
                                     </div>
-                                    <div class="icon delete" onclick="document.body.fesd.ajaxDelete()">
-                                        <i class="icon-delete"></i>
-                                    </div>
-                                </div>
-                                <div class="list">
+                                @endforeach --}}
+                                {{-- <div class="list">
                                     <div class="row">
                                         <ul>
                                             <li class="paragraphText-s">
@@ -114,7 +118,7 @@
                                     <div class="icon delete" onclick="document.body.fesd.ajaxDelete()"><i
                                             class="icon-delete"></i>
                                     </div>
-                                </div>
+                                </div> --}}
                             </div>
                             <div class="no-consult d-none">
                                 <div class="icon">
@@ -154,8 +158,8 @@
                 </div>
                 <!-- 步驟 2-->
                 <div class="block" step-target="2">
-                    <div class="grid step-block"><span class="step">02</span><span
-                            class="itemTitle-w">填寫聯繫資料</span></div>
+                    <div class="grid step-block"><span class="step">02</span><span class="itemTitle-w">填寫聯繫資料</span>
+                    </div>
                     <div class="consult-form">
                         <div class="form-wrap">
                             <div class="form-row">
@@ -205,8 +209,8 @@
                                         <div class="subject paragraphText-w">
                                             <p>稱謂</p>
                                         </div>
-                                        <dropdown-el class="type-fullbox" d4-placeholder="請選擇您的稱謂"
-                                            form-field="service" field-type="isSelect">
+                                        <dropdown-el class="type-fullbox" d4-placeholder="請選擇您的稱謂" form-field="service"
+                                            field-type="isSelect">
                                             <li>
                                                 <p>預設選項1</p>
                                             </li>
@@ -282,6 +286,35 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+</modern-modal>
+
+<modern-modal data-modal-id="notice-delete" data-modal-animate="fade-up">
+    <div class="icon"> <i class="icon-delete"> </i></div>
+    <div class="title itemTitle-lw">移除產品</div>
+    <div class="text paragraphText">是否確定要移除此產品？</div>
+    <div class="btn-group">
+        <div class="default-btn form-clear" data-modal-close color="light-gray" size="large">
+            <div class="txt">我再想想</div>
+        </div><!--***- 11.13 新增 spread-btn 的 class, 以及 style="--hoverball: #2E2E2E" 的屬性-->
+        <div class="spread-btn default-btn form-submit bk-delete-submit" data-modal-close color="black"
+            style="--hoverball: #2E2E2E" size="large">
+            <div class="txt">確定移除 </div>
+        </div>
+    </div>
+</modern-modal>
+<modern-modal data-modal-id="notice-deleteAll" data-modal-animate="fade-up">
+    <div class="icon"> <i class="icon-delete"> </i></div>
+    <div class="title itemTitle-lw">移除所有產品</div>
+    <div class="text paragraphText">是否確定要移所有產品？</div>
+    <div class="btn-group">
+        <div class="default-btn form-clear" data-modal-close color="light-gray" size="large">
+            <div class="txt">我再想想</div>
+        </div><!--***- 11.13 新增 spread-btn 的 class, 以及 style="--hoverball: #2E2E2E" 的屬性-->
+        <div class="spread-btn default-btn form-submit" data-modal-close color="black" style="--hoverball: #2E2E2E"
+            size="large">
+            <div class="txt">確定移除 </div>
         </div>
     </div>
 </modern-modal>

@@ -28,7 +28,7 @@ class ProductItem extends FrontBase
 		$this->setTable($TableName);
 	}
 
-    protected static function boot()
+	protected static function boot()
 	{
 		parent::boot();
 		static::saving(function ($model) {
@@ -62,7 +62,7 @@ class ProductItem extends FrontBase
 	{
 		return $this->hasMany(ProductArticle::class, 'parent_id')->isVisible();
 	}
-    // 多個產品型號
+	// 多個產品型號
 	public function ProductItemPart()
 	{
 		return $this->hasMany(ProductItemPart::class, 'item_id');
@@ -73,13 +73,14 @@ class ProductItem extends FrontBase
 	}
 	public function parts()
 	{
-        return $this->hasMany(ProductItemPart::class, 'item_id')->isVisible();
+		return $this->hasMany(ProductItemPart::class, 'item_id')->isVisible();
+		// return $this->hasMany(ProductItemPart::class, 'item_id');
 	}
-    public function specTitles()
-    {
-        return $this->hasMany(ProductItemSpecTitle::class, 'item_id')->isVisible();
-    }
-//     public function specTitles()
+	public function specTitles()
+	{
+		return $this->hasMany(ProductItemSpecTitle::class, 'item_id')->isVisible();
+	}
+	//     public function specTitles()
 // {
 //     return $this->belongsToMany('App\Models\Product\ProductItemSpecTitle', 'product_item_part_spec_title', 'part_id', 'spec_id');
 // }

@@ -117,26 +117,26 @@ $all = function () {
                 Route::get('sendMessage', [LineNotifyController::class, 'sendMessage']);
                 Route::get('status', [LineNotifyController::class, 'status']);
             });
+
             Route::group(['prefix' => '/product'], function () {
+
                 Route::get('/', [ProductController::class, 'index']);
                 Route::get('/{categoryURL}', [ProductController::class, 'list']);
                 Route::get('/{categoryURL}/{productURL}', [ProductController::class, 'detail']);
-                Route::get('/{categoryURL}/{productURL}/2', [ProductController::class, 'detail2']);
+                // Route::get('/{categoryURL}/{productURL}/2', [ProductController::class, 'detail2']);
+                // Route::get('/ajax/addProductToConsultList', [ProductController::class, 'addProductToConsultList']);
                 // Route::get('sendMessage',[LineNotifyController::class, 'sendMessage']);
                 // Route::get('status',[LineNotifyController::class, 'status']);
             });
-            // ag-grid
             Route::group(['prefix' => '/Ajax'], function () {
-                Route::group(['prefix' => '/cms'], function () {
-                    // Route::post('/getItemSpecificationCmsView', [AggridController::class, 'itemSpecificationCmsView'])->middleware(['auth']);
-                    // Route::post('/getItemOverviewSpecificationCmsView', [AggridController::class, 'itemOverviewSpecificationCmsView'])->middleware(['auth']);
-                    // Route::post('/getItemOrderingSpecificationCmsView', [AggridController::class, 'itemOrderingSpecificationCmsView'])->middleware(['auth']);
-                    // Route::post('/getItemOptionalSpecificationCmsView', [AggridController::class, 'itemOptionalSpecificationCmsView'])->middleware(['auth']);
+                // Route::group(['prefix' => '/ajax'], function () {
+                Route::post('/addProductToConsultList', [ProductController::class, 'addProductToConsultList']);
+                Route::post('/deleteProductFromConsultList', [ProductController::class, 'deleteProductFromConsultList']);
+                Route::get('/getConsultData', [ProductController::class, 'getConsultData']);
+                // });
+                // ag-grid
 
-                    // Route::post('/itemSpecification', [AggridController::class, 'itemSpecification'])->middleware(['auth']);
-                    // Route::post('/itemOverviewSpecification', [AggridController::class, 'itemOverviewSpecification'])->middleware(['auth']);
-                    // Route::post('/itemOrderingSpecification', [AggridController::class, 'itemOrderingSpecification'])->middleware(['auth']);
-                    // Route::post('/itemOptionalSpecification', [AggridController::class, 'itemOptionalSpecification'])->middleware(['auth']);
+                Route::group(['prefix' => '/cms'], function () {
 
                     Route::post('/getItemSpecificationCmsView', [ProductAggridController::class, 'itemSpecificationCmsView'])->middleware(['auth']);
                     Route::post('/updateSpecificationInfo', [ProductAggridController::class, 'updateSpecificationInfo'])->middleware(['auth']); //操作需要登入
