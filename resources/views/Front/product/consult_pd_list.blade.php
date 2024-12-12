@@ -25,7 +25,8 @@
                     <div class="form-grid">
                         <label class="form-group textarea small">
                             <div class="input-wrap">
-                                <textarea class="textarea-scrollbar" form-field="note1" type="text" placeholder="新增備註..." name="description"></textarea>
+                                <textarea class="textarea-scrollbar bk-part-description" form-field="part-description" type="text"
+                                    placeholder="新增備註..." name="descriptione"></textarea>
                             </div>
                         </label>
                     </div>

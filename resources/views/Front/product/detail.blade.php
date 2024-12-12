@@ -34,7 +34,7 @@
                         <a class="icon" href="{{ BaseFunction::b_url('/') }}"><i class="icon-home"></i></a>
                     </li>
                     <li>
-                        <a href="{{ BaseFunction::b_url('/product') }}"><span class="categoryBtn">產品專區</span></a>
+                        <a href="{{ BaseFunction::b_url('product') }}"><span class="categoryBtn">產品專區</span></a>
                     </li>
                     <li>
                         {{-- @dump($productInfo['series']['category']['half_url']) --}}
@@ -253,7 +253,7 @@
                                     <!-- 下載檔案 / 加入諮詢 有兩組結構(電腦版與手機版), 再麻煩同步串接-->
                                     @foreach ($specParts as $part)
                                         {{-- @dump(in_array($part['id'],$sessionPartIDs)) --}}
-                                        <div class="tr bk-tr {{ 'bk-part-' . $part['id'] }} {{is_array($sessionPartIDs) && in_array($part['id'],$sessionPartIDs) ? 'added' : '' }} "
+                                        <div class="tr bk-tr {{ 'bk-part-' . $part['id'] }} {{ is_array($sessionPartIDs) && in_array($part['id'], $sessionPartIDs) ? 'added' : '' }} "
                                             bk-part-id="{{ $part['id'] }}">
                                             <div class="td fixed-left">
                                                 <p>{{ $part['title'] }}</p>
@@ -374,93 +374,44 @@
                     <div class="swiper relatedProduct-swiper">
                         <div class="swiper-wrapper card-outer">
                             <!-- 圖片建議尺寸 660x450(px)-->
-                            <div class="swiper-slide">
-                                <div class="card">
-                                    <a class="pic" href="javascript:;">
-                                        <picture><img class="lazy"
-                                                data-src="/dist/assets/img/solution/pic_02_660x450.jpg" alt="" />
-                                        </picture>
-                                    </a>
-                                    <div class="text">
-                                        <a class="title" href="javascript:;">
-                                            <p class="itemTitle-w">SPI & QSPI</p>
-                                        </a>
-                                        <div class="desc">
-                                            <div class="paragraphText">邊緣 AI 產品、智慧家庭、穿戴式設備、5G 通訊、顯示器時序控制 (T-CON) 等應用</div>
-                                        </div>
-                                        <div class="bot">
-                                            <div class="tag">
-                                                <div class="tagItem">
-                                                    <p class="categoryBtn">PSRAM</p>
-                                                </div>
-                                            </div>
-                                            <div class="btn">
-                                                <a href="javascript:;">
-                                                    <div class="common-btn"><span class="buttonText">More</span></div>
+                            @foreach ($cateProducts->series as $series)
+                                @foreach ($series->items as $item)
+                                    <div class="swiper-slide">
+                                        <div class="card">
+                                            <a class="pic"
+                                                href="{{ BaseFunction::b_url($cateProducts['half_url']) . '/' . $item['url_name'] }}">
+                                                <picture><img class="lazy" data-src="{{ $item['list_img_url'] }}"
+                                                        alt="" />
+                                                </picture>
+                                            </a>
+                                            <div class="text">
+                                                <a class="title"
+                                                    href="{{ BaseFunction::b_url($cateProducts['half_url']) . '/' . $item['url_name'] }}">
+                                                    <div class="itemTitle-w">{!! $item['banner_title'] !!}</div>
                                                 </a>
+                                                <div class="desc">
+                                                    <div class="paragraphText">{!! $item['banner_keyword_intro'] !!} </div>
+                                                </div>
+                                                <div class="bot">
+                                                    <div class="tag">
+                                                        <div class="tagItem">
+                                                            <p class="categoryBtn">{!! $series['title'] !!}</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="btn">
+                                                        <a href="javascript:;">
+                                                            <div class="common-btn"><span class="buttonText">More</span>
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="card">
-                                    <a class="pic" href="javascript:;">
-                                        <picture><img class="lazy"
-                                                data-src="/dist/assets/img/solution/pic_03_660x450.jpg" alt="" />
-                                        </picture>
-                                    </a>
-                                    <div class="text">
-                                        <a class="title" href="javascript:;">
-                                            <p class="itemTitle-w">OPI & HPI</p>
-                                        </a>
-                                        <div class="desc">
-                                            <div class="paragraphText">數據機連網設備、物聯網、邊緣運算人工智慧、智慧顯示裝置、穿戴式應用</div>
-                                        </div>
-                                        <div class="bot">
-                                            <div class="tag">
-                                                <div class="tagItem">
-                                                    <p class="categoryBtn">PSRAM</p>
-                                                </div>
-                                            </div>
-                                            <div class="btn">
-                                                <a href="javascript:;">
-                                                    <div class="common-btn"><span class="buttonText">More</span></div>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="card">
-                                    <a class="pic" href="javascript:;">
-                                        <picture><img class="lazy"
-                                                data-src="/dist/assets/img/solution/pic_04_660x450.jpg" alt="" />
-                                        </picture>
-                                    </a>
-                                    <div class="text">
-                                        <a class="title" href="javascript:;">
-                                            <p class="itemTitle-w">Low Voltage</p>
-                                        </a>
-                                        <div class="desc">
-                                            <div class="paragraphText">數據機連網設備、物聯網、邊緣運算人工智慧、智慧顯示裝置、穿戴式裝置、使用電池供電的產品</div>
-                                        </div>
-                                        <div class="bot">
-                                            <div class="tag">
-                                                <div class="tagItem">
-                                                    <p class="categoryBtn">LPDDR</p>
-                                                </div>
-                                            </div>
-                                            <div class="btn">
-                                                <a href="javascript:;">
-                                                    <div class="common-btn"><span class="buttonText">More</span></div>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                                @endforeach
+                            @endforeach
+
+
                         </div>
                         <div class="swiper-pagination"></div>
                     </div>

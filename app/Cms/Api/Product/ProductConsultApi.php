@@ -4,6 +4,8 @@ namespace App\Cms\Api\Product;
 
 use App\Http\Controllers\OptionFunction;
 use App\Models\Product\ProductConsult;
+use App\Models\Product\ProductConsultList;
+use App\Models\Product\ProductItemPart;
 use App\Services\Cms\agGrid\ColumnSet;
 use App\Services\Cms\api\method\GetExport;
 use App\Services\Cms\api\method\GetTable;
@@ -21,6 +23,8 @@ class ProductConsultApi extends CmsApi implements GetTable
 
     protected $modelArray = [
         'ProductConsult' => ProductConsult::class,
+        'ProductConsultList' => ProductConsultList::class,
+        'ProductItemPart' => ProductItemPart::class,
 
     ];
     protected $copyArray = [
@@ -32,28 +36,8 @@ class ProductConsultApi extends CmsApi implements GetTable
     protected function formatBuilder(string $modelClass, Builder $builder): Builder
     {
 
-        if ($modelClass === ProductConsult::class) {
-            // $builder->imageCol(['banner_pc_img', 'banner_pad_img', 'banner_m_img']);
-        }
         if ($modelClass === 'editContent') {
-            // $builder->with([
-            //     'ProductConsult_content' => function ($q) {
-            //         $q->with([
-            //             'ProductConsult_content_img' => function ($q2) {
-            //                 $q2->orderBy('w_rank');
-            //             },
-            //         ])->orderBy('w_rank');
-            //     }
-            // ])
-            //     ->with([
-            //         'ProductConsult_son' => function ($q) {
-            //             $q->with([
-            //                 'ProductConsult_three' => function ($q2) {
-            //                     $q2->orderBy('w_rank');
-            //                 },
-            //             ])->orderBy('w_rank');
-            //         }
-            //     ]);
+            $builder->with('ProductConsultList');
         }
         return $builder;
     }
@@ -76,28 +60,7 @@ class ProductConsultApi extends CmsApi implements GetTable
         $totalPage = ceil($totalCount / $perCount);
         $data = (clone $sql)->skip($skip)->take($perCount)->get();
         $pagination = ($totalCount > $perCount) ? false : true;
-        // $getList = [
-        //     1 => ['key' => '1', 'title' => '分類1'],
-        //     2 => ['key' => '2', 'title' => '分類2'],
-        //     3 => ['key' => '3', 'title' => '分類3'],
-        //     4 => ['key' => '4', 'title' => '分類4'],
-        //     5 => ['key' => '5', 'title' => '分類5'],
-        //     6 => ['key' => '6', 'title' => '分類6'],
-        //     7 => ['key' => '7', 'title' => '分類7'],
-        //     8 => ['key' => '8', 'title' => '分類8'],
-        //     9 => ['key' => '9', 'title' => '分類9'],
-        //     10 => ['key' => '10', 'title' => '分類10'],
-        //     11 => ['key' => '11', 'title' => '分類11'],
-        //     12 => ['key' => '12', 'title' => '分類12'],
-        //     13 => ['key' => '13', 'title' => '分類13'],
-        //     14 => ['key' => '14', 'title' => '分類14'],
-        // ];
-        // $getListMuti = [
-        //     1 => ['key' => '1', 'title' => '多筆分類1'],
-        //     2 => ['key' => '2', 'title' => '多筆分類2'],
-        //     3 => ['key' => '3', 'title' => '多筆分類3'],
-        //     4 => ['key' => '4', 'title' => '多筆分類4'],
-        // ];
+
         $colSetting = ColumnSet::make()
             ->textCol('companyName', '公司名稱', 250)
             ->textCol('name', '姓名', 250)

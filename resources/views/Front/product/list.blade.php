@@ -13,9 +13,10 @@
 @endsection
 
 @section('script_back')
-    <link rel="modulepreload" crossorigin href="/dist/assets/js/process.min.js?v={{ BaseFunction::getV() }}">
+    {{-- <link rel="modulepreload" crossorigin href="/dist/assets/js/process.min.js?v={{ BaseFunction::getV() }}"> --}}
     {{-- <script type="module" src="/bk/product/consult.js?v={{ BaseFunction::getV() }}""></script> --}}
-    <script type="module" crossorigin src="/dist/assets/js/product_list.min.js?v={{ BaseFunction::getV() }}"></script>
+    {{-- <script type="module" crossorigin src="/dist/assets/js/product_list.min.js?v={{ BaseFunction::getV() }}"></script> --}}
+    <script defer type="module" src="/bk/product/index.js?v={{ BaseFunction::getV() }}"></script>
 
 @endsection
 
@@ -74,14 +75,17 @@
                             m4-status="1">
                             {{-- 不會換active --}}
                             @foreach ($productCategories as $key => $cate)
-                                <li class="item" data-option="{{ $key + 1 }}">
+                                <li class="item @if ($setActiveKey == $cate['id']) ) active @endif"
+                                    data-option="{{ $cate['id'] }}">
+                                    {{-- <li class="item" data-option="{{ $key + 1 }}"> --}}
                                     <a class="category" href="{{ BaseFunction::b_url($cate['half_url']) }}">
                                         <p class="categoryBtn">{!! $cate['banner_title'] !!}</p>
                                     </a>
                                 </li>
                             @endforeach
                             <li class="item" data-option="3">
-                                <a class="category" href="javascript:;" onclick="document.body.fesd.ajaxConsult()">
+                                <a class="category bk-asideBtn" href="javascript:;"
+                                    onclick="document.body.fesd.ajaxConsult()">
                                     <div class="categoryBtn">
                                         <p>線上產品諮詢清單</p>
                                         <div class="icon"> <i class="icon-consult"></i></div>
@@ -294,10 +298,10 @@
                                     <div class="text">
                                         <a class="itemTitle-w"
                                             href="{{ BaseFunction::b_url($cateProducts['half_url']) . '/' . $item['url_name'] }}">
-                                            <p>{!! $item['banner_title'] !!}</p>
+                                            <div>{!! $item['banner_title'] !!}</div>
                                         </a>
                                         <div class="paragraphText">
-                                            <p>{!! $item['banner_keyword_intro'] !!}</p>
+                                            <div>{!! $item['banner_keyword_intro'] !!}</div>
                                         </div>
                                         <div class="bot">
                                             <div class="tag">

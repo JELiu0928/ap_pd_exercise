@@ -12,6 +12,7 @@
     {{-- process切版沒有 --}}
     {{-- <link rel="modulepreload" crossorigin href="/dist/assets/js/process.min.js?v={{ BaseFunction::getV() }}"> --}}
     {{-- <script type="module" src="/bk/product/consult.js?v={{ BaseFunction::getV() }}""></script> --}}
+    <script defer type="module" src="/bk/product/index.js?v={{ BaseFunction::getV() }}"></script>
 
 @endsection
 
@@ -62,7 +63,7 @@
                                     </a>
                                 </li>
                             @endforeach
-                            <li class="item"><a class="category" href="javascript:;"
+                            <li class="item"><a class="category bk-asideBtn" href="javascript:;"
                                     onclick="document.body.fesd.ajaxConsult()">
                                     <div class="categoryBtn">
                                         <p>線上產品諮詢清單</p>

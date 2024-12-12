@@ -13,7 +13,7 @@
                             @endif
                             @if ($formKey == 'batch')
                             @endif
-                            @if ($formKey == 'a')
+                            @if ($formKey == 'FormContent')
                                 {{ UnitMaker::radio_btn([
                                     'name' => $model . '[is_read]',
                                     'title' => '是否已處理',
@@ -78,20 +78,24 @@
                                 ]) }}
                             @endif
 
-                            @if ($formKey == 'b')
-                                {{-- @php
-                                    $second = M('ProductConsultList')
-                                        ::where('consult_id', $data['id'])
-                                        ->with('ProductItemPart.ProductItem')
-                                        ->get();
 
-                                    foreach ($second as $v) {
-                                        $v->part_title = $v->ProductItemPart ? $v->ProductItemPart->title : '';
-                                        $v->item_title = $v->ProductItemPart->ProductItem
-                                            ? $v->ProductItemPart->ProductItem->simple_title
-                                            : '';
-                                    }
-                                @endphp --}}
+                            @php
+                                $secondTable = M('ProductConsultList')
+                                    ::where('consult_id', $data['id'])
+                                    ->with('ProductItemPart.ProductItem')
+                                    ->get();
+                                // dd($secondTable);
+                                foreach ($secondTable as $consult) {
+                                    $consult->part_title = $consult->ProductItemPart
+                                        ? $consult->ProductItemPart['title']
+                                        : '';
+                                    $consult->item_title = $consult->ProductItemPart->ProductItem
+                                        ? $consult->ProductItemPart->ProductItem['simple_title']
+                                        : '';
+                                }
+
+                            @endphp
+                            @if ($formKey == 'AskProduct')
                                 {{ UnitMaker::WNsonTable([
                                     'sort' => 'no', //是否可以調整順序
                                     'sort_field' => 'w_rank', //自訂排序欄位
@@ -105,7 +109,7 @@
                                     'MultiImgcreate' => 'no', //使用多筆圖片
                                     'imageColumn' => 'img', //預設圖片欄位
                                     'SecondIdColumn' => 'consult_id',
-                                    'value' => !empty($second) ? $second : [],
+                                    'value' => !empty($secondTable) ? $secondTable : [],
                                     'name' => 'ProductConsultList',
                                     'tableSet' => [
                                         [
@@ -149,7 +153,57 @@
                                     ],
                                 ]) }}
                             @endif
-
+                            {{-- @if ($formKey == 'ContactJob')
+                                {{ UnitMaker::WNsonTable([
+                                    'sort' => 'yes', //是否可以調整順序
+                                    'sort_field' => 'w_rank', //自訂排序欄位
+                                    'teach' => 'no',
+                                    'hasContent' => 'yes', //是否可展開
+                                    'tip' => '',
+                                    'hidden_create' => 'yes', //是否可新增
+                                    'create' => 'yes', //是否可新增
+                                    'delete' => 'yes', //是否可刪除
+                                    'copy' => 'yes', //是否可複製
+                                    'MultiImgcreate' => 'no', //使用多筆圖片
+                                    'imageColumn' => 'img', //預設圖片欄位
+                                    'SecondIdColumn' => 'parent_id',
+                                    'value' => !empty($associationData['son']['ContactJob']) ? $associationData['son']['ContactJob'] : [],
+                                    'name' => 'ContactJob',
+                                    'tableSet' => [
+                                        [
+                                            'type' => 'just_show',
+                                            'title' => '職稱',
+                                            'value' => 'title',
+                                            'auto' => true,
+                                        ],
+                                        [
+                                            'type' => 'radio_btn',
+                                            'title' => '預覽',
+                                            'value' => 'is_preview',
+                                            'default' => 1,
+                                        ],
+                                        [
+                                            'type' => 'radio_btn',
+                                            'title' => '是否顯示',
+                                            'value' => 'is_visible',
+                                        ],
+                                    ],
+                                    'tabSet' => [
+                                        [
+                                            'title' => '內容編輯',
+                                            'content' => [
+                                                [
+                                                    'type' => 'textInput',
+                                                    'value' => 'title',
+                                                    'title' => '職稱',
+                                                    'tip' => '',
+                                                    'auto' => true,
+                                                ],
+                                            ],
+                                        ],
+                                    ],
+                                ]) }}
+                            @endif --}}
                         </ul>
                     </section>
                 </div>

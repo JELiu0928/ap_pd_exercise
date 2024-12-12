@@ -13,33 +13,36 @@ use App\Models\Product\ProductCategoryOverviewList;
 
 // use App\Models\Traits\getUrlName;
 
-class ProductConsult extends FrontBase
+class ProductConsultList extends FrontBase
 {
-	// use getUrlName;
 	protected $fillable = [
+		'part_id',
 		'description',
-		'name',
-		'companyName',
-		'mail',
-		'tel',
-		'service',
-		'job',
+		'consult_id',
 		'branch_id',
-		'other_require',
+		'w_rank',
 	];
+	// use getUrlName;
 	public function __construct()
 	{
 		parent::__construct(); //要使用boot(),要使用這行
-		$TableName = "product_consult";
+		$TableName = "product_consult_list";
 		if (strpos($TableName, 'all_') === false) {
 			$dataBasePrefix = Config::get('app.dataBasePrefix');
 			$TableName = (strpos($dataBasePrefix, 'preview') !== false) ? str_replace("preview_", "", $dataBasePrefix) . $TableName : $dataBasePrefix . $TableName;
 		}
 		$this->setTable($TableName);
 	}
-	public function ProductConsultList()
+
+	public function ProductItemPart()
 	{
-		return $this->hasMany(ProductConsultList::class, 'consult_id')->doSort();
+		return $this->belongsTo(ProductItemPart::class, 'part_id')->orderBy('w_rank', 'asc');
 	}
+	public function part()
+	{
+		return $this->belongsTo(ProductItemPart::class, 'part_id')->isVisible();
+	}
+
+
 
 }

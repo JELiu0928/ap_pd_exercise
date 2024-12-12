@@ -6,9 +6,12 @@ $(function () {
     _detail.handleDropdownClick();
     _detail.clearFilter();
 
-
     _consult.initPage();
     _consult.handleConsultClick();
     _consult.openLightBox();
     _consult.deletePartClick();
+
+    _consult.handleStepClick();
+    _consult.submitForm();
+    // _consult.otherRequireChange();
 });

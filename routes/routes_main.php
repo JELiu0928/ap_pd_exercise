@@ -121,6 +121,7 @@ $all = function () {
             Route::group(['prefix' => '/product'], function () {
 
                 Route::get('/', [ProductController::class, 'index']);
+                Route::get('/success', [ProductController::class, 'success']);
                 Route::get('/{categoryURL}', [ProductController::class, 'list']);
                 Route::get('/{categoryURL}/{productURL}', [ProductController::class, 'detail']);
                 // Route::get('/{categoryURL}/{productURL}/2', [ProductController::class, 'detail2']);
@@ -134,6 +135,7 @@ $all = function () {
                 Route::post('/deleteProductFromConsultList', [ProductController::class, 'deleteProductFromConsultList']);
                 Route::post('/deleteAllFromConsultList', [ProductController::class, 'deleteAllFromConsultList']);
                 Route::get('/getConsultData', [ProductController::class, 'getConsultData']);
+                Route::post('/submitForm', [ProductController::class, 'submitForm']);
                 // });
                 // ag-grid
 

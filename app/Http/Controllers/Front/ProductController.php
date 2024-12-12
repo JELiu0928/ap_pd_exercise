@@ -2,19 +2,25 @@
 
 namespace App\Http\Controllers\Front;
 
+use App\Cms\Api\Product\ContactJobApi;
 use App\Models\Product\ProductCategory;
 use App\Models\Product\ProductCategoryOverview;
+use App\Models\Product\ProductConsult;
+use App\Models\Product\ProductConsultList;
 use App\Models\Product\ProductItemPart;
 use App\Models\Product\ProductItemSpecContent;
 use App\Models\Product\ProductItemSpecTitle;
 use App\Models\Product\ProductSeries;
 use App\Models\Product\ProductSet;
+use App\Models\Product\ProductItem;
+use App\Models\Product\ConsultJob;
 use Illuminate\Http\Request;
 use View;
-use BaseFunction;
+use App\Http\Controllers\BaseFunctions;
+
 use Session;
+use Validator;
 use App\Http\Controllers\OptionFunction;
-use App\Models\Product\ProductItem;
 
 class ProductController extends FrontBaseController
 {
@@ -28,37 +34,53 @@ class ProductController extends FrontBaseController
         // }
         self::$unit = ProductSet::first();
         View::share('unit', self::$unit);
+        // dd(self::$branch_id);
     }
     public function index(Request $request)
     {
         $unitSet = ProductSet::formatFiles(['banner_pc_img', 'banner_pad_img', 'banner_m_img'])->first();
         // dd($unitSet);
-        $productCategories = ProductCategory::formatFiles(['list_img'])->doSort()->get();
+        $productCategories = ProductCategory::formatFiles(['list_img'])->isVisible()->doSort()->get();
         // dd($productCategories);
+        $consultJobs = ConsultJob::isVisible()->doSort()->get();
+        $genders = array(0 => '先生', 1 => '小姐', 2 => '其他', );
+        $sessionPartIDs = Session::get('partIDList');
+        if (!empty($sessionPartIDs)) {
+            $partItemCounts = count($sessionPartIDs);
+        }
         return view(
             self::$blade_template . '.product.index',
             [
                 'basic_seo' => Seo(),
                 'unitSet' => $unitSet,
                 'productCategories' => $productCategories,
-
+                'partItemCounts' => $partItemCounts ?? 0,
+                'consultJobs' => $consultJobs,
+                'genders' => $genders,
             ]
         );
+
     }
     public function list(Request $request)
     {
-        // $unitSet = ProductSet::formatFiles(['banner_pc_img', 'banner_pad_img', 'banner_m_img'])->first();
         $categoryURL = $request->categoryURL ?? '';
-        // dd($categoryURL);
-        $productCategories = ProductCategory::formatFiles(['list_img'])->doSort()->get();
+        // if($categoryURL)
+        $productCategories = ProductCategory::formatFiles(['list_img'])->isVisible()->doSort()->get();
+
         $category = ProductCategory::formatFiles(['list_img', 'banner_pc_img', 'banner_pad_img', 'banner_m_img', 'advantages_zone_img'])
             ->where('url_name', $categoryURL)->doSort()->first();
         // dump($category);
+        if (!isset($category) || empty($category)) {
+            return error404(BaseFunctions::b_url('product'));
+        }
+
+        // dd($category['url_name']);
+        if ($category['url_name'] == $categoryURL) {
+            $setActiveKey = $category['id'];
+        }
         $cateOverviews = ProductCategory::with('overviews')->where('url_name', $categoryURL)->first();
         $cateOverviewLists = ProductCategory::with('overviewLists')->where('url_name', $categoryURL)->first();
         $cateAdvantages = ProductCategory::with('advantagesTags.advantagesLists')->where('url_name', $categoryURL)->first();
-        // dd($cateOverviews);
-        // $cateAdvantages = ProductCategory::with('advantagesTags.advantagesLists')->where('url_name', $categoryURL)->first();
         $cateProducts = ProductCategory::with('series.items')->where('url_name', $categoryURL)->first();
 
         $is_overview = false;
@@ -82,8 +104,16 @@ class ProductController extends FrontBaseController
                 $is_product = true;
             }
         }
+        $consultJobs = ConsultJob::isVisible()->doSort()->get();
+        $genders = array(0 => '先生', 1 => '小姐', 2 => '其他', );
+        $sessionPartIDs = Session::get('partIDList');
+        if (!empty($sessionPartIDs)) {
+            $partItemCounts = count($sessionPartIDs);
+        }
+
         return view(self::$blade_template . '.product.list', [
             'category' => $category,
+            'setActiveKey' => $setActiveKey,
             'productCategories' => $productCategories, //產品類別
             'cateOverviews' => $cateOverviews, //概述
             'cateOverviewLists' => $cateOverviewLists, //概述List
@@ -93,6 +123,9 @@ class ProductController extends FrontBaseController
             'is_overviewList' => $is_overviewList,
             'is_advantages' => $is_advantages,
             'is_product' => $is_product,
+            'partItemCounts' => $partItemCounts ?? 0,
+            'consultJobs' => $consultJobs,
+            'genders' => $genders,
             'basic_seo' => Seo()
         ]);
     }
@@ -110,14 +143,16 @@ class ProductController extends FrontBaseController
             });
 
         $productInfo = $query->first();
-        // dump($productInfo);
-        // dump(count($productInfo->articles));
+
+        // dd($productInfo);
+        $selectCateUrl = ProductCategory::where('url_name', $categoryURL)->pluck('url_name')->first();
+        if (!isset($productInfo) || empty($productInfo)) {
+            return error404(BaseFunctions::b_url('product/' . $selectCateUrl));
+        }
         $is_article = false;
         if (count($productInfo->articles) > 0) {
             $is_article = true;
         }
-        // dump('article是',$is_article);
-
         // 產品規格表
         $productItem = ProductItem::with(['series.category', 'parts', 'specTitles.contents'])
             ->where('url_name', $productURL)
@@ -136,7 +171,6 @@ class ProductController extends FrontBaseController
         foreach ($contents as $content) {
             $specContentArr[$content->spec_id][$content->part_id] = $content->content;
         }
-
         // 下拉
         $itemID = ProductItem::where('url_name', $request->productURL)->pluck('id')->first();
         // dd($itemID);
@@ -172,15 +206,25 @@ class ProductController extends FrontBaseController
                 $dropdownArr[$specID]['content'][] = $content['content'];
             }
         }
+        $cateProducts = ProductCategory::with('series.items')->where('url_name', $categoryURL)->first();
 
+        //每個頁面要有
         $sessionPartIDs = Session::get('partIDList');
         // dump($sessionPartIDs);
+        //bug??
+        // if (!empty($sessionPartIDs)) {
+        //     $partItems = self::getConsult($sessionPartIDs);
+        //     $partItemCounts = count($partItems);
+        // }
+
         if (!empty($sessionPartIDs)) {
-            $partItems = self::getConsult($sessionPartIDs);
-            $partItemCounts = count($partItems);
+            // $partItems = self::getConsult($sessionPartIDs);
+            $partItemCounts = count($sessionPartIDs);
         }
 
-        // dd($partItems);
+        $consultJobs = ConsultJob::isVisible()->doSort()->get();
+        $genders = array(0 => '先生', 1 => '小姐', 2 => '其他', );
+
         return view(self::$blade_template . '.product.detail', [
             'productInfo' => $productInfo,
             'is_article' => $is_article, //產品類別
@@ -190,10 +234,68 @@ class ProductController extends FrontBaseController
             'dropdownArr' => $dropdownArr, //下拉選單
             'partItemCounts' => $partItemCounts ?? 0,
             'sessionPartIDs' => $sessionPartIDs,
+            'consultJobs' => $consultJobs,
+            'genders' => $genders,
+            'cateProducts' => $cateProducts,
+
             'basic_seo' => Seo(),
             // 'view' => View::make(self::$blade_template . '.product.consult_pd_list', [
             'partItems' => $partItems ?? [],
             // ])->render(),
+        ]);
+    }
+    public function success(Request $request)
+    {
+        $consultID = Session::get('consultSuccess');
+        // dd($consultID);
+        if (!isset($consultID) || empty($consultID)) {
+            return error404(BaseFunctions::b_url('product'));
+        }
+        $consultItem = ProductConsult::where('id', $consultID)->with('ProductConsultList.part.item.series.category')->first();
+        // dump($consultItem);
+        $successCount = count($consultItem->ProductConsultList);
+        // $consultItemParts = $consultItem->ProductConsultList->part;
+        // dump('型號', $consultItemParts);
+        foreach ($consultItem->ProductConsultList as $list) {
+            // dump('000', $list);
+            if (empty($list['description'])) {
+                $list['description'] = '無';
+            }
+        }
+        // foreach ($consultItem as $item) {
+        // dump('000', $list);
+        if (empty($consultItem['description'])) {
+            $consultItem['description'] = '無';
+        }
+        if (empty($consultItem['service'])) {
+            $consultItem['service'] = '無';
+        }
+        if (empty($consultItem['job'])) {
+            $consultItem['job'] = '無';
+        }
+        if (empty($consultItem['other_Require'])) {
+            $consultItem['other_Require'] = '無';
+        }
+        // }
+        //諮詢清單所需
+        $consultJobs = ConsultJob::isVisible()->doSort()->get();
+        $genders = array(0 => '先生', 1 => '小姐', 2 => '其他', );
+        $sessionPartIDs = Session::get('partIDList');
+        if (!empty($sessionPartIDs)) {
+            $partItemCounts = count($sessionPartIDs);
+        }
+
+        Session::forget('consultSuccess');
+
+
+        return view(self::$blade_template . '.product.consult_success', [
+            'partItemCounts' => $partItemCounts ?? 0,
+            'consultJobs' => $consultJobs,
+            'genders' => $genders,
+            'consultItem' => $consultItem,
+            'successCount' => $successCount,
+            'basic_seo' => Seo(),
+
         ]);
     }
     public function deleteProductFromConsultList(Request $request)
@@ -248,6 +350,7 @@ class ProductController extends FrontBaseController
     //     })->pluck('id')->first();
 
     // }
+
     public function addProductToConsultList(Request $request)
     {
         // Session::forget('partIDList');
@@ -279,6 +382,7 @@ class ProductController extends FrontBaseController
         }
 
         //檢驗是否已記錄 加入陣列
+        // $partIDList[$partID] = $partID;
         if (!in_array($partID, $partIDList)) {
             $partIDList[] = $partID;
             Session::put('partIDList', $partIDList);
@@ -307,16 +411,86 @@ class ProductController extends FrontBaseController
         ]);
 
     }
-    public function getConsult($ids)
-    {
-        $tempList = [];
-        foreach ($ids as $id) {
-            if (!in_array($id, $tempList)) {
-                array_push($tempList, $id);
-            }
-        }
-        $partItems = ProductItemPart::with('item.series.category')->whereIn('id', $tempList)->isVisible()->get();
 
-        return $partItems;
+    public function submitForm(Request $request)
+    {
+
+        $res = [];
+        $res['status'] = true;
+        $data = $request->get('data');
+        // dump($data);
+        $data['job'] = $data['job']['value'] ?? '';
+        $data['gender'] = $data['gender']['value'] ?? '';
+        $data['branch_id'] = self::$branch_id;
+        // $data['partID'] = 
+        $partList = $request->get('partList');
+
+        // dd($data, $partList);
+        $rule = [
+            'companyName' => 'required',
+            'name' => 'required',
+            'mail' => 'required|email',
+            'tel' => 'required',
+            'description' => 'required',
+            'verifyCode' => 'required|captcha',
+        ];
+        $message = [
+            'companyName.required' => "請填寫您的公司名稱",
+            'name.required' => "請填寫您的聯絡姓名",
+            'tel.required' => "欄位格式輸入錯誤",
+            'description.required' => "請填寫備註",
+            'mail.required' => "請填寫您的電子信箱",
+            'mail.email' => "欄位格式輸入錯誤",
+            'verifyCode.required' => "請填寫驗證碼",
+            'verifyCode.captcha' => "驗證碼輸入錯誤",
+        ];
+        $validator = Validator::make($data, $rule, $message);
+        // 驗證失敗時
+        if ($validator->fails()) {
+            // 儲存所有錯誤訊息
+            $errorMsg = [];
+            foreach ($validator->errors()->messages() as $key => $item) {
+                $errorMsg[$key] = $item[0];
+                // dd($item);
+            }
+            $res['status'] = false;
+            $res['errorMsg'] = $errorMsg;
+            return $res;
+        }
+        // 新增到諮詢表單表
+        $newConsult = ProductConsult::create($data);
+        $consutID = $newConsult['id'];
+        //清除諮詢表單的session
+        Session::forget('partIDList');
+
+        if (!empty($consutID)) {
+            foreach ($partList as $part) {
+                // dump('$part', $part);
+                $part['consult_id'] = $consutID;
+                $part['branch_id'] = self::$branch_id;
+                ProductConsultList::create($part);
+            }
+            $res['status'] = true;
+            Session::put('consultSuccess', $consutID);
+
+            return $res;
+        } else {
+            $res['status'] = false;
+            return $res;
+        }
+
+
     }
+    // public function getConsult($ids)
+    // {
+    //     $tempList = [];
+    //     foreach ($ids as $id) {
+    //         if (!in_array($id, $tempList)) {
+    //             array_push($tempList, $id);
+    //         }
+    //     }
+    //     $partItems = ProductItemPart::with('item.series.category')->whereIn('id', $tempList)->isVisible()->get();
+
+    //     return $partItems;
+    // }
 }
