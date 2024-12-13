@@ -18,8 +18,9 @@
                 <div class="block active" step-target="1">
                     <div class="grid step-block"><span class="step">01</span>
                         <span class="itemTitle-w">確認諮詢產品</span>
-                        <span class="total paragraphText-w bk-total-count">共計：<span>{{ $partItemCounts }}</span>
-                            項</span>
+                        <span class="total paragraphText-w ">
+                            共計：<span class="bk-total-count">{{ $partItemCounts }}</span> 項
+                        </span>
                     </div>
                     <div class="grid consult-list">
                         <p class="paragraphText-w">產品諮詢清單</p>
@@ -124,7 +125,7 @@
                                             <p>稱謂</p>
                                             <div class="error-text"></div>
                                         </div>
-                                        <dropdown-el class="type-fullbox" d4-placeholder="請選擇您的稱謂" form-field="gender"
+                                        <dropdown-el class="type-fullbox" d4-placeholder="請選擇您的稱謂" form-field="service"
                                             field-type="isSelect">
                                             @foreach ($genders as $key => $gender)
                                                 <li>

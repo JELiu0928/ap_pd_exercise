@@ -31,18 +31,17 @@
                         <p>感謝您的填寫，相關單位工作人員將盡快聯繫您，請耐心等候。</p>
                     </div>
                 </div>
-
                 <div class="content-block">
                     <div class="block">
                         <div class="grid step-block">
                             <span class="step">01</span>
                             <span class="itemTitle-w">確認諮詢產品</span>
                             <span class="total paragraphText-w">共計：{{ $successCount }} 項</span>
+                            {{-- 共計：<span>{{ $successCount }} </span>項</span> --}}
                         </div>
                         <div class="grid consult-list">
                             <p class="paragraphText-w">產品諮詢清單</p>
                             <div class="list-outer">
-
                                 @foreach ($consultItem->ProductConsultList as $list)
                                     {{-- @dump($list) --}}
                                     <div class="list">
@@ -51,33 +50,38 @@
                                                 <li class="paragraphText"><span>產品類別</span>
                                                     <span>{!! $list->part->item->series->category['banner_title'] !!}</span>
                                                 </li>
-                                                <li class="paragraphText"><span>產品系列</span>{!! $list->part->item->series['title'] !!}</li>
+                                                <li class="paragraphText">
+                                                    <span>產品系列</span>
+                                                    {!! $list->part->item->series['title'] !!}
+                                                </li>
                                                 <li class="paragraphText">
                                                     <span>產品項目</span><span>{!! $list->part->item['banner_title'] !!}</span>
                                                 </li>
                                             </ul>
                                             <div class="main">
-                                                <p class="itemTitle-w">{{ $list->part['title'] }}222</p>
+                                                <p class="itemTitle-w">{{ $list->part['title'] }}</p>
                                             </div>
-                                            <div class="note"> <span class="paragraphText-w">備註：</span><span
-                                                    class="paragraphText">{!! nl2br($list['description']) !!}</span>
+                                            <div class="note">
+                                                <span class="paragraphText-w">備註：</span>
+                                                <span class="paragraphText">{!! nl2br($list['description']) !!}</span>
                                             </div>
                                         </div>
                                     </div>
                                 @endforeach
-
-
                                 <div class="no-consult d-none">
-                                    <div class="icon"><i class="icon-warning"></i></div><span
-                                        class="paragraphText">您尚未將任何產品加入線上諮詢清單，請先選擇產品以便進行諮詢。</span>
+                                    <div class="icon">
+                                        <i class="icon-warning"></i>
+                                    </div>
+                                    <span class="paragraphText">您尚未將任何產品加入線上諮詢清單，請先選擇產品以便進行諮詢。</span>
                                 </div>
                             </div>
-                        </div><!--***- 11.11 新增欄位-->
+                        </div>
+                        {{-- <!--***- 11.11 新增欄位--> --}}
                         <div class="grid other-list">
                             <p class="paragraphText-w">其他產品需求</p>
                             <div class="list-outer">
                                 <div class="list">
-                                    <p>{!! nl2br($consultItem['other_Require']) !!}</p>
+                                    <p>{!! nl2br($consultItem['other_require']) !!}</p>
                                 </div>
                             </div>
                         </div>
@@ -179,5 +183,4 @@
         </section>
     </main>
     @include('Front.include.footerArea')
-
 @endsection

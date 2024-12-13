@@ -6,7 +6,7 @@
             <div class="row">
                 <ul>
                     <li class="paragraphText-s">
-                        <span>產品類別{{ $item['id'] }}</span>
+                        <span>產品類別</span>
                         <span>{!! $item->item['banner_title'] !!}</span>
                     </li>
                     <li class="paragraphText-s">

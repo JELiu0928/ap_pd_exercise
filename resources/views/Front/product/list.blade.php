@@ -28,15 +28,15 @@
 
 
     <main>
-        <!-- 共用內頁 banner 設定-->
-        <!-- 標題文字顏色: 黑/白/漸層, 黑 title-color="black", 白 title-color="white", 漸層 title-color="gradient"--><!-- 描述文字顏色(麵包屑顏色跟隨描述文字): 黑/白, 黑 sub-color="black", 白 sub-color="white"--><!-- 圖片建議尺寸: 電腦 2880x675(px), 平板 1535x675(px), 手機 750x900(px)-->
+        {{-- <!-- 共用內頁 banner 設定--> --}}
+        {{-- <!-- 標題文字顏色: 黑/白/漸層, 黑 title-color="black", 白 title-color="white", 漸層 title-color="gradient"--><!-- 描述文字顏色(麵包屑顏色跟隨描述文字): 黑/白, 黑 sub-color="black", 白 sub-color="white"--><!-- 圖片建議尺寸: 電腦 2880x675(px), 平板 1535x675(px), 手機 750x900(px)--> --}}
         <section class="detail-banner" d-grid data-aost detect-target data-aost-fade
             title-color="{{ $category['banner_title_color'] }}" sub-color="{{ $category['banner_intro_color'] }}"
             text-align="{{ $category['banner_text_location'] }}">
             <div class="breadcrumb">
                 <ul>
                     <li> <a class="icon" href="{{ BaseFunction::b_url('') }}"><i class="icon-home"></i></a></li>
-                    <li><a href="{{ BaseFunction::b_url('product') }}"><span class="categoryBtn">產品專區新</span></a></li>
+                    <li><a href="{{ BaseFunction::b_url('product') }}"><span class="categoryBtn">產品專區</span></a></li>
                     <li><span class="categoryBtn">{!! $category['banner_title'] !!}</span></li>
                 </ul>
             </div>
@@ -70,10 +70,9 @@
             <div class="container" data-aost data-aost-fade>
                 <div class="common-categoryBar">
                     <div class="cate-outer">
-                        <!-- m4-status="" 預設 active 選項及出現的內容-->
+                        {{-- <!-- m4-status="" 預設 active 選項及出現的內容--> --}}
                         <multipurpose-nav m4-type="drag" m4-option="{&quot;drag&quot;:{&quot;selected&quot;:false}}"
                             m4-status="1">
-                            {{-- 不會換active --}}
                             @foreach ($productCategories as $key => $cate)
                                 <li class="item @if ($setActiveKey == $cate['id']) ) active @endif"
                                     data-option="{{ $cate['id'] }}">
@@ -116,7 +115,6 @@
                                         <p class="categoryBtn">{{ $category['product_title'] }}</p>
                                     </a></li>
                             @endif
-
                         </multipurpose-nav>
                     </div>
                 </div>
@@ -159,11 +157,9 @@
                                     </div>
                                 </div>
                             @endforeach
-
                         </div>
                     @endif
                     {{-- @dd($is_overviewList) --}}
-
                     @if ($is_overviewList)
                         <div class="bottom-block" data-aost>
                             <div class="text-block">
@@ -188,20 +184,18 @@
                             </div>
                         </div>
                     @endif
-
                 </div>
             </section>
         @endif
         {{-- @dump($category) --}}
-
         @if ($is_advantages)
             <section class="advantage-block" anchor-target="2">
-                <!--***- 11.15 狀態新增-->
-                <!-- 無背景圖 data-bg="false", 標題顏色 title-color="black" or title-color="gradient", 內文固定黑色-->
-                <!-- 有背景圖 data-bg="true", 標題顏色 title-color="black" or title-color="gradient" or title-color="white", 內文顏色 text-color="black" or text-color="white"-->
+                {{-- <!--***- 11.15 狀態新增--> --}}
+                {{-- <!-- 無背景圖 data-bg="false", 標題顏色 title-color="black" or title-color="gradient", 內文固定黑色--> --}}
+                {{-- <!-- 有背景圖 data-bg="true", 標題顏色 title-color="black" or title-color="gradient" or title-color="white", 內文顏色 text-color="black" or text-color="white"--> --}}
                 <div class="container" data-aost data-bg="true" title-color="black" text-color="black">
                     <div class="grid left">
-                        <!-- 若無上背景圖, 需把 .bg 結構移除-->
+                        {{-- <!-- 若無上背景圖, 需把 .bg 結構移除--> --}}
                         @if (!empty($category['advantages_zone_img']))
                             <div class="bg">
                                 <picture>
@@ -221,10 +215,11 @@
                                     </div>
                                 @endif
                             </div>
-                            <!--***- 11.12 tab 更改結構形式--><!-- collapse 選單-->
+                            {{-- <!--***- 11.12 tab 更改結構形式--> --}}
+                            {{-- <!-- collapse 選單--> --}}
                             <div class="common-category">
                                 <div class="cate-outer">
-                                    <!-- m4-status="" 預設 active 選項及出現的內容-->
+                                    {{-- <!-- m4-status="" 預設 active 選項及出現的內容--> --}}
                                     <multipurpose-nav m4-type="collapse"
                                         m4-option="{&quot;drag&quot;:{&quot;selected&quot;:true},&quot;collapse&quot;:{&quot;selected&quot;:true,&quot;placeholder&quot;:&quot;SELECT&quot;}}"
                                         m4-status="1">
@@ -237,14 +232,13 @@
                                                 </div>
                                             </li>
                                         @endforeach
-
                                     </multipurpose-nav>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="grid right">
-                        <!-- 右區塊有開背景兩色 白 & 灰 bg-color="white" & bg-color="gray"-->
+                        {{-- <!-- 右區塊有開背景兩色 白 & 灰 bg-color="white" & bg-color="gray"--> --}}
                         <tab-el t4-name="advantage-tab">
                             @foreach ($cateAdvantages->advantagesTags as $tag)
                                 <div class="tab-panel" t4-role="tabPanel"
@@ -261,7 +255,6 @@
                                                     </div>
                                                 </ripple-btn>
                                             @endforeach
-
                                         </div>
                                     </div>
                                 </div>
@@ -271,7 +264,7 @@
                 </div>
             </section>
         @endif
-        <!-- 相關產品-->
+        {{-- <!-- 相關產品--> --}}
         @if ($is_product)
             <section class="all-products" d-grid anchor-target="3">
                 <div class="container" data-aost>
@@ -326,8 +319,6 @@
                 </div>
             </section>
         @endif
-
     </main>
     @include('Front.include.footerArea')
-
 @endsection

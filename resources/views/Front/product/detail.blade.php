@@ -193,7 +193,7 @@
                                         {{ $spec['spec_title'] }}
                                     </li>
                                     @foreach ($spec['content'] as $content)
-                                        <li class="bk-spec-item">{{ $content }}</li>
+                                        <li class="bk-spec-item bk-spec-item-ajax">{{ $content }}</li>
                                     @endforeach
                                     {{-- <li>32Mb</li>
                                     <li>64Mb</li>
@@ -245,26 +245,31 @@
                                 </div>
                             </div>
                         </div>
-                        <!--***- 11.12 tbody 父層多包一個 tbody-outer-->
-                        <div class="tbody-outer">
+                        @include('Front.product.part_table')
+
+                        {{-- <!--***- 11.12 tbody 父層多包一個 tbody-outer--> --}}
+                        {{-- <!-- 加入諮詢, 在 tr 加上 added 的 class--> --}}
+                        {{-- <!-- 下載檔案 / 加入諮詢 有兩組結構(電腦版與手機版), 再麻煩同步串接--> --}}
+                        {{-- <div class="tbody-outer">
                             <div class="scroller">
                                 <div class="tbody">
-                                    <!-- 加入諮詢, 在 tr 加上 added 的 class-->
-                                    <!-- 下載檔案 / 加入諮詢 有兩組結構(電腦版與手機版), 再麻煩同步串接-->
                                     @foreach ($specParts as $part)
-                                        {{-- @dump(in_array($part['id'],$sessionPartIDs)) --}}
                                         <div class="tr bk-tr {{ 'bk-part-' . $part['id'] }} {{ is_array($sessionPartIDs) && in_array($part['id'], $sessionPartIDs) ? 'added' : '' }} "
                                             bk-part-id="{{ $part['id'] }}">
                                             <div class="td fixed-left">
                                                 <p>{{ $part['title'] }}</p>
                                                 <div class="row-flex rwd action">
-                                                    <a class="flex" href="javascript:;" target="_blank">
-                                                        <div class="icon">
-                                                            <i class="icon-download"> </i>
-                                                        </div>
-                                                    </a>
-                                                    {{-- rwd --}}
-                                                    <div class="flex addConsult bk-add-consult-btn" {{-- onclick="document.body.fesd.addConsult()"> --}}>
+                                                    @if (!empty($part->file))
+                                                        <a class="flex"
+                                                            href="{{ BaseFunction::b_url('downloadFiles') . '/' . $part->file }}"
+                                                            target="_blank">
+                                                            <div class="icon">
+                                                                <i class="icon-download"> </i>
+                                                            </div>
+                                                        </a>
+                                                    @endif
+
+                                                    <div class="flex addConsult bk-add-consult-btn">
                                                         <div class="icon">
                                                             <i class="icon-plus"></i>
                                                             <i class="icon-check"></i>
@@ -273,17 +278,19 @@
                                                 </div>
                                             </div>
                                             @foreach ($specTitles as $title)
-                                                {{-- @dump($title) --}}
                                                 <div class="td" bk-title-spec-id="{{ $title['id'] }}">
                                                     <p>{!! isset($specContentArr[$title->id][$part->id]) ? $specContentArr[$title->id][$part->id] : '' !!}</p>
                                                 </div>
                                             @endforeach
                                             <div class="td action fixed-right">
-                                                <a class="flex" href="javascript:;" target="_blank">
-                                                    <div class="icon"><i class="icon-download"></i></div>
-                                                    <p class="paragraphText">下載檔案</p>
-                                                </a>
-                                                {{-- <div class="flex addConsult" onclick="document.body.fesd.addConsult()"> --}}
+                                                @if (!empty($part->file))
+                                                    <a class="flex"
+                                                        href="{{ BaseFunction::b_url('downloadFile') . '/' . $part->file }}"
+                                                        target="_blank">
+                                                        <div class="icon"><i class="icon-download"></i></div>
+                                                        <p class="paragraphText">下載檔案</p>
+                                                    </a>
+                                                @endif
                                                 <div class="flex addConsult bk-add-consult-btn">
                                                     <div class="icon">
                                                         <i class="icon-plus"></i>
@@ -296,7 +303,7 @@
                                     @endforeach
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                     <div class="tips">
                         <div class="icon"><i class="icon-drag"></i></div>
@@ -311,7 +318,7 @@
                 </div>
             </div>
         </section>
-        <!-- 相關文章-->
+        {{-- <!-- 相關文章--> --}}
         <section class="related-news" d-grid anchor-target="3" bg-color="white">
             <div class="container" data-aost>
                 <div class="unitBlockSub"><span>Related Articles</span><span>相關文章</span></div>
@@ -362,8 +369,8 @@
                 </div>
             </div>
         </section>
-        <!-- 相關產品-->
-        <!--***- 11.15 修正 breakline 位置 父層 section 補 data-aost -->
+        {{-- <!-- 相關產品--> --}}
+        {{-- <!--***- 11.15 修正 breakline 位置 父層 section 補 data-aost --> --}}
         <section class="related-products" d-grid data-aost>
             <div class="breakLine"></div>
             <div class="container" data-aost>
@@ -380,7 +387,8 @@
                                         <div class="card">
                                             <a class="pic"
                                                 href="{{ BaseFunction::b_url($cateProducts['half_url']) . '/' . $item['url_name'] }}">
-                                                <picture><img class="lazy" data-src="{{ $item['list_img_url'] }}"
+                                                <picture>
+                                                    <img class="lazy" data-src="{{ $item['list_img_url'] }}"
                                                         alt="" />
                                                 </picture>
                                             </a>
@@ -410,8 +418,6 @@
                                     </div>
                                 @endforeach
                             @endforeach
-
-
                         </div>
                         <div class="swiper-pagination"></div>
                     </div>

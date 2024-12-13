@@ -129,6 +129,8 @@ $all = function () {
                 // Route::get('sendMessage',[LineNotifyController::class, 'sendMessage']);
                 // Route::get('status',[LineNotifyController::class, 'status']);
             });
+            Route::get('/downloadFile/{fileKey}', [ProductController::class, 'downloadFile']);
+
             Route::group(['prefix' => '/Ajax'], function () {
                 // Route::group(['prefix' => '/ajax'], function () {
                 Route::post('/addProductToConsultList', [ProductController::class, 'addProductToConsultList']);
@@ -136,6 +138,7 @@ $all = function () {
                 Route::post('/deleteAllFromConsultList', [ProductController::class, 'deleteAllFromConsultList']);
                 Route::get('/getConsultData', [ProductController::class, 'getConsultData']);
                 Route::post('/submitForm', [ProductController::class, 'submitForm']);
+                Route::post('/{categoryURL}/{productURL}/filterPart', [ProductController::class, 'filterPart']);
                 // });
                 // ag-grid
 

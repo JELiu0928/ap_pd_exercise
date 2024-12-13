@@ -40,7 +40,7 @@ export const _consult = {};
 
 let partID;
 _consult.baseUrl = $(".base-url").val();
-_consult.initPage = function () {};
+
 _consult.handleConsultClick = function () {
     //增加按鈕
     $(".bk-add-consult-btn").on("click", function () {
@@ -54,11 +54,11 @@ _consult.handleConsultClick = function () {
 
 // 刪除單個和全部是不同前端事件
 _consult.deletePartClick = function () {
-    // 清除之前的事件綁定
     let data;
+    // 清除之前的事件綁定
     $(".bk-delete-btn").off("click");
     $(".bk-delete-all").off("click");
-    // 因為submit共用,所以要標示
+
     $(".bk-delete-btn").on("click", function () {
         document.body.fesd.ajaxDelete();
         partID = $(this).closest(".bk-part-item").attr("bk-part-id");
@@ -79,16 +79,6 @@ _consult.deletePartClick = function () {
             });
     });
 
-    // $(".bk-delete-submit")
-    //     .off("click")
-    //     .on("click", async function () {
-    //         if ($(this).hasClass("delete-all")) {
-    //             deleteAllItems();
-    //         } else if ($(this).hasClass("delete-single")) {
-    //             deleteSingleItem(data);
-    //         }
-    //     });
-
     // 刪除全部
     function deleteAllItems() {
         $.ajax({
@@ -105,7 +95,8 @@ _consult.deletePartClick = function () {
                 if (res.status) {
                     $(".bk-list-group").empty();
                     $(".bk-count").attr("total-num", res.count);
-                    $(".bk-total-count").text(`共計：${res.count} 項`);
+                    // $(".bk-total-count").text(`共計：${res.count} 項`);
+                    $(".bk-total-count").text(res.count);
                     $(`.bk-tr`).removeClass("added");
                     showConsult();
                     deleteAllBtnShow(res.count);
@@ -130,7 +121,7 @@ _consult.deletePartClick = function () {
             .done(function (res) {
                 console.log("單個", res);
                 if (res.status) {
-                    setTimeout(() => {
+                    // setTimeout(() => {
                         if ($(`.bk-tr.bk-part-${data.partID}`).length > 0) {
                             $(`.bk-tr.bk-part-${data.partID}`).removeClass(
                                 "added"
@@ -138,14 +129,15 @@ _consult.deletePartClick = function () {
                         }
                         $(`.bk-list-group .bk-part-${data.partID}`).remove();
                         $(".bk-count").attr("total-num", res.count);
-                        $(".bk-total-count").text(`共計：${res.count} 項`);
+                        // $(".bk-total-count").text(`共計：${res.count} 項`);
+                        $(".bk-total-count").text(res.count);
                         showConsult();
                         deleteAllBtnShow(res.count);
-                    }, 100);
+                    // }, 100);
                 }
             })
             .fail(function (error) {
-                console.log("錯誤", error);
+                // console.log("錯誤", error);
             });
     }
 };
@@ -161,6 +153,7 @@ const showConsult = function () {
         $(".no-consult").addClass("d-none");
     }
 };
+let listTotal;
 _consult.openLightBox = function () {
     $(".bk-asideBtn").on("click", function () {
         console.log("燈箱打開");
@@ -179,11 +172,39 @@ _consult.openLightBox = function () {
                 showConsult();
                 _consult.deletePartClick();
                 deleteAllBtnShow(res.count);
+                console.log($('.bk-total-count').text());
+                listTotal = parseInt($('.bk-total-count').text())
             })
             .fail(function (error) {
-                console.log("something not right.", error);
+                // console.log("something not right.", error);
             });
     });
+    // $(".bk-asideBtn").on("click", async function () {
+    //     console.log("燈箱打開");
+    //     document.body.fesd.ajaxConsult();
+    //     const res = await $.ajax({
+    //         type: "get",
+    //         url: _consult.baseUrl + `/Ajax/getConsultData`,
+    //         headers: {
+    //             "content-type": "application/json",
+    //             "x-csrf-token": $("#_token").val(),
+    //         },
+    //     })
+    //         // .done(function (res) {
+    //             if(res){
+    //                 // console.log(res);
+    //                 console.log("lightbox", res.count);
+    //                 $(".bk-list-group").html(res.view);
+    //                 showConsult();
+    //                 _consult.deletePartClick();
+    //                 deleteAllBtnShow(res.count);
+    //             }
+                
+    //         // })
+    //         // .fail(function (error) {
+    //             // console.log("something not right.", error);
+    //         // });
+    // });
 };
 
 const getAjaxData = function (partID) {
@@ -193,58 +214,58 @@ const getAjaxData = function (partID) {
         data: JSON.stringify({
             partID: partID,
         }),
-        // data: data,
         headers: {
             "content-type": "application/json",
             "x-csrf-token": $("#_token").val(),
         },
     })
         .done(function (res) {
-            console.log("res = ", res);
+            // console.log("res = ", res);
             if (res.status) {
                 //改變加入按鈕樣式
                 //改變浮動諮詢按鈕數量
-                setTimeout(() => {
+                // setTimeout(() => {
                     showConsult();
                     $(".bk-list-group").removeClass("d-none");
                     $(".bk-count").attr("total-num", res.count);
-                    $(".bk-total-count").text(`共計：${res.count} 項`);
-                }, 100); // 延遲 100 毫秒
+                    $(".bk-total-count").text(res.count);
+                // }, 100); // 延遲 100 毫秒
             }
         })
         .fail(function (error) {
             console.log("錯誤.", error);
         });
 };
+// 表單內按鈕控制
 _consult.handleStepClick = function () {
     $(".bk-next-step").on("click", function () {
         document.body.fesd.processSwitchStep();
-        console.log("下一步");
     });
     $(".bk-prev-step").on("click", function () {
         document.body.fesd.processSwitchStep(false);
-        console.log("上一步");
     });
-
     $(".bk-refresh-captcha").on("click", function () {
         refreshCaptcha();
-        console.log("刷新驗證碼");
     });
 };
+// 監聽其他產品需求輸入框變化
 _consult.otherRequireChange = function () {
     //如果其他產品需求的textArea有變化
-    $(".bk-other-require").on("input", function () {
-        console.log(this);
-        let value = $(this).val();
-
-        if (value.trim() !== "") {
-            // 當內容不為空，移除 disabled 類別
-            $(".bk-next-step").removeClass("disabled");
-        } else {
-            // 當內容為空，添加 disabled 類別
-            $(".bk-next-step").addClass("disabled");
-        }
-    });
+    //<0執行時要先檢查有沒有值
+    if($(".bk-other-require").val() != '') {
+        $(".bk-next-step").removeClass("disabled");
+        $(".bk-other-require").on("input", function () {
+            console.log(this);
+            let value = $(this).val();
+            if (value.trim() !== "") {
+                // 當內容不為空，移除 disabled 類別
+                $(".bk-next-step").removeClass("disabled");
+            } else {
+                // 當內容為空，添加 disabled 類別
+                $(".bk-next-step").addClass("disabled");
+            }
+        });
+    }
 };
 
 // 送出給後端需要 產品型號/聯絡資料
@@ -281,14 +302,6 @@ _consult.submitForm = function (params) {
                     console.log("!res ==", res);
                     // $(res.errorMsg).each(function (fieldName, errMsg) {
                     $.each(res.errorMsg, function (fieldName, errMsg) {
-                        // console.log(fieldName);
-
-                        // console.log(
-                        //     "欄位",
-                        //     $(`[form-field=${fieldName}]`).closest(
-                        //         ".form-group"
-                        //     )
-                        // );
                         $(`[form-field=${fieldName}]`)
                             .closest(".form-group")
                             .addClass("error");
@@ -301,9 +314,10 @@ _consult.submitForm = function (params) {
                 } else {
                     $(".form-group").removeClass("error");
                     $(".bk-list-group").empty();
-                    // 跳轉成功頁面
-                    window.location.href =
-                        _consult.baseUrl + "/product/success";
+                    console.log('送出成功');
+                    // // 跳轉成功頁面
+                    // window.location.href =
+                    //     _consult.baseUrl + "/product/success";
                 }
             })
             .fail(function (error) {
@@ -311,6 +325,7 @@ _consult.submitForm = function (params) {
             });
     });
 };
+// 刷新驗證碼
 const refreshCaptcha = function () {
     console.log("已刷新");
     $('input[form-field="verifyCode"]').val("");

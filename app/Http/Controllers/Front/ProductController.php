@@ -17,7 +17,7 @@ use App\Models\Product\ConsultJob;
 use Illuminate\Http\Request;
 use View;
 use App\Http\Controllers\BaseFunctions;
-
+use Mail;
 use Session;
 use Validator;
 use App\Http\Controllers\OptionFunction;
@@ -225,6 +225,7 @@ class ProductController extends FrontBaseController
         $consultJobs = ConsultJob::isVisible()->doSort()->get();
         $genders = array(0 => '先生', 1 => '小姐', 2 => '其他', );
 
+
         return view(self::$blade_template . '.product.detail', [
             'productInfo' => $productInfo,
             'is_article' => $is_article, //產品類別
@@ -262,7 +263,6 @@ class ProductController extends FrontBaseController
                 $list['description'] = '無';
             }
         }
-        // foreach ($consultItem as $item) {
         // dump('000', $list);
         if (empty($consultItem['description'])) {
             $consultItem['description'] = '無';
@@ -273,10 +273,11 @@ class ProductController extends FrontBaseController
         if (empty($consultItem['job'])) {
             $consultItem['job'] = '無';
         }
-        if (empty($consultItem['other_Require'])) {
-            $consultItem['other_Require'] = '無';
+        if (empty($consultItem['other_require'])) {
+            $consultItem['other_require'] = '無';
         }
-        // }
+
+
         //諮詢清單所需
         $consultJobs = ConsultJob::isVisible()->doSort()->get();
         $genders = array(0 => '先生', 1 => '小姐', 2 => '其他', );
@@ -414,13 +415,12 @@ class ProductController extends FrontBaseController
 
     public function submitForm(Request $request)
     {
-
         $res = [];
         $res['status'] = true;
         $data = $request->get('data');
         // dump($data);
         $data['job'] = $data['job']['value'] ?? '';
-        $data['gender'] = $data['gender']['value'] ?? '';
+        $data['service'] = $data['service']['value'] ?? '';
         $data['branch_id'] = self::$branch_id;
         // $data['partID'] = 
         $partList = $request->get('partList');
@@ -457,21 +457,63 @@ class ProductController extends FrontBaseController
             $res['errorMsg'] = $errorMsg;
             return $res;
         }
+
+
         // 新增到諮詢表單表
         $newConsult = ProductConsult::create($data);
-        $consutID = $newConsult['id'];
+        $consultID = $newConsult['id'];
         //清除諮詢表單的session
         Session::forget('partIDList');
 
-        if (!empty($consutID)) {
+        if (!empty($consultID)) {
             foreach ($partList as $part) {
                 // dump('$part', $part);
-                $part['consult_id'] = $consutID;
+                $part['consult_id'] = $consultID;
                 $part['branch_id'] = self::$branch_id;
                 ProductConsultList::create($part);
             }
             $res['status'] = true;
-            Session::put('consultSuccess', $consutID);
+            Session::put('consultSuccess', $consultID);
+
+            $consultItem = ProductConsult::where('id', $consultID)->with('ProductConsultList.part')->first();
+            // dd('$', $consultItem);
+            $partItem = [];
+            if (!empty($consultItem)) {
+                foreach ($consultItem->ProductConsultList as $item) {
+                    //     dd('$item', $item);
+                    $partItem[$item['part_id']] =
+                        [
+                            'part_title' => $item->part['title'],
+                            'description' => $item['description']
+                        ];
+                }
+            }
+            // dd($partItem);
+            // 內部信件 - 諮詢表單的收件者（管理員）
+            // $mails = ProductSet::first()->mail; //實際取mail
+            $mails = ['jingenliu95@gmail.com']; //測試用
+            try {
+                // 寄信模板（consult_mail_bk.blade.php）
+                //  ['form', $data],與傳遍數給view一樣
+                $mailTitle = '產品諮詢表單';
+                Mail::send(
+                    'Front.mail.consult_mail_bk',
+                    [
+                        'form' => $data,
+                        'partItem' => $partItem ?? []
+                    ],
+                    function ($message) use ($mails, $mailTitle) {
+                        $message->from('aaa@ddd.com', 'XX科技');
+                        // $message->to('john@johndoe.com', 'John Doe');
+                        $message->to($mails);
+                        $message->subject($mailTitle);
+                    }
+                );
+                dump('寄出');
+            } catch (\Exception $e) {
+                \Log::info($e);
+                dump($e);
+            }
 
             return $res;
         } else {
@@ -481,16 +523,85 @@ class ProductController extends FrontBaseController
 
 
     }
-    // public function getConsult($ids)
-    // {
-    //     $tempList = [];
-    //     foreach ($ids as $id) {
-    //         if (!in_array($id, $tempList)) {
-    //             array_push($tempList, $id);
-    //         }
-    //     }
-    //     $partItems = ProductItemPart::with('item.series.category')->whereIn('id', $tempList)->isVisible()->get();
+    // 愛普寫好的方法
+    public function filterPart(Request $request)
+    {
+        $categoryURL = $request->categoryURL ?? '';
+        $productURL = $request->productURL ?? '';
+        $selectedOption = $request['selectedOption'];
+        $dropdownSpecID = $request['dropdownSpecID'];
+        $partItem = ProductItemPart::get();
 
-    //     return $partItems;
-    // }
+        // dd($partItem);
+        // 產品規格表
+        $productItem = ProductItem::with(['series.category', 'parts', 'specTitles.contents'])
+            ->where('url_name', $productURL)
+            ->whereHas('series.category', function ($query) use ($categoryURL) {
+                $query->where('url_name', $categoryURL);
+            })
+            ->first();
+        // dd($productItem);
+        $specTitles = $productItem->specTitles;
+        // dd($specTitles);
+        $specParts = $productItem->parts;
+        $contents = ProductItemSpecContent::whereIn('spec_id', $specTitles->pluck('id'))->get();
+        // dump($contents);
+        $specContentArr = [];
+        foreach ($contents as $content) {
+            $specContentArr[$content->spec_id][$content->part_id] = $content->content;
+        }
+        $consultJobs = ConsultJob::isVisible()->doSort()->get();
+        $genders = array(0 => '先生', 1 => '小姐', 2 => '其他', );
+        $sessionPartIDs = Session::get('partIDList');
+        if (!empty($sessionPartIDs)) {
+            $partItemCounts = count($sessionPartIDs);
+        }
+        // Front.product.part_table
+        return response()->json([
+            'tableView' => view(
+                self::$blade_template . '.product.part_table',
+                [
+                    'specTitles' => $specTitles,
+                    'specParts' => $specParts,
+                    'specContentArr' => $specContentArr, //處理過的內容
+
+                    'sessionPartIDs' => $sessionPartIDs,
+                    'consultJobs' => $consultJobs,
+                    'genders' => $genders,
+                ]
+            )->render(),
+        ]);
+
+
+    }
+    public function downloadFile(Request $request)
+    {
+        $FmsFile = M('FmsFile')::where('file_key', $request->fileKey ?? '')->first();
+        // dd(' $FmsFile', $FmsFile);
+        if (isset($FmsFile) && !empty($FmsFile)) {
+            $file_path = public_path($FmsFile['real_route']);
+            //pdf直接網頁打開
+            if (strtolower($FmsFile['type']) == 'pdf') {
+                $header = [
+                    'Cache-Control' => 'no-cache, no-store, must-revalidate', // HTTP 1.1
+                    'Pragma' => 'no-cache', // HTTP 1.0
+                    'Expires' => '0', // Proxies
+                    'Content-Type' => 'application/pdf',
+                    'Content-Disposition' => 'inline; filename="' . $FmsFile['title'] . '.' . $FmsFile['type'] . '"'
+                ];
+                return response()->file($file_path, $header);
+            }
+            $mimeType = mime_content_type($file_path);
+            $headers = [
+                'Cache-Control' => 'no-cache, no-store, must-revalidate', // HTTP 1.1
+                'Pragma' => 'no-cache', // HTTP 1.0
+                'Expires' => '0', // Proxies
+                'Content-Type' => $mimeType,
+            ];
+            return \Response::download($file_path, $FmsFile['title'] . '.' . $FmsFile['type'], $headers);
+        } else {
+            return error404(BaseFunction::b_url(''));
+        }
+    }
+
 }
